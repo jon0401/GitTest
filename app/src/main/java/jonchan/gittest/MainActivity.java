@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -86,6 +85,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        Log.d("Jon", "Hi I'm Jonathan!");
+        Log.d("Jon", "Hi I'm Wayne!");
+        Log.d("Jon", "Hi I'm Jonathan!");
+        Log.d("Jon", "Hi I'm Erwin!!!");
     }
 
     @Override
