@@ -6,17 +6,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class AddLesson extends AppCompatActivity {
+public class AddLessonActivity extends AppCompatActivity {
 
     private Button mAddBtn;
     private EditText mValueField;
-    FirebaseDatabase mRef = FirebaseDatabase.getInstance();
+    private FirebaseAuth mAuth;
+    FirebaseDatabase database;
+    DatabaseReference mRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,11 +31,14 @@ public class AddLesson extends AppCompatActivity {
         mAddBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mAuth = FirebaseAuth.getInstance();
+                String user_id = mAuth.getCurrentUser().getUid();
+                database = FirebaseDatabase.getInstance();
+                mRef = database.getReference("Users").child(user_id);
+
                 String value = mValueField.getText().toString();
 
-                DatabaseReference mRefChild = mRef.getReference("Lesson");
-
-                mRefChild.push().setValue(value);
+                mRef.child("Lesson").push().setValue(value);
             }
         });
 
