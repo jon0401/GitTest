@@ -14,6 +14,6 @@ public class MainActivity extends AppCompatActivity {
         Log.d("Jon", "Hi I'm Jonathan!");
         Log.d("Jon", "Hi I'm Wayne!");
         Log.d("Jon", "Hi I'm Jonathan!");
-        Log.d("Jon", "Hi I'm Linda!!!!");
+        Log.d("Jon", "Hi I'm Erwin!!!");
     }
 }
