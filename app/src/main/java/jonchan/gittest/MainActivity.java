@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnAddLesson;
     private Button btnDisplayLesson;
     private Button btnLogout;
+    private Button btnDisplayStudent;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,13 +42,10 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-
-
-
-
         btnAddLesson = (Button) findViewById(R.id.btnAddLesson);
         btnDisplayLesson = (Button) findViewById(R.id.btnDisplayLesson);
         btnLogout = (Button) findViewById(R.id.btnLogout);
+        btnDisplayStudent = (Button) findViewById(R.id.btnDisplayStudent);
 
         btnAddLesson.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -85,10 +83,17 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        Log.d("Jon", "Hi I'm Jonathan!");
-        Log.d("Jon", "Hi I'm Wayne!");
-        Log.d("Jon", "Hi I'm Jonathan!");
-        Log.d("Jon", "Hi I'm Erwin!!!");
+
+        btnDisplayStudent.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), DisplayStudentActivity.class);
+                try{
+                    startActivity(myIntent);
+                }catch(android.content.ActivityNotFoundException e){
+                    e.printStackTrace();
+                }
+
+            } });
     }
 
     @Override
