@@ -30,5 +30,13 @@
         android:layout_marginEnd="49dp"
         android:text="Logout" />
 
+    <Button
+        android:id="@+id/btnDisplayStudent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btnDisplayLesson"
+        android:text="Display Student" />
+
 
 </RelativeLayout>
