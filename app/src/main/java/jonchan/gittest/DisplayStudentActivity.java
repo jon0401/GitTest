@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +29,7 @@ import java.util.List;
 public class DisplayStudentActivity extends AppCompatActivity {
 
     private ListView mListView;
-    private ArrayList<String> mLessonDetail = new ArrayList<>();
+    private ArrayList<String> mStudentList = new ArrayList<>();
     FirebaseDatabase database;
     DatabaseReference mRef;
     private FirebaseAuth mAuth;
@@ -46,17 +47,32 @@ public class DisplayStudentActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         String user_id = mAuth.getCurrentUser().getUid();
         database = FirebaseDatabase.getInstance();
-        mRef = database.getReference("Users").child(user_id).child("Lesson");
-
+        mRef = database.getReference("Users").child(user_id).child("Student");
+        final MyListAdapter listAdapter = new MyListAdapter(this, R.layout.studentlist_row, mStudentList);
+        mListView.setAdapter(listAdapter);
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
                     String value = postSnapshot.getValue(String.class);
-                    mLessonDetail.add(value);
+                    DatabaseReference mRefName = database.getReference("Users").child(value).child("Name");
+                    mRefName.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            String studentName = dataSnapshot.getValue(String.class);
+                            Log.d("String",studentName);
+                            mStudentList.add(studentName);
+                            listAdapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
 
                 }
-                startAdapter();
+
             }
 
             @Override
@@ -71,17 +87,8 @@ public class DisplayStudentActivity extends AppCompatActivity {
     }
 
 
-
-    private void startAdapter() {
-        mListView.setAdapter(new MyListAdapter(this, R.layout.studentlist_row, mLessonDetail));
-    }
-
-    private void generateListContent(){
-        for (int i = 0; i <55; i++){
-            mLessonDetail.add("This is row number " + i);
-        }
-    }
     private class MyListAdapter extends ArrayAdapter<String>{
+
 
         private int layout;
         private MyListAdapter(Context context, int resource, List <String> objects) {
@@ -110,7 +117,6 @@ public class DisplayStudentActivity extends AppCompatActivity {
                 });
                 convertView.setTag(viewHolder);
 
-            }else{
                 mainViewHolder = (ViewHolder) convertView.getTag();
                 mainViewHolder.studentName.setText(getItem(position));
             }
