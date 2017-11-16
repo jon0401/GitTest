@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -30,6 +31,7 @@ public class DisplayStudentActivity extends AppCompatActivity {
 
     private ListView mListView;
     private ArrayList<String> mStudentList = new ArrayList<>();
+    private ArrayList<String> mStudentUidList = new ArrayList<>();
     FirebaseDatabase database;
     DatabaseReference mRef;
     private FirebaseAuth mAuth;
@@ -50,6 +52,12 @@ public class DisplayStudentActivity extends AppCompatActivity {
         mRef = database.getReference("Users").child(user_id).child("Student");
         final MyListAdapter listAdapter = new MyListAdapter(this, R.layout.studentlist_row, mStudentList);
         mListView.setAdapter(listAdapter);
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+        });
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -70,7 +78,7 @@ public class DisplayStudentActivity extends AppCompatActivity {
 
                         }
                     });
-
+                    mStudentUidList.add(value);
                 }
 
             }
@@ -101,13 +109,18 @@ public class DisplayStudentActivity extends AppCompatActivity {
             if (convertView == null){
                 LayoutInflater inflater = LayoutInflater.from(getContext());
                 convertView = inflater.inflate(layout, parent, false);
-                ViewHolder viewHolder = new ViewHolder();
+                final ViewHolder viewHolder = new ViewHolder();
                 viewHolder.studentName = (TextView) convertView.findViewById(R.id.txtStudent);
                 viewHolder.btnAddLesson = (Button) convertView.findViewById(R.id.btnLesson);
                 viewHolder.btnAddLesson.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        View parentRow = (View) view.getParent();
+                        ListView listView = (ListView) parentRow.getParent();
+                        final int position = listView.getPositionForView(parentRow);
+                        Log.d("Position",String.valueOf(position));
                         Intent myIntent = new Intent(view.getContext(), AddLessonActivity.class);
+                        myIntent.putExtra("STUDENT_ID", mStudentUidList.get(position));
                         try{
                             startActivity(myIntent);
                         }catch(android.content.ActivityNotFoundException e){

@@ -82,7 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                         current_user_db.child("Name").setValue(name);
                         current_user_db.child("Contact").setValue("default");
-                        current_user_db.child("Lesson").setValue("default");
+                        //current_user_db.child("Lesson").setValue("default");
 
                         mProgress.dismiss();
 
