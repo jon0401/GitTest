@@ -1,5 +1,6 @@
 package jonchan.gittest;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -28,17 +29,21 @@ public class AddLessonActivity extends AppCompatActivity {
         mValueField = (EditText) findViewById(R.id.valueField);
         mAddBtn = (Button) findViewById(R.id.addBtn);
 
+        Intent myIntent = getIntent();
+        final String student_uid = myIntent.getStringExtra("STUDENT_ID");
         mAddBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mAuth = FirebaseAuth.getInstance();
-                String user_id = mAuth.getCurrentUser().getUid();
+                String teacher_id = mAuth.getCurrentUser().getUid();
                 database = FirebaseDatabase.getInstance();
-                mRef = database.getReference("Users").child(user_id);
+                mRef = database.getReference("Lesson");
+                DatabaseReference newLesson = mRef.push();
+                String date = mValueField.getText().toString();
+                newLesson.child("Date").setValue(date);
+                newLesson.child("Teacher").setValue(teacher_id);
+                newLesson.child("Student").setValue(student_uid);
 
-                String value = mValueField.getText().toString();
-
-                mRef.child("Lesson").push().setValue(value);
             }
         });
 
