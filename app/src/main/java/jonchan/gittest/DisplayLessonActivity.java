@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,6 +28,7 @@ import java.util.List;
 
 public class DisplayLessonActivity extends AppCompatActivity {
 
+    private Button btnAddLesson;
     private ListView mListView;
     private ArrayList <String> mLessonDetail = new ArrayList<>();
     FirebaseDatabase database;
@@ -40,6 +43,7 @@ public class DisplayLessonActivity extends AppCompatActivity {
         Intent myIntent = getIntent();
         final String student_uid = myIntent.getStringExtra("STUDENT_ID");
 
+        btnAddLesson = (Button) findViewById(R.id.btnAddLesson);
         mListView = (ListView) findViewById(R.id.listview);
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mLessonDetail);
         mListView.setAdapter(arrayAdapter);
@@ -53,14 +57,17 @@ public class DisplayLessonActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
-                    Log.d("Teacher", postSnapshot.child("Teacher").getValue().toString());
-                    Log.d("Student", postSnapshot.child("Student").getValue().toString());
-                    if((postSnapshot.child("Teacher").getValue().toString()).equals(user_id) && (postSnapshot.child("Student").getValue().toString()).equals(student_uid)){
+                    if(postSnapshot.hasChild("Teacher") && postSnapshot.hasChild("Student") && postSnapshot.hasChild("Date")){
+                        Log.d("Teacher", postSnapshot.child("Teacher").getValue().toString());
+                        Log.d("Student", postSnapshot.child("Student").getValue().toString());
+                        if((postSnapshot.child("Teacher").getValue().toString()).equals(user_id) && (postSnapshot.child("Student").getValue().toString()).equals(student_uid)){
 
-                        String value = postSnapshot.child("Date").getValue(String.class);
-                        mLessonDetail.add(value);
-                        arrayAdapter.notifyDataSetChanged();
+                            String value = postSnapshot.child("Date").getValue(String.class);
+                            mLessonDetail.add(value);
+                            arrayAdapter.notifyDataSetChanged();
+                        }
                     }
+
                 }
             }
 
@@ -70,6 +77,16 @@ public class DisplayLessonActivity extends AppCompatActivity {
             }
         });
 
+        btnAddLesson.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), AddLessonActivity.class);
+                myIntent.putExtra("STUDENT_ID", student_uid);
+                try{
+                    startActivity(myIntent);
+                }catch(android.content.ActivityNotFoundException e){
+                    e.printStackTrace();
+                }
 
+            } });
     }
 }
