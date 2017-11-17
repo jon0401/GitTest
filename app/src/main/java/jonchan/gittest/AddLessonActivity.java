@@ -49,6 +49,7 @@ public class AddLessonActivity extends AppCompatActivity {
                 Intent myIntent = new Intent(view.getContext(), DisplayLessonActivity.class);
                 myIntent.putExtra("STUDENT_ID", student_uid);
                 myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
                 try{
                     startActivity(myIntent);
                 }catch(android.content.ActivityNotFoundException e){

@@ -8,7 +8,10 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,6 +26,8 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText mEmailField;
     private EditText mPasswordField;
     private EditText mNameField;
+    private RadioGroup radioGroup;
+    private RadioButton rBtn;
     private Button mRegisterBtn;
     private FirebaseAuth mAuth;
     private ProgressDialog mProgress;
@@ -39,6 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
         mPasswordField = (EditText) findViewById(R.id.passwordField);
         mNameField = (EditText) findViewById(R.id.nameField);
         mRegisterBtn = (Button) findViewById(R.id.btnRegister);
+        radioGroup = (RadioGroup) findViewById(R.id.rBtnGroup);
         mProgress = new ProgressDialog(this);
 
         mRegisterBtn.setOnClickListener(new View.OnClickListener() {
@@ -55,6 +61,10 @@ public class RegisterActivity extends AppCompatActivity {
         String email = mEmailField.getText().toString();
         String password = mPasswordField.getText().toString();
         final String name = mNameField.getText().toString();
+        int selectedID = radioGroup.getCheckedRadioButtonId();
+        rBtn = (RadioButton) findViewById(selectedID);
+        final String userType = rBtn.getText().toString();
+
 
         if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(name)){
 
@@ -81,6 +91,7 @@ public class RegisterActivity extends AppCompatActivity {
                         DatabaseReference current_user_db = mRef.child(user_id);
 
                         current_user_db.child("Name").setValue(name);
+                        current_user_db.child("UserType").setValue(userType);
                         current_user_db.child("Contact").setValue("default");
                         //current_user_db.child("Lesson").setValue("default");
 
@@ -104,4 +115,8 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
     }
+
+
 }
+
+

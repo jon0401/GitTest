@@ -42,4 +42,43 @@
         android:ems="10"
         android:hint="Your name"
         android:inputType="textPersonName" />
+
+    <RadioGroup
+        android:id="@+id/rBtnGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_above="@+id/nameField"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="36dp">
+
+        <RadioButton
+            android:id="@+id/rBtnTeacher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Teacher"
+            android:layout_above="@+id/nameField"
+            android:layout_toStartOf="@+id/rBtnStudent"
+            android:layout_marginEnd="36dp" />
+
+        <RadioButton
+            android:id="@+id/rBtnStudent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/nameField"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="22dp"
+            android:text="Student" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I am a :"
+        android:textSize="20sp"
+        android:layout_alignTop="@+id/rBtnGroup"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>

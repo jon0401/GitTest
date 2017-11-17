@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="jonchan.gittest.AddLessonActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/relativeLayout">
+
+
+        <TextView
+            android:id="@+id/txtStudent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/txtLessonDate"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/txtLessonDate"
+            android:layout_marginTop="16dp"
+            android:text="Student: "
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txtLessonDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lesson Date: "
+            android:textSize="20sp"
+            android:layout_below="@+id/txtStudent"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:id="@+id/txtLessonGet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/txtLessonDate"
+            android:layout_alignBottom="@+id/txtLessonDate"
+            android:layout_alignStart="@+id/txtStudentName"
+            android:text="Lesson Date"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txtStudentName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/txtStudent"
+            android:layout_marginStart="28dp"
+            android:layout_toEndOf="@+id/txtStudent"
+            android:text="Student Name"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="horizontal"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/relativeLayout"
+        android:id="@+id/linearLayout"
+        android:layout_above="@+id/linearLayout2">
+
+
+        <EditText
+            android:id="@+id/mtxtNote"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:hint="Write your note..."
+            android:inputType="textMultiLine"
+            android:gravity="top" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="762dp"
+        android:layout_height="71dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+
+        <Button
+            android:id="@+id/btnSubmitNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Submit Note" />
+    </LinearLayout>
+</RelativeLayout>
