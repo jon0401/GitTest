@@ -14,7 +14,7 @@
 
     <Button
         android:id="@+id/btnLesson"
-        android:text="Add Lesson"
+        android:text="Lesson"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"

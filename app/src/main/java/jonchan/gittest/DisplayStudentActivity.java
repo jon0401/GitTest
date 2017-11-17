@@ -67,9 +67,9 @@ public class DisplayStudentActivity extends AppCompatActivity {
                     mRefName.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            String studentName = dataSnapshot.getValue(String.class);
-                            Log.d("String",studentName);
-                            mStudentList.add(studentName);
+                            String teacherName = dataSnapshot.getValue(String.class);
+                            Log.d("String",teacherName);
+                            mStudentList.add(teacherName);
                             listAdapter.notifyDataSetChanged();
                         }
 
@@ -119,7 +119,7 @@ public class DisplayStudentActivity extends AppCompatActivity {
                         ListView listView = (ListView) parentRow.getParent();
                         final int position = listView.getPositionForView(parentRow);
                         Log.d("Position",String.valueOf(position));
-                        Intent myIntent = new Intent(view.getContext(), AddLessonActivity.class);
+                        Intent myIntent = new Intent(view.getContext(), DisplayLessonActivity.class);
                         myIntent.putExtra("STUDENT_ID", mStudentUidList.get(position));
                         try{
                             startActivity(myIntent);
