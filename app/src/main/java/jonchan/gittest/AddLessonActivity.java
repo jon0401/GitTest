@@ -3,6 +3,7 @@ package jonchan.gittest;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,6 +32,7 @@ public class AddLessonActivity extends AppCompatActivity {
 
         Intent myIntent = getIntent();
         final String student_uid = myIntent.getStringExtra("STUDENT_ID");
+
         mAddBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,6 +45,15 @@ public class AddLessonActivity extends AppCompatActivity {
                 newLesson.child("Date").setValue(date);
                 newLesson.child("Teacher").setValue(teacher_id);
                 newLesson.child("Student").setValue(student_uid);
+
+                Intent myIntent = new Intent(view.getContext(), DisplayLessonActivity.class);
+                myIntent.putExtra("STUDENT_ID", student_uid);
+                myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                try{
+                    startActivity(myIntent);
+                }catch(android.content.ActivityNotFoundException e){
+                    e.printStackTrace();
+                }
 
             }
         });
