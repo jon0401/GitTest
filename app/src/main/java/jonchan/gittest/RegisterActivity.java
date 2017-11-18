@@ -70,53 +70,58 @@ public class RegisterActivity extends AppCompatActivity {
 
             Toast.makeText(RegisterActivity.this, "Fields are empty", Toast.LENGTH_SHORT).show();
 
+        } else if(password.length() < 6) {
+
+            Toast.makeText(RegisterActivity.this, "Password must contain at a least 6 characters", Toast.LENGTH_SHORT).show();
+
         } else {
 
-            mProgress.setMessage("Signing Up...");
-            mProgress.show();
-            mAuth = FirebaseAuth.getInstance();
-            mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
+                mProgress.setMessage("Signing Up...");
+                mProgress.show();
+                mAuth = FirebaseAuth.getInstance();
+                mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
 
-                    if(task.isSuccessful()){
+                        if(task.isSuccessful()){
 
-                        database = FirebaseDatabase.getInstance();
-                        mRef = database.getReference("Users");
+                            database = FirebaseDatabase.getInstance();
+                            mRef = database.getReference("Users");
 
-                        //get the UID of the current logined user
-                        String user_id = mAuth.getCurrentUser().getUid();
+                            //get the UID of the current logined user
+                            String user_id = mAuth.getCurrentUser().getUid();
 
-                        //create a new branch under "Users" where the branch name is the uid get above
-                        DatabaseReference current_user_db = mRef.child(user_id);
+                            //create a new branch under "Users" where the branch name is the uid get above
+                            DatabaseReference current_user_db = mRef.child(user_id);
 
-                        current_user_db.child("Name").setValue(name);
-                        current_user_db.child("UserType").setValue(userType);
-                        current_user_db.child("Contact").setValue("default");
-                        //current_user_db.child("Lesson").setValue("default");
+                            current_user_db.child("Name").setValue(name);
+                            current_user_db.child("UserType").setValue(userType);
+                            current_user_db.child("Contact").setValue("default");
+                            //current_user_db.child("Lesson").setValue("default");
 
-                        mProgress.dismiss();
+                            mProgress.dismiss();
 
-                        Intent myIntent = new Intent(RegisterActivity.this, MainActivity.class);
-                        myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        try{
-                            startActivity(myIntent);
-                        }catch(android.content.ActivityNotFoundException e){
-                            e.printStackTrace();
+                            Intent myIntent = new Intent(RegisterActivity.this, MainActivity.class);
+                            myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            try{
+                                startActivity(myIntent);
+                            }catch(android.content.ActivityNotFoundException e){
+                                e.printStackTrace();
+                            }
+
+
                         }
 
-
                     }
-
-                }
-            });
+                });
 
 
+            }
         }
 
     }
 
 
-}
+
 
 
