@@ -28,7 +28,9 @@
         <activity android:name=".DisplayLessonActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".DisplayStudentActivity" />
-        <activity android:name=".AddTeachingNoteActivity"></activity>
+        <activity android:name=".AddTeachingNoteActivity" />
+        <activity android:name=".TeacherHomePageActivity" />
+        <activity android:name=".StudentHomePageActivity"></activity>
     </application>
 
 </manifest>
