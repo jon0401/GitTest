@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference mRef;
     private Button btnLogout;
     private Button btnDisplayStudent;
+    private Button btnMyLesson;
 
 
 
@@ -90,7 +91,21 @@ public class MainActivity extends AppCompatActivity {
 
                             }else{
                                 setContentView(R.layout.activity_student_home_page);
+                                btnMyLesson = (Button) findViewById(R.id.btnMyLesson);
                                 btnLogout = (Button) findViewById(R.id.btnLogoutStudent);
+
+                                btnMyLesson.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        Intent myIntent = new Intent(view.getContext(), DisplayLessonStudentActivity.class);
+                                        myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                        try{
+                                            startActivity(myIntent);
+                                        }catch(android.content.ActivityNotFoundException e){
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                });
 
                                 btnLogout.setOnClickListener(new View.OnClickListener() {
                                     @Override

@@ -30,7 +30,9 @@
         <activity android:name=".DisplayStudentActivity" />
         <activity android:name=".AddTeachingNoteActivity" />
         <activity android:name=".TeacherHomePageActivity" />
-        <activity android:name=".StudentHomePageActivity"></activity>
+        <activity android:name=".StudentHomePageActivity" />
+        <activity android:name=".DisplayLessonStudentActivity" />
+        <activity android:name=".DisplayTeachingNoteStudentActivity"></activity>
     </application>
 
 </manifest>

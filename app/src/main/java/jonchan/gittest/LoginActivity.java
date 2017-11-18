@@ -87,6 +87,7 @@ public class LoginActivity extends AppCompatActivity{
 
                     }else{
                         Intent myIntent = new Intent(LoginActivity.this, MainActivity.class);
+                        myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         try{
                             startActivity(myIntent);
                         }catch(android.content.ActivityNotFoundException e){
