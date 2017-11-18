@@ -52,7 +52,7 @@ public class DisplayLessonActivity extends AppCompatActivity {
         student_uid = myIntent.getStringExtra("STUDENT_ID");
 
         btnAddLesson = (Button) findViewById(R.id.btnAddLesson);
-        mListView = (ListView) findViewById(R.id.listview);
+        mListView = (ListView) findViewById(R.id.listViewLesson);
         //final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mLessonDetail);
         //mListView.setAdapter(arrayAdapter);
 
@@ -109,7 +109,6 @@ public class DisplayLessonActivity extends AppCompatActivity {
 
 
     private class MyListAdapter extends ArrayAdapter<String>{
-
 
         private int layout;
         private MyListAdapter(Context context, int resource, List <String> objects) {
