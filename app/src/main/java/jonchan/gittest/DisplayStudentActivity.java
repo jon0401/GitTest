@@ -112,14 +112,31 @@ public class DisplayStudentActivity extends AppCompatActivity {
                 final ViewHolder viewHolder = new ViewHolder();
                 viewHolder.studentName = (TextView) convertView.findViewById(R.id.txtStudent);
                 viewHolder.btnAddLesson = (Button) convertView.findViewById(R.id.btnLesson);
+                viewHolder.btnProgression = (Button) convertView.findViewById(R.id.btnProgression);
                 viewHolder.btnAddLesson.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         View parentRow = (View) view.getParent();
-                        ListView listView = (ListView) parentRow.getParent();
+                        ListView listView = (ListView) parentRow.getParent().getParent();
                         final int position = listView.getPositionForView(parentRow);
                         Log.d("Position",String.valueOf(position));
                         Intent myIntent = new Intent(view.getContext(), DisplayLessonActivity.class);
+                        myIntent.putExtra("STUDENT_ID", mStudentUidList.get(position));
+                        try{
+                            startActivity(myIntent);
+                        }catch(android.content.ActivityNotFoundException e){
+                            e.printStackTrace();
+                        }
+                    }
+                });
+                viewHolder.btnProgression.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        View parentRow = (View) view.getParent();
+                        ListView listView = (ListView) parentRow.getParent().getParent();
+                        final int position = listView.getPositionForView(parentRow);
+                        Log.d("Position",String.valueOf(position));
+                        Intent myIntent = new Intent(view.getContext(), DisplayProgressionActivity.class);
                         myIntent.putExtra("STUDENT_ID", mStudentUidList.get(position));
                         try{
                             startActivity(myIntent);
@@ -142,6 +159,7 @@ public class DisplayStudentActivity extends AppCompatActivity {
 
         TextView studentName;
         Button btnAddLesson;
+        Button btnProgression;
     }
 
 
