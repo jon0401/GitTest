@@ -1,13 +1,11 @@
 package jonchan.gittest;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -16,8 +14,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import org.w3c.dom.Text;
 
 public class AddTeachingNoteActivity extends AppCompatActivity {
 
@@ -39,7 +35,7 @@ public class AddTeachingNoteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_teaching_note);
 
         txtLessonGet = (TextView) findViewById(R.id.txtLessonGet);
-        txtStudentName = (TextView) findViewById(R.id.txtStudentName);
+        txtStudentName = (TextView) findViewById(R.id.txtStudentCreatorName);
         mtxtNote = (TextView) findViewById(R.id.mtxtNote);
         btnSubmitNote = (Button) findViewById(R.id.btnSubmitNote);
 
