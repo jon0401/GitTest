@@ -18,5 +18,13 @@
         android:layout_alignParentTop="true"
         android:text="My Lesson" />
 
+    <Button
+        android:id="@+id/btnPracticeNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btnMyLesson"
+        android:text="My Practice Note" />
+
 
 </RelativeLayout>

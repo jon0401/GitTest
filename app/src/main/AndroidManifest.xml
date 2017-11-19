@@ -32,7 +32,10 @@
         <activity android:name=".TeacherHomePageActivity" />
         <activity android:name=".StudentHomePageActivity" />
         <activity android:name=".DisplayLessonStudentActivity" />
-        <activity android:name=".DisplayTeachingNoteStudentActivity"></activity>
+        <activity android:name=".DisplayTeachingNoteStudentActivity" />
+        <activity android:name=".DisplayPracticeNoteStudentActivity" />
+        <activity android:name=".AddPracticeNoteActivity" />
+        <activity android:name=".UpdatePracticeNoteActivity"></activity>
     </application>
 
 </manifest>
