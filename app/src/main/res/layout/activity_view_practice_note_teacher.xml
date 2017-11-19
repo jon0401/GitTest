@@ -30,21 +30,20 @@
             android:id="@+id/txtPracticeNoteDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/etxtPracticeNoteDateEnter"
-            android:layout_alignBottom="@+id/etxtPracticeNoteDateEnter"
-            android:layout_alignParentStart="true"
             android:text="Created Date: "
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/etxtPracticeNoteDateEnter" />
 
-        <EditText
+        <TextView
             android:id="@+id/etxtPracticeNoteDateEnter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txtStudentCreatorName"
-            android:layout_marginStart="71dp"
-            android:layout_toEndOf="@+id/txtPracticeNoteDate"
-            android:hint="Created date..."
-            android:textSize="20sp" />
+            android:hint="Created date"
+            android:textSize="20sp"
+            android:layout_marginEnd="67dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
 
         <TextView
             android:id="@+id/txtStudentCreatorName"
@@ -56,23 +55,6 @@
             android:text="Student Name"
             android:textSize="20sp" />
 
-        <Spinner
-            android:id="@+id/spinnerChooseTeacher"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/txtShareWith"
-            android:layout_alignParentEnd="true" />
-
-        <TextView
-            android:id="@+id/txtShareWith"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Share with:"
-            android:textSize="20sp"
-            android:layout_below="@+id/etxtPracticeNoteDateEnter"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="12dp" />
-
     </RelativeLayout>
 
     <LinearLayout
@@ -81,38 +63,20 @@
         android:orientation="horizontal"
         android:layout_alignParentStart="true"
         android:id="@+id/linearLayout"
-        android:layout_above="@+id/linearLayout2"
-        android:layout_below="@+id/relativeLayout">
+        android:layout_below="@+id/relativeLayout"
+        android:layout_alignParentBottom="true">
 
 
-        <EditText
+        <TextView
             android:id="@+id/mtxtPracticeNote"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:ems="10"
             android:gravity="top"
-            android:hint="Write your note..."
             android:inputType="textMultiLine"
             android:textSize="20sp" />
 
 
     </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="762dp"
-        android:layout_height="71dp"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true">
-
-        <Button
-            android:id="@+id/btnSubmitPracticeNote"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Submit Note" />
-    </LinearLayout>
-
 
 </RelativeLayout>

@@ -35,7 +35,10 @@
         <activity android:name=".DisplayTeachingNoteStudentActivity" />
         <activity android:name=".DisplayPracticeNoteStudentActivity" />
         <activity android:name=".AddPracticeNoteActivity" />
-        <activity android:name=".UpdatePracticeNoteActivity"></activity>
+        <activity android:name=".UpdatePracticeNoteActivity" />
+        <activity android:name=".DisplayProgressionActivity" />
+        <activity android:name=".DisplayPracticeNoteTeacherActivity" />
+        <activity android:name=".ViewPracticeNoteTeacherActivity"></activity>
     </application>
 
 </manifest>
