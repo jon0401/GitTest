@@ -16,12 +16,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -51,7 +49,7 @@ public class DisplayLessonActivity extends AppCompatActivity {
         Intent myIntent = getIntent();
         student_uid = myIntent.getStringExtra("STUDENT_ID");
 
-        btnAddLesson = (Button) findViewById(R.id.btnAddLesson);
+        btnAddLesson = (Button) findViewById(R.id.btnAddStudent);
         mListView = (ListView) findViewById(R.id.listViewLesson);
         //final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mLessonDetail);
         //mListView.setAdapter(arrayAdapter);

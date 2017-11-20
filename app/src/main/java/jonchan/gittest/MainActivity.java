@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnDisplayStudent;
     private Button btnMyLesson;
     private Button btnPracticeNote;
+    private Button btnViewRequest;
 
 
 
@@ -95,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
                                 btnMyLesson = (Button) findViewById(R.id.btnMyLesson);
                                 btnLogout = (Button) findViewById(R.id.btnLogoutStudent);
                                 btnPracticeNote = (Button) findViewById(R.id.btnPracticeNote);
+                                btnViewRequest = (Button) findViewById(R.id.btnViewRequest);
 
                                 btnMyLesson.setOnClickListener(new View.OnClickListener() {
                                     @Override
@@ -133,6 +135,19 @@ public class MainActivity extends AppCompatActivity {
                                         }catch(android.content.ActivityNotFoundException e){
                                             e.printStackTrace();
                                         }
+                                    }
+                                });
+
+                                btnViewRequest.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        Intent myIntent = new Intent(view.getContext(), ViewRequestActivity.class);
+                                        try{
+                                            startActivity(myIntent);
+                                        }catch(android.content.ActivityNotFoundException e){
+                                            e.printStackTrace();
+                                        }
+
                                     }
                                 });
                             }
