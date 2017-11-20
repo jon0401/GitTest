@@ -1,5 +1,6 @@
 package jonchan.gittest;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -28,6 +29,7 @@ public class LoginActivity extends AppCompatActivity{
     private EditText mPasswordField;
     private Button mLoginBtn;
     private Button mRegisterBtn;
+    private ProgressDialog mProgress;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,6 +40,7 @@ public class LoginActivity extends AppCompatActivity{
         mPasswordField = (EditText) findViewById(R.id.passwordField);
         mLoginBtn = (Button) findViewById(R.id.btnLogin);
         mRegisterBtn = (Button) findViewById(R.id.btnRegister);
+        mProgress = new ProgressDialog(this);
 
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,15 +80,20 @@ public class LoginActivity extends AppCompatActivity{
 
         } else {
 
+            mProgress.setMessage("Login in progress...");
+            mProgress.show();
+
             mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
 
                     if (!task.isSuccessful()) {
-
+                        mProgress.dismiss();
                         Toast.makeText(LoginActivity.this, "Incorrect username or password", Toast.LENGTH_SHORT).show();
 
                     }else{
+
+                        mProgress.dismiss();
                         Intent myIntent = new Intent(LoginActivity.this, MainActivity.class);
                         myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         try{
