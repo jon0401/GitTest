@@ -12,9 +12,6 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
-<<<<<<< HEAD
-    @Override
-=======
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
@@ -22,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     private Button btnAddLesson;
     private Button btnDisplayLesson;
     private Button btnLogout;
->>>>>>> b23709de706cb59c9390455a8f1dcbf34a1a55e4
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,10 +85,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        Log.d("Jon", "Hi I'm Jonathan!");
-        Log.d("Jon", "Hi I'm Wayne!");
-        Log.d("Jon", "Hi I'm Jonathan!");
-        Log.d("Jon", "Hi I'm Erwin!!!");
+//        Log.d("Jon", "Hi I'm Jonathan!");
+//        Log.d("Jon", "Hi I'm Wayne!");
+//        Log.d("Jon", "Hi I'm Jonathan!");
+//        Log.d("Jon", "Hi I'm Erwin!!!");
     }
 
     @Override
