@@ -26,7 +26,19 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".AddLessonActivity" />
         <activity android:name=".DisplayLessonActivity" />
-        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".DisplayStudentActivity" />
+        <activity android:name=".AddTeachingNoteActivity" />
+        <!--<activity android:name=".TeacherHomePageActivity" />-->
+        <!--<activity android:name=".StudentHomePageActivity" />-->
+        <activity android:name=".DisplayLessonStudentActivity" />
+        <activity android:name=".DisplayTeachingNoteStudentActivity" />
+        <activity android:name=".DisplayPracticeNoteStudentActivity" />
+        <activity android:name=".AddPracticeNoteActivity" />
+        <activity android:name=".UpdatePracticeNoteActivity" />
+        <activity android:name=".DisplayProgressionActivity" />
+        <activity android:name=".DisplayPracticeNoteTeacherActivity" />
+        <activity android:name=".ViewPracticeNoteTeacherActivity"></activity>
     </application>
 
 </manifest>

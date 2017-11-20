@@ -2,9 +2,8 @@ package jonchan.gittest;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,51 +15,42 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Chung on 11/11/2017.
- */
+public class DisplayPracticeNoteStudentActivity extends AppCompatActivity {
 
-public class DisplayLessonActivity extends AppCompatActivity {
-
-    private Button btnAddLesson;
+    private Button btnAddPracticeNote;
     private ListView mListView;
-    private ArrayList <String> mLessonList = new ArrayList<>();
-    private ArrayList <String> mLessonIdList = new ArrayList<>();
+    private ArrayList<String> mPracticeNoteList = new ArrayList<>();
+    private ArrayList <String> mPracticeNoteIDList = new ArrayList<>();
     FirebaseDatabase database;
     DatabaseReference mRef;
     private FirebaseAuth mAuth;
-    String student_uid;
     String lesson_id;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_displaylesson);
+        setContentView(R.layout.activity_display_practice_note_student);
 
-        Intent myIntent = getIntent();
-        student_uid = myIntent.getStringExtra("STUDENT_ID");
+        //Intent myIntent = getIntent();
+        //student_uid = myIntent.getStringExtra("STUDENT_ID");
 
-        btnAddLesson = (Button) findViewById(R.id.btnAddLesson);
-        mListView = (ListView) findViewById(R.id.listViewLesson);
-        //final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mLessonDetail);
-        //mListView.setAdapter(arrayAdapter);
+        btnAddPracticeNote = (Button) findViewById(R.id.btnAddPracticeNote);
+        mListView = (ListView) findViewById(R.id.listViewPracticeNote);
 
         mAuth = FirebaseAuth.getInstance();
         final String user_id = mAuth.getCurrentUser().getUid();
         database = FirebaseDatabase.getInstance();
-        mRef = database.getReference("Lesson");
-        final MyListAdapter listAdapter = new MyListAdapter(this, R.layout.lessonlist_row, mLessonList);
+        mRef = database.getReference("PracticeNote");
+        final MyListAdapter listAdapter = new MyListAdapter(this, R.layout.practicenotelist_row, mPracticeNoteList);
         mListView.setAdapter(listAdapter);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -72,15 +62,13 @@ public class DisplayLessonActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
-                    if(postSnapshot.hasChild("Teacher") && postSnapshot.hasChild("Student") && postSnapshot.hasChild("Date")){
-                        Log.d("Teacher", postSnapshot.child("Teacher").getValue().toString());
-                        Log.d("Student", postSnapshot.child("Student").getValue().toString());
-                        if((postSnapshot.child("Teacher").getValue().toString()).equals(user_id) && (postSnapshot.child("Student").getValue().toString()).equals(student_uid)){
+                    if(postSnapshot.hasChild("Student") && postSnapshot.hasChild("Date") && postSnapshot.hasChild("Content") && postSnapshot.hasChild("Teacher")){
+                        if((postSnapshot.child("Student").getValue().toString()).equals(user_id)){
 
                             String id = postSnapshot.getKey();
                             String date = postSnapshot.child("Date").getValue(String.class);
-                            mLessonList.add(date);
-                            mLessonIdList.add(id);
+                            mPracticeNoteList.add(date);
+                            mPracticeNoteIDList.add(id);
                             listAdapter.notifyDataSetChanged();
                         }
                     }
@@ -94,10 +82,9 @@ public class DisplayLessonActivity extends AppCompatActivity {
             }
         });
 
-        btnAddLesson.setOnClickListener(new View.OnClickListener() {
+        btnAddPracticeNote.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), AddLessonActivity.class);
-                myIntent.putExtra("STUDENT_ID", student_uid);
+                Intent myIntent = new Intent(view.getContext(), AddPracticeNoteActivity.class);
                 try{
                     startActivity(myIntent);
                 }catch(android.content.ActivityNotFoundException e){
@@ -108,11 +95,10 @@ public class DisplayLessonActivity extends AppCompatActivity {
         });
     }
 
-
-    private class MyListAdapter extends ArrayAdapter<String>{
+    private class MyListAdapter extends ArrayAdapter<String> {
 
         private int layout;
-        private MyListAdapter(Context context, int resource, List <String> objects) {
+        private MyListAdapter(Context context, int resource, List<String> objects) {
             super (context, resource, objects);
             layout = resource;
         }
@@ -123,19 +109,20 @@ public class DisplayLessonActivity extends AppCompatActivity {
                 LayoutInflater inflater = LayoutInflater.from(getContext());
                 convertView = inflater.inflate(layout, parent, false);
                 final ViewHolder viewHolder = new ViewHolder();
-                viewHolder.lessonName = (TextView) convertView.findViewById(R.id.txtLesson);
-                viewHolder.btnNote = (Button) convertView.findViewById(R.id.btnNote);
-                viewHolder.btnNote.setOnClickListener(new View.OnClickListener() {
+                viewHolder.practiceNoteDate = (TextView) convertView.findViewById(R.id.txtPracticeNote);
+                viewHolder.viewPracticeNote = (Button) convertView.findViewById(R.id.btnViewPracticeNote);
+                viewHolder.viewPracticeNote.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         View parentRow = (View) view.getParent();
                         ListView listView = (ListView) parentRow.getParent();
                         final int position = listView.getPositionForView(parentRow);
                         Log.d("Position", String.valueOf(position));
-                        Intent myIntent = new Intent(view.getContext(), AddTeachingNoteActivity.class);
-                        myIntent.putExtra("STUDENT_ID", student_uid);
-                        myIntent.putExtra("DATE", mLessonList.get(position));
-                        myIntent.putExtra("LESSON_ID", mLessonIdList.get(position));
+                        Intent myIntent = new Intent(view.getContext(), UpdatePracticeNoteActivity.class);
+                        myIntent.putExtra("PracticeNote_Date", mPracticeNoteList.get(position));
+                        myIntent.putExtra("PracticeNote_ID", mPracticeNoteIDList.get(position));
+                        Log.d("PracticeNote_Date", mPracticeNoteList.get(position));
+                        Log.d("PracticeNote_ID", mPracticeNoteIDList.get(position));
                         try {
                             startActivity(myIntent);
                         } catch (android.content.ActivityNotFoundException e) {
@@ -146,8 +133,8 @@ public class DisplayLessonActivity extends AppCompatActivity {
                 convertView.setTag(viewHolder);
 
                 mainViewHolder = (ViewHolder) convertView.getTag();
-                mainViewHolder.lessonName.setText(getItem(position));
-                DatabaseReference mRefNote = database.getReference("Lesson").child(mLessonIdList.get(position));
+                mainViewHolder.practiceNoteDate.setText(getItem(position));
+                /*DatabaseReference mRefNote = database.getReference("Lesson").child(mPracticeNoteList.get(position));
                 final ViewHolder finalMainViewHolder = mainViewHolder;
                 mRefNote.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -161,7 +148,7 @@ public class DisplayLessonActivity extends AppCompatActivity {
                     public void onCancelled(DatabaseError databaseError) {
 
                     }
-                });
+                });*/
 
             }
             return convertView;
@@ -170,10 +157,7 @@ public class DisplayLessonActivity extends AppCompatActivity {
 
     public class ViewHolder {
 
-        TextView lessonName;
-        Button btnNote;
+        TextView practiceNoteDate;
+        Button viewPracticeNote;
     }
 }
-
-
-
