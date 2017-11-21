@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="jonchan.gittest.AddLessonActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+
+        <TextView
+            android:id="@+id/txtStudentCreator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/txtLessonDate"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/txtLessonDate"
+            android:layout_marginTop="16dp"
+            android:text="Created by: "
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txtPracticeNoteDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Created Date: "
+            android:textSize="20sp"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/etxtPracticeNoteDateEnter" />
+
+        <TextView
+            android:id="@+id/etxtPracticeNoteDateEnter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Created date"
+            android:textSize="20sp"
+            android:layout_marginEnd="67dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:id="@+id/txtStudentCreatorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/txtStudentCreator"
+            android:layout_alignBottom="@+id/txtStudentCreator"
+            android:layout_alignStart="@+id/etxtPracticeNoteDateEnter"
+            android:text="Student Name"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="horizontal"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_alignParentBottom="true">
+
+
+        <TextView
+            android:id="@+id/mtxtPracticeNote"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:textSize="20sp" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

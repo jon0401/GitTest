@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="jonchan.gittest.AddLessonActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/relativeLayout"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+
+        <TextView
+            android:id="@+id/txtTeacher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/txtLessonDate"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/txtLessonDate"
+            android:layout_marginTop="16dp"
+            android:text="Teacher:"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txtLessonDateStudent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lesson Date: "
+            android:textSize="20sp"
+            android:layout_alignBaseline="@+id/txtLessonGetStudent"
+            android:layout_alignBottom="@+id/txtLessonGetStudent"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/txtLessonGetStudent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lesson Date"
+            android:textSize="20sp"
+            android:layout_marginTop="12dp"
+            android:layout_below="@+id/txtTeacherName"
+            android:layout_alignStart="@+id/txtTeacherName" />
+
+        <TextView
+            android:id="@+id/txtTeacherName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/txtTeacher"
+            android:layout_alignBottom="@+id/txtTeacher"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="72dp"
+            android:text="Teacher Name"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="horizontal"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/relativeLayout"
+        android:id="@+id/linearLayout"
+        android:layout_alignParentBottom="true">
+
+
+        <TextView
+            android:id="@+id/mtxtNoteStudent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:text="Blank"
+            android:inputType="textMultiLine"
+            android:gravity="top" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

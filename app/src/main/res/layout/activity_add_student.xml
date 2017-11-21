@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="jonchan.gittest.AddLessonActivity">
+
+
+    <Button
+        android:id="@+id/btnSendRequest"
+        android:layout_width="368dp"
+        android:layout_height="48dp"
+        android:text="Send Request"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="96dp"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/etxtStudentEmail"
+        android:layout_alignStart="@+id/etxtStudentEmail" />
+
+    <EditText
+        android:id="@+id/etxtStudentEmail"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter Student's Email..."
+        android:inputType="textPersonName"
+        android:text=""
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

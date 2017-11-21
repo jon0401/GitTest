@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "868278921294",
+    "firebase_url": "https://gittest-63aa6.firebaseio.com",
+    "project_id": "gittest-63aa6",
+    "storage_bucket": "gittest-63aa6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:868278921294:android:decbe4cefe7ae5a0",
+        "android_client_info": {
+          "package_name": "jonchan.gittest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "868278921294-a6icg809tvi67b4e8kp91hn6njb82a9h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "jonchan.gittest",
+            "certificate_hash": "1fb17d3287618237f00abdd284fcd9477da19c30"
+          }
+        },
+        {
+          "client_id": "868278921294-6bj1hhkd7atcctlnfsmpm74ih4r8d9qe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXlRSp80UG3vLLw1pRoOFVrnPF7Q2AmHM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "868278921294-6bj1hhkd7atcctlnfsmpm74ih4r8d9qe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
