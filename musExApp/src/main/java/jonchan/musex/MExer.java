@@ -143,7 +143,6 @@ public class MExer extends Application {
         //public MQues (int id, String [] notes, String ans, String [] ansRelated, Difficulty diff, QType qtype)
         mQues = new ArrayList<>();
 
-        //Properties properties = new Properties();
         InputStream inputStream = context.getAssets().open("INT.txt");
         BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
 
@@ -162,18 +161,9 @@ public class MExer extends Application {
             String musicNotes = splitarray [5];
             List<String> mNotes = Arrays.asList(musicNotes.split("\\s*,\\s*"));
             String [] mNotes_arr = mNotes.toArray(new String[mNotes.size()]);
-
             mQues.add(new MQues(id,mNotes_arr,ans,rAns_arr,diffEnum,qtypeEnum));
-//            Log.d(TAG, id + "  id");
-//            Log.d(TAG, qtype + "  qtype");
-//            Log.d(TAG, ans + "  ans");
-//            Log.d(TAG, rAns.get(0) + "  relatedans0");
-//            Log.d(TAG, mNotes.get(0) + "  musicNote0");
         }
         br.close();
-
-        //properties.load(inputStream);
-
         Log.d(TAG, "READABLE!!!!");
     }
 

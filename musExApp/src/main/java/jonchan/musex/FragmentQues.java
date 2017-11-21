@@ -47,18 +47,6 @@ public class FragmentQues extends Fragment{
 
     final String TAG = "FragQues";
 
-
-//    public static FragmentQues newInstance (MQues mQues){
-//        FragmentQues frag = new FragmentQues();
-//        Bundle bundle = new Bundle();
-//        bundle.putSerializable(mQuesObject_KEY, mQues);
-//        frag.setArguments(bundle);
-//
-//        String TAG2 = "FragNewInstance";
-//        Log.d(TAG2,"FragmentNewInstance*********");
-//        return frag;
-//    }
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
