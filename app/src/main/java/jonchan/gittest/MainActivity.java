@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
                     mAuth = FirebaseAuth.getInstance();
                     String user_id = mAuth.getCurrentUser().getUid();
+                    Log.d("user_id",user_id);
                     database = FirebaseDatabase.getInstance();
                     mRef = database.getReference("Users").child(user_id).child("UserType");
                     mRef.addListenerForSingleValueEvent(new ValueEventListener() {

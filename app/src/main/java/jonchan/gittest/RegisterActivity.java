@@ -58,7 +58,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void startRegister(){
 
-        String email = mEmailField.getText().toString();
+        final String email = mEmailField.getText().toString();
         String password = mPasswordField.getText().toString();
         final String name = mNameField.getText().toString();
         int selectedID = radioGroup.getCheckedRadioButtonId();
@@ -96,6 +96,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                             current_user_db.child("Name").setValue(name);
                             current_user_db.child("UserType").setValue(userType);
+                            current_user_db.child("Email").setValue(email);
 
 
 

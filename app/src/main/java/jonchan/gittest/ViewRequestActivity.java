@@ -161,6 +161,7 @@ public class ViewRequestActivity extends AppCompatActivity {
                                 });
 
                                 Intent myIntent = new Intent(ViewRequestActivity.this, MainActivity.class);
+                                myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                                 try {
                                     startActivity(myIntent);
@@ -207,6 +208,7 @@ public class ViewRequestActivity extends AppCompatActivity {
 
 
                                 Intent myIntent = new Intent(ViewRequestActivity.this, MainActivity.class);
+                                myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                                 try {
                                     startActivity(myIntent);
