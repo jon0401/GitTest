@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
 
-                }else{
+                }else{ //logined ?
 
                     mAuth = FirebaseAuth.getInstance();
                     String user_id = mAuth.getCurrentUser().getUid();
@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             String value = dataSnapshot.getValue(String.class);
                             if(value.equals("Teacher")){
+                                //teacher homepage
+
                                 setContentView(R.layout.activity_teacher_home_page);
                                 Log.d("UserType", value);
                                 btnLogout = (Button) findViewById(R.id.btnLogoutTeacher);
@@ -108,6 +110,9 @@ public class MainActivity extends AppCompatActivity {
                                 });
 
                             }else{
+
+                                //student homepage
+
                                 setContentView(R.layout.activity_student_home_page);
                                 btnMyLesson = (Button) findViewById(R.id.btnMyLesson);
                                 btnLogout = (Button) findViewById(R.id.btnLogoutStudent);
