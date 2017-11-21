@@ -58,7 +58,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void startRegister(){
 
-        String email = mEmailField.getText().toString();
+        final String email = mEmailField.getText().toString();
         String password = mPasswordField.getText().toString();
         final String name = mNameField.getText().toString();
         int selectedID = radioGroup.getCheckedRadioButtonId();
@@ -91,13 +91,14 @@ public class RegisterActivity extends AppCompatActivity {
                             //get the UID of the current logined user
                             String user_id = mAuth.getCurrentUser().getUid();
 
-                            //create a new branch under "Users" where the branch name is the uid get above
+                            //create a new branch under "Users" w here the branch name is the uid get above
                             DatabaseReference current_user_db = mRef.child(user_id);
 
                             current_user_db.child("Name").setValue(name);
                             current_user_db.child("UserType").setValue(userType);
-                            current_user_db.child("Contact").setValue("default");
-                            //current_user_db.child("Lesson").setValue("default");
+                            current_user_db.child("Email").setValue(email);
+
+
 
                             mProgress.dismiss();
 

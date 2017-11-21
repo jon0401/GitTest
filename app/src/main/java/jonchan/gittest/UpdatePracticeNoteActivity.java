@@ -134,8 +134,10 @@ public class UpdatePracticeNoteActivity extends AppCompatActivity {
         mRefDefaultTeacher.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(!dataSnapshot.child("Teacher").getValue().equals("None")){
-                    String teacherID = dataSnapshot.child("Teacher").getValue(String.class);
+
+                String teacherID = dataSnapshot.child("Teacher").getValue(String.class);
+
+                if(!teacherID.equals("None")){
                     DatabaseReference mRefDefaultTeacherName;
                     mRefDefaultTeacherName = database.getReference("Users").child(teacherID).child("Name");
                     mRefDefaultTeacherName.addValueEventListener(new ValueEventListener() {

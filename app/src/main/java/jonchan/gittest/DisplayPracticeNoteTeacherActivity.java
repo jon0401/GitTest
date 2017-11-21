@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -56,22 +57,35 @@ public class DisplayPracticeNoteTeacherActivity extends AppCompatActivity {
 
             }
         });
-        mRef.addValueEventListener(new ValueEventListener() {
+
+        mRef.addChildEventListener(new ChildEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
-                    if(postSnapshot.hasChild("Student") && postSnapshot.hasChild("Date") && postSnapshot.hasChild("Content") && postSnapshot.hasChild("Teacher")){
-                        if((postSnapshot.child("Student").getValue().toString()).equals(student_uid) && (postSnapshot.child("Teacher").getValue().toString()).equals(user_id)){
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                if(dataSnapshot.hasChild("Student") && dataSnapshot.hasChild("Date") && dataSnapshot.hasChild("Content") && dataSnapshot.hasChild("Teacher")){
+                    if((dataSnapshot.child("Student").getValue().toString()).equals(student_uid) && (dataSnapshot.child("Teacher").getValue().toString()).equals(user_id)){
 
-                            String id = postSnapshot.getKey();
-                            String date = postSnapshot.child("Date").getValue(String.class);
-                            mPracticeNoteList.add(date);
-                            mPracticeNoteIDList.add(id);
-                            listAdapter.notifyDataSetChanged();
-                        }
+                        String id = dataSnapshot.getKey();
+                        String date = dataSnapshot.child("Date").getValue(String.class);
+                        mPracticeNoteList.add(date);
+                        mPracticeNoteIDList.add(id);
+                        listAdapter.notifyDataSetChanged();
                     }
-
                 }
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
             }
 
             @Override

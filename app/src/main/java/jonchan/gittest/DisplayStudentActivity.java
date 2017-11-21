@@ -30,6 +30,7 @@ import java.util.List;
 public class DisplayStudentActivity extends AppCompatActivity {
 
     private ListView mListView;
+    private Button btnAddStudent;
     private ArrayList<String> mStudentList = new ArrayList<>();
     private ArrayList<String> mStudentUidList = new ArrayList<>();
     FirebaseDatabase database;
@@ -40,6 +41,7 @@ public class DisplayStudentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_student);
+        btnAddStudent = (Button) findViewById(R.id.btnAddStudent);
 
         mListView = (ListView) findViewById(R.id.listViewStudent);
         //final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.studentlist_row, mLessonDetail);
@@ -58,28 +60,41 @@ public class DisplayStudentActivity extends AppCompatActivity {
 
             }
         });
-        mRef.addValueEventListener(new ValueEventListener() {
+
+        mRef.addChildEventListener(new ChildEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
-                    String value = postSnapshot.getValue(String.class);
-                    DatabaseReference mRefName = database.getReference("Users").child(value).child("Name");
-                    mRefName.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            String studentName = dataSnapshot.getValue(String.class);
-                            Log.d("String",studentName);
-                            mStudentList.add(studentName);
-                            listAdapter.notifyDataSetChanged();
-                        }
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                String value = dataSnapshot.getValue(String.class);
+                DatabaseReference mRefName = database.getReference("Users").child(value).child("Name");
+                mRefName.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        String studentName = dataSnapshot.getValue(String.class);
+                        Log.d("String",studentName);
+                        mStudentList.add(studentName);
+                        listAdapter.notifyDataSetChanged();
+                    }
 
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
 
-                        }
-                    });
-                    mStudentUidList.add(value);
-                }
+                    }
+                });
+                mStudentUidList.add(value);
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
 
             }
 
@@ -87,9 +102,20 @@ public class DisplayStudentActivity extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
 
             }
-
         });
 
+        btnAddStudent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), AddStudentActivity.class);
+                myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                try{
+                    startActivity(myIntent);
+                }catch(android.content.ActivityNotFoundException e){
+                    e.printStackTrace();
+                }
+            }
+        });
 
 
     }
