@@ -25,4 +25,12 @@
         android:layout_below="@+id/btnDisplayStudent"
         android:text="Book a room" />
 
+    <Button
+        android:id="@+id/btnMusicGameTeacher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btnBookRoomTeacher"
+        android:text="Music Game" />
+
 </RelativeLayout>
