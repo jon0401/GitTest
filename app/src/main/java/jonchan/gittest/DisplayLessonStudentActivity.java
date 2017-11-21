@@ -28,7 +28,7 @@ import java.util.List;
 public class DisplayLessonStudentActivity extends AppCompatActivity {
 
     private ListView mListView;
-    private ArrayList<String> mLessonList = new ArrayList<>();
+    private ArrayList<LessonDetail> mLessonList = new ArrayList<>();
     private ArrayList <String> mLessonIdList = new ArrayList<>();
     FirebaseDatabase database;
     DatabaseReference mRef;
@@ -69,7 +69,11 @@ public class DisplayLessonStudentActivity extends AppCompatActivity {
                         Log.d("Student", dataSnapshot.child("Student").getValue().toString());
                         String id = dataSnapshot.getKey();
                         String date = dataSnapshot.child("Date").getValue(String.class);
-                        mLessonList.add(date);
+                        String startTime = dataSnapshot.child("StartTime").getValue(String.class);
+                        String endTime = dataSnapshot.child("EndTime").getValue(String.class);
+                        String location = dataSnapshot.child("Location").getValue(String.class);
+
+                        mLessonList.add(new LessonDetail(date, startTime, endTime, location));
                         mLessonIdList.add(id);
                         listAdapter.notifyDataSetChanged();
                     }
@@ -99,10 +103,10 @@ public class DisplayLessonStudentActivity extends AppCompatActivity {
 
     }
 
-    private class MyListAdapter extends ArrayAdapter<String> {
+    private class MyListAdapter extends ArrayAdapter<LessonDetail> {
 
         private int layout;
-        private MyListAdapter(Context context, int resource, List<String> objects) {
+        private MyListAdapter(Context context, int resource, List<LessonDetail> objects) {
             super (context, resource, objects);
             layout = resource;
         }
@@ -113,19 +117,21 @@ public class DisplayLessonStudentActivity extends AppCompatActivity {
                 LayoutInflater inflater = LayoutInflater.from(getContext());
                 convertView = inflater.inflate(layout, parent, false);
                 final ViewHolder viewHolder = new ViewHolder();
-                viewHolder.lessonNameStudent = (TextView) convertView.findViewById(R.id.txtLessonStudent);
+                viewHolder.txtDate= (TextView) convertView.findViewById(R.id.txtDate);
+                viewHolder.txtTimeSlot = (TextView) convertView.findViewById(R.id.txtTimeSlot);
+                viewHolder.txtLocation = (TextView) convertView.findViewById(R.id.txtLocation);
                 viewHolder.btnTeachingNote = (Button) convertView.findViewById(R.id.btnTeachingNote);
                 viewHolder.btnTeachingNote.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         View parentRow = (View) view.getParent();
-                        ListView listView = (ListView) parentRow.getParent();
+                        ListView listView = (ListView) parentRow.getParent().getParent();
                         final int position = listView.getPositionForView(parentRow);
                         Log.d("Position", String.valueOf(position));
 
                         Intent myIntent = new Intent(view.getContext(), DisplayTeachingNoteStudentActivity.class);
                         //myIntent.putExtra("STUDENT_ID", student_uid);
-                        myIntent.putExtra("DATE", mLessonList.get(position));
+                        myIntent.putExtra("DATE", mLessonList.get(position).getDate());
                         myIntent.putExtra("LESSON_ID", mLessonIdList.get(position));
                         try {
                             startActivity(myIntent);
@@ -137,7 +143,11 @@ public class DisplayLessonStudentActivity extends AppCompatActivity {
                 convertView.setTag(viewHolder);
 
                 mainViewHolder = (ViewHolder) convertView.getTag();
-                mainViewHolder.lessonNameStudent.setText(getItem(position));
+                mainViewHolder.txtDate.setText(getItem(position).getDate());
+                mainViewHolder.txtTimeSlot.setText(getItem(position).getStartTime() + "-" + getItem(position).getEndTime());
+                mainViewHolder.txtLocation.setText(getItem(position).getLocation());
+
+
 
             }
             return convertView;
@@ -146,7 +156,9 @@ public class DisplayLessonStudentActivity extends AppCompatActivity {
 
     public class ViewHolder {
 
-        TextView lessonNameStudent;
+        TextView txtTimeSlot;
+        TextView txtDate;
+        TextView txtLocation;
         Button btnTeachingNote;
     }
 }

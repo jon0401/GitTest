@@ -118,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
                                 btnLogout = (Button) findViewById(R.id.btnLogoutStudent);
                                 btnPracticeNote = (Button) findViewById(R.id.btnPracticeNote);
                                 btnViewRequest = (Button) findViewById(R.id.btnViewRequest);
+                                btnBooking = (Button) findViewById(R.id.btnBookRoomStudent);
 
 
                                 btnMyLesson.setOnClickListener(new View.OnClickListener() {
@@ -170,6 +171,19 @@ public class MainActivity extends AppCompatActivity {
                                             e.printStackTrace();
                                         }
 
+                                    }
+                                });
+
+                                btnBooking.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        Intent myIntent = new Intent(view.getContext(), Facitilies_BookingActivity.class);
+                                        myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                        try{
+                                            startActivity(myIntent);
+                                        }catch(android.content.ActivityNotFoundException e){
+                                            e.printStackTrace();
+                                        }
                                     }
                                 });
                             }

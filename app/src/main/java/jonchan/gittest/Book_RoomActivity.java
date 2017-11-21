@@ -98,24 +98,7 @@ public class Book_RoomActivity extends Activity{
         book_room_edittext1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                book_room_edittext1.setOnTouchListener(new View.OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-                        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                            showDatePickDlg();
-                            return true;
-                        }
-                        return false;
-                    }
-                });
-                book_room_edittext1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-                    @Override
-                    public void onFocusChange(View v, boolean hasFocus) {
-                        if (hasFocus) {
-                            showDatePickDlg();
-                        }
-                    }
-                });
+                showDatePickDlg();
             }
         });
     }
@@ -124,7 +107,7 @@ public class Book_RoomActivity extends Activity{
         DatePickerDialog datePickerDialog = new DatePickerDialog(Book_RoomActivity.this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                Book_RoomActivity.this.book_room_edittext1.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
+                Book_RoomActivity.this.book_room_edittext1.setText(year + "-" + (monthOfYear+1) + "-" + dayOfMonth);
             }
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
         datePickerDialog.show();
