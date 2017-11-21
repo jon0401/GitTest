@@ -55,14 +55,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mus_ex_activity_main);
-//
-//        int [] arr;
-//
-//        arr = Utility.fairShareQuestion(9,2);
-//        for (int i = 0; i < arr.length; i++){
-//            Log.d(TAG,"myARR******[" + i + "] = " + arr[i]);
-//        }
-
     }
 
     @Override
@@ -95,20 +87,12 @@ public class MainActivity extends AppCompatActivity {
 //        lhm.put("Arpeggio", false);  /** Not yet supported!!!!!**/
 
         selectedQT.clear();
-//        ArrayList<SpinnerItem> NQ = new ArrayList<>();
-//        for (int i = 0; i < 10; i ++){
-//            NQ.add(new SpinnerItem("ASD",false));
-//        }
-//        NQ.add(new SpinnerItem("No of Questions", true));
 
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
         View mView = getLayoutInflater().inflate(R.layout.custom_generate_exer, null);
         mBuilder.setTitle("Custom Exercise");
         final Spinner NoOfQuestionSpinner = (Spinner) mView.findViewById(R.id.spinner_noq);
         final Spinner DifficultySpinner = (Spinner) mView.findViewById(R.id.spinner_difficulty);
-        //-----MultiSelectionSpinner TypesSpinner= (MultiSelectionSpinner) mView.findViewById(R.id.spinner_type);
-        //MySpinnerAdapter myAdapter = new MySpinnerAdapter(MainActivity.this,android.R.layout.simple_list_item_1, NQ);
-        //myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         ArrayAdapter<String> noq_arrAdapter = new ArrayAdapter<String>(MainActivity.this,R.layout.spinner_layout,noq_array);
         noq_arrAdapter.setDropDownViewResource (android.R.layout.simple_dropdown_item_1line);
@@ -121,13 +105,6 @@ public class MainActivity extends AppCompatActivity {
         DifficultySpinner.setPrompt("Difficulty");
         DifficultySpinner.setAdapter(diff_arrAdapter);
         DifficultySpinner.setSelection(0);
-
-//        ArrayAdapter<String> type_arrAdapter = new ArrayAdapter<String>(MainActivity.this,R.layout.spinner_layout,type_array);
-//        type_arrAdapter.setDropDownViewResource (android.R.layout.simple_list_item_multiple_choice);
-//        //TypesSpinner.setPrompt("Type");
-//        TypesSpinner.setItems(type_array);
-//        //TypesSpinner.setAdapter(type_arrAdapter);
-//        TypesSpinner.setSelection(0);
 
         final List<String> keylist = new ArrayList<>(lhm.keySet());
         MultiSpinner simpleSpinner = (MultiSpinner) mView.findViewById(R.id.spinner_type);
@@ -154,25 +131,6 @@ public class MainActivity extends AppCompatActivity {
                 selectedQT_arr = selectedQT.toArray(selectedQT_arr);
             }
         });
-//
-//        selectedNOQ = Integer.parseInt(NoOfQuestionSpinner.getSelectedItem().toString());
-//        mid_selectedDifficulty = DifficultySpinner.getSelectedItem().toString();
-//        if (mid_selectedDifficulty == "EASY"){
-//            selectedDifficulty = Difficulty.EASY;
-//        } else if (mid_selectedDifficulty == "MEDIUM"){
-//            selectedDifficulty = Difficulty.MEDIUM;
-//        } else if (mid_selectedDifficulty == "HARD"){
-//            selectedDifficulty = Difficulty.HARD;
-//        } else if (mid_selectedDifficulty == "COMBINE ALL DIFFICULTY"){
-//            selectedDifficulty = Difficulty.ALL;
-//        }
-//
-
-//
-//        selectedQT_arr = new QType[selectedQT.size()];
-//        selectedQT_arr = selectedQT.toArray(selectedQT_arr);
-
-
 
         mBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
