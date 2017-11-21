@@ -9,6 +9,8 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -38,6 +40,11 @@
         <activity android:name=".DisplayPracticeNoteTeacherActivity" />
         <activity android:name=".ViewPracticeNoteTeacherActivity" />
         <activity android:name=".AddStudentActivity" />
+        <activity android:name=".Book_RoomActivity" />
+        <activity android:name=".ExtraEquipmentBookingActivity" />
+        <activity android:name=".Facitilies_BookingActivity" />
+        <activity android:name=".PaymentActivity" />
+        <activity android:name=".RoomInformationActivity" />
         <activity android:name=".ViewRequestActivity"></activity>
     </application>
 

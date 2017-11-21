@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnMyLesson;
     private Button btnPracticeNote;
     private Button btnViewRequest;
+    private Button btnBooking;
 
 
 
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
                                 Log.d("UserType", value);
                                 btnLogout = (Button) findViewById(R.id.btnLogoutTeacher);
                                 btnDisplayStudent = (Button) findViewById(R.id.btnDisplayStudent);
+                                btnBooking = (Button) findViewById(R.id.btnBookRoomTeacher);
 
 
                                 btnLogout.setOnClickListener(new View.OnClickListener() {
@@ -92,12 +94,26 @@ public class MainActivity extends AppCompatActivity {
                                     }
                                 });
 
+                                btnBooking.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        Intent myIntent = new Intent(view.getContext(), Facitilies_BookingActivity.class);
+                                        myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                        try{
+                                            startActivity(myIntent);
+                                        }catch(android.content.ActivityNotFoundException e){
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                });
+
                             }else{
                                 setContentView(R.layout.activity_student_home_page);
                                 btnMyLesson = (Button) findViewById(R.id.btnMyLesson);
                                 btnLogout = (Button) findViewById(R.id.btnLogoutStudent);
                                 btnPracticeNote = (Button) findViewById(R.id.btnPracticeNote);
                                 btnViewRequest = (Button) findViewById(R.id.btnViewRequest);
+
 
                                 btnMyLesson.setOnClickListener(new View.OnClickListener() {
                                     @Override

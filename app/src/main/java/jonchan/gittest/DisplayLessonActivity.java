@@ -96,6 +96,7 @@ public class DisplayLessonActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), AddLessonActivity.class);
                 myIntent.putExtra("STUDENT_ID", student_uid);
+                myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 try{
                     startActivity(myIntent);
                 }catch(android.content.ActivityNotFoundException e){
@@ -152,6 +153,8 @@ public class DisplayLessonActivity extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         if (dataSnapshot.hasChild("Note") && !(dataSnapshot.child("Note").getValue().toString()).equals("")) {
                             finalMainViewHolder.btnNote.setText("UPDATE NOTE");
+                        } else{
+                            finalMainViewHolder.btnNote.setText("ADD NOTE");
                         }
                     }
 

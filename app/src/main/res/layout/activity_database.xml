@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="database实时存储功能"
+            android:textSize="16sp"/>
+        <!-- 实时数据库-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_db_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="显示："/>
+            <EditText
+                android:id="@+id/et_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="请输入要存储的内容"
+                android:maxLines="1"
+                android:textSize="15sp"/>
+            <Button
+                android:id="@+id/btn_db_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="点击存值"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
