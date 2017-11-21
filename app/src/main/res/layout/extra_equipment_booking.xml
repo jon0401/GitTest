@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/extra_equipment_booking_back"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="35px"
+            android:src="@drawable/back"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="30px"
+            android:text="EXTRA EQUIPMENT"
+            android:textColor="@color/colorUI2"
+            android:textSize="30dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30px"
+            android:layout_marginLeft="80px"
+            android:text="Equipment Type:"
+            android:textColor="@color/colorUI"
+            android:textSize="20dp"/>
+        <Spinner android:id="@+id/extra_equipment_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="60px"
+            android:layout_marginLeft="75px"
+            android:layout_marginRight="20px"
+            android:layout_marginTop="30px"
+            android:drawSelectorOnTop="true"
+            android:layout_alignParentRight="true" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30px"
+            android:layout_marginLeft="80px"
+            android:text="Model:"
+            android:textColor="@color/colorUI"
+            android:textSize="20dp"/>
+        <Spinner android:id="@+id/extra_equipment_spinner2"
+            android:layout_width="match_parent"
+            android:layout_height="60px"
+            android:layout_marginLeft="75px"
+            android:layout_marginRight="20px"
+            android:layout_marginTop="30px"
+            android:drawSelectorOnTop="true"
+            android:layout_alignParentRight="true" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30px"
+            android:layout_marginLeft="80px"
+            android:text="Quantity:"
+            android:textColor="@color/colorUI"
+            android:textSize="20dp"/>
+        <Spinner android:id="@+id/extra_equipment_spinner3"
+            android:layout_width="match_parent"
+            android:layout_height="60px"
+            android:layout_marginLeft="75px"
+            android:layout_marginRight="20px"
+            android:layout_marginTop="30px"
+            android:drawSelectorOnTop="true"
+            android:layout_alignParentRight="true" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30px"
+            android:layout_marginLeft="80px"
+            android:text="Fees:"
+            android:textColor="@color/colorUI"
+            android:textSize="20dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60px"
+            android:layout_marginLeft="350px"
+            android:layout_marginRight="20px"
+            android:layout_marginTop="30px"
+            android:text="$1000"
+            android:textColor="@color/colorUI2"/>
+    </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Finsh Booking"
+        android:textColor="@color/colorUI"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/piano_room"/>
+</LinearLayout>
