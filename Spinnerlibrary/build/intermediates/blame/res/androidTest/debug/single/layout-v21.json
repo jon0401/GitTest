@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v21\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\layout-v21\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v21\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\layout-v21\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v21\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\layout-v21\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v21\\notification_action.xml",
+        "source": "C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\layout-v21\\notification_action.xml"
+    }
+]

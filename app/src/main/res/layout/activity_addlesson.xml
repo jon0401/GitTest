@@ -1,34 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="jonchan.gittest.AddLessonActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-
-    <Button
-        android:id="@+id/addBtn"
-        android:layout_width="368dp"
-        android:layout_height="48dp"
-        android:text="Add Lesson"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="96dp"
-        android:layout_marginTop="13dp"
-        android:layout_below="@+id/valueField"
-        android:layout_alignStart="@+id/valueField" />
-
-    <EditText
-        android:id="@+id/valueField"
-        android:layout_width="368dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Lesson Time"
-        android:inputType="textPersonName"
-        android:text=""
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="19dp" />
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/add_lesson_back"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="35px"
+            android:src="@drawable/back"/>
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/add_lesson_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="30px"
+            android:text="Add Lesson"
+            android:textColor="@color/colorUI2"
+            android:textSize="30dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px"
+                android:layout_marginLeft="80px"
+                android:text="Dates:"
+                android:textColor="@color/colorUI"
+                android:textSize="20dp"/>
+            <EditText
+                android:id="@+id/etxtDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px"
+                android:layout_marginLeft="100dp"
+                android:hint="Choose Date"
+                android:textColor="@color/colorUI"
+                android:textSize="20dp"
+                android:inputType="text"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px"
+                android:layout_marginLeft="80px"
+                android:text="Start Time:"
+                android:textColor="@color/colorUI"
+                android:textSize="20dp"/>
+            <EditText android:id="@+id/etxtStartTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="150px"
+                android:layout_marginRight="20px"
+                android:layout_marginTop="30px"
+                android:hint="Start Time"
+                android:layout_alignParentRight="true"
+                android:inputType="text"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px"
+                android:layout_marginLeft="80px"
+                android:text="End Time:"
+                android:textColor="@color/colorUI"
+                android:textSize="20dp"/>
+            <EditText android:id="@+id/etxtEndTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="150px"
+                android:layout_marginRight="20px"
+                android:layout_marginTop="30px"
+                android:hint="End Time"
+                android:layout_alignParentRight="true"
+                android:inputType="text"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px"
+                android:layout_marginLeft="80px"
+                android:text="Locations:"
+                android:textColor="@color/colorUI"
+                android:textSize="20dp"/>
+            <EditText android:id="@+id/etxtLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="140px"
+                android:layout_marginRight="20px"
+                android:layout_marginTop="30px"
+                android:hint="Location"
+                android:layout_alignParentRight="true"
+                android:inputType="text"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnAddLesson"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30px"
+                android:text="Add Lesson"
+                android:textColor="@color/colorUI"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
+
+

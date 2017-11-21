@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GitTest.iml" filepath="$PROJECT_DIR$/GitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Spinnerlibrary/Spinnerlibrary.iml" filepath="$PROJECT_DIR$/Spinnerlibrary/Spinnerlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/musExApp/musExApp.iml" filepath="$PROJECT_DIR$/musExApp/musExApp.iml" />
     </modules>
   </component>
 </project>

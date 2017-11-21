@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     private Button btnViewRequest;
     private Button btnBooking;
 
+    private Button btnGame;
+
 
 
 
@@ -67,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
                                 btnLogout = (Button) findViewById(R.id.btnLogoutTeacher);
                                 btnDisplayStudent = (Button) findViewById(R.id.btnDisplayStudent);
                                 btnBooking = (Button) findViewById(R.id.btnBookRoomTeacher);
+                                btnGame = (Button) findViewById(R.id.btnMusicGameTeacher);
 
 
                                 btnLogout.setOnClickListener(new View.OnClickListener() {
@@ -108,6 +111,32 @@ public class MainActivity extends AppCompatActivity {
                                     }
                                 });
 
+                                btnBooking.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        Intent myIntent = new Intent(view.getContext(), Facitilies_BookingActivity.class);
+                                        myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                        try{
+                                            startActivity(myIntent);
+                                        }catch(android.content.ActivityNotFoundException e){
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                });
+
+                                btnGame.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent myIntent = new Intent (v.getContext(), jonchan.musex.MainActivity.class);
+                                        myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                        try{
+                                            startActivity(myIntent);
+                                        }catch(android.content.ActivityNotFoundException e){
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                });
+
                             }else{
 
                                 //student homepage
@@ -117,6 +146,9 @@ public class MainActivity extends AppCompatActivity {
                                 btnLogout = (Button) findViewById(R.id.btnLogoutStudent);
                                 btnPracticeNote = (Button) findViewById(R.id.btnPracticeNote);
                                 btnViewRequest = (Button) findViewById(R.id.btnViewRequest);
+                                btnBooking = (Button) findViewById(R.id.btnBookRoomStudent);
+                                btnGame = (Button) findViewById(R.id.btnMusicGameStudent);
+
 
 
                                 btnMyLesson.setOnClickListener(new View.OnClickListener() {
@@ -169,6 +201,32 @@ public class MainActivity extends AppCompatActivity {
                                             e.printStackTrace();
                                         }
 
+                                    }
+                                });
+
+                                btnBooking.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        Intent myIntent = new Intent(view.getContext(), Facitilies_BookingActivity.class);
+                                        myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                        try{
+                                            startActivity(myIntent);
+                                        }catch(android.content.ActivityNotFoundException e){
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                });
+
+                                btnGame.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent myIntent = new Intent (v.getContext(), jonchan.musex.MainActivity.class);
+                                        myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                        try{
+                                            startActivity(myIntent);
+                                        }catch(android.content.ActivityNotFoundException e){
+                                            e.printStackTrace();
+                                        }
                                     }
                                 });
                             }
