@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
 
-                }else{
+                }else{ //logined ?
 
                     mAuth = FirebaseAuth.getInstance();
                     String user_id = mAuth.getCurrentUser().getUid();
