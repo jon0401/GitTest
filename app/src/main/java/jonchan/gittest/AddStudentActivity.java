@@ -79,20 +79,13 @@ public class AddStudentActivity extends AppCompatActivity {
                                             dialog.dismiss();
 
                                             mRfRequest = database.getReference().child("Request");
-                                            mRfRequest.child(user_id).child(student_uid).child("request_type").setValue("sent").addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            mRfRequest.child(student_uid).setValue(user_id).addOnSuccessListener(new OnSuccessListener<Void>() {
                                                 @Override
-                                                public void onComplete(@NonNull Task<Void> task) {
-                                                    if(task.isSuccessful()){
-                                                        mRfRequest.child(student_uid).child(user_id).child("request_type").setValue("received").addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                            @Override
-                                                            public void onSuccess(Void aVoid) {
-                                                                Toast.makeText(AddStudentActivity.this, "Request sent", Toast.LENGTH_SHORT).show();
-                                                            }
-                                                        });
-
-                                                    }
+                                                public void onSuccess(Void aVoid) {
+                                                    Toast.makeText(AddStudentActivity.this, "Request sent", Toast.LENGTH_SHORT).show();
                                                 }
                                             });
+
 
                                             Intent myIntent = new Intent(AddStudentActivity.this, DisplayStudentActivity.class);
                                             myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
