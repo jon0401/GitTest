@@ -33,7 +33,7 @@ public class DisplayLessonActivity extends AppCompatActivity {
 
     private Button btnAddLesson;
     private ListView mListView;
-    private ArrayList <String> mLessonList = new ArrayList<>();
+    private ArrayList <LessonDetail> mLessonList = new ArrayList<>();
     private ArrayList <String> mLessonIdList = new ArrayList<>();
     FirebaseDatabase database;
     DatabaseReference mRef;
@@ -77,7 +77,11 @@ public class DisplayLessonActivity extends AppCompatActivity {
 
                             String id = postSnapshot.getKey();
                             String date = postSnapshot.child("Date").getValue(String.class);
-                            mLessonList.add(date);
+                            String startTime = postSnapshot.child("StartTime").getValue(String.class);
+                            String endTime = postSnapshot.child("EndTime").getValue(String.class);
+                            String location = postSnapshot.child("Location").getValue(String.class);
+
+                            mLessonList.add(new LessonDetail(date, startTime, endTime, location));
                             mLessonIdList.add(id);
                             listAdapter.notifyDataSetChanged();
                         }
@@ -108,10 +112,10 @@ public class DisplayLessonActivity extends AppCompatActivity {
     }
 
 
-    private class MyListAdapter extends ArrayAdapter<String>{
+    private class MyListAdapter extends ArrayAdapter<LessonDetail>{
 
         private int layout;
-        private MyListAdapter(Context context, int resource, List <String> objects) {
+        private MyListAdapter(Context context, int resource, List <LessonDetail> objects) {
             super (context, resource, objects);
             layout = resource;
         }
@@ -122,18 +126,20 @@ public class DisplayLessonActivity extends AppCompatActivity {
                 LayoutInflater inflater = LayoutInflater.from(getContext());
                 convertView = inflater.inflate(layout, parent, false);
                 final ViewHolder viewHolder = new ViewHolder();
-                viewHolder.lessonName = (TextView) convertView.findViewById(R.id.txtLesson);
-                viewHolder.btnNote = (Button) convertView.findViewById(R.id.btnNote);
-                viewHolder.btnNote.setOnClickListener(new View.OnClickListener() {
+                viewHolder.txtDate= (TextView) convertView.findViewById(R.id.txtDate);
+                viewHolder.txtTimeSlot = (TextView) convertView.findViewById(R.id.txtTimeSlot);
+                viewHolder.txtLocation = (TextView) convertView.findViewById(R.id.txtLocation);
+                viewHolder.btnAddNote = (Button) convertView.findViewById(R.id.btnAddNote);
+                viewHolder.btnAddNote.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         View parentRow = (View) view.getParent();
-                        ListView listView = (ListView) parentRow.getParent();
+                        ListView listView = (ListView) parentRow.getParent().getParent();
                         final int position = listView.getPositionForView(parentRow);
                         Log.d("Position", String.valueOf(position));
                         Intent myIntent = new Intent(view.getContext(), AddTeachingNoteActivity.class);
                         myIntent.putExtra("STUDENT_ID", student_uid);
-                        myIntent.putExtra("DATE", mLessonList.get(position));
+                        myIntent.putExtra("DATE", mLessonList.get(position).getDate());
                         myIntent.putExtra("LESSON_ID", mLessonIdList.get(position));
                         try {
                             startActivity(myIntent);
@@ -145,16 +151,19 @@ public class DisplayLessonActivity extends AppCompatActivity {
                 convertView.setTag(viewHolder);
 
                 mainViewHolder = (ViewHolder) convertView.getTag();
-                mainViewHolder.lessonName.setText(getItem(position));
+                mainViewHolder.txtDate.setText(getItem(position).getDate());
+                mainViewHolder.txtTimeSlot.setText(getItem(position).getStartTime() + "-" + getItem(position).getEndTime());
+                mainViewHolder.txtLocation.setText(getItem(position).getLocation());
+
                 DatabaseReference mRefNote = database.getReference("Lesson").child(mLessonIdList.get(position));
                 final ViewHolder finalMainViewHolder = mainViewHolder;
                 mRefNote.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         if (dataSnapshot.hasChild("Note") && !(dataSnapshot.child("Note").getValue().toString()).equals("")) {
-                            finalMainViewHolder.btnNote.setText("UPDATE NOTE");
+                            finalMainViewHolder.btnAddNote.setText("UPDATE NOTE");
                         } else{
-                            finalMainViewHolder.btnNote.setText("ADD NOTE");
+                            finalMainViewHolder.btnAddNote.setText("ADD NOTE");
                         }
                     }
 
@@ -171,8 +180,10 @@ public class DisplayLessonActivity extends AppCompatActivity {
 
     public class ViewHolder {
 
-        TextView lessonName;
-        Button btnNote;
+        TextView txtTimeSlot;
+        TextView txtDate;
+        TextView txtLocation;
+        Button btnAddNote;
     }
 }
 
