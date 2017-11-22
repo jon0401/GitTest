@@ -51,6 +51,7 @@ public class AddPracticeNoteActivity extends AppCompatActivity implements Number
     String noteContent;
     String date;
     String duration;
+    long dur;
     FirebaseDatabase database;
 
 
@@ -189,6 +190,7 @@ public class AddPracticeNoteActivity extends AppCompatActivity implements Number
                 newPracticeNote.child("Student").setValue(user_id);
                 newPracticeNote.child("Content").setValue(noteContent);
                 newPracticeNote.child("TimeStamp").setValue(epoch);
+                newPracticeNote.child("dur").setValue(dur);
                 if(!teacherName.equals("None")){
                     newPracticeNote.child("Teacher").setValue(teacherIDGet);
                 }else{
@@ -245,6 +247,8 @@ public class AddPracticeNoteActivity extends AppCompatActivity implements Number
                 eTxtPracticeNoteDurationEnter.setText(String.valueOf(numberPickerHour.getValue()) + " hour " + numberPickerMinute.getValue() + " minute");
                 numberPickerHour.setValue(numberPickerHour.getValue());
                 numberPickerMinute.setValue(numberPickerMinute.getValue());
+                dur = Long.valueOf(numberPickerHour.getValue() * 60 + numberPickerMinute.getValue());
+
                 dialog.dismiss();
             }
         });
