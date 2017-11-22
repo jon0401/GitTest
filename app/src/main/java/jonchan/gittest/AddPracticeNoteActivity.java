@@ -26,8 +26,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 public class AddPracticeNoteActivity extends AppCompatActivity implements NumberPicker.OnValueChangeListener{
 
@@ -167,6 +170,16 @@ public class AddPracticeNoteActivity extends AppCompatActivity implements Number
                 date = eTxtPracticeNoteDateEnter.getText().toString();
                 duration = eTxtPracticeNoteDurationEnter.getText().toString();
 
+                String str = date;
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-mm-dd");
+                Date date1= null;
+                try {
+                    date1 = df.parse(str);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                long epoch = -1 * date1.getTime();
+
                 DatabaseReference mRef;
                 mRef = database.getReference("PracticeNote");
                 DatabaseReference newPracticeNote = mRef.push();
@@ -175,6 +188,7 @@ public class AddPracticeNoteActivity extends AppCompatActivity implements Number
                 newPracticeNote.child("Duration").setValue(duration);
                 newPracticeNote.child("Student").setValue(user_id);
                 newPracticeNote.child("Content").setValue(noteContent);
+                newPracticeNote.child("TimeStamp").setValue(epoch);
                 if(!teacherName.equals("None")){
                     newPracticeNote.child("Teacher").setValue(teacherIDGet);
                 }else{
