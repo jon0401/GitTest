@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TimePicker;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,6 +31,7 @@ public class AddLessonActivity extends AppCompatActivity {
     private EditText etxtEndTime;
     private EditText etxtLocation;
     private FirebaseAuth mAuth;
+    private ImageView add_lesson_back;
     FirebaseDatabase database;
     DatabaseReference mRef;
     @Override
@@ -42,10 +44,17 @@ public class AddLessonActivity extends AppCompatActivity {
         etxtEndTime = (EditText) findViewById(R.id.etxtEndTime);
         etxtLocation = (EditText) findViewById(R.id.etxtLocation);
         btnAddLesson = (Button) findViewById(R.id.btnAddLesson);
+        add_lesson_back=(ImageView)findViewById(R.id.add_lesson_back);
 
         Intent myIntent = getIntent();
         final String student_uid = myIntent.getStringExtra("STUDENT_ID");
 
+        add_lesson_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         etxtDate.setOnClickListener(new View.OnClickListener() {
             @Override

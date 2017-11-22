@@ -1,6 +1,10 @@
 [
     {
-        "merged": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-sw600dp-v13\\design_layout_snackbar.xml",
-        "source": "C:\\Users\\jonat\\.android\\build-cache\\44a460d04686844407e6e95139d9190dcd9629cf\\output\\res\\layout-sw600dp-v13\\design_layout_snackbar.xml"
+        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/res/merged/androidTest/debug/layout-sw600dp-v13/design_layout_snackbar.xml",
+        "source": "/Users/Chung/.android/build-cache/a1d854439f855e6b6a13efeb44fcb0affc2e07d1/output/res/layout-sw600dp-v13/design_layout_snackbar.xml"
+    },
+    {
+        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-sw600dp-v13\\design_layout_snackbar.xml",
+        "source": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\.android\\build-cache\\44a460d04686844407e6e95139d9190dcd9629cf\\output\\res\\layout-sw600dp-v13\\design_layout_snackbar.xml"
     }
 ]

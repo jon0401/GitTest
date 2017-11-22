@@ -1,6 +1,10 @@
 [
     {
-        "merged": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\release\\drawable-v23\\abc_control_background_material.xml",
-        "source": "C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\drawable-v23\\abc_control_background_material.xml"
+        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\release\\drawable-v23\\abc_control_background_material.xml",
+        "source": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\drawable-v23\\abc_control_background_material.xml"
+    },
+    {
+        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable-v23/abc_control_background_material.xml",
+        "source": "/Users/Chung/.android/build-cache/cb946eb8db1700f41662df11e5efae11aeece94d/output/res/drawable-v23/abc_control_background_material.xml"
     }
 ]

@@ -1,13 +1,21 @@
 package jonchan.gittest;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -19,22 +27,27 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
-public class AddPracticeNoteActivity extends AppCompatActivity {
+public class AddPracticeNoteActivity extends AppCompatActivity implements NumberPicker.OnValueChangeListener{
 
     private TextView txtStudentCreatorName;
     private EditText eTxtPracticeNoteDateEnter;
+    private EditText eTxtPracticeNoteDurationEnter;
     private TextView mtxtPracticeNote;
     private Button btnSubmitPracticeNote;
     private Spinner spinnerChooseTeacher;
+    private ImageView add_practiceNote_back;
     private ArrayList <String> teacherList;
     private ArrayList <String> teacherIDList;
     private FirebaseAuth mAuth;
+    static Dialog dialog ;
     String student_uid;
     String teacherName;
     String teacherIDGet;
     String noteContent;
     String date;
+    String duration;
     FirebaseDatabase database;
 
 
@@ -45,13 +58,23 @@ public class AddPracticeNoteActivity extends AppCompatActivity {
 
         txtStudentCreatorName = (TextView) findViewById(R.id.txtStudentCreatorName);
         eTxtPracticeNoteDateEnter = (EditText) findViewById(R.id.etxtPracticeNoteDateEnter);
+        eTxtPracticeNoteDurationEnter = (EditText) findViewById(R.id.etxtPracticeNoteDurationEnter);
         mtxtPracticeNote = (TextView) findViewById(R.id.mtxtPracticeNote);
         btnSubmitPracticeNote = (Button) findViewById(R.id.btnSubmitPracticeNote);
         spinnerChooseTeacher = (Spinner) findViewById(R.id.spinnerChooseTeacher);
+        add_practiceNote_back = (ImageView)findViewById(R.id.add_practiceNote_back);
 
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         final String user_id = mAuth.getCurrentUser().getUid();
+
+        add_practiceNote_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
 
         txtStudentCreatorName.setText(user_id);
         DatabaseReference mRefStudent;
@@ -122,7 +145,19 @@ public class AddPracticeNoteActivity extends AppCompatActivity {
             }
         });
 
+        eTxtPracticeNoteDateEnter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDatePickDlg();
+            }
+        });
 
+        eTxtPracticeNoteDurationEnter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showNumberPickDlg();
+            }
+        });
 
         btnSubmitPracticeNote.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,11 +165,14 @@ public class AddPracticeNoteActivity extends AppCompatActivity {
 
                 noteContent = mtxtPracticeNote.getText().toString();
                 date = eTxtPracticeNoteDateEnter.getText().toString();
+                duration = eTxtPracticeNoteDurationEnter.getText().toString();
+
                 DatabaseReference mRef;
                 mRef = database.getReference("PracticeNote");
                 DatabaseReference newPracticeNote = mRef.push();
 
                 newPracticeNote.child("Date").setValue(date);
+                newPracticeNote.child("Duration").setValue(duration);
                 newPracticeNote.child("Student").setValue(user_id);
                 newPracticeNote.child("Content").setValue(noteContent);
                 if(!teacherName.equals("None")){
@@ -155,6 +193,71 @@ public class AddPracticeNoteActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    protected void showDatePickDlg(){
+        Calendar calendar = Calendar.getInstance();
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(AddPracticeNoteActivity.this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                eTxtPracticeNoteDateEnter.setText(year + "-" + (monthOfYear+1) + "-" + dayOfMonth);
+            }
+        }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.show();
+    }
+
+
+
+    protected void showNumberPickDlg(){
+
+        final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(AddPracticeNoteActivity.this);
+        dialogBuilder.setTitle("Duration");
+
+        LayoutInflater inflater = AddPracticeNoteActivity.this.getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.number_picker_dialog, null);
+        dialogBuilder.setView(dialogView);
+
+
+
+        final NumberPicker numberPickerHour = (NumberPicker) dialogView.findViewById(R.id.numberPickerHour);
+        final NumberPicker numberPickerMinute = (NumberPicker) dialogView.findViewById(R.id.numberPickerMinute);
+
+        dialogBuilder.setPositiveButton("Set", new DialogInterface.OnClickListener(){
+
+            @Override
+            public void onClick(DialogInterface dialog, int i) {
+                eTxtPracticeNoteDurationEnter.setText(String.valueOf(numberPickerHour.getValue()) + " hour " + numberPickerMinute.getValue() + " minute");
+                numberPickerHour.setValue(numberPickerHour.getValue());
+                numberPickerMinute.setValue(numberPickerMinute.getValue());
+                dialog.dismiss();
+            }
+        });
+
+        dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        numberPickerHour.setMaxValue(24);
+        numberPickerHour.setMinValue(0);
+        numberPickerMinute.setMaxValue(59);
+        numberPickerMinute.setMinValue(0);
+
+        numberPickerHour.setOnValueChangedListener(this);
+        numberPickerMinute.setOnValueChangedListener(this);
+
+        dialogBuilder.create();
+        dialogBuilder.show();
+
+    }
+
+    @Override
+    public void onValueChange(NumberPicker numberPicker, int i, int i1) {
 
     }
 }
