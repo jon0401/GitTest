@@ -51,6 +51,7 @@ public class UpdatePracticeNoteActivity extends AppCompatActivity implements Num
     String practiceNoteID;
     String date;
     String duration;
+    long dur;
     int pos;
     FirebaseDatabase database;
 
@@ -265,6 +266,21 @@ public class UpdatePracticeNoteActivity extends AppCompatActivity implements Num
             }
         });
 
+        DatabaseReference mRefDur;
+        mRefDate = database.getReference("PracticeNote").child(practiceNoteID).child("dur");
+        mRefDate.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                long durGet = dataSnapshot.getValue(Long.class);
+                dur = durGet;
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
         btnSubmitPracticeNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -291,6 +307,7 @@ public class UpdatePracticeNoteActivity extends AppCompatActivity implements Num
                 mRef.child("Student").setValue(user_id);
                 mRef.child("Content").setValue(noteContent);
                 mRef.child("TimeStamp").setValue(epoch);
+                mRef.child("dur").setValue(dur);
                 if(!teacherName.equals("None")){
                     mRef.child("Teacher").setValue(teacherIDGet);
                 }else{
@@ -344,6 +361,7 @@ public class UpdatePracticeNoteActivity extends AppCompatActivity implements Num
                 eTxtPracticeNoteDurationEnter.setText(String.valueOf(numberPickerHour.getValue()) + " hour " + numberPickerMinute.getValue() + " minute");
                 numberPickerHour.setValue(numberPickerHour.getValue());
                 numberPickerMinute.setValue(numberPickerMinute.getValue());
+                dur = Long.valueOf(numberPickerHour.getValue() * 60 + numberPickerMinute.getValue());
                 dialog.dismiss();
             }
         });
