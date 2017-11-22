@@ -20,6 +20,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -33,24 +34,21 @@ public class DisplayLessonStudentActivity extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference mRef;
     private FirebaseAuth mAuth;
+    Query query;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_lesson_student);
 
-        //Intent myIntent = getIntent();
-        //student_uid = myIntent.getStringExtra("STUDENT_ID");
-
         mListView = (ListView) findViewById(R.id.listViewLessonStudent);
-        //final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mLessonDetail);
-        //mListView.setAdapter(arrayAdapter);
 
         mAuth = FirebaseAuth.getInstance();
         final String user_id = mAuth.getCurrentUser().getUid();
         Log.d("StudentID", user_id);
         database = FirebaseDatabase.getInstance();
         mRef = database.getReference("Lesson");
+        query = mRef.orderByChild("TimeStamp");
         final MyListAdapter listAdapter = new MyListAdapter(this, R.layout.lessonlist_student_row, mLessonList);
         mListView.setAdapter(listAdapter);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -60,7 +58,7 @@ public class DisplayLessonStudentActivity extends AppCompatActivity {
             }
         });
 
-        mRef.addChildEventListener(new ChildEventListener() {
+        query.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 if(dataSnapshot.hasChild("Teacher") && dataSnapshot.hasChild("Student") && dataSnapshot.hasChild("Date")){
@@ -112,16 +110,16 @@ public class DisplayLessonStudentActivity extends AppCompatActivity {
         }
 
         public View getView (int position, View convertView, ViewGroup parent){
-            ViewHolder mainViewHolder = null;
+            ViewHolder mainViewHolder;
             if (convertView == null) {
                 LayoutInflater inflater = LayoutInflater.from(getContext());
                 convertView = inflater.inflate(layout, parent, false);
-                final ViewHolder viewHolder = new ViewHolder();
-                viewHolder.txtDate= (TextView) convertView.findViewById(R.id.txtDate);
-                viewHolder.txtTimeSlot = (TextView) convertView.findViewById(R.id.txtTimeSlot);
-                viewHolder.txtLocation = (TextView) convertView.findViewById(R.id.txtLocation);
-                viewHolder.btnTeachingNote = (Button) convertView.findViewById(R.id.btnTeachingNote);
-                viewHolder.btnTeachingNote.setOnClickListener(new View.OnClickListener() {
+                mainViewHolder = new ViewHolder();
+                mainViewHolder.txtDate= (TextView) convertView.findViewById(R.id.txtDate);
+                mainViewHolder.txtTimeSlot = (TextView) convertView.findViewById(R.id.txtTimeSlot);
+                mainViewHolder.txtLocation = (TextView) convertView.findViewById(R.id.txtLocation);
+                mainViewHolder.btnTeachingNote = (Button) convertView.findViewById(R.id.btnTeachingNote);
+                mainViewHolder.btnTeachingNote.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         View parentRow = (View) view.getParent();
@@ -140,16 +138,18 @@ public class DisplayLessonStudentActivity extends AppCompatActivity {
                         }
                     }
                 });
-                convertView.setTag(viewHolder);
+                convertView.setTag(mainViewHolder);
 
+            }else {
                 mainViewHolder = (ViewHolder) convertView.getTag();
-                mainViewHolder.txtDate.setText(getItem(position).getDate());
-                mainViewHolder.txtTimeSlot.setText(getItem(position).getStartTime() + "-" + getItem(position).getEndTime());
-                mainViewHolder.txtLocation.setText(getItem(position).getLocation());
-
-
-
             }
+
+
+            mainViewHolder = (ViewHolder) convertView.getTag();
+            mainViewHolder.txtDate.setText(getItem(position).getDate());
+            mainViewHolder.txtTimeSlot.setText(getItem(position).getStartTime() + "-" + getItem(position).getEndTime());
+            mainViewHolder.txtLocation.setText(getItem(position).getLocation());
+
             return convertView;
         }
     }

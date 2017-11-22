@@ -22,6 +22,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -44,9 +45,6 @@ public class DisplayStudentActivity extends AppCompatActivity {
         btnAddStudent = (Button) findViewById(R.id.btnAddStudent);
 
         mListView = (ListView) findViewById(R.id.listViewStudent);
-        //final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.studentlist_row, mLessonDetail);
-        //mListView.setAdapter(arrayAdapter);
-        //generateListContent();
 
         mAuth = FirebaseAuth.getInstance();
         String user_id = mAuth.getCurrentUser().getUid();
@@ -131,15 +129,15 @@ public class DisplayStudentActivity extends AppCompatActivity {
         }
 
         public View getView (int position, View convertView, ViewGroup parent){
-            ViewHolder mainViewHolder = null;
+            ViewHolder mainViewHolder;
             if (convertView == null){
                 LayoutInflater inflater = LayoutInflater.from(getContext());
                 convertView = inflater.inflate(layout, parent, false);
-                final ViewHolder viewHolder = new ViewHolder();
-                viewHolder.studentName = (TextView) convertView.findViewById(R.id.txtStudent);
-                viewHolder.btnAddLesson = (Button) convertView.findViewById(R.id.btnLesson);
-                viewHolder.btnProgression = (Button) convertView.findViewById(R.id.btnProgression);
-                viewHolder.btnAddLesson.setOnClickListener(new View.OnClickListener() {
+                mainViewHolder = new ViewHolder();
+                mainViewHolder.studentName = (TextView) convertView.findViewById(R.id.txtStudent);
+                mainViewHolder.btnAddLesson = (Button) convertView.findViewById(R.id.btnLesson);
+                mainViewHolder.btnProgression = (Button) convertView.findViewById(R.id.btnProgression);
+                mainViewHolder.btnAddLesson.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         View parentRow = (View) view.getParent();
@@ -155,7 +153,7 @@ public class DisplayStudentActivity extends AppCompatActivity {
                         }
                     }
                 });
-                viewHolder.btnProgression.setOnClickListener(new View.OnClickListener() {
+                mainViewHolder.btnProgression.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         View parentRow = (View) view.getParent();
@@ -171,12 +169,14 @@ public class DisplayStudentActivity extends AppCompatActivity {
                         }
                     }
                 });
-                convertView.setTag(viewHolder);
+                convertView.setTag(mainViewHolder);
 
+
+            }else {
                 mainViewHolder = (ViewHolder) convertView.getTag();
-                mainViewHolder.studentName.setText(getItem(position));
             }
 
+            mainViewHolder.studentName.setText(getItem(position));
             return convertView;
         }
     }

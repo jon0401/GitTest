@@ -20,6 +20,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -37,6 +38,7 @@ public class DisplayLessonActivity extends AppCompatActivity {
     private ArrayList <String> mLessonIdList = new ArrayList<>();
     FirebaseDatabase database;
     DatabaseReference mRef;
+    Query query;
     private FirebaseAuth mAuth;
     String student_uid;
     String lesson_id;
@@ -51,13 +53,12 @@ public class DisplayLessonActivity extends AppCompatActivity {
 
         btnAddLesson = (Button) findViewById(R.id.btnAddStudent);
         mListView = (ListView) findViewById(R.id.listViewLesson);
-        //final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mLessonDetail);
-        //mListView.setAdapter(arrayAdapter);
 
         mAuth = FirebaseAuth.getInstance();
         final String user_id = mAuth.getCurrentUser().getUid();
         database = FirebaseDatabase.getInstance();
         mRef = database.getReference("Lesson");
+        query = mRef.orderByChild("TimeStamp");
         final MyListAdapter listAdapter = new MyListAdapter(this, R.layout.lessonlist_row, mLessonList);
         mListView.setAdapter(listAdapter);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -66,13 +67,13 @@ public class DisplayLessonActivity extends AppCompatActivity {
 
             }
         });
-        mRef.addValueEventListener(new ValueEventListener() {
+        query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
                     if(postSnapshot.hasChild("Teacher") && postSnapshot.hasChild("Student") && postSnapshot.hasChild("Date")){
-                        Log.d("Teacher", postSnapshot.child("Teacher").getValue().toString());
-                        Log.d("Student", postSnapshot.child("Student").getValue().toString());
+                        //Log.d("Teacher", postSnapshot.child("Teacher").getValue().toString());
+                        //Log.d("Student", postSnapshot.child("Student").getValue().toString());
                         if((postSnapshot.child("Teacher").getValue().toString()).equals(user_id) && (postSnapshot.child("Student").getValue().toString()).equals(student_uid)){
 
                             String id = postSnapshot.getKey();
@@ -80,7 +81,7 @@ public class DisplayLessonActivity extends AppCompatActivity {
                             String startTime = postSnapshot.child("StartTime").getValue(String.class);
                             String endTime = postSnapshot.child("EndTime").getValue(String.class);
                             String location = postSnapshot.child("Location").getValue(String.class);
-
+                            Log.d("DT", date + " " + startTime);
                             mLessonList.add(new LessonDetail(date, startTime, endTime, location));
                             mLessonIdList.add(id);
                             listAdapter.notifyDataSetChanged();
@@ -121,16 +122,16 @@ public class DisplayLessonActivity extends AppCompatActivity {
         }
 
         public View getView (int position, View convertView, ViewGroup parent){
-            ViewHolder mainViewHolder = null;
+            ViewHolder mainViewHolder;
             if (convertView == null) {
                 LayoutInflater inflater = LayoutInflater.from(getContext());
                 convertView = inflater.inflate(layout, parent, false);
-                final ViewHolder viewHolder = new ViewHolder();
-                viewHolder.txtDate= (TextView) convertView.findViewById(R.id.txtDate);
-                viewHolder.txtTimeSlot = (TextView) convertView.findViewById(R.id.txtTimeSlot);
-                viewHolder.txtLocation = (TextView) convertView.findViewById(R.id.txtLocation);
-                viewHolder.btnAddNote = (Button) convertView.findViewById(R.id.btnAddNote);
-                viewHolder.btnAddNote.setOnClickListener(new View.OnClickListener() {
+                mainViewHolder = new ViewHolder();
+                mainViewHolder.txtDate= (TextView) convertView.findViewById(R.id.txtDate);
+                mainViewHolder.txtTimeSlot = (TextView) convertView.findViewById(R.id.txtTimeSlot);
+                mainViewHolder.txtLocation = (TextView) convertView.findViewById(R.id.txtLocation);
+                mainViewHolder.btnAddNote = (Button) convertView.findViewById(R.id.btnAddNote);
+                mainViewHolder.btnAddNote.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         View parentRow = (View) view.getParent();
@@ -148,32 +149,34 @@ public class DisplayLessonActivity extends AppCompatActivity {
                         }
                     }
                 });
-                convertView.setTag(viewHolder);
 
+
+                convertView.setTag(mainViewHolder);
+            }else {
                 mainViewHolder = (ViewHolder) convertView.getTag();
-                mainViewHolder.txtDate.setText(getItem(position).getDate());
-                mainViewHolder.txtTimeSlot.setText(getItem(position).getStartTime() + "-" + getItem(position).getEndTime());
-                mainViewHolder.txtLocation.setText(getItem(position).getLocation());
-
-                DatabaseReference mRefNote = database.getReference("Lesson").child(mLessonIdList.get(position));
-                final ViewHolder finalMainViewHolder = mainViewHolder;
-                mRefNote.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.hasChild("Note") && !(dataSnapshot.child("Note").getValue().toString()).equals("")) {
-                            finalMainViewHolder.btnAddNote.setText("UPDATE NOTE");
-                        } else{
-                            finalMainViewHolder.btnAddNote.setText("ADD NOTE");
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });
-
             }
+
+            mainViewHolder.txtDate.setText(getItem(position).getDate());
+            mainViewHolder.txtTimeSlot.setText(getItem(position).getStartTime() + "-" + getItem(position).getEndTime());
+            mainViewHolder.txtLocation.setText(getItem(position).getLocation());
+
+            DatabaseReference mRefNote = database.getReference("Lesson").child(mLessonIdList.get(position));
+            final ViewHolder finalMainViewHolder = mainViewHolder;
+            mRefNote.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.hasChild("Note") && !(dataSnapshot.child("Note").getValue().toString()).equals("")) {
+                        finalMainViewHolder.btnAddNote.setText("UPDATE NOTE");
+                    } else{
+                        finalMainViewHolder.btnAddNote.setText("ADD NOTE");
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
             return convertView;
         }
     }

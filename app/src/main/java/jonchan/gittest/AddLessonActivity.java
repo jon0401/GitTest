@@ -21,7 +21,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class AddLessonActivity extends AppCompatActivity {
 
@@ -95,12 +99,24 @@ public class AddLessonActivity extends AppCompatActivity {
                 String location = etxtLocation.getText().toString();
                 String startTime = etxtStartTime.getText().toString();
                 String endTime = etxtEndTime.getText().toString();
+
+                String str = date + " " + startTime + ":00";
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss");
+                Date date1= null;
+                try {
+                    date1 = df.parse(str);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                long epoch = -1 * date1.getTime();
+
                 newLesson.child("Date").setValue(date);
                 newLesson.child("StartTime").setValue(startTime);
                 newLesson.child("EndTime").setValue(endTime);
                 newLesson.child("Teacher").setValue(teacher_id);
                 newLesson.child("Student").setValue(student_uid);
                 newLesson.child("Location").setValue(location);
+                newLesson.child("TimeStamp").setValue(epoch);
 
 
                 Intent myIntent = new Intent(view.getContext(), DisplayLessonActivity.class);
@@ -126,7 +142,10 @@ public class AddLessonActivity extends AppCompatActivity {
         DatePickerDialog datePickerDialog = new DatePickerDialog(AddLessonActivity.this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                etxtDate.setText(year + "-" + (monthOfYear+1) + "-" + dayOfMonth);
+                if(dayOfMonth < 10){
+                    etxtDate.setText(year + "-" + (monthOfYear+1) + "-0" + dayOfMonth);
+                } else
+                    etxtDate.setText(year + "-" + (monthOfYear+1) + "-" + dayOfMonth);
             }
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
         datePickerDialog.show();
@@ -138,7 +157,15 @@ public class AddLessonActivity extends AppCompatActivity {
 
             @Override
             public void onTimeSet(TimePicker timePicker, int hour, int minute) {
-                etxtStartTime.setText(hour + ":" + minute);
+                if(hour < 10 && minute < 10){
+                    etxtStartTime.setText("0"+hour + ":0" + minute);
+                }else if(hour <10 && minute >= 10){
+                    etxtStartTime.setText("0"+hour + ":" + minute);
+                }else if(hour >=10 && minute < 10){
+                    etxtStartTime.setText(hour + ":0" + minute);
+                }else{
+                    etxtStartTime.setText(hour + ":" + minute);
+                }
             }
         }, calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),false);
         timePickerDialog.show();
@@ -150,7 +177,15 @@ public class AddLessonActivity extends AppCompatActivity {
 
             @Override
             public void onTimeSet(TimePicker timePicker, int hour, int minute) {
-                etxtEndTime.setText(hour + ":" + minute);
+                if(hour < 10 && minute < 10){
+                    etxtEndTime.setText("0"+hour + ":0" + minute);
+                }else if(hour <10 && minute >= 10){
+                    etxtEndTime.setText("0"+hour + ":" + minute);
+                }else if(hour >=10 && minute < 10){
+                    etxtEndTime.setText(hour + ":0" + minute);
+                }else{
+                    etxtEndTime.setText(hour + ":" + minute);
+                }
             }
         }, calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),false);
         timePickerDialog.show();
