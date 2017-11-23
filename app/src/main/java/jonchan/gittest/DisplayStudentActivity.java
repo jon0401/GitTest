@@ -2,6 +2,7 @@ package jonchan.gittest;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -28,7 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DisplayStudentActivity extends AppCompatActivity {
+public class DisplayStudentActivity extends BaseActivity {
 
     private ListView mListView;
     private Button btnAddStudent;
@@ -37,11 +38,17 @@ public class DisplayStudentActivity extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference mRef;
     private FirebaseAuth mAuth;
+    private Button btnhome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_student);
+
+        navigationView = (BottomNavigationView) findViewById(R.id.navigation);
+        navigationView.setOnNavigationItemSelectedListener(this);
+
         btnAddStudent = (Button) findViewById(R.id.btnAddStudent);
 
         mListView = (ListView) findViewById(R.id.listViewStudent);
@@ -116,6 +123,18 @@ public class DisplayStudentActivity extends AppCompatActivity {
         });
 
 
+
+
+    }
+
+    @Override
+    int getContentViewId() {
+        return R.layout.activity_display_student;
+    }
+
+    @Override
+    int getNavigationMenuItemId() {
+        return R.id.navigation_contact;
     }
 
 

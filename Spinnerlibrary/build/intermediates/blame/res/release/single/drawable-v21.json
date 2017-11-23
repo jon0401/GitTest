@@ -1,98 +1,34 @@
 [
     {
-        "merged": "/Users/erwinwong/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable-v21/design_password_eye.xml",
-        "source": "/Users/erwinwong/.android/build-cache/d6fe86861176a33ce5665efa56f3af748f2a1019/output/res/drawable-v21/design_password_eye.xml"
+        "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable-v21/notification_action_background.xml",
+        "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/drawable-v21/notification_action_background.xml"
     },
     {
-        "merged": "/Users/erwinwong/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable-v21/design_bottom_navigation_item_background.xml",
-        "source": "/Users/erwinwong/.android/build-cache/d6fe86861176a33ce5665efa56f3af748f2a1019/output/res/drawable-v21/design_bottom_navigation_item_background.xml"
+        "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable-v21/avd_show_password.xml",
+        "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/design/25.3.1/res/drawable-v21/avd_show_password.xml"
     },
     {
-        "merged": "/Users/erwinwong/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable-v21/avd_hide_password.xml",
-        "source": "/Users/erwinwong/.android/build-cache/d6fe86861176a33ce5665efa56f3af748f2a1019/output/res/drawable-v21/avd_hide_password.xml"
+        "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable-v21/abc_edit_text_material.xml",
+        "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/drawable-v21/abc_edit_text_material.xml"
     },
     {
-        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_action_bar_item_background_material.xml",
-        "source": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
+        "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable-v21/abc_action_bar_item_background_material.xml",
+        "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/drawable-v21/abc_action_bar_item_background_material.xml"
     },
     {
-        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable-v21/abc_action_bar_item_background_material.xml",
-        "source": "/Users/Chung/.android/build-cache/cb946eb8db1700f41662df11e5efae11aeece94d/output/res/drawable-v21/abc_action_bar_item_background_material.xml"
+        "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable-v21/avd_hide_password.xml",
+        "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/design/25.3.1/res/drawable-v21/avd_hide_password.xml"
     },
     {
-        "merged": "/Users/erwinwong/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable-v21/abc_action_bar_item_background_material.xml",
-        "source": "/Users/erwinwong/.android/build-cache/078dc351e5d6f7c5f92a6ee0d29fdcb4ac161077/output/res/drawable-v21/abc_action_bar_item_background_material.xml"
+        "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable-v21/design_password_eye.xml",
+        "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/design/25.3.1/res/drawable-v21/design_password_eye.xml"
     },
     {
-        "merged": "/Users/erwinwong/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable-v21/notification_action_background.xml",
-        "source": "/Users/erwinwong/.android/build-cache/078dc351e5d6f7c5f92a6ee0d29fdcb4ac161077/output/res/drawable-v21/notification_action_background.xml"
+        "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable-v21/abc_btn_colored_material.xml",
+        "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/drawable-v21/abc_btn_colored_material.xml"
     },
     {
-        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable-v21/abc_edit_text_material.xml",
-        "source": "/Users/Chung/.android/build-cache/cb946eb8db1700f41662df11e5efae11aeece94d/output/res/drawable-v21/abc_edit_text_material.xml"
-    },
-    {
-        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_btn_colored_material.xml",
-        "source": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\drawable-v21\\abc_btn_colored_material.xml"
-    },
-    {
-        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable-v21/design_password_eye.xml",
-        "source": "/Users/Chung/.android/build-cache/a1d854439f855e6b6a13efeb44fcb0affc2e07d1/output/res/drawable-v21/design_password_eye.xml"
-    },
-    {
-        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\release\\drawable-v21\\design_password_eye.xml",
-        "source": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\.android\\build-cache\\44a460d04686844407e6e95139d9190dcd9629cf\\output\\res\\drawable-v21\\design_password_eye.xml"
-    },
-    {
-        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable-v21/abc_btn_colored_material.xml",
-        "source": "/Users/Chung/.android/build-cache/cb946eb8db1700f41662df11e5efae11aeece94d/output/res/drawable-v21/abc_btn_colored_material.xml"
-    },
-    {
-        "merged": "/Users/erwinwong/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable-v21/abc_btn_colored_material.xml",
-        "source": "/Users/erwinwong/.android/build-cache/078dc351e5d6f7c5f92a6ee0d29fdcb4ac161077/output/res/drawable-v21/abc_btn_colored_material.xml"
-    },
-    {
-        "merged": "/Users/erwinwong/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable-v21/abc_edit_text_material.xml",
-        "source": "/Users/erwinwong/.android/build-cache/078dc351e5d6f7c5f92a6ee0d29fdcb4ac161077/output/res/drawable-v21/abc_edit_text_material.xml"
-    },
-    {
-        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\release\\drawable-v21\\avd_hide_password.xml",
-        "source": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\.android\\build-cache\\44a460d04686844407e6e95139d9190dcd9629cf\\output\\res\\drawable-v21\\avd_hide_password.xml"
-    },
-    {
-        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_edit_text_material.xml",
-        "source": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\drawable-v21\\abc_edit_text_material.xml"
-    },
-    {
-        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\release\\drawable-v21\\avd_show_password.xml",
-        "source": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\.android\\build-cache\\44a460d04686844407e6e95139d9190dcd9629cf\\output\\res\\drawable-v21\\avd_show_password.xml"
-    },
-    {
-        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable-v21/notification_action_background.xml",
-        "source": "/Users/Chung/.android/build-cache/cb946eb8db1700f41662df11e5efae11aeece94d/output/res/drawable-v21/notification_action_background.xml"
-    },
-    {
-        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable-v21/avd_hide_password.xml",
-        "source": "/Users/Chung/.android/build-cache/a1d854439f855e6b6a13efeb44fcb0affc2e07d1/output/res/drawable-v21/avd_hide_password.xml"
-    },
-    {
-        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable-v21/design_bottom_navigation_item_background.xml",
-        "source": "/Users/Chung/.android/build-cache/a1d854439f855e6b6a13efeb44fcb0affc2e07d1/output/res/drawable-v21/design_bottom_navigation_item_background.xml"
-    },
-    {
-        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable-v21/avd_show_password.xml",
-        "source": "/Users/Chung/.android/build-cache/a1d854439f855e6b6a13efeb44fcb0affc2e07d1/output/res/drawable-v21/avd_show_password.xml"
-    },
-    {
-        "merged": "/Users/erwinwong/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable-v21/avd_show_password.xml",
-        "source": "/Users/erwinwong/.android/build-cache/d6fe86861176a33ce5665efa56f3af748f2a1019/output/res/drawable-v21/avd_show_password.xml"
-    },
-    {
-        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\release\\drawable-v21\\design_bottom_navigation_item_background.xml",
-        "source": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\.android\\build-cache\\44a460d04686844407e6e95139d9190dcd9629cf\\output\\res\\drawable-v21\\design_bottom_navigation_item_background.xml"
-    },
-    {
-        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\release\\drawable-v21\\notification_action_background.xml",
-        "source": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\drawable-v21\\notification_action_background.xml"
+        "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable-v21/design_bottom_navigation_item_background.xml",
+        "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/design/25.3.1/res/drawable-v21/design_bottom_navigation_item_background.xml"
     }
 ]

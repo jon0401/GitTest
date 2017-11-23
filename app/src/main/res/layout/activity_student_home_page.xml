@@ -4,6 +4,11 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
     <Button
         android:id="@+id/btnLogoutStudent"
         android:layout_width="wrap_content"
@@ -36,17 +41,7 @@
         android:layout_below="@+id/btnPracticeNote"
         android:text="Connect With Teacher" />
 
-<<<<<<< HEAD
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        app:itemBackground="@android:color/black"
-        app:itemIconTint="@android:color/white"
-        app:itemTextColor="@android:color/white"
-        app:menu="@menu/navigation"/>
-=======
+
     <Button
         android:id="@+id/btnBookRoomStudent"
         android:layout_width="match_parent"
@@ -63,7 +58,14 @@
         android:layout_below="@+id/btnBookRoomStudent"
         android:text="Music Game" />
 
+    </LinearLayout>
 
->>>>>>> 4c6b68d614302eae03c2a15a9e377aa7fd32d727
+    <include
+        layout="@layout/activity_base_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="bottom" />
 
 </RelativeLayout>

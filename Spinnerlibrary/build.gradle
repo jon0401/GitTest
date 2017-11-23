@@ -45,7 +45,6 @@ android {
 
 dependencies {
     compile 'com.github.rey5137:material:1.2.2'
-    compile 'com.android.support:support-v4:26.0.0-alpha1'
     compile 'com.android.support:design:26.0.0-alpha1'
 }
 

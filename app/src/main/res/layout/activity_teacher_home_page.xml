@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <Button
-        android:id="@+id/btnLogoutTeacher"
+    <TextView
+        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:text="Logout" />
+        android:layout_margin="16dp"
+        android:text="This is the Home tab built using RelativeLayout."
+        />
 
-    <Button
-        android:id="@+id/btnDisplayStudent"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/btnLogoutTeacher"
-        android:text="My Student" />
+        android:id="@+id/linearLayout3">
 
-    <Button
+        <Button
         android:id="@+id/btnBookRoomTeacher"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,17 +29,7 @@
         android:layout_below="@+id/btnDisplayStudent"
         android:text="Book a room" />
 
-<<<<<<< HEAD
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        app:itemBackground="@android:color/black"
-        app:itemIconTint="@android:color/white"
-        app:itemTextColor="@android:color/white"
-        app:menu="@menu/navigation"/>
-=======
+
     <Button
         android:id="@+id/btnMusicGameTeacher"
         android:layout_width="match_parent"
@@ -45,6 +37,30 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/btnBookRoomTeacher"
         android:text="Music Game" />
->>>>>>> 4c6b68d614302eae03c2a15a9e377aa7fd32d727
+
+        <Button
+            android:id="@+id/btnLogoutTeacher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="Logout" />
+
+        <Button
+            android:id="@+id/btnDisplayStudent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/btnLogoutTeacher"
+            android:text="My Student" />
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/activity_base_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="bottom" />
 
 </RelativeLayout>
