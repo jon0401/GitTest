@@ -91,7 +91,7 @@ public class RegisterActivity extends AppCompatActivity {
                             //get the UID of the current logined user
                             String user_id = mAuth.getCurrentUser().getUid();
 
-                            //create a new branch under "Users" where the branch name is the uid get above
+                            //create a new branch under "Users" w here the branch name is the uid get above
                             DatabaseReference current_user_db = mRef.child(user_id);
 
                             current_user_db.child("Name").setValue(name);

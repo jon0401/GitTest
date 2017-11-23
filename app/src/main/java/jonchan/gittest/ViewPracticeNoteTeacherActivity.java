@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -27,6 +28,8 @@ public class ViewPracticeNoteTeacherActivity extends AppCompatActivity {
     private TextView txtStudentCreatorName;
     private TextView eTxtPracticeNoteDateEnter;
     private TextView mtxtPracticeNote;
+    private TextView eTxtPracticeNoteDurationEnter;
+    private ImageView add_practiceNote_back;
     private FirebaseAuth mAuth;
     String student_uid;
     String practiceNoteID;
@@ -46,11 +49,20 @@ public class ViewPracticeNoteTeacherActivity extends AppCompatActivity {
 
         txtStudentCreatorName = (TextView) findViewById(R.id.txtStudentCreatorName);
         eTxtPracticeNoteDateEnter = (TextView) findViewById(R.id.etxtPracticeNoteDateEnter);
+        eTxtPracticeNoteDurationEnter = (TextView) findViewById(R.id.etxtPracticeNoteDurationEnter);
         mtxtPracticeNote = (TextView) findViewById(R.id.mtxtPracticeNote);
+        add_practiceNote_back = (ImageView)findViewById(R.id.add_practiceNote_back);
 
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         final String user_id = mAuth.getCurrentUser().getUid();
+
+        add_practiceNote_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         DatabaseReference mRefStudent;
         mRefStudent = database.getReference("Users").child(student_uid).child("Name");
@@ -74,6 +86,21 @@ public class ViewPracticeNoteTeacherActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String date = dataSnapshot.getValue(String.class);
                 eTxtPracticeNoteDateEnter.setText(date);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        DatabaseReference mRefDuration;
+        mRefDuration = database.getReference("PracticeNote").child(practiceNoteID).child("Duration");
+        mRefDuration.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String duration = dataSnapshot.getValue(String.class);
+                eTxtPracticeNoteDurationEnter.setText(duration);
             }
 
             @Override

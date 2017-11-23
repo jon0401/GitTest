@@ -27,6 +27,7 @@
         android:layout_below="@+id/btnDisplayStudent"
         android:text="Book a room" />
 
+<<<<<<< HEAD
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
@@ -36,5 +37,14 @@
         app:itemIconTint="@android:color/white"
         app:itemTextColor="@android:color/white"
         app:menu="@menu/navigation"/>
+=======
+    <Button
+        android:id="@+id/btnMusicGameTeacher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btnBookRoomTeacher"
+        android:text="Music Game" />
+>>>>>>> 4c6b68d614302eae03c2a15a9e377aa7fd32d727
 
 </RelativeLayout>

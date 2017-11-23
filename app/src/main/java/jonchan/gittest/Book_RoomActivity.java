@@ -75,47 +75,32 @@ public class Book_RoomActivity extends Activity{
         data_list.add("10:00am-10:30am");
         data_list.add("10:30am-11:00am");
         data_list.add("11:00am-12:00am");
-        //适配器
+
         arr_adapter= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data_list);
-        //设置样式
+
         arr_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //加载适配器
+
         spinner.setAdapter(arr_adapter);
 
-        //位置选择
-        data_list2 = new ArrayList<String>();//数据
-        data_list2.add("朝南");
-        data_list2.add("靠走廊");
-        data_list2.add("大厅附近");
-        data_list2.add("挨着门");
-        //适配器
+        //position selection
+        data_list2 = new ArrayList<String>();//database
+        data_list2.add("Facing south");
+        data_list2.add("near aisle");
+        data_list2.add("Near the lobby");
+        data_list2.add("Near the doorway");
+
         arr_adapter2= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data_list2);
-        //设置样式
+
         arr_adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //加载适配器
+
         book_room_location.setAdapter(arr_adapter2);
-        //日期选择
+        //data selection
         book_room_edittext1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                book_room_edittext1.setOnTouchListener(new View.OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-                        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                            showDatePickDlg();
-                            return true;
-                        }
-                        return false;
-                    }
-                });
-                book_room_edittext1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-                    @Override
-                    public void onFocusChange(View v, boolean hasFocus) {
-                        if (hasFocus) {
-                            showDatePickDlg();
-                        }
-                    }
-                });
+
+                showDatePickDlg();
+
             }
         });
     }
@@ -124,7 +109,9 @@ public class Book_RoomActivity extends Activity{
         DatePickerDialog datePickerDialog = new DatePickerDialog(Book_RoomActivity.this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                Book_RoomActivity.this.book_room_edittext1.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
+
+                Book_RoomActivity.this.book_room_edittext1.setText(year + "-" + (monthOfYear+1) + "-" + dayOfMonth);
+
             }
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
         datePickerDialog.show();
