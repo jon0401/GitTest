@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30px"
                 android:layout_marginLeft="100dp"
-                android:hint="请选择日期"
+                android:hint="Please choose the date"
                 android:textColor="@color/colorUI"
                 android:textSize="20dp"/>
         </LinearLayout>

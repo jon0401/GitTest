@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/Users/erwinwong/GitTest/Spinnerlibrary/build/intermediates/res/merged/androidTest/debug/xml/nav_states.xml",
+        "source": "/Users/erwinwong/.android/build-cache/6f52860393b708bcf6256b94371c943a7a92d669/output/res/xml/nav_states.xml"
+    },
+    {
         "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/res/merged/androidTest/debug/xml/nav_states.xml",
         "source": "/Users/Chung/.android/build-cache/9b29174d3247b558f5fa0eadc2564e9261383ccb/output/res/xml/nav_states.xml"
     },
