@@ -33,4 +33,23 @@
         android:layout_below="@+id/btnBookRoomTeacher"
         android:text="Music Game" />
 
+    <ListView
+        android:id="@+id/listUpcomingLesson"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_below="@+id/btnMusicGameTeacher"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="44dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btnMusicGameTeacher"
+        android:layout_marginTop="16dp"
+        android:text="Upcoming Lessons in Next 7 Days"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
 </RelativeLayout>
