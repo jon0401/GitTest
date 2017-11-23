@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class Book_RoomActivity extends Activity{
+public class Book_RoomActivity extends BaseActivity{
 
     private EditText book_room_edittext1;
     private Spinner spinner;
@@ -104,6 +104,17 @@ public class Book_RoomActivity extends Activity{
             }
         });
     }
+
+    @Override
+    int getContentViewId() {
+        return R.layout.book_room;
+    }
+
+    @Override
+    int getNavigationMenuItemId() {
+        return R.id.navigation_booking;
+    }
+
     protected void showDatePickDlg() {
         Calendar calendar = Calendar.getInstance();
         DatePickerDialog datePickerDialog = new DatePickerDialog(Book_RoomActivity.this, new DatePickerDialog.OnDateSetListener() {

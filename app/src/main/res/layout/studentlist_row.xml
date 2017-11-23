@@ -24,13 +24,20 @@
             android:id="@+id/btnLesson"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lesson" />
+            android:text="Lesson"
+            android:layout_margin="10dp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/ovalbutton" />
+
 
         <Button
             android:id="@+id/btnProgression"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="Progression" />
+            android:layout_margin="10dp"
+            android:background="@drawable/ovalbutton"
+            android:text="Progression"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
 </LinearLayout>

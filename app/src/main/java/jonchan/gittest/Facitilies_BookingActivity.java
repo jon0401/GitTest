@@ -20,7 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class Facitilies_BookingActivity extends Activity{
+public class Facitilies_BookingActivity extends BaseActivity{
 
         private String[] room_type = new String[] {"Piano Room", "Band Room","Audio Room","Common Room"};
         private String[] room_num = new String[]{"101","102","103","104","105"};
@@ -103,7 +103,18 @@ public class Facitilies_BookingActivity extends Activity{
             sp2.setOnItemSelectedListener(selectListener2);
         }
 
-         private AdapterView.OnItemSelectedListener selectListener = new AdapterView.OnItemSelectedListener(){
+
+    @Override
+    int getContentViewId() {
+        return R.layout.book_room;
+    }
+
+    @Override
+    int getNavigationMenuItemId() {
+        return R.id.navigation_booking;
+    }
+
+    private AdapterView.OnItemSelectedListener selectListener = new AdapterView.OnItemSelectedListener(){
              public void onItemSelected(AdapterView parent, View v, int position, long id) {
                  pos = sp.getSelectedItemPosition();
                  adapter2 = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, pandc[pos]);
