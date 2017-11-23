@@ -6,7 +6,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
 
         <TextView
             android:id="@+id/txtDate"
@@ -34,13 +35,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        >
 
         <Button
             android:id="@+id/btnTeachingNote"
-            android:layout_width="wrap_content"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:text="View Teaching Note" />
+            android:text="View Teaching Note"
+            android:background="@drawable/ovalbutton"
+            android:textColor="#FFFFFF"
+            android:layout_centerHorizontal="true"
+            />
 
     </LinearLayout>
 

@@ -6,11 +6,10 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-<<<<<<< HEAD
+
 import android.view.MenuItem;
-=======
+
 import android.view.LayoutInflater;
->>>>>>> 8eb2d79f3ff6120f480f860a9bd3d894ced1dafe
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -52,10 +51,9 @@ public class MainActivity extends AppCompatActivity {
     private Button btnPracticeNote;
     private Button btnViewRequest;
     private Button btnBooking;
-<<<<<<< HEAD
+
     private MenuItem item;
-=======
->>>>>>> 8eb2d79f3ff6120f480f860a9bd3d894ced1dafe
+
     private Button btnGame;
     private ArrayList<LessonDetail> mUpcomingTeacherList = new ArrayList<>();
     private ArrayList <String> mLessonIdList = new ArrayList<>();

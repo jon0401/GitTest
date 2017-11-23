@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <merger version="3"><dataSet config="main"><source path="/Users/Linda/GitTest/Spinnerlibrary/src/main/assets"/><source path="/Users/Linda/GitTest/Spinnerlibrary/build/generated/assets/shaders/release"/></dataSet><dataSet config="release"><source path="/Users/Linda/GitTest/Spinnerlibrary/src/release/assets"/></dataSet></merger>
-=======
-<merger version="3"><dataSet config="main"><source path="/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/src/main/assets"/><source path="/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/generated/assets/shaders/release"/></dataSet><dataSet config="release"><source path="/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/src/release/assets"/></dataSet></merger>
->>>>>>> 8eb2d79f3ff6120f480f860a9bd3d894ced1dafe

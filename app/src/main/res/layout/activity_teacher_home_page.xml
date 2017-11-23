@@ -38,7 +38,6 @@
         android:layout_below="@+id/btnBookRoomTeacher"
         android:text="Music Game" />
 
-<<<<<<< HEAD
         <Button
             android:id="@+id/btnLogoutTeacher"
             android:layout_width="match_parent"
@@ -53,6 +52,24 @@
             android:layout_alignParentStart="true"
             android:layout_below="@+id/btnLogoutTeacher"
             android:text="My Student" />
+        <ListView
+            android:id="@+id/listUpcomingLesson"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_below="@+id/btnMusicGameTeacher"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="44dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/btnMusicGameTeacher"
+            android:layout_marginTop="16dp"
+            android:text="Upcoming Lessons in Next 7 Days"
+            android:textAlignment="center"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -63,25 +80,5 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_gravity="bottom" />
-=======
-    <ListView
-        android:id="@+id/listUpcomingLesson"
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:layout_below="@+id/btnMusicGameTeacher"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="44dp" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/btnMusicGameTeacher"
-        android:layout_marginTop="16dp"
-        android:text="Upcoming Lessons in Next 7 Days"
-        android:textAlignment="center"
-        android:textSize="20sp" />
->>>>>>> 8eb2d79f3ff6120f480f860a9bd3d894ced1dafe
 
 </RelativeLayout>

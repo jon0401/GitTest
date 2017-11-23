@@ -58,9 +58,6 @@
         android:layout_below="@+id/btnBookRoomStudent"
         android:text="Music Game" />
 
-<<<<<<< HEAD
-    </LinearLayout>
-=======
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
@@ -80,9 +77,7 @@
         android:layout_alignParentStart="true"
         android:layout_above="@+id/btnLogoutStudent" />
 
-
-
->>>>>>> 8eb2d79f3ff6120f480f860a9bd3d894ced1dafe
+    </LinearLayout>
 
     <include
         layout="@layout/activity_base_activity"

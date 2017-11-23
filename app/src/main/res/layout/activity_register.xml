@@ -1,12 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/background1">
+
+
+    <RadioGroup
+        android:id="@+id/rBtnGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+
+        >
+
+        <LinearLayout
+            android:layout_marginRight="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical" >
+
+            <RadioButton
+                android:id="@+id/rBtnTeacher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TEACHER"
+                android:layout_toStartOf="@+id/rBtnStudent"
+                />
+
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/teacher"
+                android:scaleType="fitXY"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical" >
+
+        <RadioButton
+            android:id="@+id/rBtnStudent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="STUDENT" />
+        <ImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:src="@drawable/student"
+            android:scaleType="fitXY"
+            />
+    </LinearLayout>
+
+    </RadioGroup>
 
     <EditText
         android:id="@+id/emailField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="570px"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
@@ -17,7 +75,7 @@
         android:id="@+id/passwordField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
@@ -29,6 +87,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Register"
+        android:background="@drawable/ovalbutton"
+        android:textColor="#000000"
+        android:layout_below="@+id/nameField"
+        android:layout_marginTop="20dp"
         android:layout_centerVertical="true"
         android:layout_alignParentStart="true" />
 
@@ -36,49 +98,12 @@
         android:id="@+id/nameField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btnRegister"
+        android:layout_below="@+id/passwordField"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Your name"
         android:inputType="textPersonName" />
 
-    <RadioGroup
-        android:id="@+id/rBtnGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_above="@+id/nameField"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="36dp">
-
-        <RadioButton
-            android:id="@+id/rBtnTeacher"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Teacher"
-            android:layout_above="@+id/nameField"
-            android:layout_toStartOf="@+id/rBtnStudent"
-            android:layout_marginEnd="36dp" />
-
-        <RadioButton
-            android:id="@+id/rBtnStudent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/nameField"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="22dp"
-            android:text="Student" />
-
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="I am a :"
-        android:textSize="20sp"
-        android:layout_alignTop="@+id/rBtnGroup"
-        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

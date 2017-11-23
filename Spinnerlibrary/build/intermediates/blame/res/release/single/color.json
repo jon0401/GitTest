@@ -40,7 +40,6 @@
         "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/color/abc_primary_text_material_light.xml"
     },
     {
-<<<<<<< HEAD
         "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/color/abc_hint_foreground_material_dark.xml",
         "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/color/abc_hint_foreground_material_dark.xml"
     },
@@ -51,18 +50,6 @@
     {
         "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/color/abc_tint_default.xml",
         "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/color/abc_tint_default.xml"
-=======
-        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/color/abc_tint_spinner.xml",
-        "source": "/Users/Chung/.android/build-cache/cb946eb8db1700f41662df11e5efae11aeece94d/output/res/color/abc_tint_spinner.xml"
-    },
-    {
-        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\release\\color\\design_tint_password_toggle.xml",
-        "source": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\.android\\build-cache\\44a460d04686844407e6e95139d9190dcd9629cf\\output\\res\\color\\design_tint_password_toggle.xml"
-    },
-    {
-        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/color/abc_tint_btn_checkable.xml",
-        "source": "/Users/Chung/.android/build-cache/cb946eb8db1700f41662df11e5efae11aeece94d/output/res/color/abc_tint_btn_checkable.xml"
->>>>>>> 8eb2d79f3ff6120f480f860a9bd3d894ced1dafe
     },
     {
         "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/color/switch_thumb_material_light.xml",

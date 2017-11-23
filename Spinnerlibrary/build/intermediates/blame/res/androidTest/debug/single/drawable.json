@@ -148,16 +148,16 @@
         "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/drawable/abc_seekbar_thumb_material.xml"
     },
     {
+        "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/androidTest/debug/drawable/abc_btn_check_material.xml",
+        "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/drawable/abc_btn_check_material.xml"
+    },
+    {
         "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/androidTest/debug/drawable/abc_ic_arrow_drop_right_black_24dp.xml",
         "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/drawable/abc_ic_arrow_drop_right_black_24dp.xml"
     },
     {
         "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/androidTest/debug/drawable/notification_bg.xml",
         "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/drawable/notification_bg.xml"
-    },
-    {
-        "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/androidTest/debug/drawable/abc_btn_check_material.xml",
-        "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/drawable/abc_btn_check_material.xml"
     },
     {
         "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/androidTest/debug/drawable/notification_tile_bg.xml",
