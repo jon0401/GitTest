@@ -58,7 +58,31 @@
         android:layout_below="@+id/btnBookRoomStudent"
         android:text="Music Game" />
 
+<<<<<<< HEAD
     </LinearLayout>
+=======
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btnMusicGameStudent"
+        android:layout_marginTop="16dp"
+        android:text="Upcoming Lessons in Next 7 Days"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
+    <ListView
+        android:id="@+id/listUpcomingLesson"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/btnLogoutStudent" />
+
+
+
+>>>>>>> 8eb2d79f3ff6120f480f860a9bd3d894ced1dafe
 
     <include
         layout="@layout/activity_base_activity"

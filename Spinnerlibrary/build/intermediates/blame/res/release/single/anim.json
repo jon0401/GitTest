@@ -4,6 +4,7 @@
         "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/anim/abc_fade_out.xml"
     },
     {
+<<<<<<< HEAD
         "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/anim/abc_slide_out_top.xml",
         "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/anim/abc_slide_out_top.xml"
     },
@@ -14,6 +15,18 @@
     {
         "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/anim/design_fab_out.xml",
         "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/design/25.3.1/res/anim/design_fab_out.xml"
+=======
+        "merged": "/Users/erwinwong/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/anim/abc_slide_in_bottom.xml",
+        "source": "/Users/erwinwong/.android/build-cache/078dc351e5d6f7c5f92a6ee0d29fdcb4ac161077/output/res/anim/abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/anim/design_bottom_sheet_slide_in.xml",
+        "source": "/Users/Chung/.android/build-cache/a1d854439f855e6b6a13efeb44fcb0affc2e07d1/output/res/anim/design_bottom_sheet_slide_in.xml"
+    },
+    {
+        "merged": "/Users/erwinwong/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/anim/abc_slide_out_bottom.xml",
+        "source": "/Users/erwinwong/.android/build-cache/078dc351e5d6f7c5f92a6ee0d29fdcb4ac161077/output/res/anim/abc_slide_out_bottom.xml"
+>>>>>>> 8eb2d79f3ff6120f480f860a9bd3d894ced1dafe
     },
     {
         "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/anim/abc_fade_in.xml",
@@ -36,6 +49,7 @@
         "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/anim/abc_slide_in_top.xml"
     },
     {
+<<<<<<< HEAD
         "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/anim/design_bottom_sheet_slide_in.xml",
         "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/design/25.3.1/res/anim/design_bottom_sheet_slide_in.xml"
     },
@@ -46,6 +60,18 @@
     {
         "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/anim/abc_popup_enter.xml",
         "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/anim/abc_popup_enter.xml"
+=======
+        "merged": "/Users/erwinwong/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/anim/abc_slide_out_top.xml",
+        "source": "/Users/erwinwong/.android/build-cache/078dc351e5d6f7c5f92a6ee0d29fdcb4ac161077/output/res/anim/abc_slide_out_top.xml"
+    },
+    {
+        "merged": "/Users/erwinwong/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/anim/abc_slide_in_top.xml",
+        "source": "/Users/erwinwong/.android/build-cache/078dc351e5d6f7c5f92a6ee0d29fdcb4ac161077/output/res/anim/abc_slide_in_top.xml"
+    },
+    {
+        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/anim/abc_slide_out_bottom.xml",
+        "source": "/Users/Chung/.android/build-cache/cb946eb8db1700f41662df11e5efae11aeece94d/output/res/anim/abc_slide_out_bottom.xml"
+>>>>>>> 8eb2d79f3ff6120f480f860a9bd3d894ced1dafe
     },
     {
         "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/anim/design_fab_in.xml",

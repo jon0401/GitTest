@@ -7,11 +7,12 @@ package jonchan.gittest;
 public class LessonDetail {
 
 
-    public LessonDetail(String date, String startTime, String endTime, String location){
+    public LessonDetail(String date, String startTime, String endTime, String location, String studentName){
         this.date = date;
         this.startTime = startTime;
         this.endTime = endTime;
         this.location = location;
+        this.studentName = studentName;
     }
 
     String date;
@@ -53,4 +54,17 @@ public class LessonDetail {
     public void setDate(String date) {
         this.date = date;
     }
+
+    public String getStudentName() {
+        return studentName;
+    }
+
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
+
+    String studentName;
+
+
+
 }

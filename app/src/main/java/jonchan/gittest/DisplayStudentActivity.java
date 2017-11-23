@@ -164,6 +164,7 @@ public class DisplayStudentActivity extends BaseActivity {
                         final int position = listView.getPositionForView(parentRow);
                         Log.d("Position",String.valueOf(position));
                         Intent myIntent = new Intent(view.getContext(), DisplayLessonActivity.class);
+                        myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         myIntent.putExtra("STUDENT_ID", mStudentUidList.get(position));
                         try{
                             startActivity(myIntent);

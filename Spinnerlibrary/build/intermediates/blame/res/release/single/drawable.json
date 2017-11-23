@@ -4,6 +4,7 @@
         "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/drawable/abc_ic_voice_search_api_material.xml"
     },
     {
+<<<<<<< HEAD
         "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable/abc_cab_background_internal_bg.xml",
         "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/drawable/abc_cab_background_internal_bg.xml"
     },
@@ -14,6 +15,18 @@
     {
         "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable/abc_btn_check_material.xml",
         "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/drawable/abc_btn_check_material.xml"
+=======
+        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable/abc_ic_clear_material.xml",
+        "source": "/Users/Chung/.android/build-cache/cb946eb8db1700f41662df11e5efae11aeece94d/output/res/drawable/abc_ic_clear_material.xml"
+    },
+    {
+        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable/abc_ic_arrow_drop_right_black_24dp.xml",
+        "source": "/Users/Chung/.android/build-cache/cb946eb8db1700f41662df11e5efae11aeece94d/output/res/drawable/abc_ic_arrow_drop_right_black_24dp.xml"
+    },
+    {
+        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable/abc_ic_go_search_api_material.xml",
+        "source": "/Users/Chung/.android/build-cache/cb946eb8db1700f41662df11e5efae11aeece94d/output/res/drawable/abc_ic_go_search_api_material.xml"
+>>>>>>> 8eb2d79f3ff6120f480f860a9bd3d894ced1dafe
     },
     {
         "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable/abc_ic_search_api_material.xml",
@@ -60,6 +73,7 @@
         "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/drawable/abc_list_selector_background_transition_holo_light.xml"
     },
     {
+<<<<<<< HEAD
         "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable/abc_ic_go_search_api_material.xml",
         "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/drawable/abc_ic_go_search_api_material.xml"
     },
@@ -70,6 +84,18 @@
     {
         "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable/abc_ratingbar_small_material.xml",
         "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/drawable/abc_ratingbar_small_material.xml"
+=======
+        "merged": "/Users/erwinwong/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable/abc_btn_radio_material.xml",
+        "source": "/Users/erwinwong/.android/build-cache/078dc351e5d6f7c5f92a6ee0d29fdcb4ac161077/output/res/drawable/abc_btn_radio_material.xml"
+    },
+    {
+        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\release\\drawable\\abc_ic_search_api_material.xml",
+        "source": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\drawable\\abc_ic_search_api_material.xml"
+    },
+    {
+        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\release\\drawable\\abc_dialog_material_background.xml",
+        "source": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\drawable\\abc_dialog_material_background.xml"
+>>>>>>> 8eb2d79f3ff6120f480f860a9bd3d894ced1dafe
     },
     {
         "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/drawable/abc_seekbar_tick_mark_material.xml",
