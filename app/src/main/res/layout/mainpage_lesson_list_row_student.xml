@@ -9,40 +9,41 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/txtDate"
+            android:id="@+id/txtStudent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:layout_marginStart="13dp" />
+            android:layout_marginStart="13dp"
+            android:padding="5dp" />
 
-        <TextView
-            android:id="@+id/txtTimeSlot"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:layout_marginStart="13dp" />
-
-        <TextView
-            android:id="@+id/txtLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:layout_marginStart="13dp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="horizontal"
         android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/btnAddNote"
-            android:layout_width="150dp"
+        <TextView
+            android:id="@+id/txtDate"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add Note"
-            android:textAlignment="center" />
+            android:layout_marginStart="13dp"
+            android:padding="5dp" />
+
+        <TextView
+            android:id="@+id/txtTimeSlot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:padding="5dp" />
+
+        <TextView
+            android:id="@+id/txtLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:padding="5dp" />
 
     </LinearLayout>
+
 
 </LinearLayout>
