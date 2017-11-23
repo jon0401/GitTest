@@ -40,12 +40,12 @@
         "source": "/Users/erwinwong/.android/build-cache/078dc351e5d6f7c5f92a6ee0d29fdcb4ac161077/output/res/color/abc_btn_colored_text_material.xml"
     },
     {
-        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\release\\color\\design_tint_password_toggle.xml",
-        "source": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\.android\\build-cache\\44a460d04686844407e6e95139d9190dcd9629cf\\output\\res\\color\\design_tint_password_toggle.xml"
-    },
-    {
         "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/color/abc_tint_spinner.xml",
         "source": "/Users/Chung/.android/build-cache/cb946eb8db1700f41662df11e5efae11aeece94d/output/res/color/abc_tint_spinner.xml"
+    },
+    {
+        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\release\\color\\design_tint_password_toggle.xml",
+        "source": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\.android\\build-cache\\44a460d04686844407e6e95139d9190dcd9629cf\\output\\res\\color\\design_tint_password_toggle.xml"
     },
     {
         "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/color/abc_tint_btn_checkable.xml",
