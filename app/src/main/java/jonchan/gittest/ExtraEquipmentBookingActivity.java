@@ -65,7 +65,7 @@ public class ExtraEquipmentBookingActivity extends Activity{
         //datasource
         dataList = new ArrayList<>();
         //create a SimpleAdapter
-        //第一个参数：上下文，第二个参数：数据源，第三个参数：item子布局，第四、五个参数：键值对，获取item布局中的控件id
+
         final SimpleAdapter s_adapter = new SimpleAdapter(this, getDate(), R.layout.extra_equipment_type_item, new String[]{ "image","text"}, new int[]{R.id.img,R.id.text});
         //connect the controller with adapter
         spinner.setAdapter(s_adapter);

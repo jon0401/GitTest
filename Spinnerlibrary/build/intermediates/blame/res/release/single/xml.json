@@ -6,5 +6,9 @@
     {
         "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\release\\xml\\nav_states.xml",
         "source": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\.android\\build-cache\\b0db20e95eb39807acd3b5c78a874c41f7c2f73c\\output\\res\\xml\\nav_states.xml"
+    },
+    {
+        "merged": "/Users/erwinwong/GitTest/Spinnerlibrary/build/intermediates/res/merged/release/xml/nav_states.xml",
+        "source": "/Users/erwinwong/.android/build-cache/6f52860393b708bcf6256b94371c943a7a92d669/output/res/xml/nav_states.xml"
     }
 ]

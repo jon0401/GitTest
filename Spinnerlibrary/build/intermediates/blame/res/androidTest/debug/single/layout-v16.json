@@ -6,5 +6,9 @@
     {
         "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v16\\notification_template_custom_big.xml",
         "source": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\layout-v16\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/erwinwong/GitTest/Spinnerlibrary/build/intermediates/res/merged/androidTest/debug/layout-v16/notification_template_custom_big.xml",
+        "source": "/Users/erwinwong/.android/build-cache/078dc351e5d6f7c5f92a6ee0d29fdcb4ac161077/output/res/layout-v16/notification_template_custom_big.xml"
     }
 ]
