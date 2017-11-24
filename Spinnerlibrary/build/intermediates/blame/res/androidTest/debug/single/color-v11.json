@@ -1,18 +1,26 @@
 [
     {
-        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/res/merged/androidTest/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
-        "source": "/Users/Chung/.android/build-cache/cb946eb8db1700f41662df11e5efae11aeece94d/output/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
+        "merged": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
+        "source": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
     },
     {
-        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
-        "source": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
+        "merged": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
+        "source": "C:\\Users\\Chung\\.android\\build-cache\\cb946eb8db1700f41662df11e5efae11aeece94d\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
     },
     {
-        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
-        "source": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
+        "merged": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
+        "source": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
     },
     {
-        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/res/merged/androidTest/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
-        "source": "/Users/Chung/.android/build-cache/cb946eb8db1700f41662df11e5efae11aeece94d/output/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
+        "merged": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
+        "source": "C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
+        "source": "C:\\Users\\Chung\\.android\\build-cache\\cb946eb8db1700f41662df11e5efae11aeece94d\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
+        "source": "C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
     }
 ]

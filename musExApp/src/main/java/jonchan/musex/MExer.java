@@ -23,8 +23,8 @@ import java.util.Properties;
  */
 
 public class MExer extends Application {
-    private static ArrayList <MQues> mQues;
-    private static ArrayList <MQues> selectedQues;
+    public static ArrayList <MQues> mQues;
+    public static ArrayList <MQues> selectedQues;
     public static final String TAG = "Exception";
     public static int defaultNoQ = 8;
     Context context;
@@ -137,6 +137,55 @@ public class MExer extends Application {
 
     }
 
+    public List<Integer> creatExer_firebase (int NoQ, Difficulty diff, QType [] qt ) throws IOException{
+        instantiateQues();
+        selectedQues = new ArrayList<>();
+        Collections.shuffle(mQues);
+        int mQuesSizeLeft = mQues.size()-1;
+
+        int [] stillNeedArr = Utility.fairShareQuestion(NoQ, qt.length);
+
+        while (mQuesSizeLeft != 0){
+            MQues currentMQ = mQues.get(mQuesSizeLeft);
+            if (diff == Difficulty.ALL){
+                for (int k = 0; k < qt.length; k ++){
+                    if (currentMQ.qtype == qt[k] && stillNeedArr[k] > 0) {
+                        stillNeedArr[k]--;
+                        selectedQues.add(currentMQ);
+                    }
+                }
+            } else {
+                for (int k = 0; k < qt.length; k ++){
+                    if ((currentMQ.diff == diff)&&(currentMQ.qtype == qt[k]) && stillNeedArr[k] > 0) {
+                        stillNeedArr[k]--;
+                        selectedQues.add(currentMQ);
+                    }
+                }
+            }
+            mQuesSizeLeft--;
+            boolean checkOk = true;
+            for (int i = 0; i < stillNeedArr.length; i++){
+                if (stillNeedArr[i] > 0){
+                    checkOk = false;
+                }
+            }
+            if (checkOk){
+                break;
+            }
+        }
+
+        if (selectedQues.size() != NoQ){
+            return null;
+        }
+        else {
+            List<Integer> selectedID = new ArrayList<>();
+            for (int i = 0 ; i < selectedQues.size(); i++){
+                selectedID.add(selectedQues.get(i).id);
+            }
+            return (selectedID);
+        }
+    }
+
 
 
     private void instantiateQues() throws IOException {
@@ -157,11 +206,11 @@ public class MExer extends Application {
             String ans = splitarray [3];
             String relatedAns = splitarray [4];
             List<String> rAns = Arrays.asList(relatedAns.split("\\s*,\\s*"));
-            String [] rAns_arr = rAns.toArray(new String[rAns.size()]);
+            //String [] rAns_arr = rAns.toArray(new String[rAns.size()]);
             String musicNotes = splitarray [5];
             List<String> mNotes = Arrays.asList(musicNotes.split("\\s*,\\s*"));
             String [] mNotes_arr = mNotes.toArray(new String[mNotes.size()]);
-            mQues.add(new MQues(id,mNotes_arr,ans,rAns_arr,diffEnum,qtypeEnum));
+            mQues.add(new MQues(id,mNotes_arr,ans,rAns,diffEnum,qtypeEnum));
         }
         br.close();
         Log.d(TAG, "READABLE!!!!");

@@ -1,4 +1,5 @@
 package jonchan.musex;
+import android.support.annotation.Keep;
 import android.util.Log;
 
 import java.io.Serializable;
@@ -18,25 +19,32 @@ enum Difficulty{
 
 public class MQues implements Serializable {
 
-    protected int id;
-    protected String [] ansRelated;
-    protected String ans;
-    protected String notes;
-    protected StringBuffer notesBuffer;
-    protected QType qtype;
-    protected Difficulty diff;
-    final String TAG = "Exception";
+    public int id;
+    //private String [] ansRelated;
 
-    public MQues (int id, String [] notes, String ans, String [] ansRelated, Difficulty diff, QType qtype){
+    public List <String> ansRelated;
+    public String ans;
+    public String notes;
+    private StringBuffer notesBuffer;
+    public QType qtype;
+    public Difficulty diff;
+    private final String TAG = "Exception";
+
+    public MQues() {
+        // Default constructor required for calls to DataSnapshot.getValue(User.class)
+    }
+
+    @Keep
+    public MQues (int id, String [] notes, String ans, List <String> ansRelated, Difficulty diff, QType qtype){
 
         this.id = id;
         this.ans = ans;
         this.diff = diff;
         this.qtype = qtype;
 
-        this.ansRelated = new String [ansRelated.length];
-        for (int i = 0; i < ansRelated.length; i++){
-            this.ansRelated[i] = ansRelated[i];
+        this.ansRelated = new ArrayList<>();
+        for (int i = 0; i < ansRelated.size(); i++){
+            this.ansRelated.add(ansRelated.get(i));
         }
 
         MNotes mn = MNotes.getInstance();

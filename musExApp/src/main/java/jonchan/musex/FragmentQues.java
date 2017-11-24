@@ -75,10 +75,10 @@ public class FragmentQues extends Fragment{
 
         if (savedInstanceState == null) {
             dropDownItems = new ArrayList<>();
-            int [] randSelectedIndex = Utility.getRandomArray(3, mQuesObject.ansRelated.length);  // 3 and 0 needs to be modified
+            int [] randSelectedIndex = Utility.getRandomArray(3, mQuesObject.ansRelated.size());  // 3 and 0 needs to be modified
             dropDownItems.add(mQuesObject.ans); // always 0 becoz must store the ans to dropdownlist
             for (int i = 0; i < randSelectedIndex.length; i++){
-                dropDownItems.add(mQuesObject.ansRelated[randSelectedIndex[i]]);
+                dropDownItems.add(mQuesObject.ansRelated.get(randSelectedIndex[i]));
             }
             Collections.shuffle(dropDownItems);
         }

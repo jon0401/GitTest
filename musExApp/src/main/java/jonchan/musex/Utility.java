@@ -55,12 +55,13 @@ public abstract class Utility {
     public static int [] fairShareQuestion (int totalQuestion, int totalType) {
         int [] arr;
 
-        if (totalQuestion >= totalType){
-            arr = new int [totalType];
-        }
-        else {
-            arr = new int [totalQuestion];
-        }
+//        if (totalQuestion >= totalType){
+//            arr = new int [totalType];
+//        }
+//        else {
+//            arr = new int [totalQuestion];
+//        }
+        arr = new int [totalType];
 
         for (int i = 0 ; i < arr.length; i ++){
             arr[i] = 0;

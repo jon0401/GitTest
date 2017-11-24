@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,7 +20,21 @@ import com.androidbuts.multispinnerfilter.MultiSpinnerListener;
 import java.io.IOException;
 import java.util.*;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class MainActivity extends AppCompatActivity {
+
+    /**fire base **/
+    FirebaseDatabase database;
+    FirebaseAuth mAuth;
+
+
 
     TextView myMNote;
     Spinner dropDown;
@@ -55,6 +70,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mus_ex_activity_main);
+
+        int [] a = Utility.fairShareQuestion(2,5);
+        for (int i = 0 ; i < a.length;  i++){
+            Log.d(TAG," GIVE ME THE GG : " + a[i]);
+        }
+
+        //tryAddGameToFire(mExer);
+        //tryAddStuffToFire();
+
+
     }
 
     @Override
@@ -172,6 +197,13 @@ public class MainActivity extends AppCompatActivity {
                 }
                 playExerIntent.putExtras(bundle);
                 Log.d(TAG,mExer.size() + " onCustomGenerateClick!!!!!!!!!!!!!!");
+
+                /**Firebase Activity **/
+                tryAddGameToFire(mExer);
+                /**Firebase Activity **/
+
+
+
                 startActivityForResult(playExerIntent, CHILD_RESULT_OBJECT);
             }
         });
@@ -211,9 +243,124 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(playExerIntent, CHILD_RESULT_OBJECT);
     }
 
+    public void tryAddStuffToFire(){
+        mAuth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
+
+        final String user_id = mAuth.getCurrentUser().getUid();
+
+        DatabaseReference mRef = database.getReference("Testing");
+        DatabaseReference newTestingData = mRef.push();
+        newTestingData.child("t1").setValue("Hello");
+
+    }
+
+    ArrayList<ArrayList<MQues>> All_Extracted_Games = new ArrayList<>();
+    ArrayList<MQues> mQues_firebase = new ArrayList<>();
+
+    public void tryAddGameToFire(ArrayList<MQues> mx){
+        mAuth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
+        final String user_id = mAuth.getCurrentUser().getUid();
+
+        /** Firebase RETRIEVE **/
+        DatabaseReference gameIDRef = database.getReference("Game");
+        gameIDRef.addChildEventListener(new ChildEventListener() {
+
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                    final String gameID = dataSnapshot.getKey();
+//                    Log.d(TAG, "HIIIIIIIIIIIIIIzzz       " + gameID);
+                    DatabaseReference gameUserIDRef = database.getReference("Game").child(gameID).child("Created");
+                    gameUserIDRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            String createdUserID = dataSnapshot.getValue(String.class);
+                            if (createdUserID != null){
+                                if (createdUserID.equals(user_id)){
+                                    DatabaseReference extractGameRef = database.getReference("Game").child(gameID);
+                                    extractGameRef.addValueEventListener(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(DataSnapshot dataSnapshot) {
+                                            ArrayList<MQues> mQues_firebase = new ArrayList<>();
+                                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
+                                                if (!snapshot.getValue().equals("Created")){
+                                                    for (DataSnapshot data : snapshot.getChildren()){
+                                                        MQues mq = snapshot.getValue(MQues.class);
+                                                        mQues_firebase.add(mq);
+//                                                        Log.d(TAG,"SUCCESSFULLL HOPEFULLY*****" + mq.ans);
+                                                        break;
+                                                    }
+                                                }
+//                                                Log.d(TAG, "HIi INNER____CHILD");
+                                            }
+                                            All_Extracted_Games.add(mQues_firebase);
+                                            Log.d(TAG, "ALL EXTRACT GAMES size () : " + All_Extracted_Games.size());
+                                        }
+                                        @Override
+                                        public void onCancelled(DatabaseError databaseError) {
+                                        }
+                                    });
+                                }
+                            }
+//                            Log.d(TAG,"FINAL-FINAL-CALL");
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+
+
+                    });
+
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        /** Firebase add **/
+        DatabaseReference mRef = database.getReference("Game");
+        DatabaseReference newQuesData = mRef.push();
+        for (int i = 0; i < mx.size(); i++){
+            MQues mq = mx.get(i);
+            //DatabaseReference newQuesData = mRef.push();
+            newQuesData.child("Question " + i).setValue(mq);
+        }
+        newQuesData.child("Created").setValue(user_id);
+
+        //MQues mq = new MQues(1004, new String [] {"db4","eb4","f4","fb4","gb4","ab4","bb4","db5"}, "Db Major", new String [] {"Db Major","C# Harmonic Minor","C# Melodic Minor","C# Natural Minor","Eb Major","Ab Major","Bb Major","D Major"}, Difficulty.MEDIUM, QType.SCALE_T);
+        //testQues tq = new testQues("C Major", new String [] {"c note", "d note"}, Difficulty.EASY);
+        //newGameData.setValue(tq);
+
+
+        //newGameData.child("asd").setValue("asd");
+    }
+
 
 }
 
+/**
 class SpinnerItem {
     private final String text;
     private final boolean isHint;
@@ -254,4 +401,4 @@ class MySpinnerAdapter extends ArrayAdapter<SpinnerItem> {
 
 }
 
-
+**/
