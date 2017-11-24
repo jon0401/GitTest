@@ -1,6 +1,7 @@
 package jonchan.gittest;
 
 import android.content.Intent;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,7 +23,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class DisplayProgressionActivity extends AppCompatActivity {
+public class DisplayProgressionActivity extends BaseActivity {
 
     private Button btnProgressionPracticeNoteTeacher;
     private TextView txtPracticeDuration;
@@ -37,8 +38,14 @@ public class DisplayProgressionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_progression);
 
+        navigationView = (BottomNavigationView) findViewById(R.id.navigation);
+        navigationView.setOnNavigationItemSelectedListener(this);
+
         Intent myIntent = getIntent();
         student_uid = myIntent.getStringExtra("STUDENT_ID");
+
+
+        setTitle("PROGRESS");
 
         btnProgressionPracticeNoteTeacher = (Button) findViewById(R.id.btnProgressionPracticeNoteTeacher);
         txtPracticeDuration = (TextView) findViewById(R.id.txtPracticeDuration);
@@ -102,5 +109,15 @@ public class DisplayProgressionActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    int getContentViewId() {
+        return R.layout.activity_display_progression;
+    }
+
+    @Override
+    int getNavigationMenuItemId() {
+        return R.id.navigation_contact;
     }
 }

@@ -1,130 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent" android:background="@drawable/background">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <ImageView
-            android:id="@+id/add_practiceNote_back"
-            android:layout_width="40dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="35px"
-            android:src="@drawable/back"/>
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/add_practiceNote_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="30px"
-            android:text="Practice Note"
-            android:textColor="@color/colorUI2"
-            android:textSize="30dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-
-        <TextView
-            android:id="@+id/txtStudentCreator"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25px"
-            android:textColor="@color/colorUI"
-            android:text="Created by: "
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/txtStudentCreatorName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25px"
-            android:layout_marginLeft="50dp"
-            android:text="Student Name"
-            android:textColor="@color/colorUI"
-            android:textSize="20sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/txtPracticeNoteDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25px"
-            android:text="Date: "
-            android:textColor="@color/colorUI"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/etxtPracticeNoteDateEnter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25px"
-            android:layout_marginLeft="100dp"
-            android:hint="Date"
-            android:textColor="@color/colorUI"
-            android:textSize="20sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/txtPracticeDuration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25px"
-            android:text="Duration"
-            android:textColor="@color/colorUI"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/etxtPracticeNoteDurationEnter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="25px"
-            android:hint="Duration"
-            android:textColor="@color/colorUI"
-            android:textSize="20sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="430dp"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp"
-        android:layout_alignParentStart="true"
-        android:id="@+id/linearLayout">
-
-
-        <TextView
-            android:id="@+id/mtxtPracticeNote"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:ems="10"
-            android:gravity="top"
-            android:text="Blank"
-            android:inputType="textMultiLine"
-            android:textSize="20sp" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/add_practiceNote_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:textAlignment="center"
+                android:layout_marginTop="30px"
+                android:text="Practice Note"
+                android:layout_gravity="center"
+                android:textColor="#223017"
+                android:textSize="30dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="30dp"
+            >
+
+            <TextView
+                android:id="@+id/txtStudentCreator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#223017"
+                android:text="Created By: "
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/txtStudentCreatorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:layout_marginLeft="30dp"
+                android:text="Student Name"
+                android:textColor="#223017"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="30dp"
+            >
+
+            <TextView
+                android:id="@+id/txtPracticeNoteDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px"
+                android:text="Date: "
+                android:textColor="#223017"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/etxtPracticeNoteDateEnter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px"
+                android:layout_marginLeft="85dp"
+                android:hint="Date"
+                android:textColor="#223017"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="30dp"
+            >
+
+            <TextView
+                android:id="@+id/txtPracticeDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px"
+                android:text="Duration"
+                android:textColor="#223017"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/etxtPracticeNoteDurationEnter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="30px"
+                android:hint="Duration"
+                android:textColor="#223017"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="265dp"
+            android:background="@drawable/noteframe"
+            android:layout_marginTop="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+             >
+
+            <TextView
+                android:id="@+id/mtxtPracticeNote"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:gravity="top"
+                android:layout_marginLeft="10dp"
+                android:text="Blank"
+                android:inputType="textMultiLine"
+                android:textSize="20sp" />
 
 
+        </ScrollView>
     </LinearLayout>
+    <include
+        layout="@layout/activity_base_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="bottom" />
 
-
-
-</LinearLayout>
+</RelativeLayout>
 
 

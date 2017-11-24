@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,7 +31,7 @@ import java.util.List;
  * Created by Chung on 11/11/2017.
  */
 
-public class DisplayLessonActivity extends AppCompatActivity {
+public class DisplayLessonActivity extends BaseActivity {
 
     private Button btnAddLesson;
     private ListView mListView;
@@ -47,6 +48,9 @@ public class DisplayLessonActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_displaylesson);
+
+        navigationView = (BottomNavigationView) findViewById(R.id.navigation);
+        navigationView.setOnNavigationItemSelectedListener(this);
 
         Intent myIntent = getIntent();
         student_uid = myIntent.getStringExtra("STUDENT_ID");
@@ -131,6 +135,16 @@ public class DisplayLessonActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    int getContentViewId() {
+        return R.layout.activity_displaylesson;
+    }
+
+    @Override
+    int getNavigationMenuItemId() {
+        return R.id.navigation_contact;
     }
 
 
