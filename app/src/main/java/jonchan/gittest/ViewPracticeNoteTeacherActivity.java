@@ -1,6 +1,7 @@
 package jonchan.gittest;
 
 import android.content.Intent;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,7 +24,7 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-public class ViewPracticeNoteTeacherActivity extends AppCompatActivity {
+public class ViewPracticeNoteTeacherActivity extends BaseActivity {
 
     private TextView txtStudentCreatorName;
     private TextView eTxtPracticeNoteDateEnter;
@@ -41,28 +42,33 @@ public class ViewPracticeNoteTeacherActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_practice_note_teacher);
 
+        navigationView = (BottomNavigationView) findViewById(R.id.navigation);
+        navigationView.setOnNavigationItemSelectedListener(this);
+
         Intent myIntent = getIntent();
         student_uid = myIntent.getStringExtra("STUDENT_ID");
         practiceNoteID = myIntent.getStringExtra("PracticeNote_ID");
         practiceNoteDate = myIntent.getStringExtra("PracticeNote_Date");
+
+        setTitle("VIEW PRACTICE NOTE");
 
 
         txtStudentCreatorName = (TextView) findViewById(R.id.txtStudentCreatorName);
         eTxtPracticeNoteDateEnter = (TextView) findViewById(R.id.etxtPracticeNoteDateEnter);
         eTxtPracticeNoteDurationEnter = (TextView) findViewById(R.id.etxtPracticeNoteDurationEnter);
         mtxtPracticeNote = (TextView) findViewById(R.id.mtxtPracticeNote);
-        add_practiceNote_back = (ImageView)findViewById(R.id.add_practiceNote_back);
+    //    add_practiceNote_back = (ImageView)findViewById(R.id.add_practiceNote_back);
 
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         final String user_id = mAuth.getCurrentUser().getUid();
 
-        add_practiceNote_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+   //     add_practiceNote_back.setOnClickListener(new View.OnClickListener() {
+     //       @Override
+       //     public void onClick(View view) {
+         //       finish();
+          //  }
+        // });
 
         DatabaseReference mRefStudent;
         mRefStudent = database.getReference("Users").child(student_uid).child("Name");
@@ -125,5 +131,15 @@ public class ViewPracticeNoteTeacherActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    int getContentViewId() {
+        return R.layout.activity_view_practice_note_teacher;
+    }
+
+    @Override
+    int getNavigationMenuItemId() {
+        return R.id.navigation_contact;
     }
 }

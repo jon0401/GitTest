@@ -2,6 +2,7 @@ package jonchan.gittest;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DisplayPracticeNoteTeacherActivity extends AppCompatActivity {
+public class DisplayPracticeNoteTeacherActivity extends BaseActivity {
 
     private ListView mListView;
     private ArrayList<String> mPracticeNoteList = new ArrayList<>();
@@ -41,9 +42,14 @@ public class DisplayPracticeNoteTeacherActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_practice_note_teacher);
+        navigationView = (BottomNavigationView) findViewById(R.id.navigation);
 
+        navigationView.setOnNavigationItemSelectedListener(this);
         Intent myIntent = getIntent();
+
         student_uid = myIntent.getStringExtra("STUDENT_ID");
+
+        setTitle("ALL PRACTICE NOTE");
 
         mListView = (ListView) findViewById(R.id.listViewPracticeNote);
 
@@ -97,6 +103,16 @@ public class DisplayPracticeNoteTeacherActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    int getContentViewId() {
+        return R.layout.activity_display_practice_note_teacher;
+    }
+
+    @Override
+    int getNavigationMenuItemId() {
+        return R.id.navigation_contact;
     }
 
     private class MyListAdapter extends ArrayAdapter<String> {

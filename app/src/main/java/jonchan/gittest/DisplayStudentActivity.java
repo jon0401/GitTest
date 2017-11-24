@@ -47,7 +47,7 @@ public class DisplayStudentActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_student);
 
-        setTitle("My Student");
+        setTitle("CONTACT");
 
         navigationView = (BottomNavigationView) findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(this);

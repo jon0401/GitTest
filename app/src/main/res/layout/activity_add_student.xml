@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context="jonchan.gittest.AddLessonActivity">
 
 
@@ -15,6 +16,8 @@
         tools:layout_editor_absoluteY="96dp"
         android:layout_marginTop="16dp"
         android:layout_below="@+id/etxtStudentEmail"
+        android:background="@drawable/ovalbutton"
+        android:textColor="#FFFFFF"
         android:layout_alignStart="@+id/etxtStudentEmail" />
 
     <EditText
@@ -27,8 +30,6 @@
         android:text=""
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerInParent="true" />
 
 </RelativeLayout>
