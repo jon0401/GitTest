@@ -56,7 +56,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
     }
     
 
-    private void updateNavigationBarState(){
+    protected void updateNavigationBarState(){
         int actionId = getNavigationMenuItemId();
         selectBottomNavigationBarItem(actionId);
     }

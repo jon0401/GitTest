@@ -2,6 +2,7 @@ package jonchan.gittest;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -30,17 +31,29 @@ public class LoginActivity extends AppCompatActivity{
     private Button mLoginBtn;
     private Button mRegisterBtn;
     private ProgressDialog mProgress;
+    private Typeface tf;
+    private Typeface tfl;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
         mEmailField = (EditText) findViewById(R.id.emailField);
         mPasswordField = (EditText) findViewById(R.id.passwordField);
         mLoginBtn = (Button) findViewById(R.id.btnLogin);
         mRegisterBtn = (Button) findViewById(R.id.btnRegister);
         mProgress = new ProgressDialog(this);
+
+        tf = Typeface.createFromAsset(getAssets(), "fonts/montserratsemibold.ttf");
+        tfl = Typeface.createFromAsset(getAssets(), "montserratlight.ttf");
+
+        mEmailField.setTypeface(tfl);
+        mPasswordField.setTypeface(tfl);
+
+        mLoginBtn.setTypeface(tf);
+        mRegisterBtn.setTypeface(tf);
 
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
