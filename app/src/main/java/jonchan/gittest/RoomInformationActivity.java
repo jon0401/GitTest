@@ -3,6 +3,7 @@ package jonchan.gittest;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.MotionEvent;
@@ -16,10 +17,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RoomInformationActivity extends Activity {
+public class RoomInformationActivity extends BaseActivity {
 
     private TextView textView ;
-    private ImageView room_information_back;
     private Button room_information_button;
     private String str;
 
@@ -37,6 +37,10 @@ public class RoomInformationActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.room_information);
+        setTitle("BOOKING");
+
+        navigationView = (BottomNavigationView) findViewById(R.id.navigation);
+        navigationView.setOnNavigationItemSelectedListener(this);
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         group = (RadioGroup) findViewById(R.id.group);
@@ -46,20 +50,14 @@ public class RoomInformationActivity extends Activity {
         viewPager.setOnTouchListener(onTouchListener);
         initRadioButton(imageIds.length);
 
-        room_information_back=(ImageView)findViewById(R.id.room_information_back);
         room_information_button=(Button)findViewById(R.id.room_information_button);
         //Obtain value from Fccitilies_BookingActivity
         Intent intent=getIntent();
         Bundle bundle=intent.getExtras();
         str=bundle.getString("room_num");
-        textView=(TextView)findViewById(R.id.room_num);
+        textView=(TextView) findViewById(R.id.room_num);
         textView.setText(str);
-        room_information_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+
         room_information_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,10 +68,23 @@ public class RoomInformationActivity extends Activity {
             }
         });
     }
+
+    @Override
+    int getContentViewId() {
+        return R.layout.room_information;
+    }
+
+    @Override
+    int getNavigationMenuItemId() {
+        return R.id.navigation_booking;
+    }
+
     /**
      * according to image number to do the button initialization
      * @param length
      */
+
+
     private void initRadioButton(int length) {
         for(int i = 0;i<length;i++){
             ImageView imageview = new ImageView(this);

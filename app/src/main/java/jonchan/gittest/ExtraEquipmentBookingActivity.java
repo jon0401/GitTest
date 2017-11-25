@@ -2,9 +2,11 @@ package jonchan.gittest;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.design.widget.BottomNavigationView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
@@ -15,7 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ExtraEquipmentBookingActivity extends Activity{
+public class ExtraEquipmentBookingActivity extends BaseActivity{
 
     private Spinner spinner;
     List<Map<String,Object>> dataList;
@@ -24,22 +26,21 @@ public class ExtraEquipmentBookingActivity extends Activity{
     private Spinner extra_equipment_spinner2;
     private Spinner extra_equipment_spinner3;
     private ArrayAdapter<String> arr_adapter;
+    private Button finish;
     private ArrayAdapter<String> arr_adapter2;
-    private ImageView extra_equipment_booking_back;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.extra_equipment_booking);
+        setTitle("EXTRA EQUIPMENT");
+
+        navigationView = (BottomNavigationView) findViewById(R.id.navigation);
+        navigationView.setOnNavigationItemSelectedListener(this);
+
         spinner = (Spinner) findViewById(R.id.extra_equipment_spinner);
         extra_equipment_spinner2=(Spinner)findViewById(R.id.extra_equipment_spinner2);
         extra_equipment_spinner3=(Spinner)findViewById(R.id.extra_equipment_spinner3);
-        extra_equipment_booking_back=(ImageView) findViewById(R.id.extra_equipment_booking_back);
-        extra_equipment_booking_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+
         //Model selection
         dataList2 = new ArrayList<String>();//database
         dataList2.add("YAMAHA");
@@ -70,6 +71,17 @@ public class ExtraEquipmentBookingActivity extends Activity{
         //connect the controller with adapter
         spinner.setAdapter(s_adapter);
     }
+
+    @Override
+    int getContentViewId() {
+        return R.layout.extra_equipment_booking;
+    }
+
+    @Override
+    int getNavigationMenuItemId() {
+        return R.id.navigation_booking;
+    }
+
     //database source
     private List<Map<String,Object>> getDate() {
         Map<String, Object> map = new HashMap<>();

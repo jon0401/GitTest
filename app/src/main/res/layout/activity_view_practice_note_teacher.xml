@@ -111,8 +111,8 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="265dp"
-            android:background="@drawable/noteframe"
+            android:layout_height="305dp"
+            android:background="@drawable/ovalbuttontans"
             android:layout_marginTop="30dp"
             android:layout_alignParentStart="true"
             android:layout_marginLeft="30dp"
@@ -125,7 +125,7 @@
                 android:layout_height="match_parent"
                 android:ems="10"
                 android:gravity="top"
-                android:layout_marginLeft="10dp"
+                android:layout_margin="10dp"
                 android:text="Blank"
                 android:inputType="textMultiLine"
                 android:textSize="20sp" />

@@ -13,14 +13,16 @@
             <Button
                 android:id="@+id/btnAddStudent"
                 android:layout_width="150dp"
+
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="5dp"
-                android:layout_height="wrap_content"
+                android:layout_height="25dp"
                 android:layout_gravity="right"
                 android:layout_above="@+id/listViewStudent"
-                android:text="Add Student"
+                android:text="Add CONTACT"
                 android:textColor="#FFFFFF"
-                android:background="@drawable/ovalbutton"
+                android:textSize="10sp"
+                android:background="@drawable/ovalbuttondark"
                 />
 
 

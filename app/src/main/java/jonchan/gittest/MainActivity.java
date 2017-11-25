@@ -46,12 +46,13 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference mRef;
     Query queryT;
     private ListView mListView;
-    private Button btnLogout;
     private Button btnDisplayStudent;
-    private Button btnMyLesson;
     private Button btnPracticeNote;
     private Button btnViewRequest;
     private Button btnBooking;
+    private Button btnMyLesson;
+
+
     private TextView upcomingteacher;
     private TextView recentteacher;
     private TextView upcomingstudent;
@@ -62,11 +63,9 @@ public class MainActivity extends AppCompatActivity {
 
     private MenuItem item;
 
-    private Button btnGame;
     private ArrayList<LessonDetail> mUpcomingTeacherList = new ArrayList<>();
     private ArrayList <String> mLessonIdList = new ArrayList<>();
     private ArrayList <String> mStudentUIDList = new ArrayList<>();
-
     private String value;
 
     private BottomNavigationView navigationView;
@@ -266,12 +265,16 @@ public class MainActivity extends AppCompatActivity {
                                 });
 
                                 updateNavigationBarState();
-                                btnMyLesson = (Button) findViewById(R.id.btnMyLesson);
-                                btnLogout = (Button) findViewById(R.id.btnLogoutStudent);
+
                                 btnPracticeNote = (Button) findViewById(R.id.btnPracticeNote);
                                 btnViewRequest = (Button) findViewById(R.id.btnViewRequest);
+                                /*
                                 btnBooking = (Button) findViewById(R.id.btnBookRoomStudent);
                                 btnGame = (Button) findViewById(R.id.btnMusicGameStudent);
+                                btnLogout = (Button) findViewById(R.id.btnLogoutStudent);
+                                */
+                                btnMyLesson = (Button) findViewById(R.id.btnMyLesson);
+
                                 mListView = (ListView) findViewById(R.id.listUpcomingLesson);
 
                                 final MyListAdapterStudent listAdapter = new MyListAdapterStudent (MainActivity.this, R.layout.mainpage_lesson_list_row_student, mUpcomingTeacherList);
@@ -341,21 +344,7 @@ public class MainActivity extends AppCompatActivity {
                                     }
                                 });
 
-                                btnMyLesson.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View view) {
-                                        Intent myIntent = new Intent(view.getContext(), DisplayLessonStudentActivity.class);
-                                        myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                        mUpcomingTeacherList.clear();
-                                        mLessonIdList.clear();
-                                        mStudentUIDList.clear();
-                                        try{
-                                            startActivity(myIntent);
-                                        }catch(android.content.ActivityNotFoundException e){
-                                            e.printStackTrace();
-                                        }
-                                    }
-                                });
+
 
                                 btnPracticeNote.setOnClickListener(new View.OnClickListener() {
                                     @Override
@@ -373,19 +362,7 @@ public class MainActivity extends AppCompatActivity {
                                     }
                                 });
 
-                                btnLogout.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View view) {
-                                        //mAuth = FirebaseAuth.getInstance();
-                                        mAuth.signOut();
-                                        Intent myIntent = new Intent(view.getContext(), LoginActivity.class);
-                                        try{
-                                            startActivity(myIntent);
-                                        }catch(android.content.ActivityNotFoundException e){
-                                            e.printStackTrace();
-                                        }
-                                    }
-                                });
+
 
                                 btnViewRequest.setOnClickListener(new View.OnClickListener() {
                                     @Override
@@ -403,6 +380,25 @@ public class MainActivity extends AppCompatActivity {
                                     }
                                 });
 
+
+                                btnMyLesson.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        Intent myIntent = new Intent(view.getContext(), DisplayLessonStudentActivity.class);
+                                        myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                        mUpcomingTeacherList.clear();
+                                        mLessonIdList.clear();
+                                        mStudentUIDList.clear();
+                                        try{
+                                            startActivity(myIntent);
+                                        }catch(android.content.ActivityNotFoundException e){
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                });
+
+                                /*
+
                                 btnBooking.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
@@ -411,6 +407,22 @@ public class MainActivity extends AppCompatActivity {
                                         mUpcomingTeacherList.clear();
                                         mLessonIdList.clear();
                                         mStudentUIDList.clear();
+                                        try{
+                                            startActivity(myIntent);
+                                        }catch(android.content.ActivityNotFoundException e){
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                });
+
+
+
+                                btnLogout.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        //mAuth = FirebaseAuth.getInstance();
+                                        mAuth.signOut();
+                                        Intent myIntent = new Intent(view.getContext(), LoginActivity.class);
                                         try{
                                             startActivity(myIntent);
                                         }catch(android.content.ActivityNotFoundException e){
@@ -434,6 +446,7 @@ public class MainActivity extends AppCompatActivity {
                                         }
                                     }
                                 });
+                                */
                             }
                         }
 

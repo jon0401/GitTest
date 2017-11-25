@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.BottomNavigationView;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -27,7 +28,6 @@ public class Book_RoomActivity extends BaseActivity{
     private List<String> data_list2;
     private ArrayAdapter<String> arr_adapter;
     private ArrayAdapter<String> arr_adapter2;
-    private ImageView book_room_back;
     private TextView textView;
     private Button book_room_button1;
     private Button book_room_button2;
@@ -35,9 +35,12 @@ public class Book_RoomActivity extends BaseActivity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.book_room);
+        setTitle("BOOKING");
+        navigationView = (BottomNavigationView) findViewById(R.id.navigation);
+        navigationView.setOnNavigationItemSelectedListener(this);
+
         book_room_edittext1=(EditText)findViewById(R.id.book_room_edittext1);
         spinner=(Spinner)findViewById(R.id.book_room_timeslot);
-        book_room_back=(ImageView)findViewById(R.id.book_room_back);
         book_room_location=(Spinner)findViewById(R.id.book_room_location);
         book_room_button1=(Button)findViewById(R.id.book_room_button1);
         book_room_button2=(Button)findViewById(R.id.book_room_button2);
@@ -59,15 +62,10 @@ public class Book_RoomActivity extends BaseActivity{
         });
         Intent intent=getIntent();
         Bundle bundle=intent.getExtras();//.getExtras() will get the extra data brought by intent
-        String str=bundle.getString("room_num");//getString()return to the specified key value 返回指定key的值
+        String str=bundle.getString("room_num");
         textView=(TextView)findViewById(R.id.book_room_textview1);//use TextView to show the value
         textView.setText(str);
-        book_room_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+
         //time choosing
         data_list = new ArrayList<String>();//database
         data_list.add("9:00am-9:30am");

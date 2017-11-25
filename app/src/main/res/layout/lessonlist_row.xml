@@ -6,13 +6,17 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center">
 
         <TextView
             android:id="@+id/txtDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="20dp"
+            android:padding="15dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorUI"
             android:layout_marginStart="13dp"
             />
 
@@ -20,14 +24,20 @@
             android:id="@+id/txtTimeSlot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="20dp"
+            android:padding="15dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorUI"
             android:layout_marginStart="13dp" />
 
         <TextView
             android:id="@+id/txtLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="20dp"
+            android:padding="15dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorUI"
             android:layout_marginStart="13dp" />
 
     </LinearLayout>
@@ -35,13 +45,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center">
 
         <Button
             android:id="@+id/btnAddNote"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
+            android:layout_width="320dp"
+            android:layout_height="34dp"
             android:text="Add Note"
+            android:textSize="20sp"
+            android:background="@drawable/ovalbuttontans"
+            android:textColor="@color/colorUI"
+            android:layout_gravity="center_horizontal"
             android:textAlignment="center" />
 
     </LinearLayout>

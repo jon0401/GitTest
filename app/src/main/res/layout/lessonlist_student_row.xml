@@ -13,21 +13,30 @@
             android:id="@+id/txtDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="20dp"
+            android:padding="15dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorUI"
             android:layout_marginStart="13dp" />
 
         <TextView
             android:id="@+id/txtTimeSlot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="20dp"
+            android:padding="15dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorUI"
             android:layout_marginStart="13dp" />
 
         <TextView
             android:id="@+id/txtLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="20dp"
+            android:padding="15dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorUI"
             android:layout_marginStart="13dp" />
 
     </LinearLayout>
@@ -36,16 +45,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="5dp"
         >
 
         <Button
             android:id="@+id/btnTeachingNote"
-            android:layout_width="220dp"
-            android:layout_height="wrap_content"
+            android:layout_width="320dp"
+            android:layout_height="34dp"
             android:text="View Teaching Note"
-            android:background="@drawable/ovalbutton"
-            android:textColor="#FFFFFF"
-            android:layout_centerHorizontal="true"
+            android:textSize="18sp"
+            android:background="@drawable/ovalbuttontans"
+            android:textColor="@color/colorUI"
+            android:layout_gravity="center_horizontal"
             />
 
     </LinearLayout>

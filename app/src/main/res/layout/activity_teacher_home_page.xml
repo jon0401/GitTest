@@ -16,6 +16,8 @@
         android:layout_marginTop="20dp"
         android:text="Upcoming Lessons"
         android:textAlignment="center"
+        android:textColor="@color/colorUI"
+        android:textStyle="bold"
         android:textAllCaps="true"
         android:textSize="20sp" />
 
@@ -36,6 +38,8 @@
         android:layout_marginTop="30dp"
         android:layout_below="@+id/listUpcomingLesson"
         android:text="Recent Note"
+        android:textColor="@color/colorUI"
+        android:textStyle="bold"
         android:textAllCaps="true"
         android:textAlignment="center"
         android:textSize="20sp" />

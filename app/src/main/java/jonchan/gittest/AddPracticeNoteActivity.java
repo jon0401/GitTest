@@ -40,7 +40,6 @@ public class AddPracticeNoteActivity extends AppCompatActivity implements Number
     private TextView mtxtPracticeNote;
     private Button btnSubmitPracticeNote;
     private Spinner spinnerChooseTeacher;
-    private ImageView add_practiceNote_back;
     private ArrayList <String> teacherList;
     private ArrayList <String> teacherIDList;
     private FirebaseAuth mAuth;
@@ -66,19 +65,19 @@ public class AddPracticeNoteActivity extends AppCompatActivity implements Number
         mtxtPracticeNote = (TextView) findViewById(R.id.mtxtPracticeNote);
         btnSubmitPracticeNote = (Button) findViewById(R.id.btnSubmitPracticeNote);
         spinnerChooseTeacher = (Spinner) findViewById(R.id.spinnerChooseTeacher);
-        add_practiceNote_back = (ImageView)findViewById(R.id.add_practiceNote_back);
+        // add_practiceNote_back = (ImageView)findViewById(R.id.add_practiceNote_back);
 
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         final String user_id = mAuth.getCurrentUser().getUid();
 
-        add_practiceNote_back.setOnClickListener(new View.OnClickListener() {
+    /*    add_practiceNote_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
-
+        */
 
         txtStudentCreatorName.setText(user_id);
         DatabaseReference mRefStudent;

@@ -2,6 +2,7 @@ package jonchan.gittest;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DisplayLessonStudentActivity extends AppCompatActivity {
+public class DisplayLessonStudentActivity extends BaseActivity {
 
     private ListView mListView;
     private ArrayList<LessonDetail> mLessonList = new ArrayList<>();
@@ -40,6 +41,8 @@ public class DisplayLessonStudentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_lesson_student);
+        navigationView = (BottomNavigationView) findViewById(R.id.navigation);
+        navigationView.setOnNavigationItemSelectedListener(this);
 
         mListView = (ListView) findViewById(R.id.listViewLessonStudent);
 
@@ -114,6 +117,16 @@ public class DisplayLessonStudentActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    int getContentViewId() {
+        return R.layout.activity_display_lesson_student;
+    }
+
+    @Override
+    int getNavigationMenuItemId() {
+        return R.id.navigation_home;
     }
 
     private class MyListAdapter extends ArrayAdapter<LessonDetail> {

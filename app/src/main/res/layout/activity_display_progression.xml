@@ -8,7 +8,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="@drawable/ovalbutton"
+        android:background="@drawable/ovalbuttondark"
         android:text="View Practice Note"
         android:textColor="#FFFFFF"
         />
@@ -19,12 +19,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/btnProgressionPracticeNoteTeacher"
-        android:textSize="25sp"
+        android:textSize="28sp"
         android:textAllCaps="true"
         android:layout_centerInParent="true"
-        android:textStyle="bold"
+        android:textStyle="bold|italic"
         android:textAlignment="center"
-        android:textColor="#61b65c"/>
+        android:textColor="@color/colorUI"/>
 
     <include
         layout="@layout/activity_base_activity"

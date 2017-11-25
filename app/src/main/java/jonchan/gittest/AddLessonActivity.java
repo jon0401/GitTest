@@ -3,6 +3,7 @@ package jonchan.gittest;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,7 +28,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class AddLessonActivity extends AppCompatActivity {
+public class AddLessonActivity extends BaseActivity {
 
     private Button btnAddLesson;
     private EditText etxtDate;
@@ -43,23 +44,28 @@ public class AddLessonActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addlesson);
 
+        setTitle("ADD LESSON");
+
+        navigationView = (BottomNavigationView) findViewById(R.id.navigation);
+        navigationView.setOnNavigationItemSelectedListener(this);
+
         etxtDate = (EditText) findViewById(R.id.etxtDate);
         etxtStartTime = (EditText) findViewById(R.id.etxtStartTime);
         etxtEndTime = (EditText) findViewById(R.id.etxtEndTime);
         etxtLocation = (EditText) findViewById(R.id.etxtLocation);
         btnAddLesson = (Button) findViewById(R.id.btnAddLesson);
-        add_lesson_back=(ImageView)findViewById(R.id.add_lesson_back);
+        // add_lesson_back=(ImageView)findViewById(R.id.add_lesson_back);
 
         Intent myIntent = getIntent();
         final String student_uid = myIntent.getStringExtra("STUDENT_ID");
 
-        add_lesson_back.setOnClickListener(new View.OnClickListener() {
+     /*   add_lesson_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
-
+    */
         etxtDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -136,6 +142,16 @@ public class AddLessonActivity extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    int getContentViewId() {
+        return R.layout.activity_addlesson;
+    }
+
+    @Override
+    int getNavigationMenuItemId() {
+        return R.id.navigation_home;
     }
 
     protected void showDatePickDlg(){
