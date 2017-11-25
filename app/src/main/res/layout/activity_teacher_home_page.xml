@@ -9,70 +9,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="This is the Home tab built using RelativeLayout."
-        />
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/linearLayout3">
-
-        <Button
-        android:id="@+id/btnBookRoomTeacher"
+        android:id="@+id/UpcomingLessonteacher"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/btnDisplayStudent"
-        android:text="Book a room" />
+        android:layout_marginTop="20dp"
+        android:text="Upcoming Lessons"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="20sp" />
 
-
-    <Button
-        android:id="@+id/btnMusicGameTeacher"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/btnBookRoomTeacher"
-        android:text="Music Game" />
-
-        <Button
-            android:id="@+id/btnLogoutTeacher"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:text="Logout" />
-
-        <Button
-            android:id="@+id/btnDisplayStudent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/btnLogoutTeacher"
-            android:text="My Student" />
         <ListView
             android:id="@+id/listUpcomingLesson"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:layout_below="@+id/btnMusicGameTeacher"
+            android:layout_height="250dp"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="44dp" />
+            android:layout_below="@+id/UpcomingLessonteacher"
+            android:layout_marginTop="30dp" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/btnMusicGameTeacher"
-            android:layout_marginTop="16dp"
-            android:text="Upcoming Lessons in Next 7 Days"
-            android:textAlignment="center"
-            android:textSize="20sp" />
 
-    </LinearLayout>
+    <TextView
+        android:id="@+id/RecentNoteTeacher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/listUpcomingLesson"
+        android:text="Recent Note"
+        android:textAllCaps="true"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
 
     <include
         layout="@layout/activity_base_activity"

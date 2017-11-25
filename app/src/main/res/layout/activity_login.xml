@@ -10,7 +10,7 @@
         android:src="@drawable/logobm"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="100dp"
 
         android:scaleType="fitXY"
         />
@@ -19,32 +19,39 @@
         android:id="@+id/emailField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="255dp"
+        android:layout_marginTop="265dp"
         android:ems="10"
-        android:hint="Email"
+        android:hint="EMAIL"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginLeft="100dp"
         />
 
     <EditText
         android:id="@+id/passwordField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="Password"
+        android:hint="PASSWORD"
         android:inputType="textPassword"
         android:layout_below="@+id/emailField"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+
+        />
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
         android:text="Login"
         android:textColor="#FFFFFF"
-        android:background="@drawable/ovalbutton"
+        android:background="@drawable/ovalbuttondark"
         android:layout_below="@+id/passwordField"
         android:layout_alignParentStart="true" />
 
@@ -53,11 +60,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
         android:layout_below="@+id/btnLogin"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/ovalbutton"
+        android:textColor="#233118"
+        android:background="@drawable/ovalbuttontans"
         android:text="REGISTER" />
 
 </RelativeLayout>

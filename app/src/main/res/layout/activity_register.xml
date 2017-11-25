@@ -10,53 +10,32 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
-
+        android:layout_marginTop="100dp"
         >
 
-        <LinearLayout
-            android:layout_marginRight="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:orientation="vertical" >
+
 
             <RadioButton
                 android:id="@+id/rBtnTeacher"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TEACHER"
+                android:button="@drawable/teacher"
                 android:layout_toStartOf="@+id/rBtnStudent"
+                android:checked="false"
+                android:padding="15dp"
                 />
 
-            <ImageView
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:src="@drawable/teacher"
-                android:scaleType="fitXY"
-                />
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_marginLeft="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:orientation="vertical" >
 
-        <RadioButton
-            android:id="@+id/rBtnStudent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:text="STUDENT" />
-        <ImageView
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:src="@drawable/student"
-            android:scaleType="fitXY"
-            />
-    </LinearLayout>
+            <RadioButton
+                android:id="@+id/rBtnStudent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/student"
+                android:checked="false"
+
+                android:layout_alignParentEnd="true"
+              />
 
     </RadioGroup>
 
@@ -64,9 +43,11 @@
         android:id="@+id/emailField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="570px"
+        android:layout_marginTop="630px"
         android:ems="10"
         android:hint="Email"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:inputType="textEmailAddress"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -78,6 +59,8 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Password"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:inputType="textPassword"
         android:layout_below="@+id/emailField"
         android:layout_alignParentStart="true" />
@@ -87,10 +70,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Register"
-        android:background="@drawable/ovalbutton"
-        android:textColor="#000000"
+        android:background="@drawable/ovalbuttondark"
+        android:textColor="#FFFFFF"
         android:layout_below="@+id/nameField"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
         android:layout_centerVertical="true"
         android:layout_alignParentStart="true" />
 
@@ -101,6 +86,8 @@
         android:layout_below="@+id/passwordField"
         android:layout_alignParentStart="true"
         android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:ems="10"
         android:hint="Your name"
         android:inputType="textPersonName" />
