@@ -1,6 +1,7 @@
 package jonchan.gittest;
 
 import android.content.Intent;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,7 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class AddTeachingNoteActivity extends AppCompatActivity {
+public class AddTeachingNoteActivity extends BaseActivity {
 
     private TextView txtStudentName;
     private TextView txtLessonGet;
@@ -33,6 +34,10 @@ public class AddTeachingNoteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_teaching_note);
+
+        setTitle("ADD TEACHING NOTE");
+        navigationView = (BottomNavigationView) findViewById(R.id.navigation);
+        navigationView.setOnNavigationItemSelectedListener(this);
 
         txtLessonGet = (TextView) findViewById(R.id.txtLessonGet);
         txtStudentName = (TextView) findViewById(R.id.txtStudentCreatorName);
@@ -96,5 +101,15 @@ public class AddTeachingNoteActivity extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    int getContentViewId() {
+        return R.layout.activity_add_teaching_note;
+    }
+
+    @Override
+    int getNavigationMenuItemId() {
+        return R.id.navigation_home;
     }
 }

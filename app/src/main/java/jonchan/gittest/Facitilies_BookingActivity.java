@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.design.widget.BottomNavigationView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -33,20 +36,27 @@ public class Facitilies_BookingActivity extends BaseActivity{
         private int pos;
         private int roomType=0;
         private int roomNum=0;
-        private ImageView choosing_room;
+
+        private Typeface tfrb;
+        private Typeface tfrm;
+        private TextView tvt;
 
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.facitilies_booking);
-            choosing_room=(ImageView)findViewById(R.id.choosing_room_back);
+            setTitle("BOOKING");
 
-            /**
+            navigationView = (BottomNavigationView) findViewById(R.id.navigation);
+            navigationView.setOnNavigationItemSelectedListener(this);
+
+            tfrb = Typeface.createFromAsset(getAssets(), "robotobold.ttf");
+            tfrm = Typeface.createFromAsset(getAssets(), "robotomedium.ttf");            /**
              * From the DB we obtain the data to assign to room types and number
              * * other Activity Data (Facilities\fees...）past from that activity
              */
             //obtaining database example
             FirebaseDatabase database = FirebaseDatabase.getInstance();
-            //获取Reference  "message" stored as key
+
             final DatabaseReference myRef = database.getReference("room_type");
             final DatabaseReference myRef2 = database.getReference("room_num");
 
@@ -83,12 +93,8 @@ public class Facitilies_BookingActivity extends BaseActivity{
                 }
             });*/
 
-            choosing_room.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    finish();
-                }
-            });
+            tvt = (TextView) findViewById(R.id.choosing_room_textview1);
+            tvt.setTypeface(tfrb);
             context = this;
             adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, room_type);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -101,12 +107,13 @@ public class Facitilies_BookingActivity extends BaseActivity{
             sp2 = (Spinner) findViewById(R.id.room_num);
             sp2.setAdapter(adapter2);
             sp2.setOnItemSelectedListener(selectListener2);
+
         }
 
 
     @Override
     int getContentViewId() {
-        return R.layout.book_room;
+        return R.layout.facitilies_booking;
     }
 
     @Override

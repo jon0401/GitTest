@@ -4,33 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="jonchan.gittest.AddLessonActivity">
+    tools:context="jonchan.gittest.AddLessonActivity"
+    android:background="@drawable/background">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:id="@+id/relativeLayout"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp">
 
 
         <TextView
             android:id="@+id/txtTeacher"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAllCaps="true"
             android:layout_alignEnd="@+id/txtLessonDate"
             android:layout_alignParentTop="true"
             android:layout_alignStart="@+id/txtLessonDate"
             android:layout_marginTop="16dp"
             android:text="Teacher:"
+            android:textColor="@color/colorUI"
             android:textSize="20sp" />
 
         <TextView
             android:id="@+id/txtLessonDateStudent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAllCaps="true"
             android:text="Lesson Date: "
+            android:textColor="@color/colorUI"
             android:textSize="20sp"
             android:layout_alignBaseline="@+id/txtLessonGetStudent"
             android:layout_alignBottom="@+id/txtLessonGetStudent"
@@ -42,6 +48,7 @@
             android:layout_height="wrap_content"
             android:text="Lesson Date"
             android:textSize="20sp"
+            android:textColor="@color/colorUI"
             android:layout_marginTop="12dp"
             android:layout_below="@+id/txtTeacherName"
             android:layout_alignStart="@+id/txtTeacherName" />
@@ -54,20 +61,19 @@
             android:layout_alignBottom="@+id/txtTeacher"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="72dp"
+            android:textColor="@color/colorUI"
             android:text="Teacher Name"
             android:textSize="20sp" />
 
     </RelativeLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:orientation="horizontal"
-        android:layout_alignParentStart="true"
+        android:layout_height="380dp"
         android:layout_below="@+id/relativeLayout"
-        android:id="@+id/linearLayout"
-        android:layout_alignParentBottom="true">
-
+        android:id="@+id/scrollView"
+        android:background="@drawable/ovalbuttontans"
+        android:layout_margin="20dp">
 
         <TextView
             android:id="@+id/mtxtNoteStudent"
@@ -76,9 +82,16 @@
             android:ems="10"
             android:text="Blank"
             android:inputType="textMultiLine"
+            android:layout_margin="20dp"
             android:gravity="top" />
 
+    </ScrollView>
 
-    </LinearLayout>
-
+    <include
+        layout="@layout/activity_base_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="bottom" />
 </RelativeLayout>

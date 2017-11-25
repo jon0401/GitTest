@@ -1,30 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent" android:background="@drawable/background">
+
+
+        <TextView
+            android:id="@+id/add_practiceNote_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_marginTop="30px"
+            android:text="Add Practice Note"
+            android:textColor="@color/colorUI2"
+            android:textAllCaps="true"
+            android:textSize="30dp" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <ImageView
-            android:id="@+id/add_practiceNote_back"
-            android:layout_width="40dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="35px"
-            android:src="@drawable/back"/>
-
-        <TextView
-            android:id="@+id/add_practiceNote_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="30px"
-            android:text="Add Practice Note"
-            android:textColor="@color/colorUI2"
-            android:textSize="30dp" />
-    </LinearLayout>
-
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/add_practiceNote_title">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,6 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25px"
+            android:textAllCaps="true"
             android:textColor="@color/colorUI"
             android:text="Created by: "
             android:textSize="20sp" />
@@ -62,6 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="25px"
             android:text="Date: "
+            android:textAllCaps="true"
             android:textColor="@color/colorUI"
             android:textSize="20sp" />
 
@@ -86,6 +86,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25px"
+            android:textAllCaps="true"
+
             android:text="Duration"
             android:textColor="@color/colorUI"
             android:textSize="20sp" />
@@ -111,6 +113,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Share with:"
+            android:textAllCaps="true"
+
             android:layout_marginTop="35px"
             android:textColor="@color/colorUI"
             android:textSize="20sp"
@@ -128,16 +132,17 @@
 
     </LinearLayout>
 
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="320dp"
+        android:layout_height="230dp"
         android:orientation="horizontal"
         android:layout_alignParentStart="true"
         android:id="@+id/linearLayout"
         android:layout_above="@+id/linearLayout2"
-        android:layout_below="@+id/relativeLayout">
-
+        android:layout_margin="15dp"
+        android:background="@drawable/ovalbuttontans">
 
         <EditText
             android:id="@+id/mtxtPracticeNote"
@@ -145,12 +150,14 @@
             android:layout_height="match_parent"
             android:ems="10"
             android:gravity="top"
+            android:layout_margin="10dp"
             android:hint="Write your note..."
             android:inputType="textMultiLine"
             android:textSize="20sp" />
 
 
     </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -162,11 +169,21 @@
 
         <Button
             android:id="@+id/btnSubmitPracticeNote"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Submit Note" />
+            android:layout_marginBottom="70dp"
+            android:layout_marginLeft="110dp"
+            android:background="@drawable/ovalbuttondark"
+            android:text="Submit Note"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
+    <include
+        layout="@layout/activity_base_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="bottom" />
 
-</LinearLayout>
+</RelativeLayout>

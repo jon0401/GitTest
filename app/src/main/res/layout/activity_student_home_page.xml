@@ -10,54 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btnLogoutStudent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:text="Logout" />
-
-    <Button
-        android:id="@+id/btnMyLesson"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:text="My Lesson" />
-
-    <Button
-        android:id="@+id/btnPracticeNote"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/btnMyLesson"
-        android:text="My Practice Note" />
-
-    <Button
-        android:id="@+id/btnViewRequest"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/btnPracticeNote"
-        android:text="Connect With Teacher" />
-
-
-    <Button
-        android:id="@+id/btnBookRoomStudent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Book a room"
-        android:layout_below="@+id/btnViewRequest"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:id="@+id/btnMusicGameStudent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/btnBookRoomStudent"
-        android:text="Music Game" />
 
     <TextView
         android:id="@+id/textView"
@@ -65,18 +17,77 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/btnMusicGameStudent"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="50dp"
         android:text="Upcoming Lessons in Next 7 Days"
+        android:textAllCaps="true"
         android:textAlignment="center"
         android:textSize="20sp" />
 
     <ListView
         android:id="@+id/listUpcomingLesson"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="220dp"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/textView"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/btnLogoutStudent" />
+
+        <!-- Uncomment it when needed
+
+        <TextView
+            android:id="@+id/textViewrecent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/btnMusicGameStudent"
+            android:layout_marginTop="20dp"
+            android:text="Recent Note"
+            android:textAllCaps="true"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+            -->
+<LinearLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="20dp"
+    android:layout_gravity="center"
+    android:layout_below="@+id/listUpcomingLesson"
+    >
+        <Button
+            android:id="@+id/btnMyLesson"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:textColor="#FFFFFF"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/ovalbuttondark"
+            android:text="My Lesson" />
+
+        <Button
+            android:id="@+id/btnPracticeNote"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="My Practice Note"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/ovalbuttondark"/>
+</LinearLayout>
+        <Button
+            android:id="@+id/btnViewRequest"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="center"
+            android:layout_below="@+id/btnPracticeNote"
+            android:text="Connect With Teacher"
+            android:textAllCaps="true"
+            android:textColor="@color/colorUI"
+            android:background="@drawable/ovalbuttontans"/>
 
     </LinearLayout>
 
