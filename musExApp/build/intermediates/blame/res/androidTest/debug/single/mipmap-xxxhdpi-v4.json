@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/Linda/GitTest/musExApp/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4/ic_launcher.png",
+        "source": "/Users/Linda/GitTest/musExApp/build/intermediates/bundles/debug/res/mipmap-xxxhdpi-v4/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/Linda/GitTest/musExApp/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4/ic_launcher_round.png",
+        "source": "/Users/Linda/GitTest/musExApp/build/intermediates/bundles/debug/res/mipmap-xxxhdpi-v4/ic_launcher_round.png"
+    }
+]
