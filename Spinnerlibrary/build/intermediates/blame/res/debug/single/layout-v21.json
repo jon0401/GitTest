@@ -1,18 +1,18 @@
 [
     {
-        "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
-        "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout-v21/notification_template_custom_big.xml"
+        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout-v21/notification_template_custom_big.xml"
     },
     {
-        "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
-        "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout-v21/notification_template_icon_group.xml"
+        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout-v21/notification_action_tombstone.xml"
     },
     {
-        "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
-        "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout-v21/notification_action_tombstone.xml"
+        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout-v21/notification_action.xml"
     },
     {
-        "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
-        "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout-v21/notification_action.xml"
+        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout-v21/notification_template_icon_group.xml"
     }
 ]

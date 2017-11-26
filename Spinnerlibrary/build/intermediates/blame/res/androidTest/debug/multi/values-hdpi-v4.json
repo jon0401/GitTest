@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
+        "outputFile": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
         "map": [
             {
                 "to": {
@@ -12,7 +12,7 @@
                     "endOffset": 327
                 },
                 "from": {
-                    "file": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "file": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/values-hdpi-v4/values-hdpi-v4.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

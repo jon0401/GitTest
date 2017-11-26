@@ -1,10 +1,10 @@
 [
     {
-        "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/androidTest/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
-        "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
+        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/res/merged/androidTest/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
+        "source": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
     },
     {
-        "merged": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/res/merged/androidTest/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
-        "source": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
+        "merged": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/res/merged/androidTest/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
+        "source": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
     }
 ]
