@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
@@ -46,36 +47,75 @@
             android:textAlignment="center"
             android:textSize="20sp" />
             -->
-<LinearLayout
 
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_marginTop="20dp"
-    android:layout_gravity="center"
-    android:layout_below="@+id/listUpcomingLesson"
-    >
-        <Button
-            android:id="@+id/btnMyLesson"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:textColor="#FFFFFF"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/ovalbuttondark"
-            android:text="My Lesson" />
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/btnPracticeNote"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:text="My Practice Note"
-            android:textAllCaps="true"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/ovalbuttondark"/>
-</LinearLayout>
+    <Button
+        android:id="@+id/btnMyLesson"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/ovalbuttondark"
+        android:text="My Lesson"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnPracticeNote"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/ovalbuttondark"
+        android:text="My Practice Note"
+        android:textAllCaps="true"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnMyLesson" />
+    </android.support.constraint.ConstraintLayout>
+
+<!--<LinearLayout-->
+
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="horizontal"-->
+    <!--android:layout_marginTop="20dp"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:layout_below="@+id/listUpcomingLesson"-->
+    <!--&gt;-->
+
+    <!--<Button-->
+        <!--android:id="@+id/btnMyLesson"-->
+        <!--android:layout_width="150dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:layout_marginRight="10dp"-->
+        <!--android:background="@drawable/ovalbuttondark"-->
+        <!--android:text="My Lesson"-->
+        <!--android:textColor="#FFFFFF" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/btnPracticeNote"-->
+        <!--android:layout_width="175dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@drawable/ovalbuttondark"-->
+        <!--android:text="My Practice Note"-->
+        <!--android:textAllCaps="true"-->
+        <!--android:textColor="#FFFFFF" />-->
+<!--</LinearLayout>-->
         <Button
             android:id="@+id/btnViewRequest"
             android:layout_width="200dp"
