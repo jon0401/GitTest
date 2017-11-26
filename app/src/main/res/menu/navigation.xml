@@ -2,18 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/action_recents"
-        android:icon="@drawable/contact"
-        android:title="game" />
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/home"
+        android:title="HOME" />
 
     <item
-        android:id="@+id/action_favorites"
-        android:icon="@drawable/contact"
-        android:title="booking" />
+        android:id="@+id/navigation_booking"
+        android:icon="@drawable/booking"
+        android:title="BOOKING" />
 
     <item
-        android:id="@+id/action_explore"
+        android:id="@+id/navigation_game"
+        android:icon="@drawable/game"
+        android:title="GAME" />
+
+    <item
+        android:id="@+id/navigation_contact"
         android:icon="@drawable/contact"
-        android:title="contact" />
+        android:title="CONTACT" />
 
 </menu>

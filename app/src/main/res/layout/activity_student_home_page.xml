@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <Button
         android:id="@+id/btnLogoutStudent"
@@ -34,6 +42,7 @@
         android:layout_below="@+id/btnPracticeNote"
         android:text="Connect With Teacher" />
 
+
     <Button
         android:id="@+id/btnBookRoomStudent"
         android:layout_width="match_parent"
@@ -50,6 +59,33 @@
         android:layout_below="@+id/btnBookRoomStudent"
         android:text="Music Game" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btnMusicGameStudent"
+        android:layout_marginTop="16dp"
+        android:text="Upcoming Lessons in Next 7 Days"
+        android:textAlignment="center"
+        android:textSize="20sp" />
 
+    <ListView
+        android:id="@+id/listUpcomingLesson"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/btnLogoutStudent" />
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/activity_base_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="bottom" />
 
 </RelativeLayout>

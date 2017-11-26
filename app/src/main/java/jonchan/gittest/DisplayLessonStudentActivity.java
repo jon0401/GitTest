@@ -65,15 +65,30 @@ public class DisplayLessonStudentActivity extends AppCompatActivity {
                     if((dataSnapshot.child("Student").getValue().toString()).equals(user_id)){
                         Log.d("Teacher", dataSnapshot.child("Teacher").getValue().toString());
                         Log.d("Student", dataSnapshot.child("Student").getValue().toString());
-                        String id = dataSnapshot.getKey();
-                        String date = dataSnapshot.child("Date").getValue(String.class);
-                        String startTime = dataSnapshot.child("StartTime").getValue(String.class);
-                        String endTime = dataSnapshot.child("EndTime").getValue(String.class);
-                        String location = dataSnapshot.child("Location").getValue(String.class);
+                        final String id = dataSnapshot.getKey();
+                        final String date = dataSnapshot.child("Date").getValue(String.class);
+                        final String startTime = dataSnapshot.child("StartTime").getValue(String.class);
+                        final String endTime = dataSnapshot.child("EndTime").getValue(String.class);
+                        final String location = dataSnapshot.child("Location").getValue(String.class);
+                        String studentUID = dataSnapshot.child("Student").getValue(String.class);
+                        DatabaseReference mRefStudent;
+                        mRefStudent = database.getReference("Users").child(studentUID).child("Name");
+                        mRefStudent.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                String studentName = dataSnapshot.getValue(String.class);
+                                Log.d("DT", date + " " + startTime);
+                                mLessonList.add(new LessonDetail(date, startTime, endTime, location, studentName));
+                                mLessonIdList.add(id);
+                                listAdapter.notifyDataSetChanged();
+                            }
 
-                        mLessonList.add(new LessonDetail(date, startTime, endTime, location));
-                        mLessonIdList.add(id);
-                        listAdapter.notifyDataSetChanged();
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });
                     }
                 }
             }

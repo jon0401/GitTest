@@ -1,134 +1,46 @@
 [
     {
         "merged": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_btn_colored_text_material.xml",
-        "source": "C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\color-v23\\abc_btn_colored_text_material.xml"
-    },
-    {
-        "merged": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_color_highlight_material.xml",
-        "source": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\color-v23\\abc_color_highlight_material.xml"
-    },
-    {
-        "merged": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_spinner.xml",
-        "source": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\color-v23\\abc_tint_spinner.xml"
+        "source": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\color-v23\\abc_btn_colored_text_material.xml"
     },
     {
         "merged": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_seek_thumb.xml",
-        "source": "C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\color-v23\\abc_tint_seek_thumb.xml"
-    },
-    {
-        "merged": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_color_highlight_material.xml",
-        "source": "C:\\Users\\Chung\\.android\\build-cache\\cb946eb8db1700f41662df11e5efae11aeece94d\\output\\res\\color-v23\\abc_color_highlight_material.xml"
+        "source": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\color-v23\\abc_tint_seek_thumb.xml"
     },
     {
         "merged": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_switch_thumb.xml",
-        "source": "C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\color-v23\\abc_tint_switch_thumb.xml"
+        "source": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\color-v23\\abc_tint_switch_thumb.xml"
     },
     {
         "merged": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\design_tint_password_toggle.xml",
-        "source": "C:\\Users\\jonat\\.android\\build-cache\\44a460d04686844407e6e95139d9190dcd9629cf\\output\\res\\color-v23\\design_tint_password_toggle.xml"
-    },
-    {
-        "merged": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_switch_thumb.xml",
-        "source": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\color-v23\\abc_tint_switch_thumb.xml"
-    },
-    {
-        "merged": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_switch_track.xml",
-        "source": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\color-v23\\abc_tint_switch_track.xml"
+        "source": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\color-v23\\design_tint_password_toggle.xml"
     },
     {
         "merged": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_color_highlight_material.xml",
-        "source": "C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\color-v23\\abc_color_highlight_material.xml"
+        "source": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\color-v23\\abc_color_highlight_material.xml"
     },
     {
         "merged": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_switch_track.xml",
-        "source": "C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\color-v23\\abc_tint_switch_track.xml"
-    },
-    {
-        "merged": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_edittext.xml",
-        "source": "C:\\Users\\Chung\\.android\\build-cache\\cb946eb8db1700f41662df11e5efae11aeece94d\\output\\res\\color-v23\\abc_tint_edittext.xml"
+        "source": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\color-v23\\abc_tint_switch_track.xml"
     },
     {
         "merged": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_btn_checkable.xml",
-        "source": "C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\color-v23\\abc_tint_btn_checkable.xml"
-    },
-    {
-        "merged": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_switch_thumb.xml",
-        "source": "C:\\Users\\Chung\\.android\\build-cache\\cb946eb8db1700f41662df11e5efae11aeece94d\\output\\res\\color-v23\\abc_tint_switch_thumb.xml"
-    },
-    {
-        "merged": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\design_tint_password_toggle.xml",
-        "source": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\C:\\Users\\jonat\\.android\\build-cache\\44a460d04686844407e6e95139d9190dcd9629cf\\output\\res\\color-v23\\design_tint_password_toggle.xml"
-    },
-    {
-        "merged": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_btn_checkable.xml",
-        "source": "C:\\Users\\Chung\\.android\\build-cache\\cb946eb8db1700f41662df11e5efae11aeece94d\\output\\res\\color-v23\\abc_tint_btn_checkable.xml"
-    },
-    {
-        "merged": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_default.xml",
-        "source": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\color-v23\\abc_tint_default.xml"
+        "source": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\color-v23\\abc_tint_btn_checkable.xml"
     },
     {
         "merged": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_btn_colored_borderless_text_material.xml",
-        "source": "C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\color-v23\\abc_btn_colored_borderless_text_material.xml"
-    },
-    {
-        "merged": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_seek_thumb.xml",
-        "source": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\color-v23\\abc_tint_seek_thumb.xml"
-    },
-    {
-        "merged": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_default.xml",
-        "source": "C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\color-v23\\abc_tint_default.xml"
-    },
-    {
-        "merged": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_btn_colored_text_material.xml",
-        "source": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\color-v23\\abc_btn_colored_text_material.xml"
-    },
-    {
-        "merged": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\design_tint_password_toggle.xml",
-        "source": "C:\\Users\\Chung\\.android\\build-cache\\a1d854439f855e6b6a13efeb44fcb0affc2e07d1\\output\\res\\color-v23\\design_tint_password_toggle.xml"
-    },
-    {
-        "merged": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_btn_checkable.xml",
-        "source": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\color-v23\\abc_tint_btn_checkable.xml"
-    },
-    {
-        "merged": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_spinner.xml",
-        "source": "C:\\Users\\Chung\\.android\\build-cache\\cb946eb8db1700f41662df11e5efae11aeece94d\\output\\res\\color-v23\\abc_tint_spinner.xml"
-    },
-    {
-        "merged": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_btn_colored_borderless_text_material.xml",
-        "source": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\color-v23\\abc_btn_colored_borderless_text_material.xml"
-    },
-    {
-        "merged": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_default.xml",
-        "source": "C:\\Users\\Chung\\.android\\build-cache\\cb946eb8db1700f41662df11e5efae11aeece94d\\output\\res\\color-v23\\abc_tint_default.xml"
-    },
-    {
-        "merged": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_switch_track.xml",
-        "source": "C:\\Users\\Chung\\.android\\build-cache\\cb946eb8db1700f41662df11e5efae11aeece94d\\output\\res\\color-v23\\abc_tint_switch_track.xml"
+        "source": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\color-v23\\abc_btn_colored_borderless_text_material.xml"
     },
     {
         "merged": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_spinner.xml",
-        "source": "C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\color-v23\\abc_tint_spinner.xml"
-    },
-    {
-        "merged": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_seek_thumb.xml",
-        "source": "C:\\Users\\Chung\\.android\\build-cache\\cb946eb8db1700f41662df11e5efae11aeece94d\\output\\res\\color-v23\\abc_tint_seek_thumb.xml"
-    },
-    {
-        "merged": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_btn_colored_text_material.xml",
-        "source": "C:\\Users\\Chung\\.android\\build-cache\\cb946eb8db1700f41662df11e5efae11aeece94d\\output\\res\\color-v23\\abc_btn_colored_text_material.xml"
+        "source": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\color-v23\\abc_tint_spinner.xml"
     },
     {
         "merged": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_edittext.xml",
-        "source": "C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\color-v23\\abc_tint_edittext.xml"
+        "source": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\color-v23\\abc_tint_edittext.xml"
     },
     {
-        "merged": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_edittext.xml",
-        "source": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\C:\\Users\\jonat\\.android\\build-cache\\b55be5ae6ea7d306fef3d5ecc34a5e7ae2135816\\output\\res\\color-v23\\abc_tint_edittext.xml"
-    },
-    {
-        "merged": "C:\\Users\\Chung\\Documents\\Wayne\\COMP3330\\Project\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_btn_colored_borderless_text_material.xml",
-        "source": "C:\\Users\\Chung\\.android\\build-cache\\cb946eb8db1700f41662df11e5efae11aeece94d\\output\\res\\color-v23\\abc_btn_colored_borderless_text_material.xml"
+        "merged": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_default.xml",
+        "source": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\color-v23\\abc_tint_default.xml"
     }
 ]

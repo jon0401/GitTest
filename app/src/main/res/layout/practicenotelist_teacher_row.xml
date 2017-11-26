@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    >
+
     <TextView
         android:id="@+id/txtPracticeNote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="20dp"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="#223017"
         android:layout_alignBottom="@+id/btnLesson"
         android:layout_alignParentStart="true"
         android:layout_marginStart="13dp" />
@@ -13,10 +18,12 @@
     <Button
         android:id="@+id/btnViewPracticeNote"
         android:text="View Note"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="19dp"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/ovalbutton"/>
 </RelativeLayout>

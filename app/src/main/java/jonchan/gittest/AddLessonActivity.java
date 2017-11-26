@@ -101,7 +101,7 @@ public class AddLessonActivity extends AppCompatActivity {
                 String endTime = etxtEndTime.getText().toString();
 
                 String str = date + " " + startTime + ":00";
-                SimpleDateFormat df = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss");
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 Date date1= null;
                 try {
                     date1 = df.parse(str);
@@ -109,6 +109,7 @@ public class AddLessonActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 long epoch = -1 * date1.getTime();
+                long epochPos = date1.getTime();
 
                 newLesson.child("Date").setValue(date);
                 newLesson.child("StartTime").setValue(startTime);
@@ -117,9 +118,10 @@ public class AddLessonActivity extends AppCompatActivity {
                 newLesson.child("Student").setValue(student_uid);
                 newLesson.child("Location").setValue(location);
                 newLesson.child("TimeStamp").setValue(epoch);
+                newLesson.child("TimeStampAsc").setValue(epochPos);
 
 
-                Intent myIntent = new Intent(view.getContext(), DisplayLessonActivity.class);
+                Intent myIntent = new Intent(view.getContext(), MainActivity.class);
                 myIntent.putExtra("STUDENT_ID", student_uid);
                 myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 

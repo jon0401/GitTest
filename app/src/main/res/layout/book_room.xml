@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30px"
                 android:layout_marginLeft="100dp"
-                android:hint="请选择日期"
+                android:hint="Please choose the date"
                 android:textColor="@color/colorUI"
                 android:textSize="20dp"/>
         </LinearLayout>
@@ -167,4 +167,12 @@
             android:layout_marginTop="20px"
             android:src="@drawable/piano_room"/>
     </LinearLayout>
+
+    <include
+        layout="@layout/activity_base_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="bottom" />
 </LinearLayout>

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,7 +31,7 @@ import java.util.List;
  * Created by Chung on 11/11/2017.
  */
 
-public class DisplayLessonActivity extends AppCompatActivity {
+public class DisplayLessonActivity extends BaseActivity {
 
     private Button btnAddLesson;
     private ListView mListView;
@@ -47,6 +48,9 @@ public class DisplayLessonActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_displaylesson);
+
+        navigationView = (BottomNavigationView) findViewById(R.id.navigation);
+        navigationView.setOnNavigationItemSelectedListener(this);
 
         Intent myIntent = getIntent();
         student_uid = myIntent.getStringExtra("STUDENT_ID");
@@ -70,38 +74,59 @@ public class DisplayLessonActivity extends AppCompatActivity {
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
-                    if(postSnapshot.hasChild("Teacher") && postSnapshot.hasChild("Student") && postSnapshot.hasChild("Date")){
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    if (postSnapshot.hasChild("Teacher") && postSnapshot.hasChild("Student") && postSnapshot.hasChild("Date")) {
                         //Log.d("Teacher", postSnapshot.child("Teacher").getValue().toString());
                         //Log.d("Student", postSnapshot.child("Student").getValue().toString());
-                        if((postSnapshot.child("Teacher").getValue().toString()).equals(user_id) && (postSnapshot.child("Student").getValue().toString()).equals(student_uid)){
+                        if ((postSnapshot.child("Teacher").getValue().toString()).equals(user_id) && (postSnapshot.child("Student").getValue().toString()).equals(student_uid)) {
 
-                            String id = postSnapshot.getKey();
-                            String date = postSnapshot.child("Date").getValue(String.class);
-                            String startTime = postSnapshot.child("StartTime").getValue(String.class);
-                            String endTime = postSnapshot.child("EndTime").getValue(String.class);
-                            String location = postSnapshot.child("Location").getValue(String.class);
-                            Log.d("DT", date + " " + startTime);
-                            mLessonList.add(new LessonDetail(date, startTime, endTime, location));
-                            mLessonIdList.add(id);
-                            listAdapter.notifyDataSetChanged();
+                            final String id = postSnapshot.getKey();
+                            final String date = postSnapshot.child("Date").getValue(String.class);
+                            final String startTime = postSnapshot.child("StartTime").getValue(String.class);
+                            final String endTime = postSnapshot.child("EndTime").getValue(String.class);
+                            final String location = postSnapshot.child("Location").getValue(String.class);
+                            String studentUID = postSnapshot.child("Student").getValue(String.class);
+                            DatabaseReference mRefStudent;
+                            mRefStudent = database.getReference("Users").child(studentUID).child("Name");
+                            mRefStudent.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    String studentName = dataSnapshot.getValue(String.class);
+                                    Log.d("DT", date + " " + startTime);
+                                    mLessonList.add(new LessonDetail(date, startTime, endTime, location, studentName));
+                                    mLessonIdList.add(id);
+                                    listAdapter.notifyDataSetChanged();
+                                }
+
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+
+                                }
+                            });
+
                         }
+
                     }
+                }
+
+            }
+                @Override
+                public void onCancelled (DatabaseError databaseError){
 
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
 
-            }
         });
+
 
         btnAddLesson.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), AddLessonActivity.class);
                 myIntent.putExtra("STUDENT_ID", student_uid);
                 myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                mLessonIdList.clear();
+                mLessonList.clear();
                 try{
                     startActivity(myIntent);
                 }catch(android.content.ActivityNotFoundException e){
@@ -110,6 +135,16 @@ public class DisplayLessonActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    int getContentViewId() {
+        return R.layout.activity_displaylesson;
+    }
+
+    @Override
+    int getNavigationMenuItemId() {
+        return R.id.navigation_contact;
     }
 
 
@@ -142,6 +177,8 @@ public class DisplayLessonActivity extends AppCompatActivity {
                         myIntent.putExtra("STUDENT_ID", student_uid);
                         myIntent.putExtra("DATE", mLessonList.get(position).getDate());
                         myIntent.putExtra("LESSON_ID", mLessonIdList.get(position));
+                       // mLessonIdList.clear();
+                        //mLessonList.clear();
                         try {
                             startActivity(myIntent);
                         } catch (android.content.ActivityNotFoundException e) {
