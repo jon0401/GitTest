@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-v23/values-v23.xml",
+            "outputFile": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-v23\\values-v23.xml",
             "map": [
                 {
-                    "source": "/Users/Linda/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/b37509c6e055075d29cca50943f4d97f/res/values-v23/values-v23.xml",
+                    "source": "C:\\Users\\jonat\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\9b44d58ef538052f34188edb467c88e1\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
@@ -15,7 +15,7 @@
                     }
                 },
                 {
-                    "source": "/Users/Linda/.gradle/caches/transforms-1/files-1.1/cardview-v7-25.3.1.aar/5af5a07d408872ef979774cd8eb98e77/res/values-v23/values-v23.xml",
+                    "source": "C:\\Users\\jonat\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-25.3.1.aar\\15692b942cee09fa323ace3e0c682d1a\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
