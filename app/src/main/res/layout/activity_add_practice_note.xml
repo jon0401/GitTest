@@ -1,156 +1,214 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:background="@drawable/background">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:orientation="vertical" android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent" android:background="@drawable/background">-->
 
 
-        <TextView
-            android:id="@+id/add_practiceNote_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:layout_marginTop="30px"
-            android:text="Add Practice Note"
-            android:textColor="@color/colorUI2"
-            android:textAllCaps="true"
-            android:textSize="30dp" />
-
-
-    <LinearLayout
+    <TextView
+        android:id="@+id/add_practiceNote_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/add_practiceNote_title">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:text="Add Practice Note"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/colorUI2"
+        android:textSize="30dp"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="0dp" />
+
+
+    <!--<LinearLayout-->
+    <!--android:id="@+id/linearLayout3"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@+id/add_practiceNote_title"-->
+    <!--android:orientation="vertical">-->
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_practiceNote_title">
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal"-->
+        <!--app:layout_constraintHorizontal_bias="0.0"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--tools:layout_editor_absoluteY="0dp">-->
 
 
         <TextView
             android:id="@+id/txtStudentCreator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25px"
+            android:layout_marginStart="33dp"
+            android:layout_marginTop="16dp"
+            android:text="Created by: "
             android:textAllCaps="true"
             android:textColor="@color/colorUI"
-            android:text="Created by: "
-            android:textSize="20sp" />
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/txtStudentCreatorName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25px"
-            android:layout_marginLeft="50dp"
+            android:layout_marginStart="16dp"
             android:text="Student Name"
             android:textColor="@color/colorUI"
-            android:textSize="20sp" />
-    </LinearLayout>
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/etxtPracticeNoteDateEnter"
+            app:layout_constraintStart_toStartOf="@+id/etxtPracticeNoteDateEnter" />
+        <!--</LinearLayout>-->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="60dp"-->
+        <!--android:layout_marginTop="28dp"-->
+        <!--android:orientation="horizontal"-->
+        <!--app:layout_constraintHorizontal_bias="0.0"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent">-->
 
         <TextView
             android:id="@+id/txtPracticeNoteDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25px"
+            android:layout_marginTop="11dp"
             android:text="Date: "
             android:textAllCaps="true"
             android:textColor="@color/colorUI"
-            android:textSize="20sp" />
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/txtStudentCreator"
+            app:layout_constraintTop_toBottomOf="@+id/txtStudentCreator" />
 
         <EditText
             android:id="@+id/etxtPracticeNoteDateEnter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25px"
-            android:layout_marginLeft="100dp"
+            android:layout_width="0dp"
+            android:layout_height="37dp"
+            android:layout_marginBottom="42dp"
+            android:layout_marginTop="43dp"
             android:hint="Choose Date..."
             android:textColor="@color/colorUI"
-            android:textSize="20sp" />
-    </LinearLayout>
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/etxtPracticeNoteDurationEnter"
+            app:layout_constraintEnd_toEndOf="@+id/etxtPracticeNoteDurationEnter"
+            app:layout_constraintStart_toStartOf="@+id/etxtPracticeNoteDurationEnter"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!--</LinearLayout>-->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="4dp"-->
+        <!--android:orientation="horizontal"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--tools:layout_editor_absoluteY="68dp">-->
 
         <TextView
             android:id="@+id/txtPracticeDuration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25px"
-            android:textAllCaps="true"
+            android:layout_marginTop="13dp"
 
             android:text="Duration"
+            android:textAllCaps="true"
             android:textColor="@color/colorUI"
-            android:textSize="20sp" />
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/txtPracticeNoteDate"
+            app:layout_constraintTop_toBottomOf="@+id/txtPracticeNoteDate" />
 
         <EditText
             android:id="@+id/etxtPracticeNoteDurationEnter"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="25px"
             android:hint="Choose Duration..."
             android:textColor="@color/colorUI"
-            android:textSize="20sp" />
-    </LinearLayout>
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/spinnerChooseTeacher"
+            app:layout_constraintEnd_toEndOf="@+id/spinnerChooseTeacher"
+            app:layout_constraintStart_toStartOf="@+id/spinnerChooseTeacher" />
+        <!--</LinearLayout>-->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:orientation="horizontal"-->
+        <!--app:layout_constraintHorizontal_bias="0.0"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--tools:layout_editor_absoluteY="111dp">-->
 
         <TextView
             android:id="@+id/txtShareWith"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+
+            android:layout_marginTop="7dp"
             android:text="Share with:"
             android:textAllCaps="true"
-
-            android:layout_marginTop="35px"
             android:textColor="@color/colorUI"
-            android:textSize="20sp"
-            android:layout_alignParentStart="true" />
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/txtPracticeDuration"
+            app:layout_constraintTop_toBottomOf="@+id/txtPracticeDuration" />
 
         <Spinner
             android:id="@+id/spinnerChooseTeacher"
-            android:layout_width="200dp"
-            android:layout_marginTop="35px"
-            android:layout_marginLeft="50dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true" />
+            android:layout_width="174dp"
+            android:layout_height="26dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="29dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txtShareWith" />
 
 
-
-    </LinearLayout>
-
-    </LinearLayout>
+        <!--</LinearLayout>-->
+    </android.support.constraint.ConstraintLayout>
+    <!--</LinearLayout>-->
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="230dp"
-        android:orientation="horizontal"
-        android:layout_alignParentStart="true"
-        android:id="@+id/linearLayout"
         android:layout_above="@+id/linearLayout2"
+        android:layout_alignParentStart="true"
         android:layout_margin="15dp"
-        android:background="@drawable/ovalbuttontans">
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/ovalbuttontans"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
         <EditText
             android:id="@+id/mtxtPracticeNote"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="10dp"
             android:ems="10"
             android:gravity="top"
-            android:layout_margin="10dp"
             android:hint="Write your note..."
             android:inputType="textMultiLine"
             android:textSize="20sp" />
@@ -162,28 +220,39 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_height="45dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/include"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/btnSubmitPracticeNote"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="70dp"
-            android:layout_marginLeft="110dp"
+            android:layout_gravity="center"
             android:background="@drawable/ovalbuttondark"
             android:text="Submit Note"
             android:textColor="#FFFFFF" />
     </LinearLayout>
 
     <include
+        android:id="@+id/include"
         layout="@layout/activity_base_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_gravity="bottom" />
+        android:layout_gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</RelativeLayout>
+    <!--</RelativeLayout>-->
+</android.support.constraint.ConstraintLayout>
