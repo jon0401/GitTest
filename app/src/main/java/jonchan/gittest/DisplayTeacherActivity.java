@@ -145,7 +145,7 @@ public class DisplayTeacherActivity extends BaseActivity {
                 convertView = inflater.inflate(layout, parent, false);
                 mainViewHolder = new ViewHolder();
                 mainViewHolder.studentName = (TextView) convertView.findViewById(R.id.txtStudent);
-                
+
                 convertView.setTag(mainViewHolder);
 
 
