@@ -170,8 +170,8 @@ public class MainActivity extends AppCompatActivity {
                                 upcomingteacher = (TextView) findViewById(R.id.UpcomingLessonteacher);
                                 recentteacher = (TextView) findViewById(R.id.RecentNoteTeacher);
 
-                                upcomingteacher.setTypeface(tfrb);
-                                recentteacher.setTypeface(tfrb);
+                                upcomingteacher.setTypeface(tfmsb);
+                                recentteacher.setTypeface(tfmsb);
 
                                 Log.d("UserType", value);
 
@@ -270,6 +270,8 @@ public class MainActivity extends AppCompatActivity {
                                 });
 
                                 updateNavigationBarState();
+
+
 
                                 btnPracticeNote = (Button) findViewById(R.id.btnPracticeNote);
                                 btnViewRequest = (Button) findViewById(R.id.btnViewRequest);
@@ -452,6 +454,10 @@ public class MainActivity extends AppCompatActivity {
                                     }
                                 });
                                 */
+
+                                upcomingstudent = (TextView) findViewById(R.id.upcomingstudent);
+
+                                upcomingstudent.setTypeface(tfmsb);
                             }
                         }
 
@@ -524,7 +530,7 @@ public class MainActivity extends AppCompatActivity {
                 mainViewHolder.txtDate.setTypeface(tfml);
                 mainViewHolder.txtTimeSlot.setTypeface(tfml);
                 mainViewHolder.txtLocation.setTypeface(tfml);
-                
+
                 mainViewHolder.btnAddNote = (Button) convertView.findViewById(R.id.btnAddNote);
                 mainViewHolder.btnAddNote.setOnClickListener(new View.OnClickListener() {
                     @Override
