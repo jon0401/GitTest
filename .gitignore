@@ -1,9 +1,9 @@
+.idea
+out
+target
 *.iml
-.gradle
-/local.properties
-/.idea/workspace.xml
-/.idea/libraries
-.DS_Store
-/build
-/captures
-.externalNativeBuild
+log
+local.properties
+build
+android/libs
+/.gradle
