@@ -2,10 +2,13 @@ package jonchan.gittest;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -25,7 +28,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DisplayPracticeNoteStudentActivity extends AppCompatActivity {
+public class DisplayPracticeNoteStudentActivity extends BaseActivity {
 
     private Button btnAddPracticeNote;
     private ListView mListView;
@@ -42,6 +45,9 @@ public class DisplayPracticeNoteStudentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_practice_note_student);
 
+        setTitle("MY PRACTICE NOTE");
+        navigationView = (BottomNavigationView) findViewById(R.id.navigation);
+        navigationView.setOnNavigationItemSelectedListener(this);
         //Intent myIntent = getIntent();
         //student_uid = myIntent.getStringExtra("STUDENT_ID");
 
@@ -98,6 +104,32 @@ public class DisplayPracticeNoteStudentActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    int getContentViewId() {
+        return R.layout.activity_display_practice_note_student;
+    }
+
+    @Override
+    int getNavigationMenuItemId() {
+        return R.id.navigation_home;
+    }
+    protected void updateNavigationBarState(){
+        int actionId = getNavigationMenuItemId();
+        selectBottomNavigationBarItem(actionId);
+    }
+
+    void selectBottomNavigationBarItem(int itemId) {
+        Menu menu = navigationView.getMenu();
+        for (int i = 0, size = menu.size(); i < size; i++) {
+            MenuItem item = menu.getItem(i);
+            boolean shouldBeChecked = item.getItemId() == itemId;
+            if (shouldBeChecked) {
+                item.setChecked(true);
+                break;
+            }
+        }
+    }
+
     private class MyListAdapter extends ArrayAdapter<String> {
 
         private int layout;
@@ -148,5 +180,30 @@ public class DisplayPracticeNoteStudentActivity extends AppCompatActivity {
 
         TextView practiceNoteDate;
         Button viewPracticeNote;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                mAuth.signOut();
+                Intent myIntent = new Intent(this, LoginActivity.class);
+                try{
+                    startActivity(myIntent);
+                }catch(android.content.ActivityNotFoundException e){
+                    e.printStackTrace();
+                }
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
     }
 }

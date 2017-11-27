@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Typeface tfrb;
     private Typeface tfrm;
+    private Typeface tfml;
+    private Typeface tfmsb;
 
     private MenuItem item;
 
@@ -76,6 +78,9 @@ public class MainActivity extends AppCompatActivity {
         setTitle("HOME");
         tfrb = Typeface.createFromAsset(getAssets(), "robotobold.ttf");
         tfrm = Typeface.createFromAsset(getAssets(), "robotomedium.ttf");
+        tfml = Typeface.createFromAsset(getAssets(),"montserratlight.ttf");
+        tfmsb = Typeface.createFromAsset(getAssets(), "montserratsemibold.ttf");
+
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -514,6 +519,12 @@ public class MainActivity extends AppCompatActivity {
                 mainViewHolder.txtTimeSlot = (TextView) convertView.findViewById(R.id.txtTimeSlot);
                 mainViewHolder.txtLocation = (TextView) convertView.findViewById(R.id.txtLocation);
                 mainViewHolder.txtStudent = (TextView) convertView.findViewById(R.id.txtStudent);
+
+                mainViewHolder.txtStudent.setTypeface(tfmsb);
+                mainViewHolder.txtDate.setTypeface(tfml);
+                mainViewHolder.txtTimeSlot.setTypeface(tfml);
+                mainViewHolder.txtLocation.setTypeface(tfml);
+                
                 mainViewHolder.btnAddNote = (Button) convertView.findViewById(R.id.btnAddNote);
                 mainViewHolder.btnAddNote.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -548,6 +559,7 @@ public class MainActivity extends AppCompatActivity {
             mainViewHolder.txtTimeSlot.setText(getItem(position).getStartTime() + "-" + getItem(position).getEndTime());
             mainViewHolder.txtLocation.setText(getItem(position).getLocation());
             mainViewHolder.txtStudent.setText(getItem(position).getStudentName());
+
 
             DatabaseReference mRefNote = database.getReference("Lesson").child(mLessonIdList.get(position));
             final ViewHolder finalMainViewHolder = mainViewHolder;
@@ -632,6 +644,11 @@ public class MainActivity extends AppCompatActivity {
             mainViewHolder.txtTimeSlot.setText(getItem(position).getStartTime() + "-" + getItem(position).getEndTime());
             mainViewHolder.txtLocation.setText(getItem(position).getLocation());
             mainViewHolder.txtStudent.setText(getItem(position).getStudentName());
+
+            mainViewHolder.txtStudent.setTypeface(tfmsb);
+            mainViewHolder.txtDate.setTypeface(tfml);
+            mainViewHolder.txtTimeSlot.setTypeface(tfml);
+            mainViewHolder.txtLocation.setTypeface(tfml);
 
             return convertView;
         }
