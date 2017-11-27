@@ -1,5 +1,6 @@
 -- Merging decision tree log ---
 manifest
+<<<<<<< HEAD
 ADDED from /Users/Linda/GitTest/Spinnerlibrary/src/main/AndroidManifest.xml:2:1-9:12
 INJECTED from /Users/Linda/GitTest/Spinnerlibrary/src/main/AndroidManifest.xml:2:1-9:12
 INJECTED from /Users/Linda/GitTest/Spinnerlibrary/src/main/AndroidManifest.xml:2:1-9:12
@@ -39,3 +40,44 @@ INJECTED from /Users/Linda/GitTest/Spinnerlibrary/src/main/AndroidManifest.xml
 		INJECTED from /Users/Linda/GitTest/Spinnerlibrary/src/main/AndroidManifest.xml
 		ADDED from /Users/Linda/GitTest/Spinnerlibrary/src/main/AndroidManifest.xml
 		INJECTED from /Users/Linda/GitTest/Spinnerlibrary/src/main/AndroidManifest.xml
+=======
+ADDED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml:2:1-9:12
+	package
+		ADDED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml:3:5-49
+		INJECTED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml
+		ADDED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml:2:1-9:12
+		INJECTED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml
+		ADDED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml:2:1-9:12
+		INJECTED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml:2:11-69
+application
+ADDED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml:5:5-7:19
+	android:allowBackup
+		ADDED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml:5:18-44
+uses-sdk
+INJECTED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml
+INJECTED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml
+INJECTED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml
+INJECTED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml
+		ADDED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml
+		ADDED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\AndroidManifest.xml
+>>>>>>> b5a73952baaf93e615681d7a296fefc27dafc4ff
