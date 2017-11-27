@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.util.Log;
@@ -11,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -62,6 +64,12 @@ public class MusicGameActivity extends BaseActivity {
 
     final String TAG = "MyActivity";
 
+<<<<<<< HEAD
+=======
+    private BottomNavigationView navigationView;
+//    private ImageButton autoButton;
+//    private ImageButton customButton;
+>>>>>>> d69b17f2e2ef170011ec7cec08cb868b8160d4ee
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,8 +78,34 @@ public class MusicGameActivity extends BaseActivity {
         mAuth = FirebaseAuth.getInstance();
 
         navigationView = (BottomNavigationView) findViewById(R.id.navigation);
+<<<<<<< HEAD
         navigationView.setOnNavigationItemSelectedListener(this);
 
+=======
+        navigationView.setOnNavigationItemSelectedListener(item -> {
+            navigationView.postDelayed(() -> {
+                int itemId = item.getItemId();
+                if (itemId == R.id.navigation_home) {
+                    startActivity(new Intent(this, MainActivity.class));
+                } else if (itemId == R.id.navigation_booking) {
+                    startActivity(new Intent(this, Facitilies_BookingActivity.class));
+                } else if (itemId == R.id.navigation_game) {
+                    startActivity(new Intent(this, MusicGameActivity.class));
+                } else if (itemId == R.id.navigation_contact){
+                    startActivity(new Intent(this, DisplayStudentActivity.class));
+                }
+                finish();
+            }, 300);
+            return true;
+        });
+//        navigationView.setOnNavigationItemSelectedListener(this);
+
+        updateNavigationBarState();
+//
+//        customButton = (ImageButton) findViewById(R.id.custom_gen_button);
+//        autoButton = (ImageButton) findViewById(R.id.auto_gen_button);
+//        customButton.setBackgroundDrawable(null);
+>>>>>>> d69b17f2e2ef170011ec7cec08cb868b8160d4ee
     }
 
     @Override
