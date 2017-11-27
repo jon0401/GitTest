@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 
 import com.androidbuts.multispinnerfilter.MultiSpinner;
 import com.androidbuts.multispinnerfilter.MultiSpinnerListener;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,6 +35,7 @@ public class MusicGameActivity extends BaseActivity {
     Spinner dropDown;
     ArrayList<MQues> mExer;
     MExer mexerObject;
+    private FirebaseAuth mAuth;
 
     protected int id;
     protected String [] ansRelated;
@@ -58,32 +62,16 @@ public class MusicGameActivity extends BaseActivity {
 
     final String TAG = "MyActivity";
 
-    private BottomNavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mus_game_activity_main);
+        mAuth = FirebaseAuth.getInstance();
 
         navigationView = (BottomNavigationView) findViewById(R.id.navigation);
-        navigationView.setOnNavigationItemSelectedListener(item -> {
-            navigationView.postDelayed(() -> {
-                int itemId = item.getItemId();
-                if (itemId == R.id.navigation_home) {
-                    startActivity(new Intent(this, MainActivity.class));
-                } else if (itemId == R.id.navigation_booking) {
-                    startActivity(new Intent(this, Facitilies_BookingActivity.class));
-                } else if (itemId == R.id.navigation_game) {
-                    startActivity(new Intent(this, MusicGameActivity.class));
-                } else if (itemId == R.id.navigation_contact){
-                    startActivity(new Intent(this, DisplayStudentActivity.class));
-                }
-                finish();
-            }, 300);
-            return true;
-        });
+        navigationView.setOnNavigationItemSelectedListener(this);
 
-        updateNavigationBarState();
     }
 
     @Override
@@ -255,5 +243,29 @@ public class MusicGameActivity extends BaseActivity {
     @Override
     int getNavigationMenuItemId() {
         return R.id.navigation_game;
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                mAuth.signOut();
+                Intent myIntent = new Intent(this, LoginActivity.class);
+                try{
+                    startActivity(myIntent);
+                }catch(android.content.ActivityNotFoundException e){
+                    e.printStackTrace();
+                }
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
     }
 }
