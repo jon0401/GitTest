@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<merger version="3"><dataSet config="main"><source path="/Users/Linda/GitTest/Spinnerlibrary/src/main/assets"/><source path="/Users/Linda/GitTest/Spinnerlibrary/build/generated/assets/shaders/debug"/></dataSet><dataSet config="debug"><source path="/Users/Linda/GitTest/Spinnerlibrary/src/debug/assets"/></dataSet></merger>
-=======
-<merger version="3"><dataSet config="main"><source path="C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\main\assets"/><source path="C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="C:\Users\jonat\Documents\github\GitTest\Spinnerlibrary\src\debug\assets"/></dataSet></merger>
->>>>>>> b5a73952baaf93e615681d7a296fefc27dafc4ff
+<merger version="3"><dataSet config="main"><source path="/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/src/main/assets"/><source path="/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/generated/assets/shaders/debug"/></dataSet><dataSet config="debug"><source path="/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/src/debug/assets"/></dataSet></merger>

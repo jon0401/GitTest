@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -39,6 +40,7 @@ public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
     private Typeface tf;
     private Typeface tfl;
+    private String selectedID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +76,8 @@ public class RegisterActivity extends AppCompatActivity {
 
     protected void onStart() {
 
+
+
         super.onStart();
 
         radioStuder.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +85,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 radioStuder.setAlpha(1f);
                 radioTeacher.setAlpha(0.5f);
+                selectedID = "Student";
             }
         });
 
@@ -89,6 +94,8 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 radioTeacher.setAlpha(1f);
                 radioStuder.setAlpha(0.5f);
+                radioTeacher.setAlpha(0.5f);
+                selectedID = "Teacher";
             }
         });
     }
@@ -98,9 +105,9 @@ public class RegisterActivity extends AppCompatActivity {
         final String email = mEmailField.getText().toString();
         String password = mPasswordField.getText().toString();
         final String name = mNameField.getText().toString();
-        int selectedID = radioGroup.getCheckedRadioButtonId();
-        rBtn = (RadioButton) findViewById(selectedID);
-        final String userType = rBtn.getText().toString();
+        //int selectedID = radioGroup.getCheckedRadioButtonId();
+        //rBtn = (RadioButton) findViewById(selectedID);
+        final String userType = selectedID;
 
 
         if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(name)){
