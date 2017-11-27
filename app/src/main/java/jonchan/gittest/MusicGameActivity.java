@@ -64,48 +64,26 @@ public class MusicGameActivity extends BaseActivity {
 
     final String TAG = "MyActivity";
 
-<<<<<<< HEAD
-=======
-    private BottomNavigationView navigationView;
+
 //    private ImageButton autoButton;
 //    private ImageButton customButton;
->>>>>>> d69b17f2e2ef170011ec7cec08cb868b8160d4ee
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mus_game_activity_main);
-        mAuth = FirebaseAuth.getInstance();
+
 
         navigationView = (BottomNavigationView) findViewById(R.id.navigation);
-<<<<<<< HEAD
         navigationView.setOnNavigationItemSelectedListener(this);
 
-=======
-        navigationView.setOnNavigationItemSelectedListener(item -> {
-            navigationView.postDelayed(() -> {
-                int itemId = item.getItemId();
-                if (itemId == R.id.navigation_home) {
-                    startActivity(new Intent(this, MainActivity.class));
-                } else if (itemId == R.id.navigation_booking) {
-                    startActivity(new Intent(this, Facitilies_BookingActivity.class));
-                } else if (itemId == R.id.navigation_game) {
-                    startActivity(new Intent(this, MusicGameActivity.class));
-                } else if (itemId == R.id.navigation_contact){
-                    startActivity(new Intent(this, DisplayStudentActivity.class));
-                }
-                finish();
-            }, 300);
-            return true;
-        });
+
 //        navigationView.setOnNavigationItemSelectedListener(this);
 
-        updateNavigationBarState();
 //
 //        customButton = (ImageButton) findViewById(R.id.custom_gen_button);
 //        autoButton = (ImageButton) findViewById(R.id.auto_gen_button);
 //        customButton.setBackgroundDrawable(null);
->>>>>>> d69b17f2e2ef170011ec7cec08cb868b8160d4ee
     }
 
     @Override
@@ -288,11 +266,12 @@ public class MusicGameActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_logout:
+                mAuth = FirebaseAuth.getInstance();
                 mAuth.signOut();
                 Intent myIntent = new Intent(this, LoginActivity.class);
-                try{
+                try {
                     startActivity(myIntent);
-                }catch(android.content.ActivityNotFoundException e){
+                } catch (android.content.ActivityNotFoundException e) {
                     e.printStackTrace();
                 }
                 return true;
@@ -302,4 +281,6 @@ public class MusicGameActivity extends BaseActivity {
 
         }
     }
+
+
 }
