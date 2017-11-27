@@ -262,7 +262,7 @@ public class MainActivity extends AppCompatActivity {
                                         } else if (itemId == R.id.navigation_game) {
                                             startActivity(new Intent(MainActivity.this, MusicGameActivity.class));
                                         } else if (itemId == R.id.navigation_contact){
-                                            startActivity(new Intent(MainActivity.this, DisplayStudentActivity.class));
+                                            startActivity(new Intent(MainActivity.this, DisplayTeacherActivity.class));
                                         }
                                         finish();
                                     }, 300);
