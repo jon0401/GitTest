@@ -57,6 +57,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="android.support.v7.app.AppCompatActivity" />
         </activity>
+        <activity android:name=".DisplayTeacherActivity"></activity>
     </application>
 
 </manifest>
