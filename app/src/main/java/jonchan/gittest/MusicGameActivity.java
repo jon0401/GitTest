@@ -4,11 +4,13 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -59,6 +61,8 @@ public class MusicGameActivity extends BaseActivity {
     final String TAG = "MyActivity";
 
     private BottomNavigationView navigationView;
+//    private ImageButton autoButton;
+//    private ImageButton customButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,8 +86,13 @@ public class MusicGameActivity extends BaseActivity {
             }, 300);
             return true;
         });
+//        navigationView.setOnNavigationItemSelectedListener(this);
 
         updateNavigationBarState();
+//
+//        customButton = (ImageButton) findViewById(R.id.custom_gen_button);
+//        autoButton = (ImageButton) findViewById(R.id.auto_gen_button);
+//        customButton.setBackgroundDrawable(null);
     }
 
     @Override

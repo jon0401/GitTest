@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-ml-rIN/values-ml-rIN.xml",
+            "outputFile": "C:\\Users\\Linda\\GitTest\\C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-ml-rIN\\values-ml-rIN.xml",
             "map": [
                 {
-                    "source": "/Users/Chung/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/7a7483e4db34afe12e962da599bd7cd2/res/values-ml-rIN/values-ml-rIN.xml",
+                    "source": "C:\\Users\\Linda\\GitTest\\C:\\Users\\jonat\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\9b44d58ef538052f34188edb467c88e1\\res\\values-ml-rIN\\values-ml-rIN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -16,10 +16,10 @@
             ]
         },
         {
-            "outputFile": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-ml-rIN/values-ml-rIN.xml",
+            "outputFile": "C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-ml-rIN\\values-ml-rIN.xml",
             "map": [
                 {
-                    "source": "/Users/Linda/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/b37509c6e055075d29cca50943f4d97f/res/values-ml-rIN/values-ml-rIN.xml",
+                    "source": "C:\\Users\\jonat\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\9b44d58ef538052f34188edb467c88e1\\res\\values-ml-rIN\\values-ml-rIN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -31,10 +31,10 @@
             ]
         },
         {
-            "outputFile": "/Users/Linda/GitTest/C:\\Users\\jonat\\Documents\\github\\GitTest\\Spinnerlibrary\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-ml-rIN\\values-ml-rIN.xml",
+            "outputFile": "C:\\Users\\Linda\\GitTest\\Spinnerlibrary\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-ml-rIN\\values-ml-rIN.xml",
             "map": [
                 {
-                    "source": "/Users/Linda/GitTest/C:\\Users\\jonat\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\9b44d58ef538052f34188edb467c88e1\\res\\values-ml-rIN\\values-ml-rIN.xml",
+                    "source": "C:\\Users\\Linda\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\b37509c6e055075d29cca50943f4d97f\\res\\values-ml-rIN\\values-ml-rIN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

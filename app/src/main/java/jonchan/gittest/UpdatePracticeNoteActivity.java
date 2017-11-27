@@ -78,7 +78,7 @@ public class UpdatePracticeNoteActivity extends AppCompatActivity implements Num
                     } else if (itemId == R.id.navigation_booking) {
                         startActivity(new Intent(UpdatePracticeNoteActivity.this, Facitilies_BookingActivity.class));
                     } else if (itemId == R.id.navigation_game) {
-                        startActivity(new Intent(UpdatePracticeNoteActivity.this, jonchan.musex.MainActivity.class));
+                        startActivity(new Intent(UpdatePracticeNoteActivity.this, MusicGameActivity.class));
                     } else if (itemId == R.id.navigation_contact){
                         startActivity(new Intent(UpdatePracticeNoteActivity.this, DisplayStudentActivity.class));
                     }
