@@ -2,6 +2,7 @@ package jonchan.gittest;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -40,6 +41,11 @@ public class DisplayPracticeNoteStudentActivity extends BaseActivity {
     private FirebaseAuth mAuth;
     String lesson_id;
 
+    private Typeface tfrb;
+    private Typeface tfrm;
+    private Typeface tfml;
+    private Typeface tfmsb;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,9 +57,14 @@ public class DisplayPracticeNoteStudentActivity extends BaseActivity {
         //Intent myIntent = getIntent();
         //student_uid = myIntent.getStringExtra("STUDENT_ID");
 
+        tfrb = Typeface.createFromAsset(getAssets(), "robotobold.ttf");
+        tfrm = Typeface.createFromAsset(getAssets(), "robotomedium.ttf");
+        tfml = Typeface.createFromAsset(getAssets(),"montserratlight.ttf");
+        tfmsb = Typeface.createFromAsset(getAssets(), "montserratsemibold.ttf");
+
         btnAddPracticeNote = (Button) findViewById(R.id.btnAddPracticeNote);
         mListView = (ListView) findViewById(R.id.listViewPracticeNote);
-
+        btnAddPracticeNote.setTypeface(tfrb);
         mAuth = FirebaseAuth.getInstance();
         final String user_id = mAuth.getCurrentUser().getUid();
         database = FirebaseDatabase.getInstance();
@@ -146,6 +157,8 @@ public class DisplayPracticeNoteStudentActivity extends BaseActivity {
                 mainViewHolder = new ViewHolder();
                 mainViewHolder.practiceNoteDate = (TextView) convertView.findViewById(R.id.txtPracticeNote);
                 mainViewHolder.viewPracticeNote = (Button) convertView.findViewById(R.id.btnViewPracticeNote);
+                mainViewHolder.practiceNoteDate.setTypeface(tfmsb);
+                mainViewHolder.viewPracticeNote.setTypeface(tfrb);
                 mainViewHolder.viewPracticeNote.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

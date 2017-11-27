@@ -2,6 +2,7 @@ package jonchan.gittest;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -43,6 +44,11 @@ public class DisplayStudentActivity extends BaseActivity {
     private FirebaseAuth mAuth;
     private Button btnhome;
 
+    private Typeface tfrb;
+    private Typeface tfrm;
+    private Typeface tfml;
+    private Typeface tfmsb;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -53,6 +59,11 @@ public class DisplayStudentActivity extends BaseActivity {
 
         navigationView = (BottomNavigationView) findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
+
+        tfrb = Typeface.createFromAsset(getAssets(), "robotobold.ttf");
+        tfrm = Typeface.createFromAsset(getAssets(), "robotomedium.ttf");
+        tfml = Typeface.createFromAsset(getAssets(),"montserratlight.ttf");
+        tfmsb = Typeface.createFromAsset(getAssets(), "montserratsemibold.ttf");
 
         btnAddStudent = (Button) findViewById(R.id.btnAddStudent);
 
@@ -161,6 +172,10 @@ public class DisplayStudentActivity extends BaseActivity {
                 mainViewHolder.studentName = (TextView) convertView.findViewById(R.id.txtStudent);
                 mainViewHolder.btnAddLesson = (Button) convertView.findViewById(R.id.btnLesson);
                 mainViewHolder.btnProgression = (Button) convertView.findViewById(R.id.btnProgression);
+
+                mainViewHolder.studentName.setTypeface(tfmsb);
+                mainViewHolder.btnAddLesson.setTypeface(tfrm);
+                mainViewHolder.btnProgression.setTypeface(tfrm);
                 mainViewHolder.btnAddLesson.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

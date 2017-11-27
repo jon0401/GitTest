@@ -2,6 +2,7 @@ package jonchan.gittest;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -39,6 +40,11 @@ public class DisplayLessonStudentActivity extends BaseActivity {
     private FirebaseAuth mAuth;
     Query query;
 
+    private Typeface tfrb;
+    private Typeface tfrm;
+    private Typeface tfml;
+    private Typeface tfmsb;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +53,11 @@ public class DisplayLessonStudentActivity extends BaseActivity {
         navigationView.setOnNavigationItemSelectedListener(this);
 
         mListView = (ListView) findViewById(R.id.listViewLessonStudent);
+
+        tfrb = Typeface.createFromAsset(getAssets(), "robotobold.ttf");
+        tfrm = Typeface.createFromAsset(getAssets(), "robotomedium.ttf");
+        tfml = Typeface.createFromAsset(getAssets(),"montserratlight.ttf");
+        tfmsb = Typeface.createFromAsset(getAssets(), "montserratsemibold.ttf");
 
         mAuth = FirebaseAuth.getInstance();
         final String user_id = mAuth.getCurrentUser().getUid();
@@ -149,6 +160,12 @@ public class DisplayLessonStudentActivity extends BaseActivity {
                 mainViewHolder.txtTimeSlot = (TextView) convertView.findViewById(R.id.txtTimeSlot);
                 mainViewHolder.txtLocation = (TextView) convertView.findViewById(R.id.txtLocation);
                 mainViewHolder.btnTeachingNote = (Button) convertView.findViewById(R.id.btnTeachingNote);
+
+                mainViewHolder.txtDate.setTypeface(tfmsb);
+                mainViewHolder.txtTimeSlot.setTypeface(tfml);
+                mainViewHolder.txtLocation.setTypeface(tfml);
+                mainViewHolder.btnTeachingNote.setTypeface(tfrb);
+
                 mainViewHolder.btnTeachingNote.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

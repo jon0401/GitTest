@@ -2,6 +2,7 @@ package jonchan.gittest;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
@@ -46,6 +47,11 @@ public class DisplayLessonActivity extends BaseActivity {
     String student_uid;
     String lesson_id;
 
+    private Typeface tfrb;
+    private Typeface tfrm;
+    private Typeface tfml;
+    private Typeface tfmsb;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +64,13 @@ public class DisplayLessonActivity extends BaseActivity {
         student_uid = myIntent.getStringExtra("STUDENT_ID");
 
         btnAddLesson = (Button) findViewById(R.id.btnAddStudent);
+        btnAddLesson.setTypeface(tfml);
         mListView = (ListView) findViewById(R.id.listViewLesson);
+
+        tfrb = Typeface.createFromAsset(getAssets(), "robotobold.ttf");
+        tfrm = Typeface.createFromAsset(getAssets(), "robotomedium.ttf");
+        tfml = Typeface.createFromAsset(getAssets(),"montserratlight.ttf");
+        tfmsb = Typeface.createFromAsset(getAssets(), "montserratsemibold.ttf");
 
         mAuth = FirebaseAuth.getInstance();
         final String user_id = mAuth.getCurrentUser().getUid();
@@ -168,6 +180,7 @@ public class DisplayLessonActivity extends BaseActivity {
                 mainViewHolder.txtTimeSlot = (TextView) convertView.findViewById(R.id.txtTimeSlot);
                 mainViewHolder.txtLocation = (TextView) convertView.findViewById(R.id.txtLocation);
                 mainViewHolder.btnAddNote = (Button) convertView.findViewById(R.id.btnAddNote);
+                mainViewHolder.btnAddNote.setTypeface(tfrm);
                 mainViewHolder.btnAddNote.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -198,6 +211,9 @@ public class DisplayLessonActivity extends BaseActivity {
             mainViewHolder.txtDate.setText(getItem(position).getDate());
             mainViewHolder.txtTimeSlot.setText(getItem(position).getStartTime() + "-" + getItem(position).getEndTime());
             mainViewHolder.txtLocation.setText(getItem(position).getLocation());
+            mainViewHolder.txtDate.setTypeface(tfmsb);
+            mainViewHolder.txtTimeSlot.setTypeface(tfml);
+            mainViewHolder.txtLocation.setTypeface(tfml);
 
             DatabaseReference mRefNote = database.getReference("Lesson").child(mLessonIdList.get(position));
             final ViewHolder finalMainViewHolder = mainViewHolder;
