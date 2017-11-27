@@ -1,29 +1,36 @@
-package jonchan.musex;
+package jonchan.gittest;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.BottomNavigationView;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.view.View;
 
 import com.androidbuts.multispinnerfilter.MultiSpinner;
 import com.androidbuts.multispinnerfilter.MultiSpinnerListener;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+import jonchan.musex.*;
+
+/**
+ * Created by jonchan on 27/11/2017.
+ */
+
+public class MusicGameActivity extends BaseActivity {
 
     TextView myMNote;
     Spinner dropDown;
-    ArrayList <MQues> mExer;
+    ArrayList<MQues> mExer;
     MExer mexerObject;
 
     protected int id;
@@ -51,10 +58,38 @@ public class MainActivity extends AppCompatActivity {
 
     final String TAG = "MyActivity";
 
+    private BottomNavigationView navigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mus_ex_activity_main);
+        setContentView(R.layout.mus_game_activity_main);
+
+        navigationView = (BottomNavigationView) findViewById(R.id.navigation);
+        navigationView.setOnNavigationItemSelectedListener(item -> {
+            navigationView.postDelayed(() -> {
+                int itemId = item.getItemId();
+                if (itemId == R.id.navigation_home) {
+                    startActivity(new Intent(this, MainActivity.class));
+                } else if (itemId == R.id.navigation_booking) {
+                    startActivity(new Intent(this, Facitilies_BookingActivity.class));
+                } else if (itemId == R.id.navigation_game) {
+                    startActivity(new Intent(this, MusicGameActivity.class));
+                } else if (itemId == R.id.navigation_contact){
+                    startActivity(new Intent(this, DisplayStudentActivity.class));
+                }
+                finish();
+            }, 300);
+            return true;
+        });
+
+        updateNavigationBarState();
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this,MainActivity.class));
+        finish();
     }
 
     @Override
@@ -88,26 +123,26 @@ public class MainActivity extends AppCompatActivity {
 
         selectedQT.clear();
 
-        AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
-        View mView = getLayoutInflater().inflate(R.layout.custom_generate_exer, null);
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(this);
+        View mView = getLayoutInflater().inflate(jonchan.musex.R.layout.custom_generate_exer, null);
         mBuilder.setTitle("Custom Exercise");
-        final Spinner NoOfQuestionSpinner = (Spinner) mView.findViewById(R.id.spinner_noq);
-        final Spinner DifficultySpinner = (Spinner) mView.findViewById(R.id.spinner_difficulty);
+        final Spinner NoOfQuestionSpinner = (Spinner) mView.findViewById(jonchan.musex.R.id.spinner_noq);
+        final Spinner DifficultySpinner = (Spinner) mView.findViewById(jonchan.musex.R.id.spinner_difficulty);
 
-        ArrayAdapter<String> noq_arrAdapter = new ArrayAdapter<String>(MainActivity.this,R.layout.spinner_layout,noq_array);
+        ArrayAdapter<String> noq_arrAdapter = new ArrayAdapter<String>(this, jonchan.musex.R.layout.spinner_layout,noq_array);
         noq_arrAdapter.setDropDownViewResource (android.R.layout.simple_dropdown_item_1line);
         NoOfQuestionSpinner.setPrompt("Number of Questions");
         NoOfQuestionSpinner.setAdapter(noq_arrAdapter);
         NoOfQuestionSpinner.setSelection(0);
 
-        ArrayAdapter<String> diff_arrAdapter = new ArrayAdapter<String>(MainActivity.this,R.layout.spinner_layout,diff_array);
+        ArrayAdapter<String> diff_arrAdapter = new ArrayAdapter<String>(this, jonchan.musex.R.layout.spinner_layout,diff_array);
         diff_arrAdapter.setDropDownViewResource (android.R.layout.simple_dropdown_item_1line);
         DifficultySpinner.setPrompt("Difficulty");
         DifficultySpinner.setAdapter(diff_arrAdapter);
         DifficultySpinner.setSelection(0);
 
         final List<String> keylist = new ArrayList<>(lhm.keySet());
-        MultiSpinner simpleSpinner = (MultiSpinner) mView.findViewById(R.id.spinner_type);
+        MultiSpinner simpleSpinner = (MultiSpinner) mView.findViewById(jonchan.musex.R.id.spinner_type);
 
         simpleSpinner.setItems(lhm, new MultiSpinnerListener() {
             @Override
@@ -132,6 +167,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Intent playExerIntent = new Intent(this, jonchan.musex.PlayExer.class);
+
         mBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -149,7 +186,6 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 dialog.dismiss();
-                Intent playExerIntent = new Intent(MainActivity.this, PlayExer.class);
                 ////////
                 //mExer = MExer.createExer(5, Difficulty.EASY, new QType[] {QType.SCALE_B,QType.SCALE_T});
                 ////////
@@ -211,47 +247,13 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(playExerIntent, CHILD_RESULT_OBJECT);
     }
 
+    @Override
+    int getContentViewId() {
+        return R.layout.mus_game_activity_main;
+    }
 
+    @Override
+    int getNavigationMenuItemId() {
+        return R.id.navigation_game;
+    }
 }
-
-//class SpinnerItem {
-//    private final String text;
-//    private final boolean isHint;
-//
-//    public SpinnerItem(String strItem, boolean flag) {
-//        this.isHint = flag;
-//        this.text = strItem;
-//    }
-//
-//    public String getItemString() {
-//        return text;
-//    }
-//
-//    public boolean isHint() {
-//        return isHint;
-//    }
-//}
-//
-//class MySpinnerAdapter extends ArrayAdapter<SpinnerItem> {
-//    public MySpinnerAdapter(Context context, int resource, List<SpinnerItem> objects) {
-//        super(context, resource, objects);
-//    }
-//
-//    @Override
-//    public int getCount() {
-//        return super.getCount() - 1;
-//    }
-//
-//    @Override
-//    public SpinnerItem getItem(int position) {
-//        return super.getItem(position);
-//    }
-//
-//    @Override
-//    public long getItemId(int position) {
-//        return super.getItemId(position);
-//    }
-//
-//}
-
-
