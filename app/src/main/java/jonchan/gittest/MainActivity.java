@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
                                         } else if (itemId == R.id.navigation_booking) {
                                             startActivity(new Intent(MainActivity.this, Facitilies_BookingActivity.class));
                                         } else if (itemId == R.id.navigation_game) {
-                                            startActivity(new Intent(MainActivity.this, jonchan.musex.MainActivity.class));
+                                            startActivity(new Intent(MainActivity.this, MusicGameActivity.class));
                                         } else if (itemId == R.id.navigation_contact){
                                             startActivity(new Intent(MainActivity.this, DisplayStudentActivity.class));
                                         }
@@ -260,7 +260,7 @@ public class MainActivity extends AppCompatActivity {
                                         } else if (itemId == R.id.navigation_booking) {
                                             startActivity(new Intent(MainActivity.this, Facitilies_BookingActivity.class));
                                         } else if (itemId == R.id.navigation_game) {
-                                            startActivity(new Intent(MainActivity.this, jonchan.musex.MainActivity.class));
+                                            startActivity(new Intent(MainActivity.this, MusicGameActivity.class));
                                         } else if (itemId == R.id.navigation_contact){
                                             startActivity(new Intent(MainActivity.this, DisplayStudentActivity.class));
                                         }

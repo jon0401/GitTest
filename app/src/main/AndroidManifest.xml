@@ -44,6 +44,7 @@
         <activity android:name=".PaymentActivity" />
         <activity android:name=".RoomInformationActivity" />
         <activity android:name=".ViewRequestActivity" />
+        <activity android:name=".MusicGameActivity" />
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
