@@ -4,10 +4,14 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -52,12 +56,15 @@ public class AddPracticeNoteActivity extends AppCompatActivity implements Number
     String duration;
     long dur;
     FirebaseDatabase database;
+    protected BottomNavigationView navigationView;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_practice_note);
+
+        setTitle("ADD PRACTICE NOTE");
 
         txtStudentCreatorName = (TextView) findViewById(R.id.txtStudentCreatorName);
         eTxtPracticeNoteDateEnter = (EditText) findViewById(R.id.etxtPracticeNoteDateEnter);
@@ -209,8 +216,55 @@ public class AddPracticeNoteActivity extends AppCompatActivity implements Number
         });
 
 
+        navigationView = (BottomNavigationView) findViewById(R.id.navigation);
+        navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                navigationView.postDelayed(() -> {
+                    int itemId = item.getItemId();
+                    if (itemId == R.id.navigation_home) {
+                        startActivity(new Intent(AddPracticeNoteActivity.this, MainActivity.class));
+                    } else if (itemId == R.id.navigation_booking) {
+                        startActivity(new Intent(AddPracticeNoteActivity.this, Facitilies_BookingActivity.class));
+                    } else if (itemId == R.id.navigation_game) {
+                        startActivity(new Intent(AddPracticeNoteActivity.this, jonchan.musex.MainActivity.class));
+                    } else if (itemId == R.id.navigation_contact){
+                        startActivity(new Intent(AddPracticeNoteActivity.this, DisplayStudentActivity.class));
+                    }
+                    finish();
+                }, 300);
+                return true;
+            }
+        });
+
+        updateNavigationBarState();
+
     }
 
+
+    protected void updateNavigationBarState(){
+        int actionId = getNavigationMenuItemId();
+        selectBottomNavigationBarItem(actionId);
+    }
+
+    void selectBottomNavigationBarItem(int itemId) {
+        Menu menu = navigationView.getMenu();
+        for (int i = 0, size = menu.size(); i < size; i++) {
+            MenuItem item = menu.getItem(i);
+            boolean shouldBeChecked = item.getItemId() == itemId;
+            if (shouldBeChecked) {
+                item.setChecked(true);
+                break;
+            }
+        }
+    }
+    int getContentViewId(){
+        return R.layout.activity_add_practice_note;
+    };
+
+    int getNavigationMenuItemId(){
+        return R.id.navigation_home;
+    };
     protected void showDatePickDlg(){
         Calendar calendar = Calendar.getInstance();
 
@@ -276,5 +330,29 @@ public class AddPracticeNoteActivity extends AppCompatActivity implements Number
     @Override
     public void onValueChange(NumberPicker numberPicker, int i, int i1) {
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                mAuth.signOut();
+                Intent myIntent = new Intent(this, LoginActivity.class);
+                try{
+                    startActivity(myIntent);
+                }catch(android.content.ActivityNotFoundException e){
+                    e.printStackTrace();
+                }
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
     }
 }

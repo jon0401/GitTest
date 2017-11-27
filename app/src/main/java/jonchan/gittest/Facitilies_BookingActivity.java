@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,6 +19,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,6 +39,7 @@ public class Facitilies_BookingActivity extends BaseActivity{
         private int pos;
         private int roomType=0;
         private int roomNum=0;
+    private FirebaseAuth mAuth;
 
         private Typeface tfrb;
         private Typeface tfrm;
@@ -59,7 +63,8 @@ public class Facitilies_BookingActivity extends BaseActivity{
 
             final DatabaseReference myRef = database.getReference("room_type");
             final DatabaseReference myRef2 = database.getReference("room_num");
-
+            mAuth = FirebaseAuth.getInstance();
+            final String user_id = mAuth.getCurrentUser().getUid();
             //saving realtime data in db
            // myRef.setValue("");
 
@@ -147,4 +152,29 @@ public class Facitilies_BookingActivity extends BaseActivity{
             }
             public void onNothingSelected(AdapterView arg0){}
         };
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                mAuth.signOut();
+                Intent myIntent = new Intent(this, LoginActivity.class);
+                try{
+                    startActivity(myIntent);
+                }catch(android.content.ActivityNotFoundException e){
+                    e.printStackTrace();
+                }
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
+
 }
