@@ -44,6 +44,7 @@
         <activity android:name=".PaymentActivity" />
         <activity android:name=".RoomInformationActivity" />
         <activity android:name=".ViewRequestActivity" />
+        <activity android:name=".MusicGameActivity" />
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
@@ -57,6 +58,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="android.support.v7.app.AppCompatActivity" />
         </activity>
+        <activity android:name=".DisplayTeacherActivity"></activity>
     </application>
 
 </manifest>

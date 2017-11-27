@@ -214,44 +214,44 @@ public class MainActivity extends AppCompatActivity {
 
 }
 
-class SpinnerItem {
-    private final String text;
-    private final boolean isHint;
-
-    public SpinnerItem(String strItem, boolean flag) {
-        this.isHint = flag;
-        this.text = strItem;
-    }
-
-    public String getItemString() {
-        return text;
-    }
-
-    public boolean isHint() {
-        return isHint;
-    }
-}
-
-class MySpinnerAdapter extends ArrayAdapter<SpinnerItem> {
-    public MySpinnerAdapter(Context context, int resource, List<SpinnerItem> objects) {
-        super(context, resource, objects);
-    }
-
-    @Override
-    public int getCount() {
-        return super.getCount() - 1;
-    }
-
-    @Override
-    public SpinnerItem getItem(int position) {
-        return super.getItem(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return super.getItemId(position);
-    }
-
-}
+//class SpinnerItem {
+//    private final String text;
+//    private final boolean isHint;
+//
+//    public SpinnerItem(String strItem, boolean flag) {
+//        this.isHint = flag;
+//        this.text = strItem;
+//    }
+//
+//    public String getItemString() {
+//        return text;
+//    }
+//
+//    public boolean isHint() {
+//        return isHint;
+//    }
+//}
+//
+//class MySpinnerAdapter extends ArrayAdapter<SpinnerItem> {
+//    public MySpinnerAdapter(Context context, int resource, List<SpinnerItem> objects) {
+//        super(context, resource, objects);
+//    }
+//
+//    @Override
+//    public int getCount() {
+//        return super.getCount() - 1;
+//    }
+//
+//    @Override
+//    public SpinnerItem getItem(int position) {
+//        return super.getItem(position);
+//    }
+//
+//    @Override
+//    public long getItemId(int position) {
+//        return super.getItemId(position);
+//    }
+//
+//}
 
 

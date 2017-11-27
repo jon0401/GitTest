@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-v18/values-v18.xml",
+            "outputFile": "/Users/Chung/Documents/Wayne/COMP3330/Project/GitTest/Spinnerlibrary/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-v18/values-v18.xml",
             "map": [
                 {
-                    "source": "/Users/Linda/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/b37509c6e055075d29cca50943f4d97f/res/values-v18/values-v18.xml",
+                    "source": "/Users/Chung/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/7a7483e4db34afe12e962da599bd7cd2/res/values-v18/values-v18.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -20,6 +20,21 @@
             "map": [
                 {
                     "source": "/Users/Linda/GitTest/C:\\Users\\jonat\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\9b44d58ef538052f34188edb467c88e1\\res\\values-v18\\values-v18.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "48",
+                        "endOffsets": "99"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/Linda/GitTest/Spinnerlibrary/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-v18/values-v18.xml",
+            "map": [
+                {
+                    "source": "/Users/Linda/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/b37509c6e055075d29cca50943f4d97f/res/values-v18/values-v18.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

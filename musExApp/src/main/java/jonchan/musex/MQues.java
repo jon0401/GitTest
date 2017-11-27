@@ -4,18 +4,6 @@ import android.util.Log;
 import java.io.Serializable;
 import java.util.*;
 
-/**
- * Created by jonchan on 16/11/2017.
- */
-
-enum QType{
-    SCALE_T, SCALE_B, ARPEGGIO_T, ARPEGGIO_B, INTERVAL_T, INTERVAL_B
-}
-
-enum Difficulty{
-    EASY, MEDIUM, HARD, ALL
-}
-
 public class MQues implements Serializable {
 
     protected int id;
