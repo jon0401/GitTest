@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/background">
 
     <TextView
         android:id="@+id/mNote"
@@ -14,7 +15,7 @@
         android:text="Music Notes"
         android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="46sp"
+        android:textSize="44sp"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
