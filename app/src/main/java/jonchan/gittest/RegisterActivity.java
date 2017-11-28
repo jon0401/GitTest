@@ -14,6 +14,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,6 +23,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import org.w3c.dom.Text;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -35,6 +38,8 @@ public class RegisterActivity extends AppCompatActivity {
     private ProgressDialog mProgress;
     private RadioButton radioTeacher;
     private RadioButton radioStuder;
+    private TextView txtTeacher;
+    private TextView txtStudent;
     FirebaseDatabase database;
     DatabaseReference mRef;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -55,6 +60,8 @@ public class RegisterActivity extends AppCompatActivity {
         mProgress = new ProgressDialog(this);
         radioTeacher = (RadioButton) findViewById(R.id.rBtnTeacher);
         radioStuder = (RadioButton) findViewById(R.id.rBtnStudent);
+        txtTeacher = (TextView) findViewById(R.id.txtTeacher);
+        txtStudent = (TextView) findViewById(R.id.txtStudent);
 
         tf = Typeface.createFromAsset(getAssets(), "fonts/montserratsemibold.ttf");
         tfl = Typeface.createFromAsset(getAssets(), "montserratlight.ttf");
@@ -85,6 +92,8 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 radioStuder.setAlpha(1f);
                 radioTeacher.setAlpha(0.5f);
+                txtStudent.setAlpha(1f);
+                txtTeacher.setAlpha(0.5f);
                 selectedID = "Student";
             }
         });
@@ -94,7 +103,8 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 radioTeacher.setAlpha(1f);
                 radioStuder.setAlpha(0.5f);
-                radioTeacher.setAlpha(0.5f);
+                txtTeacher.setAlpha(1f);
+                txtStudent.setAlpha(0.5f);
                 selectedID = "Teacher";
             }
         });

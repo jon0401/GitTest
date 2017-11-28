@@ -26,16 +26,14 @@
                 />
 
 
+        <RadioButton
+            android:id="@+id/rBtnStudent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:button="@drawable/student"
 
-            <RadioButton
-                android:id="@+id/rBtnStudent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:button="@drawable/student"
-                android:checked="false"
-
-                android:layout_alignParentEnd="true"
-              />
+            android:checked="false" />
 
     </RadioGroup>
 
@@ -91,6 +89,24 @@
         android:ems="10"
         android:hint="Your name"
         android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/txtTeacher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rBtnGroup"
+        android:layout_marginEnd="27dp"
+        android:layout_toStartOf="@+id/txtStudent"
+        android:text="Teacher" />
+
+    <TextView
+        android:id="@+id/txtStudent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/btnRegister"
+        android:layout_below="@+id/rBtnGroup"
+        android:layout_marginEnd="60dp"
+        android:text="Student" />
 
 
 </RelativeLayout>

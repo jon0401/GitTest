@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -33,13 +34,14 @@ public class Facitilies_BookingActivity extends BaseActivity{
         private String[][] pandc = new String[][]{{"101","102","103","104","105"},{"210","202","203"},{"301","302","303","304","305"},{"401","402","403","404"},{"501","502","503"}};
         private Spinner sp;
         private Spinner sp2;
+        private Button btnNext;
         private Context context;
         ArrayAdapter<String> adapter ;
         ArrayAdapter<String> adapter2;
         private int pos;
         private int roomType=0;
         private int roomNum=0;
-    private FirebaseAuth mAuth;
+        private FirebaseAuth mAuth;
 
         private Typeface tfrb;
         private Typeface tfrm;
@@ -53,6 +55,7 @@ public class Facitilies_BookingActivity extends BaseActivity{
             navigationView = (BottomNavigationView) findViewById(R.id.navigation);
             navigationView.setOnNavigationItemSelectedListener(this);
 
+            btnNext = (Button) findViewById(R.id.btnNext);
             tfrb = Typeface.createFromAsset(getAssets(), "robotobold.ttf");
             tfrm = Typeface.createFromAsset(getAssets(), "robotomedium.ttf");            /**
              * From the DB we obtain the data to assign to room types and number
@@ -65,38 +68,28 @@ public class Facitilies_BookingActivity extends BaseActivity{
             final DatabaseReference myRef2 = database.getReference("room_num");
             mAuth = FirebaseAuth.getInstance();
             final String user_id = mAuth.getCurrentUser().getUid();
-            //saving realtime data in db
-           // myRef.setValue("");
 
-            //listen to the event for change
-           /* myRef.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    String value = dataSnapshot.getValue(String.class);
-                    room_type[0]= value;
-                }
 
-                @Override
-                public void onCancelled(DatabaseError error) {
-                    Toast.makeText(getApplicationContext(), "obtained abnormally", Toast.LENGTH_SHORT);
-                   // Log.e(TAG, error.toException().toString());
+            AdapterView.OnItemSelectedListener selectListener = new AdapterView.OnItemSelectedListener(){
+                public void onItemSelected(AdapterView parent, View v, int position, long id) {
+                    pos = sp.getSelectedItemPosition();
+                    adapter2 = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, pandc[pos]);
+                    sp2.setAdapter(adapter2);
+                    roomType++;
                 }
-            });*/
-            //listen to the event for change
-          /*  myRef2.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    String value = dataSnapshot.getValue(String.class);
-                    room_num[0]= value;
-                }
+                public void onNothingSelected(AdapterView arg0){}
 
-                @Override
-                public void onCancelled(DatabaseError error) {
-                    Toast.makeText(getApplicationContext(), "obtained abnormally", Toast.LENGTH_SHORT);
-                    // Log.e(TAG, error.toException().toString());
-                    // Log.e(TAG, error.toException().toString());
+            };
+
+            AdapterView.OnItemSelectedListener selectListener2 = new AdapterView.OnItemSelectedListener(){
+                public void onItemSelected(AdapterView parent, View v, int position, long id) {
+                    roomNum++;
+
                 }
-            });*/
+                public void onNothingSelected(AdapterView arg0){}
+            };
+
+
 
             tvt = (TextView) findViewById(R.id.choosing_room_textview1);
             tvt.setTypeface(tfrb);
@@ -113,6 +106,16 @@ public class Facitilies_BookingActivity extends BaseActivity{
             sp2.setAdapter(adapter2);
             sp2.setOnItemSelectedListener(selectListener2);
 
+            btnNext.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent=new Intent();
+                    intent.setClass(Facitilies_BookingActivity.this,RoomInformationActivity.class);
+                    intent.putExtra("room_num", (String) sp2.getSelectedItem());
+                    Facitilies_BookingActivity.this.startActivity(intent);
+                }
+            });
+
         }
 
 
@@ -126,32 +129,9 @@ public class Facitilies_BookingActivity extends BaseActivity{
         return R.id.navigation_booking;
     }
 
-    private AdapterView.OnItemSelectedListener selectListener = new AdapterView.OnItemSelectedListener(){
-             public void onItemSelected(AdapterView parent, View v, int position, long id) {
-                 pos = sp.getSelectedItemPosition();
-                 adapter2 = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, pandc[pos]);
-                 sp2.setAdapter(adapter2);
-                 roomType++;
-             }
-             public void onNothingSelected(AdapterView arg0){}
 
-         };
 
-        private AdapterView.OnItemSelectedListener selectListener2 = new AdapterView.OnItemSelectedListener(){
-            public void onItemSelected(AdapterView parent, View v, int position, long id) {
-                roomNum++;
-                /*new AlertDialog.Builder(Facitilies_BookingActivity.this).setTitle("System alert")//set dialog title
-                        .setMessage("room_num:"+ (String) sp2.getSelectedItem()).show();*/
-                //after selecting the room jump to Room_Information
-                if(!(roomType==1&&roomNum==1||roomNum==2)){
-                    Intent intent=new Intent();
-                    intent.setClass(Facitilies_BookingActivity.this,RoomInformationActivity.class);
-                    intent.putExtra("room_num", (String) sp2.getSelectedItem());
-                    Facitilies_BookingActivity.this.startActivity(intent);
-                }
-            }
-            public void onNothingSelected(AdapterView arg0){}
-        };
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

@@ -74,11 +74,18 @@ public class Book_RoomActivity extends BaseActivity{
 
         //time choosing
         data_list = new ArrayList<String>();//database
-        data_list.add("9:00am-9:30am");
-        data_list.add("9:30am-10:00am");
-        data_list.add("10:00am-10:30am");
-        data_list.add("10:30am-11:00am");
-        data_list.add("11:00am-12:00am");
+        data_list.add("09:00am-10:00am");
+        data_list.add("10:00am-11:00am");
+        data_list.add("11:00am-12:00pm");
+        data_list.add("12:00pm-13:00pm");
+        data_list.add("13:00pm-14:00pm");
+        data_list.add("14:00pm-15:00pm");
+        data_list.add("15:00pm-16:00pm");
+        data_list.add("16:00pm-17:00pm");
+        data_list.add("17:00pm-18:00pm");
+        data_list.add("18:00pm-19:00pm");
+        data_list.add("19:00pm-20:00pm");
+        data_list.add("20:00pm-21:00pm");
 
         arr_adapter= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data_list);
 
