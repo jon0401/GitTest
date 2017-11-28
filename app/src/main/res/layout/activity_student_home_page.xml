@@ -6,11 +6,23 @@
     android:background="@drawable/background"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="600dp">
 
+        <Button
+            android:id="@+id/btnViewRequest"
+            android:layout_width="250dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_height="25dp"
+            android:layout_gravity="right"
+            android:background="@drawable/ovalbuttondark"
+            android:textColor="#FFFFFF"
+            android:text="Connect With Teacher"
+            android:textAllCaps="true" />
 
     <TextView
         android:id="@+id/upcomingstudent"
@@ -18,16 +30,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/btnMusicGameStudent"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:text="Upcoming Lessons in Next 7 Days"
         android:textAllCaps="true"
         android:textAlignment="center"
         android:textSize="20sp" />
 
+
     <ListView
         android:id="@+id/listUpcomingLesson"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="370dp"
         android:layout_marginTop="20dp"
         android:layout_below="@+id/textView"
         android:layout_alignParentStart="true"
@@ -48,42 +61,33 @@
             android:textSize="20sp" />
             -->
 
-<android.support.constraint.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnMyLesson"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/ovalbuttondark"
-        android:text="My Lesson"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btnPracticeNote"
-        android:layout_width="175dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="20dp"
-        android:background="@drawable/ovalbuttondark"
-        android:text="My Practice Note"
-        android:textAllCaps="true"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnMyLesson" />
-    </android.support.constraint.ConstraintLayout>
+            <Button
+                android:id="@+id/btnMyLesson"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/ovalbuttondark"
+                android:text="My Lesson"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/btnPracticeNote"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/ovalbuttondark"
+                android:text="My Practice Note"
+                android:textAllCaps="true"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
 
 <!--<LinearLayout-->
 
@@ -116,18 +120,7 @@
         <!--android:textAllCaps="true"-->
         <!--android:textColor="#FFFFFF" />-->
 <!--</LinearLayout>-->
-        <Button
-            android:id="@+id/btnViewRequest"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_alignParentStart="true"
-            android:layout_gravity="center"
-            android:layout_below="@+id/btnPracticeNote"
-            android:text="Connect With Teacher"
-            android:textAllCaps="true"
-            android:textColor="@color/colorUI"
-            android:background="@drawable/ovalbuttontans"/>
+
 
     </LinearLayout>
 
