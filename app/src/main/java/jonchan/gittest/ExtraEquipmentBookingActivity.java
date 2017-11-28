@@ -1,6 +1,7 @@
 package jonchan.gittest;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.view.View;
@@ -37,6 +38,7 @@ public class ExtraEquipmentBookingActivity extends BaseActivity{
         navigationView = (BottomNavigationView) findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
 
+        finish = (Button) findViewById(R.id.extraapay);
         spinner = (Spinner) findViewById(R.id.extra_equipment_spinner);
         extra_equipment_spinner2=(Spinner)findViewById(R.id.extra_equipment_spinner2);
         extra_equipment_spinner3=(Spinner)findViewById(R.id.extra_equipment_spinner3);
@@ -70,6 +72,15 @@ public class ExtraEquipmentBookingActivity extends BaseActivity{
         final SimpleAdapter s_adapter = new SimpleAdapter(this, getDate(), R.layout.extra_equipment_type_item, new String[]{ "image","text"}, new int[]{R.id.img,R.id.text});
         //connect the controller with adapter
         spinner.setAdapter(s_adapter);
+
+        finish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent();
+                intent.setClass(ExtraEquipmentBookingActivity.this,PaymentActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
