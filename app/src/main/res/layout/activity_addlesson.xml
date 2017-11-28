@@ -53,6 +53,7 @@
                 android:layout_marginTop="30px"
                 android:layout_marginLeft="100dp"
                 android:hint="Choose Date"
+                android:focusable="false"
                 android:textColor="@color/colorUI"
                 android:textSize="20dp"
                 android:inputType="text"/>
@@ -77,6 +78,7 @@
                 android:layout_marginLeft="150px"
                 android:layout_marginRight="20px"
                 android:layout_marginTop="30px"
+                android:focusable="false"
                 android:hint="Start Time"
                 android:layout_alignParentRight="true"
                 android:inputType="text"/>
@@ -100,6 +102,7 @@
                 android:layout_marginLeft="150px"
                 android:layout_marginRight="20px"
                 android:layout_marginTop="30px"
+                android:focusable="false"
                 android:hint="End Time"
                 android:layout_alignParentRight="true"
                 android:inputType="text"/>

@@ -38,6 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30px"
                 android:layout_marginLeft="62dp"
+                android:focusable="false"
                 android:hint="Please choose the date"
                 android:textColor="@color/colorUI"
                 android:textSize="20dp"/>

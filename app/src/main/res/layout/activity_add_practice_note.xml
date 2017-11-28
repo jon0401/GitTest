@@ -108,6 +108,7 @@
             android:layout_marginTop="43dp"
             android:hint="Choose Date..."
             android:textColor="@color/colorUI"
+            android:focusable="false"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/etxtPracticeNoteDurationEnter"
             app:layout_constraintEnd_toEndOf="@+id/etxtPracticeNoteDurationEnter"
@@ -143,6 +144,7 @@
             android:hint="Choose Duration..."
             android:textColor="@color/colorUI"
             android:textSize="12sp"
+            android:focusable="false"
             app:layout_constraintBottom_toTopOf="@+id/spinnerChooseTeacher"
             app:layout_constraintEnd_toEndOf="@+id/spinnerChooseTeacher"
             app:layout_constraintStart_toStartOf="@+id/spinnerChooseTeacher" />
