@@ -2,6 +2,7 @@ package jonchan.gittest;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -531,6 +532,10 @@ public class MainActivity extends AppCompatActivity {
                 mainViewHolder.txtTimeSlot.setTypeface(tfml);
                 mainViewHolder.txtLocation.setTypeface(tfml);
 
+                mainViewHolder.txtDate.setTextColor(Color.parseColor("#595959"));
+                mainViewHolder.txtTimeSlot.setTextColor(Color.parseColor("#595959"));
+                mainViewHolder.txtLocation.setTextColor(Color.parseColor("#595959"));
+
                 mainViewHolder.btnAddNote = (Button) convertView.findViewById(R.id.btnAddNote);
                 mainViewHolder.btnAddNote.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -565,6 +570,7 @@ public class MainActivity extends AppCompatActivity {
             mainViewHolder.txtTimeSlot.setText(getItem(position).getStartTime() + "-" + getItem(position).getEndTime());
             mainViewHolder.txtLocation.setText(getItem(position).getLocation());
             mainViewHolder.txtStudent.setText(getItem(position).getStudentName());
+
 
 
             DatabaseReference mRefNote = database.getReference("Lesson").child(mLessonIdList.get(position));
@@ -655,6 +661,10 @@ public class MainActivity extends AppCompatActivity {
             mainViewHolder.txtDate.setTypeface(tfml);
             mainViewHolder.txtTimeSlot.setTypeface(tfml);
             mainViewHolder.txtLocation.setTypeface(tfml);
+
+            mainViewHolder.txtDate.setTextColor(Color.parseColor("#595959"));
+            mainViewHolder.txtTimeSlot.setTextColor(Color.parseColor("#595959"));
+            mainViewHolder.txtLocation.setTextColor(Color.parseColor("#595959"));
 
             return convertView;
         }
