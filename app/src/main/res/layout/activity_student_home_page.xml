@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+<!--
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="600dp">
+-->
 
         <Button
             android:id="@+id/btnViewRequest"
@@ -22,6 +24,7 @@
             android:background="@drawable/ovalbuttondark"
             android:textColor="#FFFFFF"
             android:text="Connect With Teacher"
+            app:layout_constraintEnd_toEndOf="parent"
             android:textAllCaps="true" />
 
     <TextView
@@ -29,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/btnMusicGameStudent"
+        app:layout_constraintTop_toBottomOf="@+id/btnViewRequest"
         android:layout_marginTop="10dp"
         android:text="Upcoming Lessons in Next 7 Days"
         android:textAllCaps="true"
@@ -41,10 +44,10 @@
         android:id="@+id/listUpcomingLesson"
         android:layout_width="match_parent"
         android:layout_height="370dp"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/textView"
+
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/btnLogoutStudent" />
+        app:layout_constraintTop_toBottomOf="@+id/upcomingstudent"
+         />
 
         <!-- Uncomment it when needed
 
@@ -64,7 +67,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/listUpcomingLesson">
 
             <Button
                 android:id="@+id/btnMyLesson"
@@ -122,14 +126,18 @@
 <!--</LinearLayout>-->
 
 
-    </LinearLayout>
 
+    <!--
+</RelativeLayout>
+-->
     <include
         layout="@layout/activity_base_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_gravity="bottom" />
+        android:layout_gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
-</RelativeLayout>
+    <!--</RelativeLayout>-->
+</android.support.constraint.ConstraintLayout>
