@@ -16,12 +16,11 @@
 
     <Button
         android:id="@+id/btnAddPracticeNote"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/listViewPracticeNote"
         android:text="Add Practice Note"
         android:layout_alignParentEnd="true"
-        android:layout_marginRight="10dp"
         android:textColor="@color/colorUI"
         android:background="@drawable/ovalbuttontans"
         />
