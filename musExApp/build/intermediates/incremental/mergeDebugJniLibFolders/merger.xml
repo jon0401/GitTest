@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <merger version="3"><dataSet config="main"><source path="C:\Users\jonat\Documents\github\GitTest\musExApp\src\main\jniLibs"/></dataSet><dataSet config="debug"><source path="C:\Users\jonat\Documents\github\GitTest\musExApp\src\debug\jniLibs"/></dataSet></merger>
+=======
+<merger version="3"><dataSet config="main"><source path="/Users/Linda/GitTest/musExApp/src/main/jniLibs"/></dataSet><dataSet config="debug"><source path="/Users/Linda/GitTest/musExApp/src/debug/jniLibs"/></dataSet></merger>
+>>>>>>> c955e4b0bf7cd9613d0ceab80b32214c5a6c5d8e

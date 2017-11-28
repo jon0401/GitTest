@@ -2,6 +2,7 @@ package jonchan.gittest;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -39,6 +40,10 @@ public class DisplayPracticeNoteStudentActivity extends BaseActivity {
     Query query;
     private FirebaseAuth mAuth;
     String lesson_id;
+    private Typeface tfrb;
+    private Typeface tfrm;
+    private Typeface tfml;
+    private Typeface tfmsb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +58,11 @@ public class DisplayPracticeNoteStudentActivity extends BaseActivity {
 
         btnAddPracticeNote = (Button) findViewById(R.id.btnAddPracticeNote);
         mListView = (ListView) findViewById(R.id.listViewPracticeNote);
+
+        tfrb = Typeface.createFromAsset(getAssets(), "robotobold.ttf");
+        tfrm = Typeface.createFromAsset(getAssets(), "robotomedium.ttf");
+        tfml = Typeface.createFromAsset(getAssets(),"montserratlight.ttf");
+        tfmsb = Typeface.createFromAsset(getAssets(), "montserratsemibold.ttf");
 
         mAuth = FirebaseAuth.getInstance();
         final String user_id = mAuth.getCurrentUser().getUid();
@@ -166,6 +176,9 @@ public class DisplayPracticeNoteStudentActivity extends BaseActivity {
                     }
                 });
 
+                mainViewHolder.practiceNoteDate.setTypeface(tfmsb);
+
+                mainViewHolder.viewPracticeNote.setTypeface(tfml);
                 convertView.setTag(mainViewHolder);
 
             }else {

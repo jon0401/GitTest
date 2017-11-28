@@ -1,5 +1,6 @@
 -- Merging decision tree log ---
 manifest
+<<<<<<< HEAD
 ADDED from C:\Users\jonat\Documents\github\GitTest\musExApp\src\main\AndroidManifest.xml:2:1-23:12
 INJECTED from C:\Users\jonat\Documents\github\GitTest\musExApp\src\main\AndroidManifest.xml:2:1-23:12
 INJECTED from C:\Users\jonat\Documents\github\GitTest\musExApp\src\main\AndroidManifest.xml:2:1-23:12
@@ -67,3 +68,72 @@ INJECTED from C:\Users\jonat\Documents\github\GitTest\musExApp\src\main\AndroidM
 		INJECTED from C:\Users\jonat\Documents\github\GitTest\musExApp\src\main\AndroidManifest.xml
 		ADDED from C:\Users\jonat\Documents\github\GitTest\musExApp\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\jonat\Documents\github\GitTest\musExApp\src\main\AndroidManifest.xml
+=======
+ADDED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml:2:1-23:12
+INJECTED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml:2:1-23:12
+INJECTED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml:2:1-23:12
+INJECTED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml:2:1-23:12
+INJECTED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml:2:1-23:12
+INJECTED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml:2:1-23:12
+INJECTED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml:2:1-23:12
+	package
+		ADDED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml:3:5-28
+		INJECTED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml
+		INJECTED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml
+		ADDED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml:2:1-23:12
+		INJECTED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml
+		ADDED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml:2:1-23:12
+		INJECTED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml:2:11-69
+application
+ADDED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml:5:5-21:19
+	android:supportsRtl
+		ADDED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml:10:9-35
+	android:label
+		ADDED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml:8:9-41
+	android:roundIcon
+		ADDED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml:9:9-54
+	android:icon
+		ADDED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml:7:9-43
+	android:allowBackup
+		ADDED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml:6:9-35
+	android:theme
+		ADDED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml:11:9-40
+activity#jonchan.musex.MainActivity
+ADDED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml:12:9-17:20
+	android:configChanges
+		ADDED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml:12:48-94
+	android:name
+		ADDED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml:12:19-47
+intent-filter#android.intent.action.MAIN
+ADDED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml:13:13-16:29
+action#android.intent.action.MAIN
+ADDED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml:14:17-69
+	android:name
+		ADDED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml:14:25-66
+activity#jonchan.musex.PlayExer
+ADDED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml:19:9-20:47
+	android:theme
+		ADDED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml:20:13-44
+	android:name
+		ADDED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml:19:19-43
+uses-sdk
+INJECTED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml
+INJECTED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml
+INJECTED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml
+INJECTED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml
+		ADDED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml
+		INJECTED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml
+		ADDED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml
+		INJECTED from /Users/Linda/GitTest/musExApp/src/main/AndroidManifest.xml
+>>>>>>> c955e4b0bf7cd9613d0ceab80b32214c5a6c5d8e
