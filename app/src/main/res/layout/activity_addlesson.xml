@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="250px"
+        android:layout_marginTop="100px"
         android:text="Add Lesson"
         android:textAllCaps="true"
         android:textColor="@color/colorUI2"
@@ -36,12 +36,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="30px">
             <TextView
+                android:id="@+id/txtDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30px"
-                android:layout_marginLeft="80px"
                 android:textAllCaps="true"
                 android:text="Dates:"
                 android:textColor="@color/colorUI"
@@ -50,8 +51,7 @@
                 android:id="@+id/etxtDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30px"
-                android:layout_marginLeft="100dp"
+                android:layout_marginLeft="10dp"
                 android:hint="Choose Date"
                 android:textColor="@color/colorUI"
                 android:textSize="20dp"
@@ -61,45 +61,47 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="30px">
             <TextView
+                android:id="@+id/txtTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30px"
-                android:layout_marginLeft="80px"
                 android:text="Start Time:"
                 android:textAllCaps="true"
                 android:textColor="@color/colorUI"
                 android:textSize="20dp"/>
+
             <EditText android:id="@+id/etxtStartTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="150px"
-                android:layout_marginRight="20px"
-                android:layout_marginTop="30px"
+                android:layout_marginLeft="10px"
                 android:hint="Start Time"
                 android:layout_alignParentRight="true"
                 android:inputType="text"/>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="30px">
             <TextView
+                android:id="@+id/txtTimeE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30px"
-                android:layout_marginLeft="80px"
                 android:text="End Time:"
                 android:textAllCaps="true"
                 android:textColor="@color/colorUI"
                 android:textSize="20dp"/>
+
             <EditText android:id="@+id/etxtEndTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="150px"
-                android:layout_marginRight="20px"
-                android:layout_marginTop="30px"
+                android:layout_marginLeft="10px"
+
                 android:hint="End Time"
                 android:layout_alignParentRight="true"
                 android:inputType="text"/>
@@ -108,22 +110,23 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="30px"
+            >
             <TextView
+                android:id="@+id/txtLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30px"
-                android:layout_marginLeft="80px"
                 android:textAllCaps="true"
                 android:text="Locations:"
                 android:textColor="@color/colorUI"
                 android:textSize="20dp"/>
+
             <EditText android:id="@+id/etxtLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="140px"
-                android:layout_marginRight="20px"
-                android:layout_marginTop="30px"
+                android:layout_marginLeft="10px"
                 android:hint="Location"
                 android:layout_alignParentRight="true"
                 android:inputType="text"/>

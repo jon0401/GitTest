@@ -3,6 +3,7 @@ package jonchan.gittest;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AlertDialog;
@@ -59,6 +60,11 @@ public class UpdatePracticeNoteActivity extends AppCompatActivity implements Num
     int pos;
     FirebaseDatabase database;
 
+    private Typeface tfrb;
+    private Typeface tfrm;
+    private Typeface tfml;
+    private Typeface tfmsb;
+
     protected BottomNavigationView navigationView;
 
     @Override
@@ -67,6 +73,13 @@ public class UpdatePracticeNoteActivity extends AppCompatActivity implements Num
         setContentView(R.layout.activity_update_practice_note);
 
         setTitle("UPDATE PRACTICE NOTE");
+
+        tfrb = Typeface.createFromAsset(getAssets(), "robotobold.ttf");
+        tfrm = Typeface.createFromAsset(getAssets(), "robotomedium.ttf");
+        tfml = Typeface.createFromAsset(getAssets(),"montserratlight.ttf");
+        tfmsb = Typeface.createFromAsset(getAssets(), "montserratsemibold.ttf");
+
+
         navigationView = (BottomNavigationView) findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

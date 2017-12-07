@@ -2,6 +2,8 @@ package jonchan.gittest;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,6 +28,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,6 +44,12 @@ public class DisplayPracticeNoteTeacherActivity extends BaseActivity {
     private FirebaseAuth mAuth;
     String student_uid;
 
+    private Typeface tfrb;
+    private Typeface tfrm;
+    private Typeface tfml;
+    private Typeface tfmsb;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +62,11 @@ public class DisplayPracticeNoteTeacherActivity extends BaseActivity {
         student_uid = myIntent.getStringExtra("STUDENT_ID");
 
         setTitle("ALL PRACTICE NOTE");
+
+        tfrb = Typeface.createFromAsset(getAssets(), "robotobold.ttf");
+        tfrm = Typeface.createFromAsset(getAssets(), "robotomedium.ttf");
+        tfml = Typeface.createFromAsset(getAssets(),"montserratlight.ttf");
+        tfmsb = Typeface.createFromAsset(getAssets(), "montserratsemibold.ttf");
 
         mListView = (ListView) findViewById(R.id.listViewPracticeNote);
 
@@ -133,11 +148,13 @@ public class DisplayPracticeNoteTeacherActivity extends BaseActivity {
                 mainViewHolder = new ViewHolder();
                 mainViewHolder.practiceNoteDate = (TextView) convertView.findViewById(R.id.txtPracticeNote);
                 mainViewHolder.viewPracticeNote = (Button) convertView.findViewById(R.id.btnViewPracticeNote);
+                mainViewHolder.txtDate = (TextView) convertView.findViewById(R.id.txtDate);
+
                 mainViewHolder.viewPracticeNote.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         View parentRow = (View) view.getParent();
-                        ListView listView = (ListView) parentRow.getParent();
+                        ListView listView = (ListView) parentRow.getParent().getParent().getParent();
                         final int position = listView.getPositionForView(parentRow);
                         Log.d("Position", String.valueOf(position));
                         Intent myIntent = new Intent(view.getContext(), ViewPracticeNoteTeacherActivity.class);
@@ -159,14 +176,63 @@ public class DisplayPracticeNoteTeacherActivity extends BaseActivity {
             }else {
                 mainViewHolder = (ViewHolder) convertView.getTag();
             }
+            String month = null;
+            switch(getItem(position).substring(5,7)) {
+                case "01":
+                    month = "JAN";
+                    break;
+                case "02":
+                    month = "FEB";
+                    break;
+                case "04":
+                    month = "MAR";
+                    break;
+                case "05":
+                    month = "MAY";
+                    break;
+                case "06":
+                    month = "JUN";
+                    break;
+                case "07":
+                    month = "JUL";
+                    break;
+                case "08":
+                    month = "AUG";
+                    break;
+                case "09":
+                    month = "SEP";
+                    break;
+                case "10":
+                    month = "SEP";
+                    break;
+                case "11":
+                    month = "NOV";
+                    break;
+                case "12":
+                    month = "DEC";
+                    break;
+            }
 
-            mainViewHolder.practiceNoteDate.setText(getItem(position));
+            mainViewHolder.txtDate.setText(getItem(position).substring(8,10));
+            mainViewHolder.practiceNoteDate.setText(month);
+
+            mainViewHolder.practiceNoteDate.setTextSize(18);
+            mainViewHolder.txtDate.setTextSize(22);
+
+
+            mainViewHolder.practiceNoteDate.setTypeface(tfmsb);
+            mainViewHolder.txtDate.setTypeface(tfmsb);
+            mainViewHolder.viewPracticeNote.setTypeface(tfrb);
+
+            mainViewHolder.txtDate.setTextColor(Color.parseColor("#000000"));
+            mainViewHolder.practiceNoteDate.setTextColor(Color.parseColor("#ef4c4b"));
+
             return convertView;
         }
     }
 
     public class ViewHolder {
-
+        TextView txtDate;
         TextView practiceNoteDate;
         Button viewPracticeNote;
     }

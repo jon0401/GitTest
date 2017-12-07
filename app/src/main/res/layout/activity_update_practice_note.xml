@@ -32,7 +32,7 @@
             android:layout_marginTop="00px"
             android:text="Update Practice Note"
             android:textColor="@color/colorUI"
-            android:textSize="30dp" />
+            android:textSize="24dp" />
 
 
     <LinearLayout
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="15px"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="50px"
         >
 
         <TextView
@@ -50,16 +50,16 @@
             android:textColor="@color/colorUI"
             android:textAllCaps="true"
             android:text="Created by: "
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/txtStudentCreatorName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="10dp"
             android:text="Student Name"
             android:textColor="@color/colorUI"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -67,7 +67,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="15px"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="50px"
         >
 
         <TextView
@@ -77,17 +77,16 @@
             android:text="Date: "
             android:textAllCaps="true"
             android:textColor="@color/colorUI"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/etxtPracticeNoteDateEnter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25px"
-            android:layout_marginLeft="100dp"
+            android:layout_marginLeft="10dp"
             android:hint="Choose Date..."
             android:textColor="@color/colorUI"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -95,7 +94,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="15px"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="50px"
         >
 
         <TextView
@@ -103,18 +102,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAllCaps="true"
-            android:text="Duration"
+            android:text="Duration: "
             android:textColor="@color/colorUI"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/etxtPracticeNoteDurationEnter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
+            android:layout_marginLeft="10dp"
             android:hint="Choose Duration..."
             android:textColor="@color/colorUI"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -122,7 +121,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="15px"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="50px"
 
         >
 
@@ -133,13 +132,13 @@
             android:text="Share with:"
             android:textAllCaps="true"
             android:textColor="@color/colorUI"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:layout_alignParentStart="true" />
 
         <Spinner
             android:id="@+id/spinnerChooseTeacher"
             android:layout_width="200dp"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="10dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true" />
 
@@ -167,8 +166,8 @@
             android:gravity="top"
             android:hint="Write your note..."
             android:inputType="textMultiLine"
-            android:layout_margin="20dp"
-            android:textSize="20sp" />
+            android:layout_margin="15dp"
+            android:textSize="16sp" />
 
 
     </LinearLayout>
@@ -184,7 +183,7 @@
         <Button
             android:id="@+id/btnSubmitPracticeNote"
             android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_height="25dp"
             android:textColor="#FFFFFF"
             android:background="@drawable/ovalbuttondark"
             android:text="Submit Note" />

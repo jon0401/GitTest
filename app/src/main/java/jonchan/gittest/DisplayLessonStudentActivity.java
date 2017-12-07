@@ -2,6 +2,7 @@ package jonchan.gittest;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -158,6 +159,7 @@ public class DisplayLessonStudentActivity extends BaseActivity {
                 LayoutInflater inflater = LayoutInflater.from(getContext());
                 convertView = inflater.inflate(layout, parent, false);
                 mainViewHolder = new ViewHolder();
+                mainViewHolder.txtMonth= (TextView) convertView.findViewById(R.id.txtMonth);
                 mainViewHolder.txtDate= (TextView) convertView.findViewById(R.id.txtDate);
                 mainViewHolder.txtTimeSlot = (TextView) convertView.findViewById(R.id.txtTimeSlot);
                 mainViewHolder.txtLocation = (TextView) convertView.findViewById(R.id.txtLocation);
@@ -166,7 +168,7 @@ public class DisplayLessonStudentActivity extends BaseActivity {
                     @Override
                     public void onClick(View view) {
                         View parentRow = (View) view.getParent();
-                        ListView listView = (ListView) parentRow.getParent().getParent();
+                        ListView listView = (ListView) parentRow.getParent().getParent().getParent().getParent();
                         final int position = listView.getPositionForView(parentRow);
                         Log.d("Position", String.valueOf(position));
 
@@ -187,16 +189,61 @@ public class DisplayLessonStudentActivity extends BaseActivity {
                 mainViewHolder = (ViewHolder) convertView.getTag();
             }
 
-
+            String month = null;
+            switch(getItem(position).getDate().substring(5,7)) {
+                case "01":
+                    month = "JAN";
+                    break;
+                case "02":
+                    month = "FEB";
+                    break;
+                case "04":
+                    month = "MAR";
+                    break;
+                case "05":
+                    month = "MAY";
+                    break;
+                case "06":
+                    month = "JUN";
+                    break;
+                case "07":
+                    month = "JUL";
+                    break;
+                case "08":
+                    month = "AUG";
+                    break;
+                case "09":
+                    month = "SEP";
+                    break;
+                case "10":
+                    month = "SEP";
+                    break;
+                case "11":
+                    month = "NOV";
+                    break;
+                case "12":
+                    month = "DEC";
+                    break;
+            }
 
             mainViewHolder = (ViewHolder) convertView.getTag();
-            mainViewHolder.txtDate.setText(getItem(position).getDate());
-            mainViewHolder.txtTimeSlot.setText(getItem(position).getStartTime() + "-" + getItem(position).getEndTime());
-            mainViewHolder.txtLocation.setText(getItem(position).getLocation());
-            mainViewHolder.txtDate.setTypeface(tfmsb);
+            mainViewHolder.txtMonth.setText(month);
+            mainViewHolder.txtDate.setText(getItem(position).getDate().substring(8,10));
+            mainViewHolder.txtTimeSlot.setText("TIME: " + getItem(position).getStartTime());
+            mainViewHolder.txtLocation.setText("LOCATION: " + getItem(position).getLocation());
+
+            mainViewHolder.txtLocation.setTypeface(tfmsb);
+            mainViewHolder.txtMonth.setTypeface(tfmsb);
             mainViewHolder.txtTimeSlot.setTypeface(tfmsb);
             mainViewHolder.txtDate.setTypeface(tfmsb);
             mainViewHolder.btnTeachingNote.setTypeface(tfml);
+
+            mainViewHolder.txtMonth.setTextSize(18);
+            mainViewHolder.txtDate.setTextSize(24);
+
+
+            mainViewHolder.txtMonth.setTextColor(Color.parseColor("#ef4c4b"));
+            mainViewHolder.txtDate.setTextColor(Color.parseColor("#000000"));
             return convertView;
         }
     }
@@ -206,6 +253,7 @@ public class DisplayLessonStudentActivity extends BaseActivity {
         TextView txtTimeSlot;
         TextView txtDate;
         TextView txtLocation;
+        TextView txtMonth;
         Button btnTeachingNote;
     }
 

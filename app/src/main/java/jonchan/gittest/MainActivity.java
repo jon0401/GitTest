@@ -19,6 +19,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -303,7 +304,9 @@ public class MainActivity extends AppCompatActivity {
                                             if((dataSnapshot.child("Student").getValue().toString()).equals(user_id)){
 
                                                 final String id = dataSnapshot.getKey();
-                                                final String date = dataSnapshot.child("Date").getValue(String.class);
+                                                String date = dataSnapshot.child("Date").getValue(String.class);
+                                                final String month = date.substring(5,7);
+                                                final String day = date.substring(8,10);
                                                 final String startTime = dataSnapshot.child("StartTime").getValue(String.class);
                                                 final String endTime = dataSnapshot.child("EndTime").getValue(String.class);
                                                 final String location = dataSnapshot.child("Location").getValue(String.class);
@@ -316,6 +319,7 @@ public class MainActivity extends AppCompatActivity {
                                                     public void onDataChange(DataSnapshot dataSnapshot) {
                                                         String studentName = dataSnapshot.getValue(String.class);
                                                         Log.d("DT", date + " " + startTime);
+
                                                         mUpcomingTeacherList.add(new LessonDetail(date, startTime, endTime, location, studentName));
                                                         mLessonIdList.add(id);
                                                         listAdapter.notifyDataSetChanged();
@@ -508,6 +512,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    // Teacher Homepage list
+
     private class MyListAdapter extends ArrayAdapter<LessonDetail> {
 
         private int layout;
@@ -516,6 +522,7 @@ public class MainActivity extends AppCompatActivity {
             layout = resource;
         }
 
+        //
         public View getView (int position, View convertView, ViewGroup parent){
             ViewHolder mainViewHolder;
             if (convertView == null) {
@@ -526,22 +533,27 @@ public class MainActivity extends AppCompatActivity {
                 mainViewHolder.txtTimeSlot = (TextView) convertView.findViewById(R.id.txtTimeSlot);
                 mainViewHolder.txtLocation = (TextView) convertView.findViewById(R.id.txtLocation);
                 mainViewHolder.txtStudent = (TextView) convertView.findViewById(R.id.txtStudent);
+                mainViewHolder.txtMonth = (TextView) convertView.findViewById(R.id.txtMonth);
 
+                mainViewHolder.txtMonth.setTypeface(tfmsb);
                 mainViewHolder.txtStudent.setTypeface(tfmsb);
-                mainViewHolder.txtDate.setTypeface(tfml);
+                mainViewHolder.txtDate.setTypeface(tfmsb);
                 mainViewHolder.txtTimeSlot.setTypeface(tfml);
                 mainViewHolder.txtLocation.setTypeface(tfml);
 
-                mainViewHolder.txtDate.setTextColor(Color.parseColor("#595959"));
-                mainViewHolder.txtTimeSlot.setTextColor(Color.parseColor("#595959"));
-                mainViewHolder.txtLocation.setTextColor(Color.parseColor("#595959"));
+                mainViewHolder.txtDate.setTextColor(Color.parseColor("#000000"));
+                mainViewHolder.txtMonth.setTextColor(Color.parseColor("#ef4c4b"));
+
+                mainViewHolder.txtStudent.setTextColor(Color.parseColor("#000000"));
+                mainViewHolder.txtTimeSlot.setTextColor(Color.parseColor("#000000"));
+                mainViewHolder.txtLocation.setTextColor(Color.parseColor("#000000"));
 
                 mainViewHolder.btnAddNote = (Button) convertView.findViewById(R.id.btnAddNote);
                 mainViewHolder.btnAddNote.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         View parentRow = (View) view.getParent();
-                        ListView listView = (ListView) parentRow.getParent().getParent();
+                        ListView listView = (ListView) parentRow.getParent().getParent().getParent().getParent();
                         final int position = listView.getPositionForView(parentRow);
                         Log.d("Position", String.valueOf(position));
                         Intent myIntent = new Intent(view.getContext(), AddTeachingNoteActivity.class);
@@ -566,10 +578,49 @@ public class MainActivity extends AppCompatActivity {
                 mainViewHolder = (ViewHolder) convertView.getTag();
             }
 
-            mainViewHolder.txtDate.setText(getItem(position).getDate());
-            mainViewHolder.txtTimeSlot.setText(getItem(position).getStartTime() + "-" + getItem(position).getEndTime());
-            mainViewHolder.txtLocation.setText(getItem(position).getLocation());
-            mainViewHolder.txtStudent.setText(getItem(position).getStudentName());
+            String month = null;
+            switch(getItem(position).getDate().substring(5,7)) {
+                case "01":
+                    month = "JAN";
+                    break;
+                case "02":
+                    month = "FEB";
+                    break;
+                case "04":
+                    month = "MAR";
+                    break;
+                case "05":
+                    month = "MAY";
+                    break;
+                case "06":
+                    month = "JUN";
+                    break;
+                case "07":
+                    month = "JUL";
+                    break;
+                case "08":
+                    month = "AUG";
+                    break;
+                case "09":
+                    month = "SEP";
+                    break;
+                case "10":
+                    month = "SEP";
+                    break;
+                case "11":
+                    month = "NOV";
+                    break;
+                case "12":
+                    month = "DEC";
+                    break;
+
+            }
+
+            mainViewHolder.txtMonth.setText(month);
+            mainViewHolder.txtDate.setText(getItem(position).getDate().substring(8,10));
+            mainViewHolder.txtTimeSlot.setText("TIME: " + getItem(position).getStartTime());
+            mainViewHolder.txtLocation.setText("@ " + getItem(position).getLocation());
+            mainViewHolder.txtStudent.setText(getItem(position).getStudentName()+"'S LESSON");
 
 
 
@@ -600,7 +651,9 @@ public class MainActivity extends AppCompatActivity {
         TextView txtDate;
         TextView txtLocation;
         TextView txtStudent;
+        TextView txtMonth;
         Button btnAddNote;
+
     }
 
     @Override
@@ -628,6 +681,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // Student Homepage list
+
     private class MyListAdapterStudent extends ArrayAdapter<LessonDetail> {
 
         private int layout;
@@ -646,25 +701,73 @@ public class MainActivity extends AppCompatActivity {
                 mainViewHolder.txtTimeSlot = (TextView) convertView.findViewById(R.id.txtTimeSlot);
                 mainViewHolder.txtLocation = (TextView) convertView.findViewById(R.id.txtLocation);
                 mainViewHolder.txtStudent = (TextView) convertView.findViewById(R.id.txtStudent);
+                mainViewHolder.txtDay = (TextView) convertView.findViewById(R.id.txtDay);
 
                 convertView.setTag(mainViewHolder);
             }else {
                 mainViewHolder = (ViewHolderStudent) convertView.getTag();
             }
 
-            mainViewHolder.txtDate.setText(getItem(position).getDate());
-            mainViewHolder.txtTimeSlot.setText(getItem(position).getStartTime() + "-" + getItem(position).getEndTime());
-            mainViewHolder.txtLocation.setText(getItem(position).getLocation());
-            mainViewHolder.txtStudent.setText(getItem(position).getStudentName());
+
+            String month = null;
+            switch(getItem(position).getDate().substring(5,7)) {
+                case "01":
+                    month = "JAN";
+                    break;
+                case "02":
+                    month = "FEB";
+                    break;
+                case "04":
+                    month = "MAR";
+                    break;
+                case "05":
+                    month = "MAY";
+                    break;
+                case "06":
+                    month = "JUN";
+                    break;
+                case "07":
+                    month = "JUL";
+                    break;
+                case "08":
+                    month = "AUG";
+                    break;
+                case "09":
+                    month = "SEP";
+                    break;
+                case "10":
+                    month = "SEP";
+                    break;
+                case "11":
+                    month = "NOV";
+                    break;
+                case "12":
+                    month = "DEC";
+                    break;
+
+            }
+
+            mainViewHolder.txtDay.setText(getItem(position).getDate().substring(8,10));
+            mainViewHolder.txtDate.setText(month);
+            mainViewHolder.txtTimeSlot.setText("TIME: " + getItem(position).getStartTime());
+            mainViewHolder.txtLocation.setText("LOCATION: " + getItem(position).getLocation());
+            mainViewHolder.txtStudent.setText("WITH: " + getItem(position).getStudentName());
 
             mainViewHolder.txtStudent.setTypeface(tfmsb);
-            mainViewHolder.txtDate.setTypeface(tfml);
-            mainViewHolder.txtTimeSlot.setTypeface(tfml);
-            mainViewHolder.txtLocation.setTypeface(tfml);
+            mainViewHolder.txtDate.setTypeface(tfmsb);
+            mainViewHolder.txtTimeSlot.setTypeface(tfmsb);
+            mainViewHolder.txtLocation.setTypeface(tfmsb);
+            mainViewHolder.txtDay.setTypeface(tfmsb);
 
-            mainViewHolder.txtDate.setTextColor(Color.parseColor("#595959"));
-            mainViewHolder.txtTimeSlot.setTextColor(Color.parseColor("#595959"));
-            mainViewHolder.txtLocation.setTextColor(Color.parseColor("#595959"));
+            mainViewHolder.txtDay.setTextSize(23);
+            mainViewHolder.txtDate.setTextSize(18);
+            mainViewHolder.txtTimeSlot.setTextSize(14);
+            mainViewHolder.txtLocation.setTextSize(14);
+            mainViewHolder.txtStudent.setTextSize(14);
+
+            mainViewHolder.txtDay.setTextColor(Color.parseColor("#000000"));
+            mainViewHolder.txtDate.setTextColor(Color.parseColor("#ef4c4b"));
+
 
             return convertView;
         }
@@ -676,6 +779,7 @@ public class MainActivity extends AppCompatActivity {
         TextView txtDate;
         TextView txtLocation;
         TextView txtStudent;
+        TextView txtDay;
     }
 
 }
