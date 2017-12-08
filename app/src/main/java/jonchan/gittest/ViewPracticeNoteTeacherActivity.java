@@ -1,6 +1,7 @@
 package jonchan.gittest;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,6 +33,17 @@ public class ViewPracticeNoteTeacherActivity extends BaseActivity {
     private TextView eTxtPracticeNoteDateEnter;
     private TextView mtxtPracticeNote;
     private TextView eTxtPracticeNoteDurationEnter;
+
+    private TextView txttile;
+    private TextView txtName;
+    private TextView txtDuration;
+    private TextView txtDate;
+
+    private Typeface tfrb;
+    private Typeface tfrm;
+    private Typeface tfml;
+    private Typeface tfmsb;
+
     private ImageView add_practiceNote_back;
     private FirebaseAuth mAuth;
     String student_uid;
@@ -54,12 +66,32 @@ public class ViewPracticeNoteTeacherActivity extends BaseActivity {
 
         setTitle("VIEW PRACTICE NOTE");
 
+        tfrb = Typeface.createFromAsset(getAssets(), "robotobold.ttf");
+        tfrm = Typeface.createFromAsset(getAssets(), "robotomedium.ttf");
+        tfml = Typeface.createFromAsset(getAssets(),"montserratlight.ttf");
+        tfmsb = Typeface.createFromAsset(getAssets(), "montserratsemibold.ttf");
+
 
         txtStudentCreatorName = (TextView) findViewById(R.id.txtStudentCreatorName);
         eTxtPracticeNoteDateEnter = (TextView) findViewById(R.id.etxtPracticeNoteDateEnter);
         eTxtPracticeNoteDurationEnter = (TextView) findViewById(R.id.etxtPracticeNoteDurationEnter);
         mtxtPracticeNote = (TextView) findViewById(R.id.mtxtPracticeNote);
-    //    add_practiceNote_back = (ImageView)findViewById(R.id.add_practiceNote_back);
+
+        txttile = (TextView) findViewById(R.id.add_practiceNote_title);
+        txtName = (TextView) findViewById(R.id.txtStudentCreator);
+        txtDuration = (TextView) findViewById(R.id.txtPracticeNoteDate);
+        txtDate = (TextView) findViewById(R.id.txtPracticeDurationL);
+
+        mtxtPracticeNote.setTypeface(tfrm);
+
+        txtStudentCreatorName.setTypeface(tfml);
+        eTxtPracticeNoteDateEnter.setTypeface(tfml);
+        eTxtPracticeNoteDurationEnter.setTypeface(tfml);
+        txttile.setTypeface(tfmsb);
+        txtName.setTypeface(tfml);
+        txtDuration.setTypeface(tfml);
+        txtDate.setTypeface(tfml);
+        //    add_practiceNote_back = (ImageView)findViewById(R.id.add_practiceNote_back);
 
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();

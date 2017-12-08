@@ -28,7 +28,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="50px"
             android:id="@+id/ll1"
             app:layout_constraintTop_toBottomOf="@+id/add_practiceNote_title"
             >
@@ -37,17 +38,16 @@
                 android:id="@+id/txtStudentCreator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50px"
                 android:textColor="#223017"
                 android:text="Created By: "
+                android:textAllCaps="true"
                 android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/txtStudentCreatorName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50px"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="5dp"
                 android:text="Student Name"
                 android:textColor="#223017"
                 android:textSize="20sp" />
@@ -57,7 +57,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30px"
+            android:layout_marginLeft="20dp"
             android:id="@+id/ll2"
             app:layout_constraintTop_toBottomOf="@+id/ll1"
             >
@@ -66,8 +67,8 @@
                 android:id="@+id/txtPracticeNoteDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30px"
                 android:text="Date: "
+                android:textAllCaps="true"
                 android:textColor="#223017"
                 android:textSize="20sp" />
 
@@ -75,8 +76,7 @@
                 android:id="@+id/etxtPracticeNoteDateEnter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30px"
-                android:layout_marginLeft="85dp"
+                android:layout_marginLeft="5dp"
                 android:hint="Date"
                 android:textColor="#223017"
                 android:textSize="20sp" />
@@ -86,17 +86,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30px"
             android:id="@+id/ll3"
             app:layout_constraintTop_toBottomOf="@+id/ll2"
             >
 
             <TextView
-                android:id="@+id/txtPracticeDuration"
+                android:id="@+id/txtPracticeDurationL"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30px"
-                android:text="Duration"
+                android:text="Duration: "
+                android:textAllCaps="true"
                 android:textColor="#223017"
                 android:textSize="20sp" />
 
@@ -104,8 +105,7 @@
                 android:id="@+id/etxtPracticeNoteDurationEnter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="60dp"
-                android:layout_marginTop="30px"
+                android:layout_marginLeft="5dp"
                 android:hint="Duration"
                 android:textColor="#223017"
                 android:textSize="20sp" />

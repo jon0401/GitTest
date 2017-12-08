@@ -1,6 +1,7 @@
 package jonchan.gittest;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,12 +19,24 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 public class AddTeachingNoteActivity extends BaseActivity {
 
     private TextView txtStudentName;
     private TextView txtLessonGet;
     private TextView mtxtNote;
+
     private Button btnSubmitNote;
+
+    private TextView txtStudent;
+    private TextView txtLessonDate;
+
+    private Typeface tfrb;
+    private Typeface tfrm;
+    private Typeface tfml;
+    private Typeface tfmsb;
+
     private FirebaseAuth mAuth;
     String student_uid;
     String lessonDate;
@@ -41,10 +54,26 @@ public class AddTeachingNoteActivity extends BaseActivity {
         navigationView = (BottomNavigationView) findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
 
+
+        tfrb = Typeface.createFromAsset(getAssets(), "robotobold.ttf");
+        tfrm = Typeface.createFromAsset(getAssets(), "robotomedium.ttf");
+        tfml = Typeface.createFromAsset(getAssets(),"montserratlight.ttf");
+        tfmsb = Typeface.createFromAsset(getAssets(), "montserratsemibold.ttf");
+
         txtLessonGet = (TextView) findViewById(R.id.txtLessonGet);
         txtStudentName = (TextView) findViewById(R.id.txtStudentCreatorName);
         mtxtNote = (TextView) findViewById(R.id.mtxtNote);
         btnSubmitNote = (Button) findViewById(R.id.btnSubmitNote);
+        txtStudent = (TextView) findViewById(R.id.txtStudent);
+        txtLessonDate =  (TextView) findViewById(R.id.txtLessonDate);
+
+        txtLessonGet.setTypeface(tfml);
+        txtStudentName.setTypeface(tfml);
+        txtStudent.setTypeface(tfml);
+        txtLessonDate.setTypeface(tfml);
+        btnSubmitNote.setTypeface(tfml);
+        mtxtNote.setTypeface(tfrm);
+
 
         Intent myIntent = getIntent();
         student_uid = myIntent.getStringExtra("STUDENT_ID");

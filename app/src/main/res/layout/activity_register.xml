@@ -32,7 +32,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:button="@drawable/student"
-
             android:checked="false" />
 
     </RadioGroup>
@@ -66,12 +65,12 @@
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:text="Register"
         android:background="@drawable/ovalbuttondark"
         android:textColor="#FFFFFF"
         android:layout_below="@+id/nameField"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
         android:layout_centerVertical="true"
@@ -90,23 +89,27 @@
         android:hint="Your name"
         android:inputType="textPersonName" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rBtnGroup"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        >
+
     <TextView
         android:id="@+id/txtTeacher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rBtnGroup"
-        android:layout_marginEnd="27dp"
-        android:layout_toStartOf="@+id/txtStudent"
-        android:text="Teacher" />
+        android:layout_marginEnd="55dp"
+        android:text="TEACHER" />
 
     <TextView
         android:id="@+id/txtStudent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/btnRegister"
-        android:layout_below="@+id/rBtnGroup"
-        android:layout_marginEnd="60dp"
-        android:text="Student" />
+        android:text="STUDENT" />
 
+    </LinearLayout>
 
 </RelativeLayout>

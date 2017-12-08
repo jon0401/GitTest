@@ -2,6 +2,8 @@ package jonchan.gittest;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
@@ -45,6 +47,10 @@ public class DisplayLessonActivity extends BaseActivity {
     private FirebaseAuth mAuth;
     String student_uid;
     String lesson_id;
+    private Typeface tfrb;
+    private Typeface tfrm;
+    private Typeface tfml;
+    private Typeface tfmsb;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -53,6 +59,11 @@ public class DisplayLessonActivity extends BaseActivity {
         setTitle("LESSONS");
         navigationView = (BottomNavigationView) findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
+
+        tfrb = Typeface.createFromAsset(getAssets(), "robotobold.ttf");
+        tfrm = Typeface.createFromAsset(getAssets(), "robotomedium.ttf");
+        tfml = Typeface.createFromAsset(getAssets(),"montserratlight.ttf");
+        tfmsb = Typeface.createFromAsset(getAssets(), "montserratsemibold.ttf");
 
         Intent myIntent = getIntent();
         student_uid = myIntent.getStringExtra("STUDENT_ID");
@@ -168,11 +179,13 @@ public class DisplayLessonActivity extends BaseActivity {
                 mainViewHolder.txtTimeSlot = (TextView) convertView.findViewById(R.id.txtTimeSlot);
                 mainViewHolder.txtLocation = (TextView) convertView.findViewById(R.id.txtLocation);
                 mainViewHolder.btnAddNote = (Button) convertView.findViewById(R.id.btnAddNote);
+                mainViewHolder.txtMonth = (TextView) convertView.findViewById(R.id.txtMonth);
+
                 mainViewHolder.btnAddNote.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         View parentRow = (View) view.getParent();
-                        ListView listView = (ListView) parentRow.getParent().getParent();
+                        ListView listView = (ListView) parentRow.getParent().getParent().getParent().getParent();
                         final int position = listView.getPositionForView(parentRow);
                         Log.d("Position", String.valueOf(position));
                         Intent myIntent = new Intent(view.getContext(), AddTeachingNoteActivity.class);
@@ -195,9 +208,54 @@ public class DisplayLessonActivity extends BaseActivity {
                 mainViewHolder = (ViewHolder) convertView.getTag();
             }
 
-            mainViewHolder.txtDate.setText(getItem(position).getDate());
-            mainViewHolder.txtTimeSlot.setText(getItem(position).getStartTime() + "-" + getItem(position).getEndTime());
-            mainViewHolder.txtLocation.setText(getItem(position).getLocation());
+
+            String month = null;
+            switch(getItem(position).getDate().substring(5,7)) {
+                case "01":
+                    month = "JAN";
+                    break;
+                case "02":
+                    month = "FEB";
+                    break;
+                case "04":
+                    month = "MAR";
+                    break;
+                case "05":
+                    month = "MAY";
+                    break;
+                case "06":
+                    month = "JUN";
+                    break;
+                case "07":
+                    month = "JUL";
+                    break;
+                case "08":
+                    month = "AUG";
+                    break;
+                case "09":
+                    month = "SEP";
+                    break;
+                case "10":
+                    month = "SEP";
+                    break;
+                case "11":
+                    month = "NOV";
+                    break;
+                case "12":
+                    month = "DEC";
+                    break;
+            }
+
+            mainViewHolder.txtMonth.setText(month);
+            mainViewHolder.txtDate.setText(getItem(position).getDate().substring(8,10));
+            mainViewHolder.txtTimeSlot.setText("TIME: " + getItem(position).getStartTime());
+            mainViewHolder.txtLocation.setText("@" + getItem(position).getLocation());
+
+            mainViewHolder.txtLocation.setTypeface(tfml);
+            mainViewHolder.txtMonth.setTypeface(tfmsb);
+            mainViewHolder.txtTimeSlot.setTypeface(tfml);
+            mainViewHolder.txtDate.setTypeface(tfmsb);
+            mainViewHolder.btnAddNote.setTypeface(tfml);
 
             DatabaseReference mRefNote = database.getReference("Lesson").child(mLessonIdList.get(position));
             final ViewHolder finalMainViewHolder = mainViewHolder;
@@ -216,6 +274,12 @@ public class DisplayLessonActivity extends BaseActivity {
 
                 }
             });
+            mainViewHolder.txtMonth.setTextSize(18);
+            mainViewHolder.txtDate.setTextSize(24);
+
+
+            mainViewHolder.txtMonth.setTextColor(Color.parseColor("#ef4c4b"));
+            mainViewHolder.txtDate.setTextColor(Color.parseColor("#000000"));
             return convertView;
         }
     }
@@ -226,6 +290,7 @@ public class DisplayLessonActivity extends BaseActivity {
         TextView txtDate;
         TextView txtLocation;
         Button btnAddNote;
+        TextView txtMonth;
     }
 
     @Override

@@ -16,16 +16,16 @@
         android:layout_width="match_parent"
         android:layout_height="440dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
-        android:divider="@color/colorUI"
+        android:divider="#dfdddb"
         android:dividerHeight="1dp"
         android:layout_marginTop="10dp" />
 
     <Button
         android:id="@+id/btnAddPracticeNote"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+
+        android:layout_height="30dp"
         android:layout_marginTop="10dp"
         android:layout_below="@+id/listViewPracticeNote"
         android:text="Add Practice Note"
