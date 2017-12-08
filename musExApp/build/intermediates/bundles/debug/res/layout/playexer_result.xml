@@ -6,21 +6,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:layout_editor_absoluteY="81dp"
-    tools:layout_editor_absoluteX="0dp">
+    tools:layout_editor_absoluteX="0dp"
+    android:background="@drawable/background">
 
     <TextView
         android:id="@+id/percentage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginStart="18dp"
+        android:layout_marginBottom="24dp"
         android:text="50%"
         android:textAlignment="center"
         android:textSize="110sp"
         app:layout_constraintBottom_toTopOf="@+id/correctedAns"
-        app:layout_constraintHorizontal_bias="0.459"
+        app:layout_constraintHorizontal_bias="0.457"
         app:layout_constraintLeft_toLeftOf="@+id/correctedAnsText"
         app:layout_constraintRight_toRightOf="@+id/correctedAns"
         tools:layout_constraintBottom_creator="1"
@@ -30,26 +28,26 @@
         android:id="@+id/correctedAnsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:layout_marginRight="28dp"
         android:text="Corrected Answers"
         android:textSize="16sp"
-        app:layout_constraintRight_toLeftOf="@+id/correctedAns"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
         app:layout_constraintBottom_toTopOf="@+id/averageText"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="46dp" />
+        app:layout_constraintRight_toLeftOf="@+id/correctedAns"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintRight_creator="1" />
 
     <TextView
         android:id="@+id/averageText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="64dp"
         android:text="Average Answer Time"
         android:textSize="16sp"
-        android:layout_marginStart="80dp"
         app:layout_constraintBaseline_toBaselineOf="@+id/averageTime"
+        app:layout_constraintLeft_toLeftOf="parent"
         tools:layout_constraintBaseline_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        tools:layout_constraintLeft_creator="1" />
 
     <TextView
         android:id="@+id/correctedAns"
@@ -59,27 +57,28 @@
         android:textAlignment="textEnd"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:layout_constraintRight_creator="1"
-        app:layout_constraintRight_toRightOf="@+id/averageTime"
         app:layout_constraintBaseline_toBaselineOf="@+id/correctedAnsText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="@+id/averageTime"
+        app:layout_constraintRight_toRightOf="@+id/averageTime"
         tools:layout_constraintBaseline_creator="1"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/averageTime" />
+        tools:layout_constraintRight_creator="1" />
 
     <TextView
         android:id="@+id/averageTime"
         android:layout_width="84dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="180dp"
+        android:layout_marginLeft="16dp"
         android:text="1.5sec"
         android:textAlignment="textEnd"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:layout_constraintBottom_creator="1"
-        android:layout_marginStart="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="190dp"
-        app:layout_constraintLeft_toRightOf="@+id/averageText" />
+        app:layout_constraintLeft_toRightOf="@+id/averageText"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1" />
 
     <Button
         android:id="@+id/returnButton"

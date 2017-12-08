@@ -3,6 +3,7 @@ package jonchan.gittest;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.provider.ContactsContract;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -43,6 +44,11 @@ public class ViewRequestActivity extends AppCompatActivity {
     DatabaseReference mRefTeacherID;
     private FirebaseAuth mAuth;
 
+    private Typeface tfrb;
+    private Typeface tfrm;
+    private Typeface tfml;
+    private Typeface tfmsb;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +58,12 @@ public class ViewRequestActivity extends AppCompatActivity {
         //Intent myIntent = getIntent();
         //student_uid = myIntent.getStringExtra("STUDENT_ID");
         mListView = (ListView) findViewById(R.id.listViewRequest);
+        setTitle("VIEW REQUEST");
+
+        tfrb = Typeface.createFromAsset(getAssets(), "robotobold.ttf");
+        tfrm = Typeface.createFromAsset(getAssets(), "robotomedium.ttf");
+        tfml = Typeface.createFromAsset(getAssets(),"montserratlight.ttf");
+        tfmsb = Typeface.createFromAsset(getAssets(), "montserratsemibold.ttf");
 
         mAuth = FirebaseAuth.getInstance();
         final String user_id = mAuth.getCurrentUser().getUid();

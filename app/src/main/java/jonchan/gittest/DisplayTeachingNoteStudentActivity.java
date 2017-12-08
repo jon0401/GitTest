@@ -1,6 +1,7 @@
 package jonchan.gittest;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +16,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class DisplayTeachingNoteStudentActivity extends BaseActivity {
@@ -22,6 +25,9 @@ public class DisplayTeachingNoteStudentActivity extends BaseActivity {
     private TextView txtTeacherName;
     private TextView txtLessonGetStudent;
     private TextView mtxtNoteStudent;
+    private TextView txtTeacher;
+    private TextView txtLessonDateStudent;
+
     private FirebaseAuth mAuth;
     String student_uid;
     String lessonDate;
@@ -31,17 +37,37 @@ public class DisplayTeachingNoteStudentActivity extends BaseActivity {
     DatabaseReference mRefNote;
     DatabaseReference mRefTeacherID;
 
+    private Typeface tfrb;
+    private Typeface tfrm;
+    private Typeface tfml;
+    private Typeface tfmsb;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_teaching_note_student);
         setTitle("TEACHING NOTE");
+
+        tfrb = Typeface.createFromAsset(getAssets(), "robotobold.ttf");
+        tfrm = Typeface.createFromAsset(getAssets(), "robotomedium.ttf");
+        tfml = Typeface.createFromAsset(getAssets(),"montserratlight.ttf");
+        tfmsb = Typeface.createFromAsset(getAssets(), "montserratsemibold.ttf");
+
         navigationView = (BottomNavigationView) findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
 
         txtLessonGetStudent = (TextView) findViewById(R.id.txtLessonGetStudent);
         txtTeacherName = (TextView) findViewById(R.id.txtTeacherName);
         mtxtNoteStudent = (TextView) findViewById(R.id.mtxtNoteStudent);
+        txtTeacher = (TextView) findViewById(R.id.txtTeacher);
+        txtLessonDateStudent = (TextView) findViewById(R.id.txtLessonDateStudent);
+
+        txtLessonGetStudent.setTypeface(tfml);
+        txtTeacherName.setTypeface(tfml);
+        txtTeacher.setTypeface(tfml);
+        txtLessonDateStudent.setTypeface(tfml);
+        mtxtNoteStudent.setTypeface(tfrm);
 
         Intent myIntent = getIntent();
        // student_uid = myIntent.getStringExtra("STUDENT_ID");

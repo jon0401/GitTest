@@ -2,6 +2,7 @@ package jonchan.gittest;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -31,13 +32,25 @@ public class AddStudentActivity extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference mRef;
     DatabaseReference mRfRequest;
+
+    private Typeface tfrb;
+    private Typeface tfrm;
+    private Typeface tfml;
+    private Typeface tfmsb;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_student);
-
+        setTitle("ADD CONTACT");
         etxtStudentEmail = (EditText) findViewById(R.id.etxtStudentEmail);
         btnSendRequest = (Button) findViewById(R.id.btnSendRequest);
+        tfrb = Typeface.createFromAsset(getAssets(), "robotobold.ttf");
+        tfrm = Typeface.createFromAsset(getAssets(), "robotomedium.ttf");
+        tfml = Typeface.createFromAsset(getAssets(),"montserratlight.ttf");
+        tfmsb = Typeface.createFromAsset(getAssets(), "montserratsemibold.ttf");
+        etxtStudentEmail.setTypeface(tfmsb);
+        btnSendRequest.setTypeface(tfml);
 
 
         btnSendRequest.setOnClickListener(new View.OnClickListener() {

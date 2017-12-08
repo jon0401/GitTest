@@ -1,67 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="220px"
+    android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-
-        <TextView
-            android:id="@+id/txtDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="15dp"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorUI"
-            android:layout_marginStart="13dp" />
-
-        <TextView
-            android:id="@+id/txtTimeSlot"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="15dp"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorUI"
-            android:layout_marginStart="13dp" />
-
-        <TextView
-            android:id="@+id/txtLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="15dp"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorUI"
-            android:layout_marginStart="13dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_height="match_parent"
         android:gravity="center"
-        android:layout_marginBottom="5dp"
         >
 
-        <Button
-            android:id="@+id/btnTeachingNote"
-            android:layout_width="320dp"
-            android:layout_height="34dp"
-            android:text="View Teaching Note"
-            android:textSize="18sp"
-            android:background="@drawable/ovalbuttontans"
-            android:textColor="@color/colorUI"
-            android:layout_gravity="center_horizontal"
-            />
+        <LinearLayout
+            android:layout_width="180px"
+            android:layout_height="180px"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/ll"
+            android:background="@drawable/calendar"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                />
+
+            <TextView
+                android:id="@+id/txtMonth"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginStart="15dp"
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/txtTimeSlot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="13sp"
+                    android:textColor="@color/colorUI"
+                    />
+
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/txtLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorUI"
+                    android:textSize="13sp"
+                     />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="3dp"
+                >
+
+            <Button
+                android:id="@+id/btnTeachingNote"
+                android:layout_width="220dp"
+                android:layout_height="22dp"
+                android:textSize="14sp"
+                android:text="View Teaching Note"
+                android:background="@drawable/ovalbutton"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center_horizontal"
+                />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 
 </LinearLayout>
-
-

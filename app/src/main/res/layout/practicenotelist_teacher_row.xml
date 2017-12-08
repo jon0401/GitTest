@@ -1,29 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="wrap_content"
-    >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200px"
+    android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/txtPracticeNote"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:textStyle="bold|italic"
-        android:textColor="#223017"
-        android:layout_centerInParent="true"
-        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        >
 
-    <Button
-        android:id="@+id/btnViewPracticeNote"
-        android:layout_below="@+id/txtPracticeNote"
-        android:layout_marginTop="50dp"
-        android:text="View Note"
-        android:layout_width="320dp"
-        android:layout_height="24dp"
-        android:textSize="14sp"
-        android:textColor="#FFFFFF"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/ovalbuttondark"/>
 
-</RelativeLayout>
+        <LinearLayout
+            android:layout_width="160px"
+            android:layout_height="160px"
+            android:id="@+id/ll"
+            android:background="@drawable/calendar"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/txtDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                />
+
+            <TextView
+                android:id="@+id/txtPracticeNote"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_marginStart="30dp"
+            >
+        <Button
+            android:id="@+id/btnViewPracticeNote"
+            android:layout_below="@+id/txtPracticeNote"
+            android:text="View Note"
+            android:layout_width="170dp"
+            android:layout_height="30dp"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/ovalbutton"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

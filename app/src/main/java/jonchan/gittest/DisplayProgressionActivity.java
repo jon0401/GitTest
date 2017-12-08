@@ -1,6 +1,7 @@
 package jonchan.gittest;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,6 +36,10 @@ public class DisplayProgressionActivity extends BaseActivity {
     Query query;
     String student_uid;
 
+    private Typeface tfml;
+    private Typeface tfmsb;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,11 +51,17 @@ public class DisplayProgressionActivity extends BaseActivity {
         Intent myIntent = getIntent();
         student_uid = myIntent.getStringExtra("STUDENT_ID");
 
+        tfml = Typeface.createFromAsset(getAssets(),"montserratlight.ttf");
+        tfmsb = Typeface.createFromAsset(getAssets(), "montserratsemibold.ttf");
+
 
         setTitle("PROGRESS");
 
         btnProgressionPracticeNoteTeacher = (Button) findViewById(R.id.btnProgressionPracticeNoteTeacher);
         txtPracticeDuration = (TextView) findViewById(R.id.txtPracticeDuration);
+
+        btnProgressionPracticeNoteTeacher.setTypeface(tfml);
+        txtPracticeDuration.setTypeface(tfmsb);
 
         mAuth = FirebaseAuth.getInstance();
         final String user_id = mAuth.getCurrentUser().getUid();

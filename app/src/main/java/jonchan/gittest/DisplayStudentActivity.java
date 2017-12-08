@@ -2,6 +2,7 @@ package jonchan.gittest;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -43,11 +44,21 @@ public class DisplayStudentActivity extends BaseActivity {
     private FirebaseAuth mAuth;
     private Button btnhome;
 
+    private Typeface tfrb;
+    private Typeface tfrm;
+    private Typeface tfml;
+    private Typeface tfmsb;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_student);
+
+        tfrb = Typeface.createFromAsset(getAssets(), "robotobold.ttf");
+        tfrm = Typeface.createFromAsset(getAssets(), "robotomedium.ttf");
+        tfml = Typeface.createFromAsset(getAssets(),"montserratlight.ttf");
+        tfmsb = Typeface.createFromAsset(getAssets(), "montserratsemibold.ttf");
 
         setTitle("CONTACT");
 
@@ -161,11 +172,15 @@ public class DisplayStudentActivity extends BaseActivity {
                 mainViewHolder.studentName = (TextView) convertView.findViewById(R.id.txtStudent);
                 mainViewHolder.btnAddLesson = (Button) convertView.findViewById(R.id.btnLesson);
                 mainViewHolder.btnProgression = (Button) convertView.findViewById(R.id.btnProgression);
+
+                mainViewHolder.studentName.setTypeface(tfml);
+                mainViewHolder.btnAddLesson.setTypeface(tfrb);
+                mainViewHolder.btnProgression.setTypeface(tfrb);
                 mainViewHolder.btnAddLesson.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         View parentRow = (View) view.getParent();
-                        ListView listView = (ListView) parentRow.getParent().getParent();
+                        ListView listView = (ListView) parentRow.getParent().getParent().getParent();
                         final int position = listView.getPositionForView(parentRow);
                         Log.d("Position",String.valueOf(position));
                         Intent myIntent = new Intent(view.getContext(), DisplayLessonActivity.class);
@@ -182,7 +197,7 @@ public class DisplayStudentActivity extends BaseActivity {
                     @Override
                     public void onClick(View view) {
                         View parentRow = (View) view.getParent();
-                        ListView listView = (ListView) parentRow.getParent().getParent();
+                        ListView listView = (ListView) parentRow.getParent().getParent().getParent();
                         final int position = listView.getPositionForView(parentRow);
                         Log.d("Position",String.valueOf(position));
                         Intent myIntent = new Intent(view.getContext(), DisplayProgressionActivity.class);

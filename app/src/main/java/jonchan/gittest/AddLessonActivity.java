@@ -3,6 +3,7 @@ package jonchan.gittest;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,6 +23,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
 
 import java.sql.Timestamp;
 import java.text.ParseException;
@@ -35,6 +39,19 @@ public class AddLessonActivity extends BaseActivity {
     private EditText etxtStartTime;
     private EditText etxtEndTime;
     private EditText etxtLocation;
+
+    private TextView add_lesson_title;
+    private TextView txtDate;
+    private TextView txtTime;
+    private TextView txtTimeE;
+    private TextView txtLocation;
+
+    private Typeface tfrb;
+    private Typeface tfrm;
+    private Typeface tfml;
+    private Typeface tfmsb;
+
+
     private FirebaseAuth mAuth;
     private ImageView add_lesson_back;
     FirebaseDatabase database;
@@ -49,12 +66,36 @@ public class AddLessonActivity extends BaseActivity {
         navigationView = (BottomNavigationView) findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
 
+        tfrb = Typeface.createFromAsset(getAssets(), "robotobold.ttf");
+        tfrm = Typeface.createFromAsset(getAssets(), "robotomedium.ttf");
+        tfml = Typeface.createFromAsset(getAssets(),"montserratlight.ttf");
+        tfmsb = Typeface.createFromAsset(getAssets(), "montserratsemibold.ttf");
+
+        add_lesson_title = (TextView) findViewById(R.id.add_lesson_title);
+        txtDate = (TextView) findViewById(R.id.txtDate);
+        txtTime = (TextView) findViewById(R.id.txtTime);
+        txtTimeE = (TextView) findViewById(R.id.txtTimeE);
+        txtLocation = (TextView) findViewById(R.id.txtLocation);
+
+        // add_lesson_back=(ImageView)findViewById(R.id.add_lesson_back);
+
         etxtDate = (EditText) findViewById(R.id.etxtDate);
         etxtStartTime = (EditText) findViewById(R.id.etxtStartTime);
         etxtEndTime = (EditText) findViewById(R.id.etxtEndTime);
         etxtLocation = (EditText) findViewById(R.id.etxtLocation);
         btnAddLesson = (Button) findViewById(R.id.btnAddLesson);
-        // add_lesson_back=(ImageView)findViewById(R.id.add_lesson_back);
+
+        add_lesson_title.setTypeface(tfmsb);
+        txtDate.setTypeface(tfrb);
+        etxtDate.setTypeface(tfrb);
+        txtTime.setTypeface(tfrb);
+        etxtStartTime.setTypeface(tfrb);
+        txtTimeE.setTypeface(tfrb);
+        etxtEndTime.setTypeface(tfrb);
+        txtLocation.setTypeface(tfrb);
+        etxtLocation.setTypeface(tfrb);
+        btnAddLesson.setTypeface(tfml);
+
 
         Intent myIntent = getIntent();
         final String student_uid = myIntent.getStringExtra("STUDENT_ID");
@@ -161,10 +202,17 @@ public class AddLessonActivity extends BaseActivity {
         DatePickerDialog datePickerDialog = new DatePickerDialog(AddLessonActivity.this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                if(dayOfMonth < 10){
-                    etxtDate.setText(year + "-" + (monthOfYear+1) + "-0" + dayOfMonth);
-                } else
-                    etxtDate.setText(year + "-" + (monthOfYear+1) + "-" + dayOfMonth);
+                int newMonthOfYear = monthOfYear + 1;
+                if(newMonthOfYear < 10 && dayOfMonth < 10){
+                    etxtDate.setText(year + "-0" + newMonthOfYear + "-0" + dayOfMonth);
+                }else if(newMonthOfYear >= 10 && dayOfMonth < 10){
+                    etxtDate.setText(year + "-" + newMonthOfYear + "-0" + dayOfMonth);
+                }else if(newMonthOfYear < 10 && dayOfMonth >= 10){
+                    etxtDate.setText(year + "-0" + newMonthOfYear + "-" + dayOfMonth);
+                }else {
+                    etxtDate.setText(year + "-" + newMonthOfYear + "-" + dayOfMonth);
+                }
+
             }
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
         datePickerDialog.show();

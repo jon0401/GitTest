@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AlertDialog;
@@ -44,6 +45,7 @@ public class AddPracticeNoteActivity extends AppCompatActivity implements Number
     private TextView mtxtPracticeNote;
     private Button btnSubmitPracticeNote;
     private Spinner spinnerChooseTeacher;
+
     private ArrayList <String> teacherList;
     private ArrayList <String> teacherIDList;
     private FirebaseAuth mAuth;
@@ -58,6 +60,10 @@ public class AddPracticeNoteActivity extends AppCompatActivity implements Number
     FirebaseDatabase database;
     protected BottomNavigationView navigationView;
 
+    private Typeface tfrb;
+    private Typeface tfrm;
+    private Typeface tfml;
+    private Typeface tfmsb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,13 +72,21 @@ public class AddPracticeNoteActivity extends AppCompatActivity implements Number
 
         setTitle("ADD PRACTICE NOTE");
 
+        tfrb = Typeface.createFromAsset(getAssets(), "robotobold.ttf");
+        tfrm = Typeface.createFromAsset(getAssets(), "robotomedium.ttf");
+        tfml = Typeface.createFromAsset(getAssets(),"montserratlight.ttf");
+        tfmsb = Typeface.createFromAsset(getAssets(), "montserratsemibold.ttf");
+
+
         txtStudentCreatorName = (TextView) findViewById(R.id.txtStudentCreatorName);
         eTxtPracticeNoteDateEnter = (EditText) findViewById(R.id.etxtPracticeNoteDateEnter);
         eTxtPracticeNoteDurationEnter = (EditText) findViewById(R.id.etxtPracticeNoteDurationEnter);
         mtxtPracticeNote = (TextView) findViewById(R.id.mtxtPracticeNote);
         btnSubmitPracticeNote = (Button) findViewById(R.id.btnSubmitPracticeNote);
         spinnerChooseTeacher = (Spinner) findViewById(R.id.spinnerChooseTeacher);
+
         // add_practiceNote_back = (ImageView)findViewById(R.id.add_practiceNote_back);
+
 
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
@@ -117,6 +131,7 @@ public class AddPracticeNoteActivity extends AppCompatActivity implements Number
                 for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
                     String teacherID = postSnapshot.getValue(String.class);
                     teacherIDList.add(teacherID);
+
                     DatabaseReference mRefTeacher;
                     mRefTeacher = database.getReference("Users").child(teacherID).child("Name");
                     mRefTeacher.addValueEventListener(new ValueEventListener() {
@@ -271,7 +286,16 @@ public class AddPracticeNoteActivity extends AppCompatActivity implements Number
         DatePickerDialog datePickerDialog = new DatePickerDialog(AddPracticeNoteActivity.this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                eTxtPracticeNoteDateEnter.setText(year + "-" + (monthOfYear+1) + "-" + dayOfMonth);
+                int newMonthOfYear = monthOfYear + 1;
+                if(newMonthOfYear < 10 && dayOfMonth < 10){
+                   eTxtPracticeNoteDateEnter.setText(year + "-0" + newMonthOfYear + "-0" + dayOfMonth);
+                }else if(newMonthOfYear >= 10 && dayOfMonth < 10){
+                    eTxtPracticeNoteDateEnter.setText(year + "-" + newMonthOfYear + "-0" + dayOfMonth);
+                }else if(newMonthOfYear < 10 && dayOfMonth >= 10){
+                    eTxtPracticeNoteDateEnter.setText(year + "-0" + newMonthOfYear + "-" + dayOfMonth);
+                }else {
+                    eTxtPracticeNoteDateEnter.setText(year + "-" + newMonthOfYear + "-" + dayOfMonth);
+                }
             }
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
         datePickerDialog.show();

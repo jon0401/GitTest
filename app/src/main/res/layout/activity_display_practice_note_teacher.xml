@@ -10,7 +10,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="60dp"
-        android:divider="@null"
+        android:divider="#dfdddb"
         android:dividerHeight="1dp"
     />
 

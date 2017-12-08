@@ -2,6 +2,7 @@ package jonchan.gittest;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -42,6 +43,10 @@ public class DisplayTeacherActivity extends BaseActivity {
     DatabaseReference mRef;
     private FirebaseAuth mAuth;
     private Button btnhome;
+    private Typeface tfrb;
+    private Typeface tfrm;
+    private Typeface tfml;
+    private Typeface tfmsb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +58,11 @@ public class DisplayTeacherActivity extends BaseActivity {
 
         navigationView = (BottomNavigationView) findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
+
+        tfrb = Typeface.createFromAsset(getAssets(), "robotobold.ttf");
+        tfrm = Typeface.createFromAsset(getAssets(), "robotomedium.ttf");
+        tfml = Typeface.createFromAsset(getAssets(),"montserratlight.ttf");
+        tfmsb = Typeface.createFromAsset(getAssets(), "montserratsemibold.ttf");
 
         btnAddStudent = (Button) findViewById(R.id.btnAddStudent);
 
@@ -145,7 +155,7 @@ public class DisplayTeacherActivity extends BaseActivity {
                 convertView = inflater.inflate(layout, parent, false);
                 mainViewHolder = new ViewHolder();
                 mainViewHolder.studentName = (TextView) convertView.findViewById(R.id.txtStudent);
-
+                mainViewHolder.studentName.setTypeface(tfmsb);
                 convertView.setTag(mainViewHolder);
 
 
