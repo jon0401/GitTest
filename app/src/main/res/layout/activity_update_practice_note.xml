@@ -85,6 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:hint="Choose Date..."
+            android:focusable="false"
             android:textColor="@color/colorUI"
             android:textSize="14sp" />
     </LinearLayout>
@@ -112,6 +113,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:hint="Choose Duration..."
+            android:focusable="false"
             android:textColor="@color/colorUI"
             android:textSize="14sp" />
     </LinearLayout>

@@ -192,8 +192,8 @@ public class DisplayLessonActivity extends BaseActivity {
                         myIntent.putExtra("STUDENT_ID", student_uid);
                         myIntent.putExtra("DATE", mLessonList.get(position).getDate());
                         myIntent.putExtra("LESSON_ID", mLessonIdList.get(position));
-                       // mLessonIdList.clear();
-                        //mLessonList.clear();
+                        mLessonIdList.clear();
+                        mLessonList.clear();
                         try {
                             startActivity(myIntent);
                         } catch (android.content.ActivityNotFoundException e) {

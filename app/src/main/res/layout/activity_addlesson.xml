@@ -53,6 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:hint="Choose Date"
+                android:focusable="false"
                 android:textColor="@color/colorUI"
                 android:textSize="20dp"
                 android:inputType="text"/>
@@ -76,10 +77,10 @@
             <EditText android:id="@+id/etxtStartTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10px"
-                android:hint="Start Time"
-                android:layout_alignParentRight="true"
-                android:inputType="text"/>
+                android:layout_marginLeft="150px"
+                android:layout_marginRight="20px"
+                android:layout_marginTop="30px"
+                android:focusable="false" />
         </LinearLayout>
 
         <LinearLayout
@@ -100,11 +101,10 @@
             <EditText android:id="@+id/etxtEndTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10px"
-
-                android:hint="End Time"
-                android:layout_alignParentRight="true"
-                android:inputType="text"/>
+                android:layout_marginLeft="150px"
+                android:layout_marginRight="20px"
+                android:layout_marginTop="30px"
+                android:focusable="false" />
         </LinearLayout>
 
         <LinearLayout

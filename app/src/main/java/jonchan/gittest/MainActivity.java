@@ -170,10 +170,8 @@ public class MainActivity extends AppCompatActivity {
                                 updateNavigationBarState();
 
                                 upcomingteacher = (TextView) findViewById(R.id.UpcomingLessonteacher);
-                                recentteacher = (TextView) findViewById(R.id.RecentNoteTeacher);
 
                                 upcomingteacher.setTypeface(tfmsb);
-                                recentteacher.setTypeface(tfmsb);
 
                                 Log.d("UserType", value);
 

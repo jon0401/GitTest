@@ -82,7 +82,7 @@ public class DisplayPracticeNoteStudentActivity extends BaseActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
-                    if(postSnapshot.hasChild("Student") && postSnapshot.hasChild("Date") && postSnapshot.hasChild("Content") && postSnapshot.hasChild("Teacher")){
+                    if(postSnapshot.hasChild("Content") && postSnapshot.hasChild("Date") && postSnapshot.hasChild("Duration") && postSnapshot.hasChild("Student")&& postSnapshot.hasChild("Teacher")&& postSnapshot.hasChild("TimeStamp")&& postSnapshot.hasChild("dur")){
                         if((postSnapshot.child("Student").getValue().toString()).equals(user_id)){
 
                             String id = postSnapshot.getKey();

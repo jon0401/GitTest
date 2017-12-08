@@ -166,9 +166,10 @@ public class AddLessonActivity extends BaseActivity {
                 newLesson.child("Location").setValue(location);
                 newLesson.child("TimeStamp").setValue(epoch);
                 newLesson.child("TimeStampAsc").setValue(epochPos);
+                newLesson.child("Note").setValue("");
 
 
-                Intent myIntent = new Intent(view.getContext(), MainActivity.class);
+                Intent myIntent = new Intent(view.getContext(), DisplayLessonActivity.class);
                 myIntent.putExtra("STUDENT_ID", student_uid);
                 myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 

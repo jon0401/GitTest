@@ -73,6 +73,7 @@ public class MusicGameActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mus_game_activity_main);
 
+        setTitle("GAME");
 
         navigationView = (BottomNavigationView) findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
