@@ -24,25 +24,11 @@
         <ListView
             android:id="@+id/listUpcomingLesson"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="320dp"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/UpcomingLessonteacher"
             android:layout_marginTop="30dp" />
 
-
-    <TextView
-        android:id="@+id/RecentNoteTeacher"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/listUpcomingLesson"
-        android:text="Recent Note"
-        android:textColor="@color/colorUI"
-        android:textStyle="bold"
-        android:textAllCaps="true"
-        android:textAlignment="center"
-        android:textSize="20sp" />
 
 
     <include
