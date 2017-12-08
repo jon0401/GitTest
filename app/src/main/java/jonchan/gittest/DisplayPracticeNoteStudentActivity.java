@@ -228,7 +228,11 @@ public class DisplayPracticeNoteStudentActivity extends BaseActivity {
 
 
             mainViewHolder.practiceNoteDate.setText(month);
-            mainViewHolder.txtDate.setText(getItem(position).substring(8,10));
+            if(getItem(position).length() == 10) {
+                mainViewHolder.txtDate.setText(getItem(position).substring(8, 10));
+            }else{
+                mainViewHolder.txtDate.setText(getItem(position).substring(8, 9));
+            }
 
             //Date - date
             //pND - month

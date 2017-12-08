@@ -201,10 +201,17 @@ public class AddLessonActivity extends BaseActivity {
         DatePickerDialog datePickerDialog = new DatePickerDialog(AddLessonActivity.this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                if(dayOfMonth < 10){
-                    etxtDate.setText(year + "-" + (monthOfYear+1) + "-0" + dayOfMonth);
-                } else
-                    etxtDate.setText(year + "-" + (monthOfYear+1) + "-" + dayOfMonth);
+                int newMonthOfYear = monthOfYear + 1;
+                if(newMonthOfYear < 10 && dayOfMonth < 10){
+                    etxtDate.setText(year + "-0" + newMonthOfYear + "-0" + dayOfMonth);
+                }else if(newMonthOfYear >= 10 && dayOfMonth < 10){
+                    etxtDate.setText(year + "-" + newMonthOfYear + "-0" + dayOfMonth);
+                }else if(newMonthOfYear < 10 && dayOfMonth >= 10){
+                    etxtDate.setText(year + "-0" + newMonthOfYear + "-" + dayOfMonth);
+                }else {
+                    etxtDate.setText(year + "-" + newMonthOfYear + "-" + dayOfMonth);
+                }
+
             }
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
         datePickerDialog.show();
