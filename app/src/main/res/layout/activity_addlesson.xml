@@ -51,7 +51,7 @@
                 android:id="@+id/etxtDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="70dp"
                 android:hint="Choose Date"
                 android:focusable="false"
                 android:textColor="@color/colorUI"
@@ -77,7 +77,8 @@
             <EditText android:id="@+id/etxtStartTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="150px"
+                android:hint="Choose Start Time"
+                android:layout_marginLeft="50px"
                 android:layout_marginRight="20px"
                 android:layout_marginTop="30px"
                 android:focusable="false" />
@@ -101,7 +102,8 @@
             <EditText android:id="@+id/etxtEndTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="150px"
+                android:hint="Choose End Time"
+                android:layout_marginLeft="110px"
                 android:layout_marginRight="20px"
                 android:layout_marginTop="30px"
                 android:focusable="false" />
@@ -126,7 +128,7 @@
             <EditText android:id="@+id/etxtLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10px"
+                android:layout_marginLeft="60px"
                 android:hint="Location"
                 android:layout_alignParentRight="true"
                 android:inputType="text"/>
