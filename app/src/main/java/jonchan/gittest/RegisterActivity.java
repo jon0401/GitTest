@@ -120,11 +120,11 @@ public class RegisterActivity extends AppCompatActivity {
         final String userType = selectedID;
 
 
-        if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(name)){
+        if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(name)){         // any of the 3 fields are empty
 
             Toast.makeText(RegisterActivity.this, "Fields are empty", Toast.LENGTH_SHORT).show();
 
-        } else if(password.length() < 6) {
+        } else if(password.length() < 6) {  // password length must be longer than 6 characters
 
             Toast.makeText(RegisterActivity.this, "Password must contain at a least 6 characters", Toast.LENGTH_SHORT).show();
 
@@ -137,12 +137,12 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
-                        if(task.isSuccessful()){
+                        if(task.isSuccessful()){    // register is successful
 
                             database = FirebaseDatabase.getInstance();
                             mRef = database.getReference("Users");
 
-                            //get the UID of the current logined user
+                            //get the UID of the current login user
                             String user_id = mAuth.getCurrentUser().getUid();
 
                             //create a new branch under "Users" w here the branch name is the uid get above
@@ -151,8 +151,6 @@ public class RegisterActivity extends AppCompatActivity {
                             current_user_db.child("Name").setValue(name);
                             current_user_db.child("UserType").setValue(userType);
                             current_user_db.child("Email").setValue(email);
-
-
 
                             mProgress.dismiss();
 

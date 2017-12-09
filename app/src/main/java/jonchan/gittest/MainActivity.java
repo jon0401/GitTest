@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull final FirebaseAuth firebaseAuth) {
 
-                if(firebaseAuth.getCurrentUser() == null){  //has not logined
+                if(firebaseAuth.getCurrentUser() == null){  //has not login
                     Intent myIntent = new Intent(MainActivity.this, LoginActivity.class);
                     myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     try{
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
 
-                }else{ //logined ?
+                }else{ //has already login
 
 
                     final String user_id = mAuth.getCurrentUser().getUid();

@@ -87,7 +87,7 @@ public class LoginActivity extends AppCompatActivity{
         String password = mPasswordField.getText().toString();
         mAuth = FirebaseAuth.getInstance();
 
-        if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){
+        if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){   // if the email field or password field is empty
 
             Toast.makeText(LoginActivity.this, "Fields are empty", Toast.LENGTH_SHORT).show();
 
@@ -100,11 +100,11 @@ public class LoginActivity extends AppCompatActivity{
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
 
-                    if (!task.isSuccessful()) {
+                    if (!task.isSuccessful()) {     // login fail if the email of the password is wrong
                         mProgress.dismiss();
                         Toast.makeText(LoginActivity.this, "Incorrect username or password", Toast.LENGTH_SHORT).show();
 
-                    }else{
+                    }else{      // login is successful
 
                         mProgress.dismiss();
                         Intent myIntent = new Intent(LoginActivity.this, MainActivity.class);
