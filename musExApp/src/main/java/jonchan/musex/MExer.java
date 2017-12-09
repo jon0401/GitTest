@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -134,6 +135,108 @@ public class MExer extends Application {
             }
         }
         return selectedQues;
+
+    }
+
+    public List<Integer> createdExer_toID (int NoQ, Difficulty diff, QType [] qt ) throws IOException{
+        instantiateQues();
+        selectedQues = new ArrayList<>();
+        Collections.shuffle(mQues);
+        int mQuesSizeLeft = mQues.size()-1;
+
+        int [] stillNeedArr = Utility.fairShareQuestion(NoQ, qt.length);
+
+        while (mQuesSizeLeft != 0){
+            MQues currentMQ = mQues.get(mQuesSizeLeft);
+            if (diff == Difficulty.ALL){
+                for (int k = 0; k < qt.length; k ++){
+                    if (currentMQ.qtype == qt[k] && stillNeedArr[k] > 0) {
+                        stillNeedArr[k]--;
+                        selectedQues.add(currentMQ);
+                    }
+                }
+            } else {
+                for (int k = 0; k < qt.length; k ++){
+                    if ((currentMQ.diff == diff)&&(currentMQ.qtype == qt[k]) && stillNeedArr[k] > 0) {
+                        stillNeedArr[k]--;
+                        selectedQues.add(currentMQ);
+                    }
+                }
+            }
+            mQuesSizeLeft--;
+            boolean checkOk = true;
+            for (int i = 0; i < stillNeedArr.length; i++){
+                if (stillNeedArr[i] > 0){
+                    checkOk = false;
+                }
+            }
+            if (checkOk){
+                break;
+            }
+        }
+
+        if (selectedQues.size() != NoQ){
+            Log.d(TAG, "Not enough question select!");
+            return null;
+        }
+        else {
+            List<Integer> passOutIndexList = new ArrayList<>();
+            for (int i = 0; i < selectedQues.size(); i++){
+                passOutIndexList.add(selectedQues.get(i).id);
+            }
+            return (passOutIndexList);
+        }
+    }
+
+    public ArrayList<MQues> createExer_id (List<Integer> content) throws IOException{
+        instantiateQues();
+        selectedQues = new ArrayList<>();
+        List<Integer> myContent = new ArrayList<>();
+        for (int i = 0; i < content.size(); i++){
+            myContent.add(content.get(i));
+        }
+
+
+        Comparator<MQues> c = new Comparator<MQues>() {
+            @Override
+            public int compare(MQues o1, MQues o2) {
+                return o1.getId() - o2.getId();
+            }
+        };
+
+        for (int i = 0; i < content.size(); i++){
+            int index = Collections.binarySearch(mQues, new MQues(content.get(i), new String[] {}, null, new String[] {}, null, null), c);
+            selectedQues.add(mQues.get(index));
+        }
+
+        /*
+        int mQuesSizeLeft = mQues.size()-1;
+        for (int i = 0; i < mQuesSizeLeft; i++){
+            for (int k = 0; k < myContent.size(); k++){
+                if (mQues.get(i).getId() == myContent.get(k)){
+                    Log.d(TAG, "****** find one!!!!!!!!!!");
+                    myContent.remove(k);
+                    selectedQues.add(mQues.get(i));
+                    break;
+                }
+            }
+            if (myContent.size() == 0){
+                break;
+            }
+        }*/
+
+        Log.d(TAG, "selected question size:    " + selectedQues.size());
+        Log.d(TAG, "my content size:    " + myContent.size());
+        Log.d(TAG, "parameter content size:    " + content.size());
+
+
+        if (selectedQues.size() != content.size()){
+            Log.d(TAG, "Some problem!!!");
+            return null;
+        }
+        else {
+            return (selectedQues);
+        }
 
     }
 

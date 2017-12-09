@@ -33,6 +33,10 @@ public class PlayExer extends FragmentActivity implements Communicator {
     ArrayList<MQues> mExer;
     List<MQues> mExerObjects;
     ViewPager viewPager = null;
+
+    String my_GameID;
+    int objSize;
+
     final String TAG = "MyActivity";
 
     @Override
@@ -49,8 +53,11 @@ public class PlayExer extends FragmentActivity implements Communicator {
 
         mExerObjects = new ArrayList<MQues>();
 
-        for (String key : bundle.keySet()) {
-            mExerObjects.add((MQues) bundle.getSerializable(key));
+        // extract game ID
+        my_GameID = bundle.getString("gameID");
+        objSize = bundle.getInt("size");
+        for(int i = 0; i < objSize; i++){
+            mExerObjects.add((MQues) bundle.getSerializable("extras" + i));
         }
 
 //        final String TAG = "MyActivity";
@@ -74,7 +81,7 @@ public class PlayExer extends FragmentActivity implements Communicator {
     @Override
     public void onBackPressed() {
         Intent returnMainActivity = new Intent();
-        setResult(RESULT_CANCELED, returnMainActivity);
+        setResult(0, returnMainActivity);
         finish();
         super.onBackPressed();
 
@@ -93,7 +100,7 @@ public class PlayExer extends FragmentActivity implements Communicator {
             timeEnd = System.currentTimeMillis();
             timeDelta = timeEnd - timeStart;
             NUM_PAGE += 1;
-            myAdapter.sendLastPageResult(timeDelta, score);
+            myAdapter.sendLastPageResult(timeDelta, score, my_GameID);
             myAdapter.notifyDataSetChanged();
         }
     }
@@ -109,6 +116,8 @@ class MyAdapter extends FragmentStatePagerAdapter {
     int score = 0;
     double elapsedSeconds;
     boolean callChange = false;
+
+    String gameID;
 
     public MyAdapter(FragmentManager fm, List<MQues> mq, int numPage) {
         super(fm);
@@ -143,6 +152,7 @@ class MyAdapter extends FragmentStatePagerAdapter {
             bundle.putDouble("timeElapsed", elapsedSeconds);
             bundle.putInt("score", score);
             bundle.putInt("totalQuestionNo", fixedCounter);
+            bundle.putString("gameID",gameID);
             fragment = new FragmentQuesResult();
             fragment.setArguments(bundle);
         }
@@ -162,10 +172,11 @@ class MyAdapter extends FragmentStatePagerAdapter {
         return numPage;
     }
 
-    public void sendLastPageResult (long t, int score){
+    public void sendLastPageResult (long t, int score, String gID){
         this.numPage++;
         elapsedSeconds = t / 1000.0;
         this.score = score;
+        this.gameID = gID;
     }
 
     @Override

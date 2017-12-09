@@ -33,37 +33,43 @@ public class MQues implements Serializable {
 
         /** convert string of notes name (e.g. ["c5", "c4"]) to String of UNICODE **/
         notesBuffer = new StringBuffer();
-        switch (qtype){
-            case ARPEGGIO_T:
-            case INTERVAL_T:
-            case SCALE_T: notesBuffer.append(mTMap.get("tclef"));
-                          for (int i = 0; i < notes.length; i++){
-                                if (mTMap.containsKey(notes[i])){
-                                    notesBuffer.append(mTMap.get(notes[i]));
-                                }
-                                else {
-                                    break;
-                                }
-                          }
-                          break;
-            case ARPEGGIO_B:
-            case INTERVAL_B:
-            case SCALE_B: notesBuffer.append(mBMap.get("bclef"));
-                          for (int i = 0; i < notes.length; i++){
-                                if (mBMap.containsKey(notes[i])){
-                                    notesBuffer.append(mBMap.get(notes[i]));
-                                }
-                                else {
-                                    break;
-                                }
-                          }
-                          break;
-            default:      Log.d(TAG, "MQues_switch error!");
-                          break;
+        if (!(qtype == null)){
+            switch (qtype){
+                case ARPEGGIO_T:
+                case INTERVAL_T:
+                case SCALE_T: notesBuffer.append(mTMap.get("tclef"));
+                              for (int i = 0; i < notes.length; i++){
+                                    if (mTMap.containsKey(notes[i])){
+                                        notesBuffer.append(mTMap.get(notes[i]));
+                                    }
+                                    else {
+                                        break;
+                                    }
+                              }
+                              break;
+                case ARPEGGIO_B:
+                case INTERVAL_B:
+                case SCALE_B: notesBuffer.append(mBMap.get("bclef"));
+                              for (int i = 0; i < notes.length; i++){
+                                    if (mBMap.containsKey(notes[i])){
+                                        notesBuffer.append(mBMap.get(notes[i]));
+                                    }
+                                    else {
+                                        break;
+                                    }
+                              }
+                              break;
+                default:      Log.d(TAG, "MQues_switch error!");
+                              break;
+            }
         }
         notesBuffer.append(mTMap.get("end"));
         notesBuffer.append(mTMap.get("end"));
         this.notes = notesBuffer.toString();
+    }
+
+    public int getId(){
+        return this.id;
     }
 
 }

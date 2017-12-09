@@ -23,6 +23,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--<activity android:name=".PlayExer">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="jonchan.musex.PlayExer" />-->
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+
         <activity android:name=".LoginActivity" />
         <activity android:name=".AddLessonActivity" />
         <activity android:name=".DisplayLessonActivity" />
@@ -45,6 +52,8 @@
         <activity android:name=".RoomInformationActivity" />
         <activity android:name=".ViewRequestActivity" />
         <activity android:name=".MusicGameActivity" />
+        <activity android:name=".MusicGameStudentActivity" />
+        <activity android:name=".MusicGameGenerateActivity" />
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
