@@ -96,18 +96,27 @@ public class MultiSpinnerSearch extends AppCompatSpinner implements OnCancelList
 
         StringBuilder spinnerBuffer = new StringBuilder();
 
+        int selectedNo = 0;
         for (int i = 0; i < items.size(); i++) {
             if (items.get(i).isSelected()) {
-                spinnerBuffer.append(items.get(i).getName());
-                spinnerBuffer.append(", ");
+                //spinnerBuffer.append(items.get(i).getName());
+                //spinnerBuffer.append(", ");
+                selectedNo++;
             }
         }
-
+        /*
         String spinnerText = spinnerBuffer.toString();
         if (spinnerText.length() > 2)
             spinnerText = spinnerText.substring(0, spinnerText.length() - 2);
         else
             spinnerText = defaultText;
+          */
+        String spinnerText = "";
+        if (selectedNo <= 1 && selectedNo >=0) {
+            spinnerText = selectedNo + " student selected";
+        } else if (selectedNo >=2){
+            spinnerText = selectedNo + " students selected";
+        }
 
         ArrayAdapter<String> adapterSpinner = new ArrayAdapter<>(getContext(), R.layout.textview_for_spinner, new String[]{spinnerText});
         setAdapter(adapterSpinner);
@@ -177,16 +186,27 @@ public class MultiSpinnerSearch extends AppCompatSpinner implements OnCancelList
 
         StringBuilder spinnerBuffer = new StringBuilder();
 
+        int selectedNo = 0;
         for (int i = 0; i < items.size(); i++) {
             if (items.get(i).isSelected()) {
-                spinnerBuffer.append(items.get(i).getName());
-                spinnerBuffer.append(", ");
+                //spinnerBuffer.append(items.get(i).getName());
+                //spinnerBuffer.append(", ");
+                selectedNo++;
             }
         }
+        /*
         if (spinnerBuffer.length() > 2)
             defaultText = spinnerBuffer.toString().substring(0, spinnerBuffer.toString().length() - 2);
+        */
 
-        ArrayAdapter<String> adapterSpinner = new ArrayAdapter<>(getContext(), R.layout.textview_for_spinner, new String[]{defaultText});
+        String spinnerText = "";
+        if (selectedNo <= 1 && selectedNo >=0) {
+            spinnerText = selectedNo + " student selected";
+        } else if (selectedNo >=2){
+            spinnerText = selectedNo + " students selected";
+        }
+
+        ArrayAdapter<String> adapterSpinner = new ArrayAdapter<>(getContext(), R.layout.textview_for_spinner, new String[]{spinnerText});
         setAdapter(adapterSpinner);
 
         if (position != -1) {

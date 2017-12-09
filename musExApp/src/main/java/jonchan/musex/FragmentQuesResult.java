@@ -1,5 +1,6 @@
 package jonchan.musex;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -25,16 +26,19 @@ public class FragmentQuesResult extends Fragment {
     TextView percentageT, correctedAns, averageTime;
     Button returnToActivity;
 
+    String gameID;
+
     final String TAG = "FragmentQuesResult";
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.playexer_result, container, false);
+        final View view = inflater.inflate(R.layout.playexer_result, container, false);
 
         timeElapsed = getArguments().getDouble("timeElapsed");
         score = getArguments().getInt("score");
         totalQuestion = getArguments().getInt("totalQuestionNo");
+        gameID = getArguments().getString("gameID");
 
         percentageT = (TextView) view.findViewById(R.id.percentage);
         correctedAns = (TextView) view.findViewById(R.id.correctedAns);
@@ -53,6 +57,8 @@ public class FragmentQuesResult extends Fragment {
                 Intent returnMainActivity = new Intent();
                 returnMainActivity.putExtra("score", score);
                 returnMainActivity.putExtra("percentage", percentage);
+                returnMainActivity.putExtra("averageTime", averageSec);
+                returnMainActivity.putExtra("gameID", gameID);
                 getActivity().setResult(RESULT_OK, returnMainActivity);
                 getActivity().finish();
             }

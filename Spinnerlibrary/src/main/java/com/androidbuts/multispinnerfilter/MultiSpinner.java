@@ -19,7 +19,7 @@ public class MultiSpinner extends Spinner implements OnMultiChoiceClickListener,
 
     private List<String> items;
     private boolean[] selected;
-    private String defaultText = "Select Items";
+    private String defaultText = "Select Question Type(s)";
     private String spinnerTitle = "";
     private MultiSpinnerListener listener;
 
@@ -53,16 +53,26 @@ public class MultiSpinner extends Spinner implements OnMultiChoiceClickListener,
     public void onCancel(DialogInterface dialog) {
         // refresh text on spinner
         StringBuilder spinnerBuffer = new StringBuilder();
+        int selectedNo = 0;
         for (int i = 0; i < items.size(); i++) {
             if (selected[i]) {
                 spinnerBuffer.append(items.get(i));
                 spinnerBuffer.append(", ");
+                selectedNo++;
             }
         }
-
+        /*
         String spinnerText = spinnerBuffer.toString();
         if (spinnerText.length() > 2) {
             spinnerText = spinnerText.substring(0, spinnerText.length() - 2);
+        } else {
+            spinnerText = defaultText;
+        }*/
+        String spinnerText = "";
+        if (selectedNo == 1) {
+            spinnerText = selectedNo + " type selected";
+        } else if (selectedNo >=2){
+            spinnerText = selectedNo + " types selected";
         } else {
             spinnerText = defaultText;
         }
