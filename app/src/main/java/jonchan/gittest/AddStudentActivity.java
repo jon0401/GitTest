@@ -59,7 +59,7 @@ public class AddStudentActivity extends AppCompatActivity {
 
                 final String email = etxtStudentEmail.getText().toString();
 
-                if(TextUtils.isEmpty(email)){
+                if(TextUtils.isEmpty(email)){    // the email field is empty
 
                     Toast.makeText(AddStudentActivity.this, "Fields are empty", Toast.LENGTH_SHORT).show();
 
@@ -84,8 +84,7 @@ public class AddStudentActivity extends AppCompatActivity {
                                     alert.setTitle("Confirmation");
                                     alert.setMessage("Are you sure you want to add " + postSnapshot.child("Name").getValue(String.class) + " as student?");
 
-                                    alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-
+                                    alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {  // if the teacher clicks 'yes', a request will be sent
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
 
@@ -111,7 +110,7 @@ public class AddStudentActivity extends AppCompatActivity {
                                         }
                                     });
 
-                                    alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                    alert.setNegativeButton("No", new DialogInterface.OnClickListener() {   // if the teacher clicks 'no', a dialog will simply dismiss
 
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
@@ -124,7 +123,7 @@ public class AddStudentActivity extends AppCompatActivity {
 
                             }
 
-                            if(check == 0){
+                            if(check == 0){     // the email the teacher enter is invalid
                                 Toast.makeText(AddStudentActivity.this, "Invalid Email", Toast.LENGTH_SHORT).show();
                             }
 
