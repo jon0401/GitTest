@@ -176,12 +176,14 @@ public class DisplayStudentActivity extends BaseActivity {
                 mainViewHolder.studentName.setTypeface(tfml);
                 mainViewHolder.btnAddLesson.setTypeface(tfrb);
                 mainViewHolder.btnProgression.setTypeface(tfrb);
+
                 mainViewHolder.btnAddLesson.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         View parentRow = (View) view.getParent();
-                        ListView listView = (ListView) parentRow.getParent().getParent().getParent();
-                        final int position = listView.getPositionForView(parentRow);
+                        //ListView listView = (ListView) parentRow.getParent().getParent().getParent();
+                        //View listView = inflater.inflate(R.layout.studentlist_row, parent, false);
+                        //final int position = listView.getPositionForView(parentRow);
                         Log.d("Position",String.valueOf(position));
                         Intent myIntent = new Intent(view.getContext(), DisplayLessonActivity.class);
                         myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -197,8 +199,8 @@ public class DisplayStudentActivity extends BaseActivity {
                     @Override
                     public void onClick(View view) {
                         View parentRow = (View) view.getParent();
-                        ListView listView = (ListView) parentRow.getParent().getParent().getParent();
-                        final int position = listView.getPositionForView(parentRow);
+                        //ListView listView = (ListView) parentRow.getParent().getParent().getParent();
+                        //final int position = listView.getPositionForView(parentRow);
                         Log.d("Position",String.valueOf(position));
                         Intent myIntent = new Intent(view.getContext(), DisplayProgressionActivity.class);
                         myIntent.putExtra("STUDENT_ID", mStudentUidList.get(position));

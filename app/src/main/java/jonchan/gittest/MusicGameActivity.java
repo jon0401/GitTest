@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
+import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -20,6 +22,7 @@ import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -87,7 +90,8 @@ public class MusicGameActivity extends AppCompatActivity {
     List<Integer> uploadGameContentList;
 
     /** for Student **/
-    TextView gameScore, gamePercent, gameAT;
+    TextView gameScore, gamePercent, gameAT, overAllT, incompleteGT, pointEarnedT, correctPerT, averageTT;
+    ImageButton selfPracticeButton;
     boolean getResult = false;
     List<GameItem> allGame;
     ArrayAdapter theAdpater;
@@ -100,6 +104,8 @@ public class MusicGameActivity extends AppCompatActivity {
 
 
     Intent playExerIntent;
+    Typeface robotoMed;
+
     final String TAG = "MyActivity";
 
     @Override
@@ -113,6 +119,7 @@ public class MusicGameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setTitle("GAME");
         getResult = false;
+        robotoMed = Typeface.createFromAsset(getAssets(), "robotomedium.ttf");
 
 
 
@@ -271,7 +278,6 @@ public class MusicGameActivity extends AppCompatActivity {
                                             c.add(game.content.get(i));
                                         }
 
-                                        //Toast.makeText(MusicGameActivity.this, s, Toast.LENGTH_SHORT).show();
 
                                         //click inside and play
                                         mexerObject = new MExer(getApplicationContext());
@@ -394,10 +400,18 @@ public class MusicGameActivity extends AppCompatActivity {
 
                                     }
                                 });
-
                                 gameScore = (TextView) findViewById(R.id.gameScoreText);
                                 gamePercent = (TextView) findViewById(R.id.gameCorrectPercentageText);
                                 gameAT = (TextView) findViewById(R.id.gameCorrectAverageTimeText);
+                                overAllT = (TextView) findViewById(R.id.textView2);
+                                incompleteGT = (TextView) findViewById(R.id.textView3);
+                                pointEarnedT = (TextView) findViewById(R.id.textView5);
+                                correctPerT = (TextView) findViewById(R.id.textView6);
+                                averageTT = (TextView) findViewById(R.id.textView7);
+                                selfPracticeButton = (ImageButton) findViewById(R.id.selfPractice);
+                                gameScore.setTypeface(robotoMed);
+                                gamePercent.setTypeface(robotoMed);
+                                gameAT.setTypeface(robotoMed);
 
                                 Handler handler = new Handler();
                                 int delayS;
@@ -546,25 +560,15 @@ public class MusicGameActivity extends AppCompatActivity {
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     value = dataSnapshot.getValue(String.class);
                     if(value.equals("Student")) {   // Only for student
-                        DatabaseReference checkAttributeExistRef = database.getReference("Users").child(user_id);
-                        checkAttributeExistRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-                                // update the score dataSnapshot.hasChild("Score"
-                                // create new attributes of score...
-                                DatabaseReference newScoreRef = database.getReference("Users").child(user_id).child("Score").push();
-                                DatabaseReference newPerRef = database.getReference("Users").child(user_id).child("CorrectWrongPercentage").push();
-                                DatabaseReference newTimeRef = database.getReference("Users").child(user_id).child("AverageTime").push();
-                                newScoreRef.setValue(returnScore);
-                                newPerRef.setValue(returnCorrectWrongPercentage);
-                                newTimeRef.setValue(returnAverageTime);
-                            }
+                        DatabaseReference newScoreRef = database.getReference("Users").child(user_id).child("Score").push();
+                        DatabaseReference newPerRef = database.getReference("Users").child(user_id).child("CorrectWrongPercentage").push();
+                        DatabaseReference newTimeRef = database.getReference("Users").child(user_id).child("AverageTime").push();
+                        newScoreRef.setValue(returnScore);
+                        newPerRef.setValue(returnCorrectWrongPercentage);
+                        newTimeRef.setValue(returnAverageTime);
 
-                            @Override
-                            public void onCancelled(DatabaseError databaseError) {
-
-                            }
-                        });
+                        DatabaseReference gameStatusRef = database.getReference("Game").child(returnGameID).child("Status");
+                        gameStatusRef.setValue(1);
                     }
                 }
 
@@ -574,15 +578,16 @@ public class MusicGameActivity extends AppCompatActivity {
                 }
             });
 
-            DatabaseReference gameStatusRef = database.getReference("Game").child(returnGameID).child("Status");
-            gameStatusRef.setValue(1);
-
         }
 
     }
 
+    public void onSelfPracticeClick(View view){    // button on click for student
+        startActivity(new Intent(MusicGameActivity.this,MusicGameGenerateActivity.class));
+    }
 
-    public void onCustomGenerateClick(View view) {
+
+    public void onCustomGenerateClick(View view) {  // button on click for teacher
         // check whether teacher has students first
         if (studentNameList == null || studentNameList.isEmpty()){
             AlertDialog.Builder alert = new AlertDialog.Builder(this);
@@ -781,32 +786,123 @@ public class MusicGameActivity extends AppCompatActivity {
         mBuilder.setView(mView);
         AlertDialog dialog = mBuilder.create();
         dialog.show();
-        dialog.getWindow().setLayout(980,1100);
+        //dialog.getWindow().setLayout(980,1100);
 
     }
 
-    public void onAutoGenerateClick(View view) {
+    public void onTeacherSelfPracticeClick(View view){            // button on click for teacher
+        /** initialize variables for populating spinner list **/
+        String [] noq_array, diff_array, type_array;
+        noq_array = new String [] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+        diff_array = new String [] {"EASY", "MEDIUM", "HARD", "COMBINE ALL DIFFICULTY"};
+        LinkedHashMap lhm = new LinkedHashMap();
+        lhm.put("Scale - Treble Clef", false);
+        lhm.put("Scale - Bass Clef", false);
+        lhm.put("Interval - Treble Clef", false);
+        lhm.put("Interval - Bass Clef", false); /** Not yet supported!!!!!**/
 
-        Intent playExerIntent = new Intent(this, PlayExer.class);
-        mexerObject = new MExer(getApplicationContext());
-        try {
-            mExer = mexerObject.createExer(0,true);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        //mExer = MExer.createExer(0,true);
+        selectedQT.clear();
 
-        //FOR TESTING
-//        mExer = MExer.testExer(1063);
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(this);
+        View mView = getLayoutInflater().inflate(jonchan.musex.R.layout.custom_self_practice_exer, null);
+        mBuilder.setTitle("Custom Exercise");
+        final Spinner NoOfQuestionSpinner = (Spinner) mView.findViewById(jonchan.musex.R.id.spinner_noq);
+        final Spinner DifficultySpinner = (Spinner) mView.findViewById(jonchan.musex.R.id.spinner_difficulty);
 
-        Log.d(TAG,mExer.size() + " onAutoGenerateClick!!!!!!!!!!!!!!");
+        ArrayAdapter<String> noq_arrAdapter = new ArrayAdapter<String>(this, jonchan.musex.R.layout.spinner_layout,noq_array);
+        noq_arrAdapter.setDropDownViewResource (android.R.layout.simple_dropdown_item_1line);
+        NoOfQuestionSpinner.setPrompt("Number of Questions");
+        NoOfQuestionSpinner.setAdapter(noq_arrAdapter);
+        NoOfQuestionSpinner.setSelection(0);
 
-        Bundle bundle = new Bundle();
-        for (int i = 0 ; i < mExer.size(); i++){
-            bundle.putSerializable("extras"+i, mExer.get(i));
-        }
-        playExerIntent.putExtras(bundle);
-        startActivityForResult(playExerIntent, CHILD_RESULT_OBJECT);
+        ArrayAdapter<String> diff_arrAdapter = new ArrayAdapter<String>(this, jonchan.musex.R.layout.spinner_layout,diff_array);
+        diff_arrAdapter.setDropDownViewResource (android.R.layout.simple_dropdown_item_1line);
+        DifficultySpinner.setPrompt("Difficulty");
+        DifficultySpinner.setAdapter(diff_arrAdapter);
+        DifficultySpinner.setSelection(0);
+
+        final List<String> keylist = new ArrayList<>(lhm.keySet());
+        MultiSpinner simpleSpinner = (MultiSpinner) mView.findViewById(jonchan.musex.R.id.spinner_type);
+
+        simpleSpinner.setItems(lhm, new MultiSpinnerListener() {
+            @Override
+            public void onItemsSelected(boolean[] selected) {
+                for(int i=0; i<selected.length; i++) {
+                    if(selected[i]) {
+                        Log.i("TAG", i + " : "+ keylist.get(i));
+                        if (keylist.get(i).equals("Scale - Treble Clef")){
+                            selectedQT.add(QType.SCALE_T);
+                        } else if (keylist.get(i).equals("Scale - Bass Clef")) {
+                            selectedQT.add(QType.SCALE_B);
+                        }else if (keylist.get(i).equals("Interval - Treble Clef")) {
+                            selectedQT.add(QType.INTERVAL_T);
+                        } else if (keylist.get(i).equals("Interval - Bass Clef")) {
+                            selectedQT.add(QType.INTERVAL_B);
+                        } else if (keylist.get(i).equals("Arpeggio")){   // Not yet supported
+                            selectedQT.add(QType.ARPEGGIO_T);
+                            selectedQT.add(QType.ARPEGGIO_B);
+                        }
+                    }
+                }
+                selectedQT_arr = new QType[selectedQT.size()];
+                selectedQT_arr = selectedQT.toArray(selectedQT_arr);
+            }
+        });
+
+        Intent playExerIntent = new Intent(this, jonchan.musex.PlayExer.class);
+        AlertDialog.Builder noGameBuild = new AlertDialog.Builder(this);
+        mBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //NoOfQuestionSpinner.setSelection(which);
+                selectedNOQ = Integer.parseInt(NoOfQuestionSpinner.getSelectedItem().toString());
+                mid_selectedDifficulty = DifficultySpinner.getSelectedItem().toString();
+                if (mid_selectedDifficulty == "EASY"){
+                    selectedDifficulty = Difficulty.EASY;
+                } else if (mid_selectedDifficulty == "MEDIUM"){
+                    selectedDifficulty = Difficulty.MEDIUM;
+                } else if (mid_selectedDifficulty == "HARD"){
+                    selectedDifficulty = Difficulty.HARD;
+                } else if (mid_selectedDifficulty == "COMBINE ALL DIFFICULTY"){
+                    selectedDifficulty = Difficulty.ALL;
+                }
+
+                if (selectedQT.isEmpty()){
+                    noGameBuild.setTitle("Warning");
+                    noGameBuild.setMessage("Please do not leave any attribute blank! ");
+                    noGameBuild.setPositiveButton("OK",null);
+                    noGameBuild.show();
+                    return;
+                }
+
+                dialog.dismiss();
+
+
+                mexerObject = new MExer(getApplicationContext());
+                try {
+                    mExer = mexerObject.createExer(selectedNOQ, selectedDifficulty, selectedQT_arr);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                Bundle bundle = new Bundle();
+                for (int i = 0 ; i < mExer.size(); i++){
+                    bundle.putSerializable("extras"+i, mExer.get(i));
+                }
+                bundle.putInt("size", mExer.size());
+                playExerIntent.putExtras(bundle);
+                startActivityForResult(playExerIntent, CHILD_RESULT_OBJECT);
+            }
+        });
+        mBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        mBuilder.setView(mView);
+        AlertDialog dialog = mBuilder.create();
+        dialog.show();
     }
 
     private void addGameToFire(List<Integer> content, List<String> studentIDLi, QType [] qt, Difficulty diff){
