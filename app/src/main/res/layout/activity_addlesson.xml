@@ -44,14 +44,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAllCaps="true"
-                android:text="Dates:"
+                android:text="Date:"
                 android:textColor="@color/colorUI"
                 android:textSize="20dp"/>
             <EditText
                 android:id="@+id/etxtDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="70dp"
+                android:layout_marginLeft="83dp"
                 android:hint="Choose Date"
                 android:focusable="false"
                 android:textColor="@color/colorUI"
@@ -121,14 +121,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAllCaps="true"
-                android:text="Locations:"
+                android:text="Location:"
                 android:textColor="@color/colorUI"
                 android:textSize="20dp"/>
 
             <EditText android:id="@+id/etxtLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="60px"
+                android:layout_marginLeft="90px"
                 android:hint="Location"
                 android:layout_alignParentRight="true"
                 android:inputType="text"/>
