@@ -75,14 +75,10 @@ public class MusicGameGenerateActivity extends BaseActivity {
 
     final String TAG = "MyActivity";
 
-
-//    private ImageButton autoButton;
-//    private ImageButton customButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mus_game_activity_main);
+        setContentView(R.layout.mus_game_student_self_practice);
 
         setTitle("GAME");
 
@@ -93,26 +89,13 @@ public class MusicGameGenerateActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(this,MainActivity.class));
+        startActivity(new Intent(this,MusicGameActivity.class));
         finish();
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1){
-            if (requestCode == Activity.RESULT_OK){
-                returnScore = data.getIntExtra("score",0);
-                returnCorrectWrongPercentage = data.getIntExtra("percentage",0);
-                Log.d(TAG, returnScore + "  RETURN RESULT!!!!!!!!!");
-                Log.d(TAG, returnCorrectWrongPercentage + "  RETURN PERCENTAGE!!!!!!!!!");
-            }
-            if (requestCode == Activity.RESULT_CANCELED){
-                Log.d(TAG, "RESULT_CANCELLED???????");
-                //////////// can't figure out how to catch this
-                //////////// but can use above to configure what you want
-            }
-        }
     }
 
     public void onCustomGenerateClick(View view) {
@@ -121,14 +104,16 @@ public class MusicGameGenerateActivity extends BaseActivity {
         noq_array = new String [] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
         diff_array = new String [] {"EASY", "MEDIUM", "HARD", "COMBINE ALL DIFFICULTY"};
         LinkedHashMap lhm = new LinkedHashMap();
-        lhm.put("Scale", false);
-        lhm.put("Interval", false);  /** Not yet supported!!!!!**/
+        lhm.put("Scale - Treble Clef", false);
+        lhm.put("Scale - Bass Clef", false);
+        lhm.put("Interval - Treble Clef", false);
+        lhm.put("Interval - Bass Clef", false); /** Not yet supported!!!!!**/
 //        lhm.put("Arpeggio", false);  /** Not yet supported!!!!!**/
 
         selectedQT.clear();
 
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(this);
-        View mView = getLayoutInflater().inflate(jonchan.musex.R.layout.custom_generate_exer, null);
+        View mView = getLayoutInflater().inflate(jonchan.musex.R.layout.custom_self_practice_exer, null);
         mBuilder.setTitle("Custom Exercise");
         final Spinner NoOfQuestionSpinner = (Spinner) mView.findViewById(jonchan.musex.R.id.spinner_noq);
         final Spinner DifficultySpinner = (Spinner) mView.findViewById(jonchan.musex.R.id.spinner_difficulty);
@@ -154,13 +139,15 @@ public class MusicGameGenerateActivity extends BaseActivity {
                 for(int i=0; i<selected.length; i++) {
                     if(selected[i]) {
                         Log.i("TAG", i + " : "+ keylist.get(i));
-                        if (keylist.get(i) == "Scale"){
-                            selectedQT.add(QType.SCALE_B);
+                        if (keylist.get(i).equals("Scale - Treble Clef")){
                             selectedQT.add(QType.SCALE_T);
-                        } else if (keylist.get(i) == "Interval") {
-                            selectedQT.add(QType.INTERVAL_B);
+                        } else if (keylist.get(i).equals("Scale - Bass Clef")) {
+                            selectedQT.add(QType.SCALE_B);
+                        }else if (keylist.get(i).equals("Interval - Treble Clef")) {
                             selectedQT.add(QType.INTERVAL_T);
-                        } else if (keylist.get(i) == "Arpeggio"){
+                        } else if (keylist.get(i).equals("Interval - Bass Clef")) {
+                            selectedQT.add(QType.INTERVAL_B);
+                        } else if (keylist.get(i).equals("Arpeggio")){   // Not yet supported
                             selectedQT.add(QType.ARPEGGIO_T);
                             selectedQT.add(QType.ARPEGGIO_B);
                         }
@@ -172,7 +159,7 @@ public class MusicGameGenerateActivity extends BaseActivity {
         });
 
         Intent playExerIntent = new Intent(this, jonchan.musex.PlayExer.class);
-
+        AlertDialog.Builder noGameBuild = new AlertDialog.Builder(this);
         mBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -189,14 +176,16 @@ public class MusicGameGenerateActivity extends BaseActivity {
                     selectedDifficulty = Difficulty.ALL;
                 }
 
-                dialog.dismiss();
-                ////////
-                //mExer = MExer.createExer(5, Difficulty.EASY, new QType[] {QType.SCALE_B,QType.SCALE_T});
-                ////////
+                if (selectedQT.isEmpty()){
+                    noGameBuild.setTitle("Warning");
+                    noGameBuild.setMessage("Please do not leave any attribute blank! ");
+                    noGameBuild.setPositiveButton("OK",null);
+                    noGameBuild.show();
+                    return;
+                }
 
-                Log.d(TAG,"*********selected No. of Quesiton" + selectedNOQ );
-                Log.d(TAG,"*********selected Difficulty" + selectedDifficulty);
-                Log.d(TAG,"*********selected Types" + selectedQT_arr[0]);
+                dialog.dismiss();
+
 
                 mexerObject = new MExer(getApplicationContext());
                 try {
@@ -205,13 +194,12 @@ public class MusicGameGenerateActivity extends BaseActivity {
                     e.printStackTrace();
                 }
 
-
                 Bundle bundle = new Bundle();
                 for (int i = 0 ; i < mExer.size(); i++){
                     bundle.putSerializable("extras"+i, mExer.get(i));
                 }
+                bundle.putInt("size", mExer.size());
                 playExerIntent.putExtras(bundle);
-                Log.d(TAG,mExer.size() + " onCustomGenerateClick!!!!!!!!!!!!!!");
                 startActivityForResult(playExerIntent, CHILD_RESULT_OBJECT);
             }
         });
@@ -236,10 +224,6 @@ public class MusicGameGenerateActivity extends BaseActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //mExer = MExer.createExer(0,true);
-
-        //FOR TESTING
-//        mExer = MExer.testExer(1063);
 
         Log.d(TAG,mExer.size() + " onAutoGenerateClick!!!!!!!!!!!!!!");
 
@@ -247,6 +231,7 @@ public class MusicGameGenerateActivity extends BaseActivity {
         for (int i = 0 ; i < mExer.size(); i++){
             bundle.putSerializable("extras"+i, mExer.get(i));
         }
+        bundle.putInt("size", mExer.size());
         playExerIntent.putExtras(bundle);
         startActivityForResult(playExerIntent, CHILD_RESULT_OBJECT);
     }
