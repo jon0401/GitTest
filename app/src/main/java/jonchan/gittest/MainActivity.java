@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -49,10 +50,10 @@ public class MainActivity extends AppCompatActivity {
     Query queryT;
     private ListView mListView;
     private Button btnDisplayStudent;
-    private Button btnPracticeNote;
-    private Button btnViewRequest;
+    private ImageButton btnPracticeNote;
+    private ImageButton btnViewRequest;
     private Button btnBooking;
-    private Button btnMyLesson;
+    private ImageButton btnMyLesson;
 
 
     private TextView upcomingteacher;
@@ -273,14 +274,14 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                                btnPracticeNote = (Button) findViewById(R.id.btnPracticeNote);
-                                btnViewRequest = (Button) findViewById(R.id.btnViewRequest);
+                                btnPracticeNote = (ImageButton) findViewById(R.id.btnPracticeNote);
+                                btnViewRequest = (ImageButton) findViewById(R.id.btnViewRequest);
                                 /*
                                 btnBooking = (Button) findViewById(R.id.btnBookRoomStudent);
                                 btnGame = (Button) findViewById(R.id.btnMusicGameStudent);
                                 btnLogout = (Button) findViewById(R.id.btnLogoutStudent);
                                 */
-                                btnMyLesson = (Button) findViewById(R.id.btnMyLesson);
+                                btnMyLesson = (ImageButton) findViewById(R.id.btnMyLesson);
 
                                 mListView = (ListView) findViewById(R.id.listUpcomingLesson);
 
