@@ -10,9 +10,13 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -28,13 +32,15 @@ import java.util.Collections;
  * Created by jonchan on 18/11/2017.
  */
 
-public class FragmentQues extends Fragment{
+public class FragmentQues extends Fragment {
 
     private MQues mQuesObject;
     Communicator comm;
 //    private static final String mQuesObject_KEY = "mQuesObject_key";
 
-    TextView myMNote, answerText, questionNo;
+    TextView myMNote, answerText, questionNo, blinkText;
+    long timeStart, timeEnd, timeDelta;
+    boolean swipe;
     Spinner dropDown;
     Button checkAnswerButton;
     ImageView correctWrongImage;
@@ -47,15 +53,23 @@ public class FragmentQues extends Fragment{
 
     final String TAG = "FragQues";
 
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG,"OnCreate Method");
+        swipe = false;
+        timeStart = System.currentTimeMillis();
+
+
+
+
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         comm = (Communicator) getActivity();
 
         mQuesObject = (MQues) getArguments().getSerializable("bkey");
@@ -65,6 +79,100 @@ public class FragmentQues extends Fragment{
         View view = inflater.inflate(R.layout.playexer,container,false);
         Typeface STAFCPE = Typeface.createFromAsset(view.getContext().getAssets(),  "fonts/STAFCPE_.TTF");
         Typeface Roboto_Medium = Typeface.createFromAsset(view.getContext().getAssets(),  "fonts/Roboto-Medium.ttf");
+        blinkText = (TextView) view.findViewById(R.id.blinkText);
+        blinkText.setEnabled(false);
+        blinkText.setVisibility(TextView.INVISIBLE);
+
+        final GestureDetector gesture = new GestureDetector(getActivity(), new GestureDetector.OnGestureListener() {
+            @Override
+            public boolean onDown(MotionEvent e) {
+                return false;
+            }
+
+            @Override
+            public void onShowPress(MotionEvent e) {
+
+            }
+
+            @Override
+            public boolean onSingleTapUp(MotionEvent e) {
+                return false;
+            }
+
+            @Override
+            public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+                return false;
+            }
+
+            @Override
+            public void onLongPress(MotionEvent e) {
+
+            }
+
+            @Override
+            public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+                final int SWIPE_MIN_DISTANCE = 120;
+                final int SWIPE_MAX_OFF_PATH = 250;
+                final int SWIPE_THRESHOLD_VELOCITY = 200;
+                try {
+                    if (Math.abs(e1.getY() - e2.getY()) > SWIPE_MAX_OFF_PATH) {
+                        swipe = true;
+                        return true;
+                    }
+                    if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE
+                            && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+                        swipe = true;
+                        return true;
+                    } else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE
+                            && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+                        swipe = true;
+                        return true;
+                    }
+                } catch (Exception e) {
+                    // nothing
+                }
+                return onFling(e1, e2, velocityX, velocityY);
+            }
+        });
+
+        view.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                timeEnd =  System.currentTimeMillis();
+                if (timeEnd - timeStart >= 5000){
+                    timeStart = System.currentTimeMillis();
+                    blinkText.setEnabled(true);
+                    blinkText.setVisibility(TextView.VISIBLE);
+                } else {
+                    blinkText.setEnabled(false);
+                    blinkText.setVisibility(TextView.INVISIBLE);
+                }
+                if (gesture.onTouchEvent(event)){
+                    /*
+                    timeStart = System.currentTimeMillis();
+                    blinkText.setEnabled(false);
+                    blinkText.setVisibility(TextView.INVISIBLE);
+                    */
+                } else {
+                        /*
+                    timeEnd = System.currentTimeMillis();
+                    timeDelta = timeEnd - timeStart;
+                    if (timeDelta > 5000){
+                        blinkText.setEnabled(true);
+                        blinkText.setVisibility(TextView.VISIBLE);
+                        Animation anim = new AlphaAnimation(0.0f, 1.0f);
+                        anim.setDuration(700); //You can manage the time of the blink with this parameter
+                        anim.setStartOffset(20);
+                        anim.setRepeatMode(Animation.REVERSE);
+                        anim.setRepeatCount(Animation.INFINITE);
+                        blinkText.startAnimation(anim);
+                    }
+                    */
+                }
+                return gesture.onTouchEvent(event);
+            }
+        });
+
 
         String myS;
         myS = mQuesObject.notes;
@@ -190,6 +298,7 @@ public class FragmentQues extends Fragment{
         super.onDestroyView();
         Log.d(TAG,"OnDestroyView Method");
     }
+
 
 //    @Override
 //    public void onClick(View v) {
