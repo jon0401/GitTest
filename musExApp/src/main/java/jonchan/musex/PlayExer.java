@@ -44,6 +44,7 @@ public class PlayExer extends FragmentActivity implements Communicator {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.playexer_main);
 
+
 //        Intent activityThatCalled = getIntent();
 //        Bundle bundle = activityThatCalled.getExtras();
 //        mExer = (ArrayList<MQues>) bundle.getSerializable("exerValue");
