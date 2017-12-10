@@ -89,8 +89,6 @@ public class DisplayLessonActivity extends BaseActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     if (postSnapshot.hasChild("Teacher") && postSnapshot.hasChild("Student") && postSnapshot.hasChild("Date")) {
-                        //Log.d("Teacher", postSnapshot.child("Teacher").getValue().toString());
-                        //Log.d("Student", postSnapshot.child("Student").getValue().toString());
                         if ((postSnapshot.child("Teacher").getValue().toString()).equals(user_id) && (postSnapshot.child("Student").getValue().toString()).equals(student_uid)) {
 
                             final String id = postSnapshot.getKey();
