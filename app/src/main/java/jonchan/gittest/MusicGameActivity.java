@@ -289,7 +289,6 @@ public class MusicGameActivity extends AppCompatActivity {
 
                                         Bundle bundle = new Bundle();
                                         for (int i = 0 ; i < mExer.size(); i++){
-                                            //Log.d(TAG,mExer.size() + " onStudentplayGameClock!!!!!!!!!!!!!!");
                                             bundle.putSerializable("extras"+i, mExer.get(i));
                                         }
                                         bundle.putString("gameID", game.gameID);

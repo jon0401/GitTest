@@ -209,26 +209,6 @@ public class MExer extends Application {
             selectedQues.add(mQues.get(index));
         }
 
-        /*
-        int mQuesSizeLeft = mQues.size()-1;
-        for (int i = 0; i < mQuesSizeLeft; i++){
-            for (int k = 0; k < myContent.size(); k++){
-                if (mQues.get(i).getId() == myContent.get(k)){
-                    Log.d(TAG, "****** find one!!!!!!!!!!");
-                    myContent.remove(k);
-                    selectedQues.add(mQues.get(i));
-                    break;
-                }
-            }
-            if (myContent.size() == 0){
-                break;
-            }
-        }*/
-
-        Log.d(TAG, "selected question size:    " + selectedQues.size());
-        Log.d(TAG, "my content size:    " + myContent.size());
-        Log.d(TAG, "parameter content size:    " + content.size());
-
 
         if (selectedQues.size() != content.size()){
             Log.d(TAG, "Some problem!!!");
