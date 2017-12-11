@@ -24,7 +24,8 @@
         <ListView
             android:id="@+id/listUpcomingLesson"
             android:layout_width="match_parent"
-            android:layout_height="470dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="60dp"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/UpcomingLessonteacher"
             android:layout_marginTop="30dp" />
